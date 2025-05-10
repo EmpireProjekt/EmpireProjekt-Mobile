@@ -7,10 +7,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.filtercard.EnumOption
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.filtercard.FilterCard
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.filtercard.TextOption
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.filtercard.TitleOption
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.EnumOption
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.FilterCard
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.TextOption
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.TitleOption
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString

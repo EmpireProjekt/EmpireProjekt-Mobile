@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.core.ui.components
+package com.makeevrserg.empireprojekt.mobile.core.ui.options
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding

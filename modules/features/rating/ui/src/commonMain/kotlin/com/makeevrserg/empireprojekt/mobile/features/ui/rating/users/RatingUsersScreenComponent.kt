@@ -11,8 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.OnEndReached
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.PagingWidget
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.OnEndReached
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingWidget
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.presentation.RatingUsersComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components.RatingUserWidget

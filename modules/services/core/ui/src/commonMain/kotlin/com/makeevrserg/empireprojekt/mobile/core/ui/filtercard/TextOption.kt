@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.core.ui.components.filtercard
+package com.makeevrserg.empireprojekt.mobile.core.ui.filtercard
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text

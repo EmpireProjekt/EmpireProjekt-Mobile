@@ -12,8 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import com.makeevrserg.empireprojekt.mobile.buildkonfig.BuildKonfig
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.RowSettingTextInfo
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.navBarsPadding
+import com.makeevrserg.empireprojekt.mobile.core.ui.options.RowSettingTextInfo
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.IR

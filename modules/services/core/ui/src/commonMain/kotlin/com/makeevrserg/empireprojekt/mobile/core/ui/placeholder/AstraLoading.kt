@@ -1,6 +1,6 @@
 @file:Suppress("MagicNumber")
 
-package com.makeevrserg.empireprojekt.mobile.core.ui.components
+package com.makeevrserg.empireprojekt.mobile.core.ui.placeholder
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

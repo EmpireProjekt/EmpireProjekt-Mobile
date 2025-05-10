@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.core.ui.components.topbar
+package com.makeevrserg.empireprojekt.mobile.core.ui.appbar
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.size
