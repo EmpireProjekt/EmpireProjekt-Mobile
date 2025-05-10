@@ -38,7 +38,7 @@ kotlin {
                 implementation(compose.runtime)
                 // Local
                 implementation(projects.modules.services.core.resources)
-                implementation(projects.modules.services.core.nucleus)
+                implementation(projects.modules.services.core.common)
             }
         }
 

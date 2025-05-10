@@ -25,7 +25,7 @@ kotlin {
                 // Decompose
                 implementation(libs.decompose.core)
                 // Local
-                implementation(projects.modules.services.core.nucleus)
+                implementation(projects.modules.services.core.common)
             }
         }
         val commonTest by getting {

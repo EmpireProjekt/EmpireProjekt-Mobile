@@ -31,9 +31,9 @@ kotlin {
                 implementation(libs.decompose.compose)
                 // Local
                 implementation(projects.modules.services.core.resources)
-                implementation(projects.modules.services.buildKonfig)
+                implementation(projects.modules.services.core.buildKonfig)
                 implementation(projects.modules.services.core.ui)
-                implementation(projects.modules.services.core.nucleus)
+                implementation(projects.modules.services.core.common)
                 implementation(projects.modules.features.root.api)
                 implementation(projects.modules.features.root.impl)
                 implementation(projects.modules.features.rating.api)

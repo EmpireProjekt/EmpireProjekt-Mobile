@@ -142,7 +142,7 @@ dependencies {
     implementation(projects.modules.services.wearMessenger.api)
     implementation(projects.modules.services.wearMessenger.pingWear)
     implementation(projects.modules.services.wearMessenger.common)
-    implementation(projects.modules.services.core.nucleus)
+    implementation(projects.modules.services.core.common)
 }
 
 multiplatformResources {

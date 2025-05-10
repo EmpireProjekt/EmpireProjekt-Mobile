@@ -1,6 +1,6 @@
 @file:Suppress("Filename")
 
-package com.makeevrserg.empireprojekt.mobile.core.ui
+package com.makeevrserg.empireprojekt.mobile.core.ui.util
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.painter.Painter

@@ -30,7 +30,7 @@ kotlin {
                 // Local
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.ui)
-                implementation(projects.modules.services.buildKonfig)
+                implementation(projects.modules.services.core.buildKonfig)
                 implementation(projects.modules.features.status.api)
                 implementation(projects.modules.features.status.impl)
                 implementation(projects.modules.features.root.api)

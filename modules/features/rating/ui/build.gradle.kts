@@ -35,8 +35,8 @@ kotlin {
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.ui)
                 implementation(projects.modules.features.rating.impl)
-                implementation(projects.modules.services.apiEmpireapi)
-                implementation(projects.modules.services.core.nucleus)
+                implementation(projects.modules.services.data.empireapi)
+                implementation(projects.modules.services.core.common)
                 implementation(projects.modules.features.rating.api)
             }
         }

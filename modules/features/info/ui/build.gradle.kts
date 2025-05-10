@@ -29,10 +29,10 @@ kotlin {
                 // Moko
                 implementation(libs.moko.resources.core)
                 // Local
-                implementation(projects.modules.services.core.nucleus)
+                implementation(projects.modules.services.core.common)
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.ui)
-                implementation(projects.modules.services.buildKonfig)
+                implementation(projects.modules.services.core.buildKonfig)
             }
         }
     }

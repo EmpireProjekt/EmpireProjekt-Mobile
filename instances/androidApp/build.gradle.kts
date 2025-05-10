@@ -151,7 +151,7 @@ dependencies {
     implementation(projects.modules.features.status.api)
     implementation(projects.modules.features.status.impl)
     implementation(projects.modules.services.core.ui)
-    implementation(projects.modules.services.core.nucleus)
+    implementation(projects.modules.services.core.common)
     implementation(projects.modules.services.core.resources)
     implementation(projects.modules.services.wearMessenger.api)
     implementation(projects.modules.services.wearMessenger.pingWear)

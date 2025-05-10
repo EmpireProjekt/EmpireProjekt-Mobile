@@ -23,8 +23,8 @@ kotlin {
                 // Coroutines
                 implementation(libs.kotlin.coroutines.core)
                 // Local
-                implementation(projects.modules.services.buildKonfig)
-                implementation(projects.modules.services.core.nucleus)
+                implementation(projects.modules.services.core.buildKonfig)
+                implementation(projects.modules.services.core.common)
             }
         }
     }
