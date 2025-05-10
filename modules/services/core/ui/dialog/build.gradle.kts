@@ -10,39 +10,35 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.core")
     alias(libs.plugins.kotlin.compose.gradle)
 }
-
 kotlin {
     androidTarget()
     applyDefaultHierarchyTemplate()
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Compose MPP
-                implementation(compose.foundation)
-                implementation(compose.ui)
-                implementation(compose.runtime)
-                implementation(compose.uiTooling)
-                implementation(compose.preview)
-                implementation(compose.material)
-                implementation(compose.materialIconsExtended)
+                // Decompose
+                implementation(libs.decompose.core)
+                implementation(libs.decompose.compose)
                 // Moko
                 implementation(libs.moko.resources.core)
+                implementation(libs.moko.resources.compose)
+                // Compose
+                implementation(compose.foundation)
+                implementation(compose.ui)
+                implementation(compose.material)
+                implementation(compose.material3)
+                implementation(compose.materialIconsExtended)
+                implementation(compose.preview)
+                implementation(compose.uiTooling)
+                implementation(compose.runtime)
                 // Local
                 implementation(projects.modules.services.core.resources)
-                implementation(projects.modules.services.core.ui.common)
-                implementation(projects.modules.services.core.ui.dialog)
-                implementation(projects.modules.services.core.ui.sheet)
+                implementation(projects.modules.services.core.common)
                 implementation(projects.modules.services.core.ui.theme)
-                implementation(projects.modules.services.core.buildKonfig)
-                implementation(projects.modules.features.status.api)
-                implementation(projects.modules.features.status.impl)
-                implementation(projects.modules.features.root.api)
-                implementation(projects.modules.features.theme.api)
             }
         }
     }
 }
-
 android {
-    namespace = "${requireProjectInfo.group}.features.status.ui"
+    namespace = "${requireProjectInfo.group}.core.ui"
 }

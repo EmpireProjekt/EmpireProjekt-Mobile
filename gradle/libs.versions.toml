@@ -56,6 +56,8 @@ wear-glance-tiles = "1.0.0-alpha05"
 wear-tiles = "1.4.1"
 wear-complications = "1.2.1"
 
+composables = "1.28.0" # https://github.com/composablehorizons/compose-unstyled
+
 [libraries]
 # wear
 wear-glance-tiles = { module = "androidx.glance:glance-wear-tiles", version.ref = "wear-glance-tiles" }
@@ -136,6 +138,8 @@ moko-resources-compose = { module = "dev.icerock.moko:resources-compose", versio
 
 # Compose ext
 composeext-shimmer = { module = "com.valentinilk.shimmer:compose-shimmer", version.strictly = "1.2.0" }
+
+composables = { module = "com.composables:core", version.ref = "composables" }
 
 [plugins]
 

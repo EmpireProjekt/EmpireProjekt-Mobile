@@ -16,11 +16,6 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // klibs
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.mikro.platform)
-                implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.kdi)
                 // Decompose
                 implementation(libs.decompose.core)
                 implementation(libs.decompose.compose)
@@ -41,14 +36,6 @@ kotlin {
                 // Local
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.common)
-            }
-        }
-
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.google.accompanist.flowlayout)
-                // Image loading
-                implementation("io.coil-kt:coil-compose:2.7.0")
             }
         }
     }
