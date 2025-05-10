@@ -6,14 +6,19 @@ import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValu
 import ru.astrainteractive.gradleplugin.util.Base64Util
 
 plugins {
+    kotlin("multiplatform")
     kotlin("plugin.serialization")
     id("com.android.application")
-    id("kotlin-android")
     id("ru.astrainteractive.gradleplugin.java.core")
     id("ru.astrainteractive.gradleplugin.android.core")
     alias(libs.plugins.kotlin.compose.gradle)
     id("ru.astrainteractive.gradleplugin.android.apk.name")
     id("dev.icerock.mobile.multiplatform-resources")
+}
+
+kotlin {
+    androidTarget()
+    applyDefaultHierarchyTemplate()
 }
 
 android {
