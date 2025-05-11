@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.buildkonfig.BuildKonfig
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
@@ -65,4 +66,14 @@ fun InfoScreen(
             Spacer(modifier = Modifier.navBarsPadding())
         }
     }
+}
+
+@Composable
+@Preview
+private fun InfoScreenPreview() {
+    InfoScreen(
+        linkBrowser = object : LinkBrowser {
+            override fun openInBrowser(url: String) = Unit
+        }
+    )
 }
