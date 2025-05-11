@@ -60,7 +60,7 @@ fun StatusScreen(
                 Icon(
                     imageVector = Icons.Filled.Info,
                     contentDescription = null,
-                    tint = AppTheme.customColors.onSecondaryVariant
+                    tint = AppTheme.astraColors.surface.onSecondaryVariant
                 )
             }
         },

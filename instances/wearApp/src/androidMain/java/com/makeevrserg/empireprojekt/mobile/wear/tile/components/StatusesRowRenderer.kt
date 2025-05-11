@@ -49,7 +49,7 @@ class StatusesRowRenderer(
             .addContent(
                 statusButton(
                     amount = state.successCount,
-                    accentColor = AppTheme().customColors.colorPositive,
+                    accentColor = AppTheme().astraColors.astraLogo.colorPositive,
                 )
             )
             .addContent(
@@ -60,7 +60,7 @@ class StatusesRowRenderer(
             .addContent(
                 statusButton(
                     amount = state.loadingCount,
-                    accentColor = AppTheme().customColors.astraOrange,
+                    accentColor = AppTheme().astraColors.astraLogo.astraOrange,
                 )
             )
             .addContent(
@@ -71,7 +71,7 @@ class StatusesRowRenderer(
             .addContent(
                 statusButton(
                     amount = state.failureCount,
-                    accentColor = AppTheme().customColors.colorNegative,
+                    accentColor = AppTheme().astraColors.astraLogo.colorNegative,
                 )
             ).build()
     }

@@ -63,7 +63,7 @@ object PagingWidget {
                         text = MR.strings.paging_reload.asComposableString(),
                         modifier = Modifier.clickable { onReload.invoke() },
                         style = MaterialTheme.typography.h6,
-                        color = AppTheme.customColors.astraOrange,
+                        color = AppTheme.astraColors.astraLogo.astraOrange,
                         textAlign = TextAlign.Center
                     )
                 }

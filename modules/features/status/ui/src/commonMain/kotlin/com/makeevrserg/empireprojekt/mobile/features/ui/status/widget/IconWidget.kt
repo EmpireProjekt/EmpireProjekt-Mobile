@@ -19,9 +19,9 @@ internal fun IconWidget(it: UrlStatusComponent.LoadingStatus) {
         UrlStatusComponent.LoadingStatus.ERROR -> Icons.Filled.Error
     }
     val tint = when (it) {
-        UrlStatusComponent.LoadingStatus.LOADING -> AppTheme.customColors.astraYellow
-        UrlStatusComponent.LoadingStatus.SUCCESS -> AppTheme.customColors.colorPositive
-        UrlStatusComponent.LoadingStatus.ERROR -> AppTheme.customColors.colorNegative
+        UrlStatusComponent.LoadingStatus.LOADING -> AppTheme.astraColors.astraLogo.astraYellow
+        UrlStatusComponent.LoadingStatus.SUCCESS -> AppTheme.astraColors.action.colorPositive
+        UrlStatusComponent.LoadingStatus.ERROR -> AppTheme.astraColors.action.colorNegative
     }
     Icon(
         imageVector = icon,

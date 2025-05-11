@@ -83,7 +83,7 @@ internal fun TownCard(
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .clip(RoundedCornerShape(AppTheme.dimens.XS))
-                    .background(AppTheme.customColors.astraYellow)
+                    .background(AppTheme.astraColors.astraLogo.astraYellow)
                     .padding(horizontal = AppTheme.dimens.XS)
                     .padding(vertical = AppTheme.dimens.XXS)
             )
@@ -143,8 +143,8 @@ internal fun TownCard(
                 false -> TR.strings.towns_town_card_entrance_private.asComposableString()
             },
             descColor = when (isOpen) {
-                true -> AppTheme.customColors.colorPositive
-                false -> AppTheme.customColors.colorNegative
+                true -> AppTheme.astraColors.action.colorPositive
+                false -> AppTheme.astraColors.action.colorNegative
             },
             modifier = Modifier.fillMaxWidth()
         )

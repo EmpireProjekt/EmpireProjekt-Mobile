@@ -31,9 +31,9 @@ internal fun StatusWidget(component: UrlStatusComponent) {
     }
     val color by animateColorAsState(
         targetValue = when (model.status) {
-            UrlStatusComponent.LoadingStatus.LOADING -> AppTheme.customColors.astraOrange
-            UrlStatusComponent.LoadingStatus.SUCCESS -> AppTheme.customColors.colorPositive
-            UrlStatusComponent.LoadingStatus.ERROR -> AppTheme.customColors.colorNegative
+            UrlStatusComponent.LoadingStatus.LOADING -> AppTheme.astraColors.astraLogo.astraOrange
+            UrlStatusComponent.LoadingStatus.SUCCESS -> AppTheme.astraColors.astraLogo.colorPositive
+            UrlStatusComponent.LoadingStatus.ERROR -> AppTheme.astraColors.astraLogo.colorNegative
         },
         label = "LABEL"
     )

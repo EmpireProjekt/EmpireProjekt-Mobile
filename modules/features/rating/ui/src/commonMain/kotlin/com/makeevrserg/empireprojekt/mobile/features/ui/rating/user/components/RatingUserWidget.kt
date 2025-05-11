@@ -79,7 +79,7 @@ internal fun RatingUserWidget(
                         Icon(
                             imageVector = Icons.Filled.ThumbUp,
                             contentDescription = null,
-                            tint = AppTheme.customColors.colorPositive,
+                            tint = AppTheme.astraColors.action.colorPositive,
                             modifier = Modifier.size(AppTheme.dimens.M)
                         )
                     }
@@ -88,7 +88,7 @@ internal fun RatingUserWidget(
                         Icon(
                             imageVector = Icons.Filled.ThumbDown,
                             contentDescription = null,
-                            tint = AppTheme.customColors.colorNegative,
+                            tint = AppTheme.astraColors.action.colorNegative,
                             modifier = Modifier.size(AppTheme.dimens.M)
                         )
                     }

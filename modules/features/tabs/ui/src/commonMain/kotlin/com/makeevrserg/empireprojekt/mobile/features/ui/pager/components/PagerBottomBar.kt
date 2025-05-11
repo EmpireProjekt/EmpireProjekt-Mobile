@@ -46,7 +46,7 @@ internal fun PagerBottomBar(
                 icon = {
                     val tint by animateColorAsState(
                         targetValue = when {
-                            isSelected -> AppTheme.customColors.astraYellow
+                            isSelected -> AppTheme.astraColors.astraLogo.astraYellow
                             else -> MaterialTheme.colors.onPrimary
                         },
                         label = "selected tint color"

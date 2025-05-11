@@ -34,23 +34,19 @@ fun AdaptThemeFade(
 ) {
     val appTheme = when (composeTheme) {
         ComposeTheme.DARK -> AppTheme(
-            material2Theme = Material2Theme.DefaultDark,
-            material3Theme = Material3Theme.DefaultDark,
-            isDark = true
+            astraColors = AstraColors.Dark
         )
 
         ComposeTheme.LIGHT -> AppTheme(
-            material2Theme = Material2Theme.DefaultLight,
-            material3Theme = Material3Theme.DefaultLight,
-            isDark = false
+            astraColors = AstraColors.Light
         )
     }
     Crossfade(targetState = appTheme) { appTheme ->
         CompositionLocalProvider(
             LocalAppTheme provides appTheme,
             content = {
-                Material2ThemeAdapt(theme = LocalAppTheme.current.material2Theme) {
-                    Material3ThemeAdapt(theme = LocalAppTheme.current.material3Theme) {
+                Material2ThemeAdapt(theme = LocalAppTheme.current.asMaterial2()) {
+                    Material3ThemeAdapt(theme = LocalAppTheme.current.asMaterial3()) {
                         content.invoke()
                     }
                 }

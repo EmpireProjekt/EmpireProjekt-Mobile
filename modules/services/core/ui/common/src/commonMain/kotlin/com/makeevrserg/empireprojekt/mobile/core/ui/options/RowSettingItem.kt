@@ -117,7 +117,7 @@ fun RowText(
     onDescClicked: () -> Unit,
     modifier: Modifier = Modifier,
     titleColor: Color = MaterialTheme.colors.onPrimary,
-    descColor: Color = AppTheme.customColors.astraYellow
+    descColor: Color = AppTheme.astraColors.astraLogo.astraYellow
 ) {
     Row(
         modifier = modifier,
@@ -161,7 +161,7 @@ fun <T> RowDropdownText(
     onItemClicked: (T) -> Unit,
     modifier: Modifier = Modifier,
     titleColor: Color = MaterialTheme.colors.onPrimary,
-    itemColor: Color = AppTheme.customColors.astraYellow
+    itemColor: Color = AppTheme.astraColors.astraLogo.astraYellow
 ) {
     var expanded by remember { mutableStateOf(false) }
     Row(

@@ -4,17 +4,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 
 class AppTheme(
-    val material2Theme: Material2Theme = Material2Theme.DefaultDark,
-    val material3Theme: Material3Theme = Material3Theme.DefaultDark,
-    val isDark: Boolean = true,
     val dimens: Dimens = Dimens(),
-    val customColors: CustomColors = CustomColors()
+    val astraColors: AstraColors = AstraColors.Dark
 ) {
     companion object {
-        val customColors: CustomColors
+        val astraColors: AstraColors
             @Composable
             @ReadOnlyComposable
-            get() = LocalAppTheme.current.customColors
+            get() = LocalAppTheme.current.astraColors
         val dimens: Dimens
             @Composable
             @ReadOnlyComposable
