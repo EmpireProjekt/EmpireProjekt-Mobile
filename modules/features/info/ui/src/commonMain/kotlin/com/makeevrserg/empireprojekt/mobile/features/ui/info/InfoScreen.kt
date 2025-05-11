@@ -11,9 +11,10 @@ import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import com.makeevrserg.empireprojekt.mobile.buildkonfig.BuildKonfig
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
-import com.makeevrserg.empireprojekt.mobile.core.ui.options.RowSettingTextInfo
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.IR
@@ -53,9 +54,9 @@ fun InfoScreen(
             )
         }
         item {
-            RowSettingTextInfo(
+            OptionInfo(
                 modifier = Modifier.padding(vertical = AppTheme.dimens.XS),
-                icon = Icons.Filled.Bolt,
+                icon = rememberVectorPainter(Icons.Filled.Bolt),
                 text = "Version",
                 endText = "${BuildKonfig.VERSION_CODE} (${BuildKonfig.VERSION_NAME})"
             )

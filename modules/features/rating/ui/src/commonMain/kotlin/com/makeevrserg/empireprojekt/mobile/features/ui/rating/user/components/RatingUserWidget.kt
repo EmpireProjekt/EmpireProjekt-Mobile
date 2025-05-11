@@ -26,7 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
-import com.makeevrserg.empireprojekt.mobile.core.ui.options.RowText
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
@@ -102,9 +102,9 @@ internal fun RatingUserWidget(
                     .background(MaterialTheme.colors.onSecondary)
             )
             Spacer(Modifier.height(AppTheme.dimens.XS))
-            RowText(
-                title = RR.strings.rating_last_updated.asComposableString(),
-                desc = remember {
+            OptionInfo(
+                text = RR.strings.rating_last_updated.asComposableString(),
+                endText = remember {
                     timeFormatter.format(
                         instant = Instant.fromEpochMilliseconds(time),
                         format = "dd.MM.yyyy HH:mm"

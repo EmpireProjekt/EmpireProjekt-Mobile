@@ -36,6 +36,7 @@ kotlin {
                 implementation(projects.modules.services.core.ui.common)
                 implementation(projects.modules.services.core.ui.dialog)
                 implementation(projects.modules.services.core.ui.sheet)
+                implementation(projects.modules.services.core.ui.option)
                 implementation(projects.modules.services.core.ui.theme)
                 implementation(projects.modules.features.rating.impl)
                 implementation(projects.modules.services.data.empireapi)

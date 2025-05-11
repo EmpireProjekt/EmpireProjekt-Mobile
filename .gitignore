@@ -45,6 +45,7 @@ modules/services/core/ui/build
 modules/services/core/ui/common/build
 modules/services/core/ui/theme/build
 modules/services/core/ui/sheet/build
+modules/services/core/ui/option/build
 modules/services/core/ui/dialog/build
 modules/services/core/common/build
 modules/services/wear-messenger/api/build

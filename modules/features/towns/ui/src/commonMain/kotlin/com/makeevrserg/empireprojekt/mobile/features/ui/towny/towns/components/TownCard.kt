@@ -20,7 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
-import com.makeevrserg.empireprojekt.mobile.core.ui.options.RowText
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
@@ -101,34 +101,34 @@ internal fun TownCard(
                 color = MaterialTheme.colors.onPrimary,
             )
         }
-        RowText(
-            title = TR.strings.towns_town_card_tag.asComposableString(),
-            desc = tag,
+        OptionInfo(
+            text = TR.strings.towns_town_card_tag.asComposableString(),
+            endText = tag,
             modifier = Modifier.fillMaxWidth()
         )
-        RowText(
-            title = TR.strings.towns_town_card_founder.asComposableString(),
-            desc = founder,
+        OptionInfo(
+            text = TR.strings.towns_town_card_founder.asComposableString(),
+            endText = founder,
             modifier = Modifier.fillMaxWidth()
         )
         if (nation.isNotBlank()) {
-            RowText(
-                title = TR.strings.towns_town_card_nation.asComposableString(),
-                desc = nation,
+            OptionInfo(
+                text = TR.strings.towns_town_card_nation.asComposableString(),
+                endText = nation,
                 modifier = Modifier.fillMaxWidth()
             )
         }
         if (outlawsAmount > 0) {
-            RowText(
-                title = TR.strings.towns_town_card_outlaw_count.asComposableString(),
-                desc = outlawsAmount.toString(),
+            OptionInfo(
+                text = TR.strings.towns_town_card_outlaw_count.asComposableString(),
+                endText = outlawsAmount.toString(),
                 modifier = Modifier.fillMaxWidth()
             )
         }
 
-        RowText(
-            title = TR.strings.towns_town_card_registered.asComposableString(),
-            desc = remember {
+        OptionInfo(
+            text = TR.strings.towns_town_card_registered.asComposableString(),
+            endText = remember {
                 timeFormatter.format(
                     instant = Instant.fromEpochMilliseconds(registered),
                     format = "dd.MM.yyyy"
@@ -136,13 +136,13 @@ internal fun TownCard(
             },
             modifier = Modifier.fillMaxWidth()
         )
-        RowText(
-            title = TR.strings.towns_town_card_entrance.asComposableString(),
-            desc = when (isOpen) {
+        OptionInfo(
+            text = TR.strings.towns_town_card_entrance.asComposableString(),
+            endText = when (isOpen) {
                 true -> TR.strings.towns_town_card_entrance_public.asComposableString()
                 false -> TR.strings.towns_town_card_entrance_private.asComposableString()
             },
-            descColor = when (isOpen) {
+            iconTint = when (isOpen) {
                 true -> AppTheme.astraColors.action.colorPositive
                 false -> AppTheme.astraColors.action.colorNegative
             },
