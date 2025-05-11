@@ -7,13 +7,22 @@ import androidx.compose.material.icons.filled.NetworkWifi
 import androidx.compose.material.icons.filled.People
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.model.PagerBottomBarItem
+import dev.icerock.moko.resources.desc.Raw
+import dev.icerock.moko.resources.desc.RawStringDesc
+import dev.icerock.moko.resources.desc.StringDesc
 
-object PagerBottomBarItemIcon {
-    val PagerBottomBarItem.icon: ImageVector
-        get() = when (this) {
-            PagerBottomBarItem.Towns -> Icons.Filled.Apartment
-            PagerBottomBarItem.Status -> Icons.Filled.NetworkWifi
-            PagerBottomBarItem.Ratings -> Icons.Filled.People
-            PagerBottomBarItem.Map -> Icons.Filled.Map
-        }
-}
+val PagerBottomBarItem.icon: ImageVector
+    get() = when (this) {
+        PagerBottomBarItem.Towns -> Icons.Filled.Apartment
+        PagerBottomBarItem.Status -> Icons.Filled.NetworkWifi
+        PagerBottomBarItem.Ratings -> Icons.Filled.People
+        PagerBottomBarItem.Map -> Icons.Filled.Map
+    }
+
+val PagerBottomBarItem.text: RawStringDesc
+    get() = when (this) {
+        PagerBottomBarItem.Towns -> StringDesc.Raw("Towns")
+        PagerBottomBarItem.Status -> StringDesc.Raw("Status")
+        PagerBottomBarItem.Ratings -> StringDesc.Raw("Ratings")
+        PagerBottomBarItem.Map -> StringDesc.Raw("Map")
+    }
