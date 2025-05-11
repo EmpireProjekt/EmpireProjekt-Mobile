@@ -19,10 +19,11 @@ val PagerBottomBarItem.icon: ImageVector
         PagerBottomBarItem.Map -> Icons.Filled.Map
     }
 
+// todo
 val PagerBottomBarItem.text: RawStringDesc
     get() = when (this) {
-        PagerBottomBarItem.Towns -> StringDesc.Raw("Towns")
-        PagerBottomBarItem.Status -> StringDesc.Raw("Status")
-        PagerBottomBarItem.Ratings -> StringDesc.Raw("Ratings")
-        PagerBottomBarItem.Map -> StringDesc.Raw("Map")
+        PagerBottomBarItem.Towns -> StringDesc.Raw("TOWNS")
+        PagerBottomBarItem.Status -> StringDesc.Raw("STATUSES")
+        PagerBottomBarItem.Ratings -> StringDesc.Raw("RATINGS")
+        PagerBottomBarItem.Map -> StringDesc.Raw("MAP")
     }

@@ -42,7 +42,7 @@ private fun AstraBottomNavItem(
 ) {
     val tint by animateColorAsState(
         targetValue = when {
-            isSelected -> AppTheme.astraColors.surface.onPrimary
+            isSelected -> AppTheme.astraColors.surface.onSecondaryVariant
             else -> MaterialTheme.colors.onSecondary
         },
         label = ""
