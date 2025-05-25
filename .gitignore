@@ -73,3 +73,4 @@ modules/features/towns/impl/build
 modules/features/towns/ui/build
 modules/features/tabs/impl/build
 modules/features/tabs/ui/build
+modules/features/votes/ui/build

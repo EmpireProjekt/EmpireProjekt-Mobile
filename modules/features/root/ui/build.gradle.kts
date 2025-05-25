@@ -55,6 +55,7 @@ kotlin {
                 implementation(projects.modules.features.towns.ui)
                 implementation(projects.modules.features.info.ui)
                 implementation(projects.modules.features.map.ui)
+                implementation(projects.modules.features.votes.ui)
                 implementation(projects.modules.features.tabs.impl)
                 implementation(projects.modules.features.tabs.ui)
             }

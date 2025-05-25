@@ -91,5 +91,8 @@ class DefaultRootScreenComponent(
         class Pager(
             val pagerComponent: PagerComponent
         ) : Configuration
+
+        data object Votes : Configuration
+        data class VoteUrl(val url: String) : Configuration
     }
 }

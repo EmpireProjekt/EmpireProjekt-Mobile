@@ -1,7 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.root.screen.di.factory
 
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.decompose.childContext
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.di.RatingUsersModule
 import com.makeevrserg.empireprojekt.mobile.features.root.di.RootModule
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.DefaultRootScreenComponent
@@ -66,7 +65,10 @@ class RootScreenComponentChildFactory(
                 )
             )
 
-            RootRouter.Configuration.Votes -> TODO()
+            RootRouter.Configuration.Votes -> DefaultRootScreenComponent.Configuration.Votes
+            is RootRouter.Configuration.VoteUrl -> DefaultRootScreenComponent.Configuration.VoteUrl(
+                url = config.url
+            )
         }
     }
 }

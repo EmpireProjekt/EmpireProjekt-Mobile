@@ -18,6 +18,8 @@ import com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.RatingUserSc
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.RatingUsersScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.splash.SplashScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.TownsScreenComponent
+import com.makeevrserg.empireprojekt.mobile.features.ui.votes.VotesScreenComponent
+import com.makeevrserg.empireprojekt.mobile.features.ui.votes.VotesScreenWebViewComponent
 import com.makeevrserg.empireprojekt.mobile.services.core.LinkBrowser
 
 @Composable
@@ -74,6 +76,18 @@ fun ApplicationContent(
             is DefaultRootScreenComponent.Configuration.Towns -> TownsScreenComponent(
                 popComponent = rootComponent.rootScreenComponent,
                 townsComponent = screen.townsComponent
+            )
+
+            DefaultRootScreenComponent.Configuration.Votes -> VotesScreenComponent(
+                onPop = rootComponent.rootScreenComponent::pop,
+                onClick = { url ->
+                    rootComponent.rootScreenComponent.push(RootRouter.Configuration.VoteUrl(url))
+                }
+            )
+
+            is DefaultRootScreenComponent.Configuration.VoteUrl -> VotesScreenWebViewComponent(
+                url = screen.url,
+                onPop = rootComponent.rootScreenComponent::pop
             )
         }
     }

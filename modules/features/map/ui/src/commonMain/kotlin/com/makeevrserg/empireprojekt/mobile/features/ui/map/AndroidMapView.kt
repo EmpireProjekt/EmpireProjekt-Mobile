@@ -16,7 +16,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
-import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
 import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.AstraLoading
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
