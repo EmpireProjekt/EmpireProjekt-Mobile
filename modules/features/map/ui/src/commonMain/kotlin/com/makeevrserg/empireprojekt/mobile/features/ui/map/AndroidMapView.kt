@@ -61,7 +61,6 @@ fun AndroidMapView() {
                 webView = it
             }
         )
-        Spacer(Modifier.navBarsPadding())
     }
     Crossfade(
         targetState = isLoading,

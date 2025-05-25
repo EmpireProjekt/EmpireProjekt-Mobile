@@ -68,6 +68,7 @@ fun InfoScreen(
                             vertical = AppTheme.dimens.XS
                         ),
                     )
+                    OptionSeparator(Modifier.fillMaxWidth())
                     OptionHref(
                         text = "Ratings",
                         onClick = {
@@ -79,7 +80,7 @@ fun InfoScreen(
                             vertical = AppTheme.dimens.XS
                         ),
                     )
-
+                    OptionSeparator(Modifier.fillMaxWidth())
                     OptionHref(
                         text = "Votes",
                         onClick = {
@@ -91,6 +92,7 @@ fun InfoScreen(
                             vertical = AppTheme.dimens.XS
                         ),
                     )
+                    OptionSeparator(Modifier.fillMaxWidth())
                     OptionSwitch(
                         text = "Темная тема",
                         onCheckChange = {
@@ -116,8 +118,8 @@ fun InfoScreen(
                 )
                 Text(
                     text = "All this links associated with EmpireProjekt and AstraInteractive. " +
-                        "This text specially displayed for google play " +
-                        "support which considering this links as advertisement.",
+                            "This text specially displayed for google play " +
+                            "support which considering this links as advertisement.",
                     style = MaterialTheme.typography.overline,
                     color = MaterialTheme.colors.onPrimary
                 )
