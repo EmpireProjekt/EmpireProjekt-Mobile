@@ -6,14 +6,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Cookie
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import coil.compose.SubcomposeAsyncImage
+import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.valentinilk.shimmer.shimmer
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 
 @Composable
 fun PlayerHeadBox(uuid: String, modifier: Modifier = Modifier) {
@@ -25,16 +25,16 @@ fun PlayerHeadBox(uuid: String, modifier: Modifier = Modifier) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .shimmer()
+                    .placeholder(true)
                     .background(MaterialTheme.colors.primaryVariant)
                     .clip(RoundedCornerShape(AppTheme.dimens.XXS))
             )
         },
         error = {
             Icon(
-                imageVector = Icons.Filled.Cookie,
+                painter = MR.images.img_head_error.asPainter(),
                 contentDescription = null,
-                tint = MaterialTheme.colors.onPrimary
+                tint = Color.Unspecified
             )
         }
     )

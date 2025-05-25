@@ -58,6 +58,8 @@ wear-complications = "1.2.1"
 
 composables = "1.28.0" # https://github.com/composablehorizons/compose-unstyled
 
+placeholder = "1.0.11" # https://github.com/eygraber/compose-placeholder
+
 [libraries]
 # wear
 wear-glance-tiles = { module = "androidx.glance:glance-wear-tiles", version.ref = "wear-glance-tiles" }
@@ -117,6 +119,7 @@ google-horologist-datalayer-watch = { module = "com.google.android.horologist:ho
 google-horologist-datalayer-phone = { module = "com.google.android.horologist:horologist-datalayer-phone", version.ref = "horologist" }
 google-horologist-compose-tools = { module = "com.google.android.horologist:horologist-compose-tools", version.ref = "horologist" }
 google-horologist-tiles = { module = "com.google.android.horologist:horologist-tiles", version.ref = "horologist" }
+placeholder = { module = "com.eygraber:compose-placeholder-material", version.ref = "placeholder" }
 
 # Tests
 tests-assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "tests-assertk" }

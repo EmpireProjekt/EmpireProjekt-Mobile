@@ -95,9 +95,10 @@ object PagingWidget {
         isLastPage: Boolean,
         isLoading: Boolean,
         isFailure: Boolean,
-        onReload: () -> Unit
+        onReload: () -> Unit,
+        loader: @Composable (isLoading: Boolean) -> Unit = { Loading(it) }
     ) {
-        Loading(isLoading = isLoading)
+        loader.invoke(isLoading)
         if (isLastPage && list.isNotEmpty()) {
             LastPage()
         } else if (isLastPage && list.isEmpty()) {

@@ -1,20 +1,32 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.rating.users
 
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.placeholder
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.OnEndReached
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingWidget
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.presentation.RatingUsersComponent
+import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components.RatingUserShimmerWidget
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components.RatingUserWidget
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components.RatingUsersAppBar
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components.RatingsFilterCard
@@ -74,8 +86,15 @@ fun RatingUsersScreenComponent(
                     isLastPage = model.isLastPage,
                     isLoading = model.isLoading,
                     isFailure = model.isFailure,
-                    onReload = {
-                        ratingUsersComponent.reset()
+                    onReload = { ratingUsersComponent.reset() },
+                    loader = {
+                        Column(
+                            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)
+                        ) {
+                            repeat(times = 8) {
+                                RatingUserShimmerWidget()
+                            }
+                        }
                     }
                 )
             }

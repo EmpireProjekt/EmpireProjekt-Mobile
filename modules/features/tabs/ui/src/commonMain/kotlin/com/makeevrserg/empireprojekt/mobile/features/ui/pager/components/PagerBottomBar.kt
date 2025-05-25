@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -36,7 +37,6 @@ import com.makeevrserg.empireprojekt.mobile.features.root.pager.model.PagerBotto
 @Composable
 private fun AstraBottomNavItem(
     icon: Painter,
-    text: String,
     isSelected: Boolean,
     onClick: () -> Unit,
 ) {
@@ -54,9 +54,9 @@ private fun AstraBottomNavItem(
         },
         label = "selected tint color"
     )
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
+    Column(
+        verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
+        horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .clip(RoundedCornerShape(AppTheme.dimens.S))
             .background(background)
@@ -70,13 +70,6 @@ private fun AstraBottomNavItem(
             contentDescription = null,
             tint = tint
         )
-        AnimatedVisibility(isSelected) {
-            Text(
-                text = text,
-                color = AppTheme.astraColors.surface.onSecondaryVariant,
-                style = MaterialTheme.typography.subtitle1
-            )
-        }
     }
 }
 
@@ -102,7 +95,7 @@ internal fun PagerBottomBar(
             .padding(horizontal = AppTheme.dimens.S)
             .padding(vertical = AppTheme.dimens.XS)
             .clip(RoundedCornerShape(AppTheme.dimens.S))
-            .border(1.dp, MaterialTheme.colors.onSecondary, RoundedCornerShape(AppTheme.dimens.S))
+            .border(2.dp, MaterialTheme.colors.primaryVariant, RoundedCornerShape(AppTheme.dimens.S))
             .background(MaterialTheme.colors.primary)
             .padding(vertical = AppTheme.dimens.S)
             .padding(horizontal = AppTheme.dimens.S),
@@ -112,7 +105,6 @@ internal fun PagerBottomBar(
         items.forEachIndexed { index, item ->
             AstraBottomNavItem(
                 icon = rememberVectorPainter(item.icon),
-                text = item.text.asComposableString(),
                 isSelected = selectedIndex == index,
                 onClick = { onClicked.invoke(item) }
             )

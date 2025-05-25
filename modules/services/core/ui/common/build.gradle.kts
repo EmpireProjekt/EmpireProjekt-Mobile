@@ -33,6 +33,7 @@ kotlin {
                 implementation(compose.preview)
                 implementation(compose.uiTooling)
                 implementation(compose.runtime)
+                implementation(libs.placeholder)
                 // Local
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.common)
