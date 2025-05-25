@@ -44,7 +44,7 @@ fun InfoScreen(
     onRatingsClick: () -> Unit,
     onVotesClick: () -> Unit,
     onThemeToggle: () -> Unit,
-    onWikiClick: ()-> Unit
+    onWikiClick: () -> Unit
 ) {
     val models = remember { InfoScreenLinks.get() }
     LazyColumn(
@@ -131,8 +131,8 @@ fun InfoScreen(
                 )
                 Text(
                     text = "All this links associated with EmpireProjekt and AstraInteractive. " +
-                            "This text specially displayed for google play " +
-                            "support which considering this links as advertisement.",
+                        "This text specially displayed for google play " +
+                        "support which considering this links as advertisement.",
                     style = MaterialTheme.typography.overline,
                     color = MaterialTheme.colors.onPrimary
                 )
