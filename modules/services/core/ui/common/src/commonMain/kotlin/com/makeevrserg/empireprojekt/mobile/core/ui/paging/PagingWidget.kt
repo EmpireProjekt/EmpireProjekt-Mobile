@@ -73,19 +73,12 @@ object PagingWidget {
 
     @Suppress("ModifierMissing")
     @Composable
-    fun Loading(isLoading: Boolean) {
-        Crossfade(
-            targetState = isLoading,
-            label = "crossfade loading indicator"
-        ) { localIsLoading ->
-            if (localIsLoading) {
-                Box(
-                    modifier = Modifier.fillMaxWidth(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    AstraLoading(AppTheme.dimens.M)
-                }
-            }
+    fun Loading() {
+        Box(
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ) {
+            AstraLoading(AppTheme.dimens.M)
         }
     }
 
@@ -96,9 +89,18 @@ object PagingWidget {
         isLoading: Boolean,
         isFailure: Boolean,
         onReload: () -> Unit,
-        loader: @Composable (isLoading: Boolean) -> Unit = { Loading(it) }
+        loader: @Composable () -> Unit = { Loading() }
     ) {
-        loader.invoke(isLoading)
+        Crossfade(
+            targetState = isLoading,
+            label = "crossfade loading indicator",
+            content = { isLoading ->
+                if (isLoading) {
+                    loader.invoke()
+                }
+            }
+        )
+
         if (isLastPage && list.isNotEmpty()) {
             LastPage()
         } else if (isLastPage && list.isEmpty()) {

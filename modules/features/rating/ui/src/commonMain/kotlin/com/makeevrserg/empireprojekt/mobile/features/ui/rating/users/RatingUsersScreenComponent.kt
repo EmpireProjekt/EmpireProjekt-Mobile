@@ -89,12 +89,13 @@ fun RatingUsersScreenComponent(
                     onReload = { ratingUsersComponent.reset() },
                     loader = {
                         Column(
-                            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)
-                        ) {
-                            repeat(times = 8) {
-                                RatingUserShimmerWidget()
+                            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
+                            content = {
+                                repeat(times = 8) {
+                                    RatingUserShimmerWidget()
+                                }
                             }
-                        }
+                        )
                     }
                 )
             }

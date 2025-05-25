@@ -1,6 +1,7 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.rating.user
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -17,6 +18,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingWidget
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.presentation.RatingUserComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.components.RatingUserWidget
+import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components.RatingUserShimmerWidget
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 
 @Composable
@@ -65,6 +67,16 @@ fun RatingUserScreenComponent(
                     isFailure = model.isFailure,
                     onReload = {
                         ratingUserComponent.reset()
+                    },
+                    loader = {
+                        Column(
+                            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
+                            content = {
+                                repeat(times = 8) {
+                                    RatingUserShimmerWidget()
+                                }
+                            }
+                        )
                     }
                 )
             }
