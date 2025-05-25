@@ -4,7 +4,6 @@ import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -18,15 +17,13 @@ import com.makeevrserg.empireprojekt.mobile.features.ui.pager.components.PagerBo
 fun PagerScreenComponent(
     pagerComponent: PagerComponent,
     modifier: Modifier = Modifier,
-    ratingUsersScreen: DecomposeScreen<PagerComponent.Child.RatingUsers>,
-    statusScreen: DecomposeScreen<PagerComponent.Child.Status>,
-    townsScreen: DecomposeScreen<PagerComponent.Child.Towns>,
+    menuScreen: DecomposeScreen<PagerComponent.Child.Menu>,
     mapScreen: DecomposeScreen<PagerComponent.Child.Map>
 ) {
     val selectedChild by pagerComponent.selectedChild.collectAsState()
     val selectedBottomBarItem by pagerComponent.selectedBottomBarItem.collectAsState()
     Box(
-        modifier = Modifier.fillMaxSize().navigationBarsPadding(),
+        modifier = Modifier.fillMaxSize(),
     ) {
         Crossfade(
             modifier = modifier.fillMaxWidth(),
@@ -34,17 +31,7 @@ fun PagerScreenComponent(
             label = "Crossfade instance composable"
         ) { instance ->
             when (instance) {
-                is PagerComponent.Child.RatingUsers -> ratingUsersScreen.Render(
-                    child = instance,
-                    modifier = Modifier
-                )
-
-                is PagerComponent.Child.Status -> statusScreen.Render(
-                    child = instance,
-                    modifier = Modifier
-                )
-
-                is PagerComponent.Child.Towns -> townsScreen.Render(
+                is PagerComponent.Child.Menu -> menuScreen.Render(
                     child = instance,
                     modifier = Modifier
                 )

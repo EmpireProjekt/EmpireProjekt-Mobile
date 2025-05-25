@@ -7,10 +7,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import com.eygraber.compose.placeholder.PlaceholderHighlight
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.eygraber.compose.placeholder.placeholder
 import com.eygraber.compose.placeholder.shimmer
-
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 @Composable
 @Suppress("ModifierComposable")

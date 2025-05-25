@@ -2,6 +2,7 @@ package com.makeevrserg.empireprojekt.mobile.core.ui.option
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -31,9 +32,11 @@ fun OptionInfo(
     icon: Painter? = null,
     infoText: String? = null,
     iconTint: Color = MaterialTheme.colors.onPrimary,
+    contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
     Row(
-        modifier = modifier,
+        modifier = modifier
+            .padding(contentPadding),
         horizontalArrangement = Arrangement.spacedBy(
             8.dp,
             Alignment.End
@@ -45,7 +48,7 @@ fun OptionInfo(
                 painter = icon,
                 contentDescription = null,
                 tint = iconTint,
-                modifier = Modifier.size(20.dp)
+                modifier = Modifier.size(32.dp)
             )
         }
         Column(

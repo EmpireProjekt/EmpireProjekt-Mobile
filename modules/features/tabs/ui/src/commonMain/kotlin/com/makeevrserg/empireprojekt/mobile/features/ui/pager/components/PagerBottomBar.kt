@@ -1,7 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.pager.components
 
 import android.annotation.SuppressLint
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
@@ -10,14 +9,14 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -31,7 +30,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.model.PagerBottomBarItem
 
 @Composable
@@ -81,25 +79,28 @@ internal fun PagerBottomBar(
 ) {
     val items = remember {
         listOf(
-            PagerBottomBarItem.Towns,
-            PagerBottomBarItem.Status,
-            PagerBottomBarItem.Ratings,
+            PagerBottomBarItem.Menu,
             PagerBottomBarItem.Map
         )
     }
     Row(
         modifier
-            .fillMaxWidth()
+            .wrapContentWidth()
             .clickable(enabled = false, onClick = {})
+            .navigationBarsPadding()
             .wrapContentHeight()
             .padding(horizontal = AppTheme.dimens.S)
             .padding(vertical = AppTheme.dimens.XS)
             .clip(RoundedCornerShape(AppTheme.dimens.S))
-            .border(2.dp, MaterialTheme.colors.primaryVariant, RoundedCornerShape(AppTheme.dimens.S))
+            .border(
+                2.dp,
+                MaterialTheme.colors.primaryVariant,
+                RoundedCornerShape(AppTheme.dimens.S)
+            )
             .background(MaterialTheme.colors.primary)
             .padding(vertical = AppTheme.dimens.S)
             .padding(horizontal = AppTheme.dimens.S),
-        horizontalArrangement = Arrangement.SpaceBetween,
+        horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.L),
         verticalAlignment = Alignment.CenterVertically
     ) {
         items.forEachIndexed { index, item ->

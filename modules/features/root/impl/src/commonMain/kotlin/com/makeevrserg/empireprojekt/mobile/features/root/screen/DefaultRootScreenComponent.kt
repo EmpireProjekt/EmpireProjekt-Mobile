@@ -6,15 +6,18 @@ import com.arkivanov.decompose.router.stack.StackNavigation
 import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.push
+import com.arkivanov.decompose.router.stack.pushNew
 import com.arkivanov.decompose.router.stack.replaceAll
 import com.arkivanov.decompose.router.stack.replaceCurrent
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.decompose.value.operator.map
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.presentation.RatingUserComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.users.presentation.RatingUsersComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.di.RootModule
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.PagerComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.di.factory.RootScreenComponentChildFactory
 import com.makeevrserg.empireprojekt.mobile.features.splash.presentation.SplashComponent
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.presentation.TownsComponent
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 import kotlinx.serialization.serializer
 
@@ -35,7 +38,12 @@ class DefaultRootScreenComponent(
                 config = config,
                 childContext = context,
                 rootModule = rootModule,
-                instance = this
+                instance = this,
+                ratingUsersModule = rootModule.ratingUsersModule,
+                townsModule = rootModule.townsModule,
+                onRootNavigation = { configuration ->
+                    push(configuration)
+                }
             ).create()
         }
     )
@@ -48,7 +56,7 @@ class DefaultRootScreenComponent(
     }
 
     override fun push(configuration: RootRouter.Configuration) {
-        navigation.push(configuration)
+        navigation.pushNew(configuration)
     }
 
     override fun replaceCurrent(configuration: RootRouter.Configuration) {
@@ -64,13 +72,20 @@ class DefaultRootScreenComponent(
     }
 
     sealed interface Configuration {
-
         class Splash(
             val splashComponent: SplashComponent
         ) : Configuration
 
         class RatingUser(
             val ratingUserComponent: RatingUserComponent
+        ) : Configuration
+
+        class RatingUsers(
+            val ratingUsersComponent: RatingUsersComponent
+        ) : Configuration
+
+        class Towns(
+            val townsComponent: TownsComponent
         ) : Configuration
 
         class Pager(

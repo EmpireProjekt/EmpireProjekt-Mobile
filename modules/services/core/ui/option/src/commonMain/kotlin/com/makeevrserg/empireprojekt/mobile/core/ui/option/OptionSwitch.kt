@@ -55,7 +55,7 @@ fun OptionSwitch(
                 painter = icon,
                 contentDescription = null,
                 tint = AppTheme.astraColors.surface.onSecondary,
-                modifier = Modifier.size(20.dp)
+                modifier = Modifier.size(32.dp)
             )
         }
         Column(

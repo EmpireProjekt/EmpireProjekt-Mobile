@@ -49,7 +49,7 @@ fun OptionComposable(
                 painter = icon,
                 contentDescription = null,
                 tint = iconTint,
-                modifier = Modifier.size(20.dp)
+                modifier = Modifier.size(32.dp)
             )
         }
         Column(

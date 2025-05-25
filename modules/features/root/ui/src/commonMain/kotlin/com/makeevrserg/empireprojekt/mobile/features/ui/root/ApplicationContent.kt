@@ -10,17 +10,21 @@ import com.arkivanov.decompose.extensions.compose.stack.animation.stackAnimation
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.makeevrserg.empireprojekt.mobile.features.root.RootComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.DefaultRootScreenComponent
+import com.makeevrserg.empireprojekt.mobile.features.root.screen.RootRouter
+import com.makeevrserg.empireprojekt.mobile.features.ui.info.InfoScreen
 import com.makeevrserg.empireprojekt.mobile.features.ui.map.AndroidMapView
 import com.makeevrserg.empireprojekt.mobile.features.ui.pager.PagerScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.RatingUserScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.RatingUsersScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.splash.SplashScreenComponent
-import com.makeevrserg.empireprojekt.mobile.features.ui.status.StatusScreen
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.TownsScreenComponent
+import com.makeevrserg.empireprojekt.mobile.services.core.LinkBrowser
 
 @Composable
 fun ApplicationContent(
     rootComponent: RootComponent,
+    linkBrowser: LinkBrowser,
+    onThemeToggle: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val childStack by rootComponent.rootScreenComponent.childStack.subscribeAsState()
@@ -29,7 +33,6 @@ fun ApplicationContent(
         modifier = modifier.fillMaxSize(),
         animation = stackAnimation(slide())
     ) { configuration ->
-
         when (val screen = configuration.instance) {
             is DefaultRootScreenComponent.Configuration.Splash -> SplashScreenComponent(
                 rootRouter = rootComponent.rootScreenComponent,
@@ -43,28 +46,34 @@ fun ApplicationContent(
 
             is DefaultRootScreenComponent.Configuration.Pager -> PagerScreenComponent(
                 pagerComponent = screen.pagerComponent,
-                ratingUsersScreen = { modifier, child ->
-                    RatingUsersScreenComponent(
-                        ratingUsersComponent = child.ratingUsersComponent,
-                        popComponent = rootComponent.rootScreenComponent
-                    )
-                },
-                townsScreen = { modifier, child ->
-                    TownsScreenComponent(
-                        popComponent = rootComponent.rootScreenComponent,
-                        townsComponent = child.townsComponent
-                    )
-                },
-                statusScreen = { modifier, child ->
-                    StatusScreen(
-                        themeSwitcherComponent = child.themeSwitcherComponent,
-                        rootStatusComponent = child.rootStatusComponent,
-                        rootBottomSheetRouter = rootComponent.rootBottomSheetComponent
+                menuScreen = { modifier, child ->
+                    InfoScreen(
+                        linkBrowser = linkBrowser,
+                        onThemeToggle = onThemeToggle,
+                        onTownsClick = {
+                            rootComponent.rootScreenComponent.push(RootRouter.Configuration.Towns)
+                        },
+                        onRatingsClick = {
+                            rootComponent.rootScreenComponent.push(RootRouter.Configuration.RatingUsers)
+                        },
+                        onVotesClick = {
+                            rootComponent.rootScreenComponent.push(RootRouter.Configuration.Votes)
+                        }
                     )
                 },
                 mapScreen = { modifier, child ->
                     AndroidMapView()
                 }
+            )
+
+            is DefaultRootScreenComponent.Configuration.RatingUsers -> RatingUsersScreenComponent(
+                popComponent = rootComponent.rootScreenComponent,
+                ratingUsersComponent = screen.ratingUsersComponent
+            )
+
+            is DefaultRootScreenComponent.Configuration.Towns -> TownsScreenComponent(
+                popComponent = rootComponent.rootScreenComponent,
+                townsComponent = screen.townsComponent
             )
         }
     }

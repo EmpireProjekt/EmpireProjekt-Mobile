@@ -22,11 +22,11 @@ fun M3Switch(
         enabled = enabled,
         colors = SwitchDefaults.colors(
             uncheckedBorderColor = Color.Transparent,
-            uncheckedThumbColor = AppTheme.astraColors.surface.onSecondary,
+            uncheckedThumbColor = AppTheme.astraColors.surface.primaryVariant,
+            uncheckedTrackColor = MaterialTheme.colors.onSecondary,
             checkedThumbColor = AppTheme.astraColors.surface.onSecondaryVariant,
             checkedBorderColor = Color.Transparent,
             checkedTrackColor = AppTheme.astraColors.surface.secondaryVariant,
-            uncheckedTrackColor = MaterialTheme.colors.onPrimary,
             // todo no color for disabled in design system yet
             // checkedIconColor = TODO(),
             // disabledCheckedIconColor = TODO(),

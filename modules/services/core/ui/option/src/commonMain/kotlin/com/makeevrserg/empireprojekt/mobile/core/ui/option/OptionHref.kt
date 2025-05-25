@@ -28,6 +28,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.style.TextAlign
@@ -46,6 +47,7 @@ fun OptionHref(
     infoText: String? = null,
     endText: String? = null,
     isActive: Boolean = true,
+    iconTint: Color = AppTheme.astraColors.surface.onSecondary,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
     Row(
@@ -63,8 +65,8 @@ fun OptionHref(
             Icon(
                 painter = icon,
                 contentDescription = null,
-                tint = AppTheme.astraColors.surface.onSecondary,
-                modifier = Modifier.size(20.dp)
+                tint = iconTint,
+                modifier = Modifier.size(32.dp)
             )
         }
         Column(

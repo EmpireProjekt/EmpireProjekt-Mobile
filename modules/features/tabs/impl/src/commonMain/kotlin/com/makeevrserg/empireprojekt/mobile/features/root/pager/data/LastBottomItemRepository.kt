@@ -16,12 +16,12 @@ class LastBottomItemRepositoryImpl(private val settings: Settings) : LastBottomI
     private val KEY = "LAST_BOTTOM"
 
     override val lastBottomItemIndex = DefaultStateFlowMutableKrate(
-        factory = { PagerBottomBarItem.Status },
+        factory = { PagerBottomBarItem.Menu },
         saver = { settings[KEY] = it.ordinal },
         loader = {
             PagerBottomBarItem.entries.getOrElse(
                 index = settings[KEY] ?: 0,
-                defaultValue = { PagerBottomBarItem.Status }
+                defaultValue = { PagerBottomBarItem.Menu }
             )
         }
     )

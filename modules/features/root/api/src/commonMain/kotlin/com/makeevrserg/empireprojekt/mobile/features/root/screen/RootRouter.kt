@@ -17,6 +17,15 @@ interface RootRouter : PopComponent {
         data object Pager : Configuration
 
         @Serializable
+        data object Towns : Configuration
+
+        @Serializable
+        data object RatingUsers : Configuration
+
+        @Serializable
+        data object Votes : Configuration
+
+        @Serializable
         class RatingUser(val userId: Long, val userName: String) : Configuration
     }
 }
