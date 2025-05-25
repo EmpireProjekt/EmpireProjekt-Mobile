@@ -31,7 +31,7 @@ fun OptionInfo(
     modifier: Modifier = Modifier,
     icon: Painter? = null,
     infoText: String? = null,
-    iconTint: Color = MaterialTheme.colors.onPrimary,
+    iconTint: Color = AppTheme.astraColors.surface.onSecondary,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
     Row(
@@ -48,7 +48,7 @@ fun OptionInfo(
                 painter = icon,
                 contentDescription = null,
                 tint = iconTint,
-                modifier = Modifier.size(32.dp)
+                modifier = Modifier.size(28.dp)
             )
         }
         Column(
@@ -58,7 +58,7 @@ fun OptionInfo(
         ) {
             Text(
                 text = text,
-                color = MaterialTheme.colors.onPrimary,
+                color = AppTheme.astraColors.surface.onSecondary,
                 textAlign = TextAlign.Start,
                 fontSize = 18.sp
             )
@@ -73,9 +73,9 @@ fun OptionInfo(
         }
         Text(
             text = endText,
-            color = AppTheme.astraColors.surface.onSecondary,
             fontSize = 18.sp,
             textAlign = TextAlign.End,
+            color = MaterialTheme.colors.onPrimary,
         )
     }
 }
