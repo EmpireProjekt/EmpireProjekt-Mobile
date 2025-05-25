@@ -3,6 +3,7 @@ package com.makeevrserg.empireprojekt.mobile.features.ui.map
 import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.compose.animation.Crossfade
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,6 +17,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.AstraLoading
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
@@ -27,8 +29,12 @@ fun AndroidMapView() {
     var isLoading by remember {
         mutableStateOf(true)
     }
-    Column {
-        Spacer(Modifier.statusBarsPadding())
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(AppTheme.astraColors.surface.primaryVariant)
+    ) {
+        AstraCenterAlignedTopAppBar(title = "КАРТА")
         AndroidView(
             modifier = Modifier.weight(1f),
             factory = { context ->
