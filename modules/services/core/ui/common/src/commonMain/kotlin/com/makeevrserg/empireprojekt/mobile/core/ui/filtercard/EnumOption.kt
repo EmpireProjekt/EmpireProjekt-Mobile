@@ -11,7 +11,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
+import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 
 @Composable
 fun <E : Enum<E>> FilterCardScope.EnumOption(
@@ -34,6 +36,8 @@ fun <E : Enum<E>> FilterCardScope.EnumOption(
             textAlign = TextAlign.Start,
             modifier = Modifier,
             style = MaterialTheme.typography.subtitle1,
+            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+
         )
         Text(
             text = selected?.let { toString.invoke(it) } ?: "-",
@@ -41,7 +45,8 @@ fun <E : Enum<E>> FilterCardScope.EnumOption(
             textAlign = TextAlign.End,
             modifier = Modifier
                 .weight(1f),
-            style = MaterialTheme.typography.subtitle1
+            style = MaterialTheme.typography.subtitle1,
+            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
         )
     }
 }

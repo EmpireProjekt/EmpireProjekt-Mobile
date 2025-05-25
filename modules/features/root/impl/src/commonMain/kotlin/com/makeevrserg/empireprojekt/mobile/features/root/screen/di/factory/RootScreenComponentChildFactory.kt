@@ -9,6 +9,7 @@ import com.makeevrserg.empireprojekt.mobile.features.root.screen.RootScreenCompo
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.di.TownsModule
 import ru.astrainteractive.klibs.kdi.Factory
 
+@Suppress("LongParameterList")
 class RootScreenComponentChildFactory(
     private val config: RootRouter.Configuration,
     private val childContext: ComponentContext,

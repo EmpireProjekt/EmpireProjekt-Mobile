@@ -25,11 +25,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.rating.RR
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
@@ -70,7 +72,8 @@ internal fun RatingUserWidget(
                     text = name ?: "-",
                     style = MaterialTheme.typography.subtitle2,
                     color = MaterialTheme.colors.onPrimary,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
                 )
 
                 Spacer(Modifier.weight(1f))
@@ -117,14 +120,16 @@ internal fun RatingUserWidget(
                 style = MaterialTheme.typography.subtitle2,
                 color = MaterialTheme.colors.onSecondary,
                 textAlign = TextAlign.Start,
-                modifier = Modifier.padding(horizontal = AppTheme.dimens.S)
+                modifier = Modifier.padding(horizontal = AppTheme.dimens.S),
+                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
             )
             Text(
                 text = message.trim(),
                 style = MaterialTheme.typography.subtitle2,
                 color = MaterialTheme.colors.onPrimary,
                 textAlign = TextAlign.Start,
-                modifier = Modifier.padding(horizontal = AppTheme.dimens.S)
+                modifier = Modifier.padding(horizontal = AppTheme.dimens.S),
+                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
             )
         }
     }

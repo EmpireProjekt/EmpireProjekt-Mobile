@@ -19,12 +19,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
 import kotlinx.datetime.Instant
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
@@ -73,7 +75,8 @@ internal fun TownCard(
                     text = mayor,
                     style = MaterialTheme.typography.h6,
                     color = MaterialTheme.colors.onPrimary,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
                 )
             }
             Text(
@@ -85,20 +88,23 @@ internal fun TownCard(
                     .clip(RoundedCornerShape(AppTheme.dimens.XS))
                     .background(AppTheme.astraColors.astraLogo.astraYellow)
                     .padding(horizontal = AppTheme.dimens.XS)
-                    .padding(vertical = AppTheme.dimens.XXS)
+                    .padding(vertical = AppTheme.dimens.XXS),
+                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
             )
         }
         Text(
             text = townName,
             style = MaterialTheme.typography.h5,
             color = MaterialTheme.colors.onPrimary,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
         )
         if (board.isNotBlank()) {
             Text(
                 text = board,
                 style = MaterialTheme.typography.subtitle1,
                 color = MaterialTheme.colors.onPrimary,
+                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
             )
         }
         OptionInfo(

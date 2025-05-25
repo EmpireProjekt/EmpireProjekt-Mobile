@@ -24,8 +24,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.features.status.url.presentation.UrlStatusComponent
 
 private const val FADE_DURATION = 1200
@@ -75,7 +77,8 @@ internal fun StatusWidget(statusComponent: UrlStatusComponent) {
             Text(
                 text = model.title.asComposableString(),
                 style = MaterialTheme.typography.h6,
-                color = MaterialTheme.colors.onPrimary
+                color = MaterialTheme.colors.onPrimary,
+                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
             )
         }
     }

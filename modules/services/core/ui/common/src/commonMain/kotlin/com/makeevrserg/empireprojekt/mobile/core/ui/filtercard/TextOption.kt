@@ -6,6 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
+import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 
 @Composable
 fun TextOption(
@@ -18,5 +20,6 @@ fun TextOption(
         textAlign = TextAlign.Start,
         modifier = Modifier,
         style = MaterialTheme.typography.subtitle2,
+        fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
     )
 }

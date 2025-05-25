@@ -19,6 +19,7 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.AstraLoading
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 
 object PagingWidget {
@@ -38,7 +39,8 @@ object PagingWidget {
                 text = text,
                 style = MaterialTheme.typography.h6,
                 color = MaterialTheme.colors.onPrimary,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
             )
         }
     }
@@ -64,7 +66,8 @@ object PagingWidget {
                         modifier = Modifier.clickable { onReload.invoke() },
                         style = MaterialTheme.typography.h6,
                         color = AppTheme.astraColors.astraLogo.astraOrange,
-                        textAlign = TextAlign.Center
+                        textAlign = TextAlign.Center,
+                        fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
                     )
                 }
             }

@@ -31,6 +31,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 
 @Suppress("LongMethod")
 @Composable
@@ -66,7 +68,8 @@ fun SearchAppBar(
                     Text(
                         modifier = Modifier.alpha(ContentAlpha.medium),
                         text = hint,
-                        color = MaterialTheme.colors.onPrimary
+                        color = MaterialTheme.colors.onPrimary,
+                        fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
                     )
                 },
                 singleLine = true,

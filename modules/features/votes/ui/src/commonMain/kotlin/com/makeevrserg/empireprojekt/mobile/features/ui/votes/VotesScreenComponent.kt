@@ -24,6 +24,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSection
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSeparator
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 
 @Composable
@@ -50,6 +51,7 @@ fun VotesScreenComponent(
                 color = MaterialTheme.colors.secondaryVariant,
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
+                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
             )
             Text(
                 text = "На этой странице вы можете помочь серверу привлечь новых игроков проголосовав за него на других мониторингах\n" +
@@ -57,7 +59,8 @@ fun VotesScreenComponent(
                     "Просто нажмите на один вариант, а лучше на все.\n" +
                     "В появившемся окне проголосуйте за сервер",
                 style = MaterialTheme.typography.body1,
-                color = MaterialTheme.colors.onSecondary
+                color = MaterialTheme.colors.onSecondary,
+                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
             )
             Spacer(Modifier.height(AppTheme.dimens.XS))
             OptionSection(modifier = Modifier) {

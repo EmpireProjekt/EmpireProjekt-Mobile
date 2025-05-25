@@ -31,6 +31,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSwitch
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.IR
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.components.LinkWidget
@@ -128,13 +129,15 @@ fun InfoScreen(
                     text = IR.strings.info_more_links.asComposableString(),
                     style = MaterialTheme.typography.h5,
                     color = MaterialTheme.colors.onPrimary,
+                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
                 )
                 Text(
                     text = "All this links associated with EmpireProjekt and AstraInteractive. " +
                         "This text specially displayed for google play " +
                         "support which considering this links as advertisement.",
                     style = MaterialTheme.typography.overline,
-                    color = MaterialTheme.colors.onPrimary
+                    color = MaterialTheme.colors.onPrimary,
+                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
                 )
             }
         }

@@ -34,6 +34,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.rating.RR
 import kotlinx.datetime.Instant
@@ -77,7 +78,8 @@ internal fun RatingUserWidget(
                             text = model.minecraftName,
                             style = MaterialTheme.typography.h6,
                             color = MaterialTheme.colors.onPrimary,
-                            textAlign = TextAlign.Center
+                            textAlign = TextAlign.Center,
+                            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
                         )
                         Spacer(Modifier.weight(1f))
                         Icon(
