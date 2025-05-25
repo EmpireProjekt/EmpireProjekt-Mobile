@@ -60,6 +60,9 @@ fun ApplicationContent(
                         },
                         onVotesClick = {
                             rootComponent.rootScreenComponent.push(RootRouter.Configuration.Votes)
+                        },
+                        onWikiClick = {
+                            rootComponent.rootScreenComponent.push(RootRouter.Configuration.VoteUrl("https://astra-interactive.github.io/EmpireNetwork/"))
                         }
                     )
                 },

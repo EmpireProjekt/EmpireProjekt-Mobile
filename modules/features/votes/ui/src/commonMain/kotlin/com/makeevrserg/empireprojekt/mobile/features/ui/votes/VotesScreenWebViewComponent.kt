@@ -1,5 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.votes
 
+import android.annotation.SuppressLint
 import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.compose.animation.Crossfade
@@ -25,6 +26,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.AstraLoading
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.features.ui.votes.components.LoadingWebViewClient
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun VotesScreenWebViewComponent(
     url: String,
@@ -36,20 +38,16 @@ fun VotesScreenWebViewComponent(
             .background(MaterialTheme.colors.primaryVariant)
             .padding(horizontal = AppTheme.dimens.XS),
         topBar = {
-            AstraCenterAlignedTopAppBar(
-                title = "ГОЛОСОВАНИЕ",
-                onBackClicked = onPop
-            )
+            AstraCenterAlignedTopAppBar(onBackClicked = onPop)
         }
-    ) { scaffoldPadding ->
+    ) { _ ->
         var webView: WebView? = remember {
             null
         }
         var isLoading by remember {
             mutableStateOf(true)
         }
-        Column(modifier = Modifier.padding(scaffoldPadding)) {
-            Spacer(Modifier.statusBarsPadding())
+        Column(modifier = Modifier) {
             AndroidView(
                 modifier = Modifier.weight(1f),
                 factory = { context ->

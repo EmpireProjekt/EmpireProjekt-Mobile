@@ -44,6 +44,7 @@ fun InfoScreen(
     onRatingsClick: () -> Unit,
     onVotesClick: () -> Unit,
     onThemeToggle: () -> Unit,
+    onWikiClick: ()-> Unit
 ) {
     val models = remember { InfoScreenLinks.get() }
     LazyColumn(
@@ -93,6 +94,18 @@ fun InfoScreen(
                         ),
                     )
                     OptionSeparator(Modifier.fillMaxWidth())
+                    OptionHref(
+                        text = "WIKI",
+                        onClick = {
+                            onWikiClick.invoke()
+                        },
+                        icon = MR.images.ic_knowledge.asPainter(),
+                        contentPadding = PaddingValues(
+                            horizontal = AppTheme.dimens.XS,
+                            vertical = AppTheme.dimens.XS
+                        ),
+                    )
+                    OptionSeparator(Modifier.fillMaxWidth())
                     OptionSwitch(
                         text = "Темная тема",
                         onCheckChange = {
@@ -118,8 +131,8 @@ fun InfoScreen(
                 )
                 Text(
                     text = "All this links associated with EmpireProjekt and AstraInteractive. " +
-                        "This text specially displayed for google play " +
-                        "support which considering this links as advertisement.",
+                            "This text specially displayed for google play " +
+                            "support which considering this links as advertisement.",
                     style = MaterialTheme.typography.overline,
                     color = MaterialTheme.colors.onPrimary
                 )
@@ -175,7 +188,8 @@ private fun InfoScreenPreview() {
             onRatingsClick = {},
             onTownsClick = {},
             onVotesClick = {},
-            onThemeToggle = {}
+            onThemeToggle = {},
+            onWikiClick = {}
         )
     }
 }
