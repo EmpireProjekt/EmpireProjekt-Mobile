@@ -2,6 +2,7 @@ package com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns
 
 import android.widget.Space
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -23,6 +24,7 @@ import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.presentation.TownsComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownCard
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownFilterCard
+import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownShimmerWidget
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 
 @Suppress("LongMethod")
@@ -88,6 +90,16 @@ fun TownsScreenComponent(
                     isFailure = model.isFailure,
                     onReload = {
                         townsComponent.reset()
+                    },
+                    loader = {
+                        Column(
+                            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
+                            content = {
+                                repeat(times = 8) {
+                                    TownShimmerWidget()
+                                }
+                            }
+                        )
                     }
                 )
             }
