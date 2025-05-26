@@ -32,6 +32,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.rating.RR
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
@@ -113,15 +114,18 @@ internal fun RatingUserWidget(
                         format = "dd.MM.yyyy HH:mm"
                     )
                 },
-                modifier = Modifier.fillMaxWidth().padding(horizontal = AppTheme.dimens.S)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = AppTheme.dimens.S),
+                icon = MR.images.ic_calendar_today.asPainter()
             )
-            Text(
+            OptionInfo(
                 text = RR.strings.rating_player_message.asComposableString(),
-                style = MaterialTheme.typography.subtitle2,
-                color = MaterialTheme.colors.onSecondary,
-                textAlign = TextAlign.Start,
-                modifier = Modifier.padding(horizontal = AppTheme.dimens.S),
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                endText = "",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = AppTheme.dimens.S),
+                icon = MR.images.ic_history_edu.asPainter()
             )
             Text(
                 text = message.trim(),
