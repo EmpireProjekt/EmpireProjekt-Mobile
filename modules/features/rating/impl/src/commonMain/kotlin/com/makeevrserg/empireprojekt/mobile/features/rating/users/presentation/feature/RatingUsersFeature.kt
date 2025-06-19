@@ -7,12 +7,14 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import ru.astrainteractive.empireapi.models.rating.RatingsFilterModel
 import ru.astrainteractive.klibs.mikro.core.dispatchers.KotlinDispatchers
 import ru.astrainteractive.klibs.mikro.extensions.arkivanov.CoroutineFeature
-import ru.astrainteractive.klibs.paging.IntPagerCollector
-import ru.astrainteractive.klibs.paging.PagingCollectorExt.resetAndLoadNextPage
-import ru.astrainteractive.klibs.paging.data.CoroutineHandledPagedListDataSource
+import ru.astrainteractive.klibs.paging.collector.IntPagerCollector
+import ru.astrainteractive.klibs.paging.data.PagedListDataSource
+import ru.astrainteractive.klibs.paging.util.loadNextPage
+import ru.astrainteractive.klibs.paging.util.resetAndLoadNextPage
 import kotlin.time.Duration.Companion.milliseconds
 
 internal class RatingUsersFeature(
@@ -24,11 +26,15 @@ internal class RatingUsersFeature(
 
     private val pagingCollector = IntPagerCollector(
         initialPage = 0,
-        pager = CoroutineHandledPagedListDataSource { pagingState ->
-            ratingUsersRepository.fetchUsers(
-                page = pagingState.pageContext.page,
-                filterModel = filterProvider.filterStateFlow.value
-            ).getOrThrow().data
+        pager = PagedListDataSource { pagingState ->
+            withContext(dispatchers.IO) {
+                runCatching {
+                    ratingUsersRepository.fetchUsers(
+                        page = pagingState.pageContext.page,
+                        filterModel = filterProvider.filterStateFlow.value
+                    ).getOrThrow().data
+                }
+            }
         },
     )
 
@@ -47,8 +53,7 @@ internal class RatingUsersFeature(
             .debounce(300.milliseconds)
             .flowOn(dispatchers.IO)
             .onEach {
-                pagingCollector.resetAndJoin()
-                pagingCollector.loadNextPage()
+                pagingCollector.resetAndLoadNextPage()
             }.launchIn(this)
     }
 

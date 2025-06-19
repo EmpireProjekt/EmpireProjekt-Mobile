@@ -5,7 +5,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import ru.astrainteractive.empireapi.models.rating.RatingsFilterModel
-import ru.astrainteractive.klibs.kstorage.util.KrateExt.update
 import ru.astrainteractive.klibs.mikro.extensions.arkivanov.CoroutineFeature
 
 internal class FilterFeature(

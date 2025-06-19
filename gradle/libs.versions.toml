@@ -1,39 +1,39 @@
 [versions]
 # Kotlin
-kotlin-version = "2.1.10"
-kotlin-coroutines = "1.10.1"
+kotlin-version = "2.1.21"
+kotlin-coroutines = "1.10.2"
 kotlin-android-application = "8.8.2"
-kotlin-serialization-json = "1.8.0"
+kotlin-serialization-json = "1.8.1"
 
 # Androidx
-androidx-compose-bom = "2025.02.00"
+androidx-compose-bom = "2025.06.00"
 androidx-activity-compose = "1.10.1"
-android-work = "2.10.0"
+android-work = "2.10.1"
 leakcanary = "2.14"
-horologist = "0.6.22"
+horologist = "0.6.23"
 compose-wear = "1.4.1"
 
 # Google
-google-coroutinesPlayServices = "1.10.1"
+google-coroutinesPlayServices = "1.10.2"
 google-auth = "21.3.0"
-google-crashlytics = "3.0.3"
+google-crashlytics = "3.0.4"
 google-services = "4.4.2"
 google-accompanist = "0.36.1-SNAPSHOT"
-google-firebase-bom = "33.10.0"
+google-firebase-bom = "33.15.0"
 
 # Testw
 tests-assertk = "0.28.1"
-tests-turbine = "1.2.0"
+tests-turbine = "1.2.1"
 
 # Other
 ktor = "3.1.1"
 
 # klibs
-klibs-mikro = "1.8.15"
-klibs-kstorage = "3.2.6"
+klibs-mikro = "1.11.0"
+klibs-kstorage = "4.2.0"
 klibs-kdi = "1.4.8"
 klibs-gradleplugin = "1.5.1"
-klibs-paging = "2.3.5"
+klibs-paging = "2.6.0"
 
 # Compose
 kotlin-compose = "1.8.0+dev2049" # https://github.com/JetBrains/compose-multiplatform
@@ -53,7 +53,7 @@ mppsettings = "1.3.0"
 
 # wear
 wear-glance-tiles = "1.0.0-alpha05"
-wear-tiles = "1.4.1"
+wear-tiles = "1.5.0"
 wear-complications = "1.2.1"
 
 composables = "1.28.0" # https://github.com/composablehorizons/compose-unstyled
@@ -89,7 +89,7 @@ decompose-compose = { module = "com.arkivanov.decompose:extensions-compose", ver
 essenty = { module = "com.arkivanov.essenty:lifecycle", version.ref = "essenty" }
 
 # Kotlin
-kotlin-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.strictly = "0.6.1" }
+kotlin-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.strictly = "0.6.2" }
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
 kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
 kotlin-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlin-coroutines" }
