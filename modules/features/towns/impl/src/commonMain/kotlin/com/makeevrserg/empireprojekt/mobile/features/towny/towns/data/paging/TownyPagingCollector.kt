@@ -9,7 +9,6 @@ import ru.astrainteractive.klibs.paging.state.PagingState
 
 internal class TownyPagingCollector<T>(
     private val initialPage: Int = 0,
-    private val pageSize: Int = 10,
     private val pager: PagedListDataSource<T, TownyPageContext>,
     private val initialFilterFactory: () -> TownsFilterModel
 ) : PagingCollector<T, TownyPageContext> by DefaultPagingCollector(

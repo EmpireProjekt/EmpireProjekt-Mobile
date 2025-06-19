@@ -39,6 +39,7 @@ import com.makeevrserg.empireprojekt.mobile.features.ui.info.components.LinkWidg
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.data.InfoScreenLinks
 import com.makeevrserg.empireprojekt.mobile.services.core.LinkBrowser
 
+@Suppress("LongMethod")
 @Composable
 fun InfoScreen(
     linkBrowser: LinkBrowser,

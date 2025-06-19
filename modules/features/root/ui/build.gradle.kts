@@ -58,6 +58,8 @@ kotlin {
                 implementation(projects.modules.features.votes.ui)
                 implementation(projects.modules.features.tabs.impl)
                 implementation(projects.modules.features.tabs.ui)
+                implementation(projects.modules.features.webview.impl)
+                implementation(projects.modules.features.webview.ui)
             }
         }
         val androidMain by getting {

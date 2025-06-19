@@ -19,9 +19,10 @@ import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.RatingUsers
 import com.makeevrserg.empireprojekt.mobile.features.ui.splash.SplashScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.TownsScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.votes.VotesScreenComponent
-import com.makeevrserg.empireprojekt.mobile.features.ui.votes.VotesScreenWebViewComponent
+import com.makeevrserg.empireprojekt.mobile.features.webview.map.AndroidWebView
 import com.makeevrserg.empireprojekt.mobile.services.core.LinkBrowser
 
+@Suppress("LongMethod")
 @Composable
 fun ApplicationContent(
     rootComponent: RootComponent,
@@ -63,7 +64,7 @@ fun ApplicationContent(
                         },
                         onWikiClick = {
                             rootComponent.rootScreenComponent.push(
-                                RootRouter.Configuration.VoteUrl("https://astra-interactive.github.io/EmpireNetwork/")
+                                RootRouter.Configuration.WebView("https://astra-interactive.github.io/EmpireNetwork/")
                             )
                         }
                     )
@@ -86,13 +87,12 @@ fun ApplicationContent(
             DefaultRootScreenComponent.Configuration.Votes -> VotesScreenComponent(
                 onPop = rootComponent.rootScreenComponent::pop,
                 onClick = { url ->
-                    rootComponent.rootScreenComponent.push(RootRouter.Configuration.VoteUrl(url))
+                    rootComponent.rootScreenComponent.push(RootRouter.Configuration.WebView(url))
                 }
             )
 
-            is DefaultRootScreenComponent.Configuration.VoteUrl -> VotesScreenWebViewComponent(
-                url = screen.url,
-                onPop = rootComponent.rootScreenComponent::pop
+            is DefaultRootScreenComponent.Configuration.WebView -> AndroidWebView(
+                webViewDecomposeComponent = screen.webViewDecomposeComponent
             )
         }
     }

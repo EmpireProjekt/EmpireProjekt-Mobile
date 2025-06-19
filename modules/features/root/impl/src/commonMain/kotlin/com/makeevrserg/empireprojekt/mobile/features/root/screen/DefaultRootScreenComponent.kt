@@ -5,7 +5,6 @@ import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.router.stack.StackNavigation
 import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.pop
-import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.router.stack.pushNew
 import com.arkivanov.decompose.router.stack.replaceAll
 import com.arkivanov.decompose.router.stack.replaceCurrent
@@ -18,6 +17,7 @@ import com.makeevrserg.empireprojekt.mobile.features.root.pager.PagerComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.di.factory.RootScreenComponentChildFactory
 import com.makeevrserg.empireprojekt.mobile.features.splash.presentation.SplashComponent
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.presentation.TownsComponent
+import com.makeevrserg.empireprojekt.mobile.features.webview.WebViewDecomposeComponent
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 import kotlinx.serialization.serializer
 
@@ -43,7 +43,8 @@ class DefaultRootScreenComponent(
                 townsModule = rootModule.townsModule,
                 onRootNavigation = { configuration ->
                     push(configuration)
-                }
+                },
+                onPop = { pop() }
             ).create()
         }
     )
@@ -93,6 +94,8 @@ class DefaultRootScreenComponent(
         ) : Configuration
 
         data object Votes : Configuration
-        data class VoteUrl(val url: String) : Configuration
+        data class WebView(
+            val webViewDecomposeComponent: WebViewDecomposeComponent
+        ) : Configuration
     }
 }

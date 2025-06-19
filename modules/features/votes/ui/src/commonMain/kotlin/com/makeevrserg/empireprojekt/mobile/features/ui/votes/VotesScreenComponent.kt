@@ -26,15 +26,9 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
-import dev.icerock.moko.resources.ImageResource
+import com.makeevrserg.empireprojekt.mobile.features.ui.votes.model.VoteUrl
 
-data class VoteUrl(
-    val name: String,
-    val url: String,
-    val hasPrize: Boolean,
-    val image: ImageResource
-)
-
+@Suppress("LongMethod", "MaximumLineLength", "MaxLineLength")
 @Composable
 fun VotesScreenComponent(
     onPop: () -> Unit,
@@ -61,7 +55,7 @@ fun VotesScreenComponent(
         ),
         VoteUrl(
             name = "ExploreSmp",
-            url = "httpsc://minecraftrating.ru/vote/293843/",
+            url = "https://minecraftrating.ru/vote/293843/",
             hasPrize = false,
             image = MR.images.ic_minecraftrating
         ),
@@ -79,19 +73,19 @@ fun VotesScreenComponent(
         ),
         VoteUrl(
             name = "FrontierSurvival",
-            url = "https://hotmc.ru/minecraft-server-200387/",
+            url = "https://hotmc.ru/minecraft-server-200387",
             hasPrize = true,
             image = MR.images.ic_hotmc
         ),
         VoteUrl(
             name = "WildernessSmp",
-            url = "https://hotmc.ru/minecraft-server-258775/",
+            url = "https://hotmc.ru/minecraft-server-258775",
             hasPrize = true,
             image = MR.images.ic_hotmc
         ),
         VoteUrl(
             name = "EndureCraft",
-            url = "https://hotmc.ru/minecraft-server-258776/",
+            url = "https://hotmc.ru/minecraft-server-258776",
             hasPrize = true,
             image = MR.images.ic_hotmc
         ),
@@ -122,7 +116,9 @@ fun VotesScreenComponent(
                     "Просто нажмите на один вариант, а лучше на все.\n",
                 style = MaterialTheme.typography.body1,
                 color = MaterialTheme.colors.onSecondary,
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily(),
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth()
             )
             Spacer(Modifier.height(AppTheme.dimens.XS))
             voteUrls.groupBy { it.hasPrize }
@@ -133,7 +129,9 @@ fun VotesScreenComponent(
                             text = "При голосовании за эти сервера вы получите награду!",
                             style = MaterialTheme.typography.body1,
                             color = MaterialTheme.colors.onSecondary,
-                            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily(),
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.fillMaxWidth()
                         )
                         Spacer(Modifier.height(AppTheme.dimens.XS))
                     }

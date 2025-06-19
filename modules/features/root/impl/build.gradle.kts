@@ -49,6 +49,7 @@ kotlin {
                 implementation(projects.modules.features.towns.api)
                 implementation(projects.modules.features.towns.impl)
                 implementation(projects.modules.features.tabs.impl)
+                implementation(projects.modules.features.webview.impl)
             }
         }
         val androidMain by getting {

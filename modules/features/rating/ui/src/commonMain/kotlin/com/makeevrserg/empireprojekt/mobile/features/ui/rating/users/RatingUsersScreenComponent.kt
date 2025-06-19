@@ -23,6 +23,7 @@ import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components.
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 import kotlinx.coroutines.Dispatchers
 
+@Suppress("LongMethod")
 @Composable
 fun RatingUsersScreenComponent(
     popComponent: PopComponent,

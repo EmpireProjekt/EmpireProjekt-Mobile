@@ -26,7 +26,7 @@ interface RootRouter : PopComponent {
         data object Votes : Configuration
 
         @Serializable
-        data class VoteUrl(val url: String) : Configuration
+        data class WebView(val url: String) : Configuration
 
         @Serializable
         class RatingUser(val userId: Long, val userName: String) : Configuration

@@ -7,6 +7,7 @@ import com.makeevrserg.empireprojekt.mobile.features.root.screen.DefaultRootScre
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.RootRouter
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.RootScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.di.TownsModule
+import com.makeevrserg.empireprojekt.mobile.features.webview.WebViewDecomposeComponent
 import ru.astrainteractive.klibs.kdi.Factory
 
 @Suppress("LongParameterList")
@@ -17,7 +18,8 @@ class RootScreenComponentChildFactory(
     private val instance: RootScreenComponent,
     private val ratingUsersModule: RatingUsersModule,
     private val townsModule: TownsModule,
-    private val onRootNavigation: (RootRouter.Configuration) -> Unit
+    private val onRootNavigation: (RootRouter.Configuration) -> Unit,
+    private val onPop: () -> Unit,
 ) : Factory<DefaultRootScreenComponent.Configuration> {
     override fun create(): DefaultRootScreenComponent.Configuration {
         return when (config) {
@@ -67,8 +69,12 @@ class RootScreenComponentChildFactory(
             )
 
             RootRouter.Configuration.Votes -> DefaultRootScreenComponent.Configuration.Votes
-            is RootRouter.Configuration.VoteUrl -> DefaultRootScreenComponent.Configuration.VoteUrl(
-                url = config.url
+            is RootRouter.Configuration.WebView -> DefaultRootScreenComponent.Configuration.WebView(
+                webViewDecomposeComponent = WebViewDecomposeComponent(
+                    componentContext = childContext,
+                    url = config.url,
+                    onPop = onPop
+                )
             )
         }
     }
