@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -120,7 +119,7 @@ fun VotesScreenComponent(
             )
             Text(
                 text = "На этой странице вы можете помочь серверу привлечь новых игроков проголосовав за него на других мониторингах\n" +
-                        "Просто нажмите на один вариант, а лучше на все.\n",
+                    "Просто нажмите на один вариант, а лучше на все.\n",
                 style = MaterialTheme.typography.body1,
                 color = MaterialTheme.colors.onSecondary,
                 fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()

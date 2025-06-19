@@ -8,7 +8,6 @@ import kotlinx.coroutines.withContext
 import ru.astrainteractive.empireapi.models.towny.TownsFilterModel
 import ru.astrainteractive.klibs.mikro.core.dispatchers.KotlinDispatchers
 import ru.astrainteractive.klibs.paging.data.PagedListDataSource
-import ru.astrainteractive.klibs.paging.util.loadNextPage
 import ru.astrainteractive.klibs.paging.util.resetAndLoadNextPage
 
 internal class TownsRepositoryImpl(
@@ -24,15 +23,15 @@ internal class TownsRepositoryImpl(
     override val pagingCollector = TownyPagingCollector(
         initialPage = 0,
         pager = PagedListDataSource { pagingState ->
-             withContext(dispatchers.IO) {
-                 runCatching {
-                     townyApi.towns(
-                         page = pagingState.pageContext.page,
-                         size = 10,
-                         filter = pagingState.pageContext.filter
-                     ).data
-                 }
-             }
+            withContext(dispatchers.IO) {
+                runCatching {
+                    townyApi.towns(
+                        page = pagingState.pageContext.page,
+                        size = 10,
+                        filter = pagingState.pageContext.filter
+                    ).data
+                }
+            }
         },
         initialFilterFactory = { townsFilterStorageValue.cachedValue }
     )
