@@ -63,17 +63,17 @@ fun InfoScreen(
             item {
                 OptionSection(modifier = Modifier) {
                     Column {
-                        OptionHref(
-                            text = "Towns",
-                            onClick = {
-                                onTownsClick.invoke()
-                            },
-                            icon = MR.images.ic_town.asPainter(),
-                            contentPadding = PaddingValues(
-                                horizontal = AppTheme.dimens.XS,
-                                vertical = AppTheme.dimens.XS
-                            ),
-                        )
+//                        OptionHref(
+//                            text = "Towns",
+//                            onClick = {
+//                                onTownsClick.invoke()
+//                            },
+//                            icon = MR.images.ic_town.asPainter(),
+//                            contentPadding = PaddingValues(
+//                                horizontal = AppTheme.dimens.XS,
+//                                vertical = AppTheme.dimens.XS
+//                            ),
+//                        )
                         OptionSeparator(Modifier.fillMaxWidth())
                         OptionHref(
                             text = "Ratings",
