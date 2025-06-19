@@ -26,11 +26,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.ui.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.PlayerHeadBox
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.RowText
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
+import com.makeevrserg.empireprojekt.mobile.rating.RR
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
@@ -70,7 +73,8 @@ internal fun RatingUserWidget(
                     text = name ?: "-",
                     style = MaterialTheme.typography.subtitle2,
                     color = MaterialTheme.colors.onPrimary,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
                 )
 
                 Spacer(Modifier.weight(1f))
@@ -79,7 +83,7 @@ internal fun RatingUserWidget(
                         Icon(
                             imageVector = Icons.Filled.ThumbUp,
                             contentDescription = null,
-                            tint = AppTheme.customColors.colorPositive,
+                            tint = AppTheme.astraColors.action.colorPositive,
                             modifier = Modifier.size(AppTheme.dimens.M)
                         )
                     }
@@ -88,7 +92,7 @@ internal fun RatingUserWidget(
                         Icon(
                             imageVector = Icons.Filled.ThumbDown,
                             contentDescription = null,
-                            tint = AppTheme.customColors.colorNegative,
+                            tint = AppTheme.astraColors.action.colorNegative,
                             modifier = Modifier.size(AppTheme.dimens.M)
                         )
                     }
@@ -102,29 +106,34 @@ internal fun RatingUserWidget(
                     .background(MaterialTheme.colors.onSecondary)
             )
             Spacer(Modifier.height(AppTheme.dimens.XS))
-            RowText(
-                title = MR.strings.rating_last_updated.asComposableString(),
-                desc = remember {
+            OptionInfo(
+                text = RR.strings.rating_last_updated.asComposableString(),
+                endText = remember {
                     timeFormatter.format(
                         instant = Instant.fromEpochMilliseconds(time),
                         format = "dd.MM.yyyy HH:mm"
                     )
                 },
-                modifier = Modifier.fillMaxWidth().padding(horizontal = AppTheme.dimens.S)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = AppTheme.dimens.S),
+                icon = MR.images.ic_calendar_today.asPainter()
             )
-            Text(
-                text = MR.strings.rating_player_message.asComposableString(),
-                style = MaterialTheme.typography.subtitle2,
-                color = MaterialTheme.colors.onSecondary,
-                textAlign = TextAlign.Start,
-                modifier = Modifier.padding(horizontal = AppTheme.dimens.S)
+            OptionInfo(
+                text = RR.strings.rating_player_message.asComposableString(),
+                endText = "",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = AppTheme.dimens.S),
+                icon = MR.images.ic_history_edu.asPainter()
             )
             Text(
                 text = message.trim(),
                 style = MaterialTheme.typography.subtitle2,
                 color = MaterialTheme.colors.onPrimary,
                 textAlign = TextAlign.Start,
-                modifier = Modifier.padding(horizontal = AppTheme.dimens.S)
+                modifier = Modifier.padding(horizontal = AppTheme.dimens.S),
+                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
             )
         }
     }

@@ -19,7 +19,7 @@ kotlin {
                 // Coroutines
                 implementation(libs.kotlin.coroutines.core)
                 implementation(libs.decompose.core)
-                implementation(projects.modules.services.apiEmpireapi)
+                implementation(projects.modules.services.data.empireapi)
             }
         }
     }

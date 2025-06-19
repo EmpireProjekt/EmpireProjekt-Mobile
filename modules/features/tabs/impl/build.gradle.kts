@@ -27,7 +27,7 @@ kotlin {
                 // Decompose
                 implementation(libs.decompose.core)
                 // Local
-                implementation(projects.modules.services.core)
+                implementation(projects.modules.services.core.common)
                 implementation(projects.modules.features.root.api)
                 implementation(projects.modules.features.towns.api)
                 implementation(projects.modules.features.rating.api)

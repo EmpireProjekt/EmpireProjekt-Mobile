@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">ESMP</string>
+    <string name="shared.filter">Фильтр</string>
+    <string name="shared.warn_multiple_filter">Это множестванная фильтрация! Список будет отсортирован по всем выбранным полям!</string>
+    <!--    Paging      -->
+    <string name="paging_last_page">Ничего больше нет</string>
+    <string name="paging_no_pages">Тут ничего нет</string>
+    <string name="paging_network_error">Ошибка соединения</string>
+    <string name="paging_reload">Перезагрузить</string>
+</resources>

@@ -9,6 +9,9 @@ import kotlinx.coroutines.flow.StateFlow
 import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
 import ru.astrainteractive.klibs.mikro.core.util.combineStates
 import ru.astrainteractive.klibs.mikro.core.util.next
+import ru.astrainteractive.klibs.paging.state.isFailure
+import ru.astrainteractive.klibs.paging.state.isLastPage
+import ru.astrainteractive.klibs.paging.state.isLoading
 
 internal class DefaultRatingUsersComponent(
     componentContext: ComponentContext,
@@ -30,9 +33,9 @@ internal class DefaultRatingUsersComponent(
             Model(
                 items = pagingState.items,
                 filter = filter,
-                isLoading = pagingState.isLoading,
-                isFailure = pagingState.isFailure,
-                isLastPage = pagingState.isLastPage
+                isLoading = pagingState.pageResult.isLoading,
+                isFailure = pagingState.pageResult.isFailure,
+                isLastPage = pagingState.pageResult.isLastPage
             )
         }
     )

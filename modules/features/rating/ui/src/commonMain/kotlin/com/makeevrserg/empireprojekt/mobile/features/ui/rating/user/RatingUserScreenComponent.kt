@@ -1,7 +1,8 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.rating.user
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -11,12 +12,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.OnEndReached
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.PagingWidget
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.topbar.AstraCenterAlignedTopAppBar
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.OnEndReached
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingWidget
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.presentation.RatingUserComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.components.RatingUserWidget
+import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components.RatingUserShimmerWidget
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 
 @Composable
@@ -43,8 +46,7 @@ fun RatingUserScreenComponent(
         LazyColumn(
             contentPadding = it,
             modifier = Modifier
-                .padding(horizontal = AppTheme.dimens.XS)
-                .navigationBarsPadding(),
+                .padding(horizontal = AppTheme.dimens.XS),
             verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
             state = lazyListState
         ) {
@@ -65,9 +67,20 @@ fun RatingUserScreenComponent(
                     isFailure = model.isFailure,
                     onReload = {
                         ratingUserComponent.reset()
+                    },
+                    loader = {
+                        Column(
+                            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
+                            content = {
+                                repeat(times = 8) {
+                                    RatingUserShimmerWidget()
+                                }
+                            }
+                        )
                     }
                 )
             }
+            item { Spacer(Modifier.navBarsPadding()) }
         }
     }
 }

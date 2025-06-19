@@ -37,11 +37,17 @@ instances/androidApp/build
 instances/androidApp/keystore.jks
 instances/androidApp/google-services.json
 # Services
-modules/services/api-empireapi/build
-modules/services/build-konfig/build
+modules/services/data/empireapi/build
+modules/services/core/build-konfig/build
 modules/services/core/build
-modules/services/core-resources/build
-modules/services/core-ui/build
+modules/services/core/resources/build
+modules/services/core/ui/build
+modules/services/core/ui/common/build
+modules/services/core/ui/theme/build
+modules/services/core/ui/sheet/build
+modules/services/core/ui/option/build
+modules/services/core/ui/dialog/build
+modules/services/core/common/build
 modules/services/wear-messenger/api/build
 modules/services/wear-messenger/ping-wear/build
 modules/services/wear-messenger/common/build
@@ -67,3 +73,7 @@ modules/features/towns/impl/build
 modules/features/towns/ui/build
 modules/features/tabs/impl/build
 modules/features/tabs/ui/build
+modules/features/votes/ui/build
+modules/features/webview/ui/build
+modules/features/webview/api/build
+modules/features/webview/impl/build

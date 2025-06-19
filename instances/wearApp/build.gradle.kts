@@ -6,13 +6,19 @@ import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValu
 import ru.astrainteractive.gradleplugin.util.Base64Util
 
 plugins {
+    kotlin("multiplatform")
     kotlin("plugin.serialization")
     id("com.android.application")
-    id("kotlin-android")
     id("ru.astrainteractive.gradleplugin.java.core")
     id("ru.astrainteractive.gradleplugin.android.core")
     alias(libs.plugins.kotlin.compose.gradle)
     id("ru.astrainteractive.gradleplugin.android.apk.name")
+    id("dev.icerock.mobile.multiplatform-resources")
+}
+
+kotlin {
+    androidTarget()
+    applyDefaultHierarchyTemplate()
 }
 
 android {
@@ -136,10 +142,18 @@ dependencies {
     implementation(projects.modules.features.theme.ui)
     implementation(projects.modules.features.status.api)
     implementation(projects.modules.features.status.impl)
-    implementation(projects.modules.services.coreUi)
-    implementation(projects.modules.services.coreResources)
+    implementation(projects.modules.services.core.ui.common)
+    implementation(projects.modules.services.core.ui.dialog)
+    implementation(projects.modules.services.core.ui.sheet)
+    implementation(projects.modules.services.core.ui.theme)
+    implementation(projects.modules.services.core.resources)
     implementation(projects.modules.services.wearMessenger.api)
     implementation(projects.modules.services.wearMessenger.pingWear)
     implementation(projects.modules.services.wearMessenger.common)
-    implementation(projects.modules.services.core)
+    implementation(projects.modules.services.core.common)
+}
+
+multiplatformResources {
+    resourcesPackage.set("${requireProjectInfo.group}.wearapp")
+    resourcesClassName.set("WR")
 }

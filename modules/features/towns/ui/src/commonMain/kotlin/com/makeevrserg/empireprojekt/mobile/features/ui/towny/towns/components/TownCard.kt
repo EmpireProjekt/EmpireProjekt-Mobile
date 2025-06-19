@@ -20,12 +20,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.ui.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.PlayerHeadBox
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.RowText
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
+import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
 import kotlinx.datetime.Instant
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
@@ -73,7 +75,8 @@ internal fun TownCard(
                     text = mayor,
                     style = MaterialTheme.typography.h6,
                     color = MaterialTheme.colors.onPrimary,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
                 )
             }
             Text(
@@ -83,52 +86,55 @@ internal fun TownCard(
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .clip(RoundedCornerShape(AppTheme.dimens.XS))
-                    .background(AppTheme.customColors.astraYellow)
+                    .background(AppTheme.astraColors.astraLogo.astraYellow)
                     .padding(horizontal = AppTheme.dimens.XS)
-                    .padding(vertical = AppTheme.dimens.XXS)
+                    .padding(vertical = AppTheme.dimens.XXS),
+                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
             )
         }
         Text(
             text = townName,
             style = MaterialTheme.typography.h5,
             color = MaterialTheme.colors.onPrimary,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
         )
         if (board.isNotBlank()) {
             Text(
                 text = board,
                 style = MaterialTheme.typography.subtitle1,
                 color = MaterialTheme.colors.onPrimary,
+                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
             )
         }
-        RowText(
-            title = MR.strings.towns_town_card_tag.asComposableString(),
-            desc = tag,
+        OptionInfo(
+            text = TR.strings.towns_town_card_tag.asComposableString(),
+            endText = tag,
             modifier = Modifier.fillMaxWidth()
         )
-        RowText(
-            title = MR.strings.towns_town_card_founder.asComposableString(),
-            desc = founder,
+        OptionInfo(
+            text = TR.strings.towns_town_card_founder.asComposableString(),
+            endText = founder,
             modifier = Modifier.fillMaxWidth()
         )
         if (nation.isNotBlank()) {
-            RowText(
-                title = MR.strings.towns_town_card_nation.asComposableString(),
-                desc = nation,
+            OptionInfo(
+                text = TR.strings.towns_town_card_nation.asComposableString(),
+                endText = nation,
                 modifier = Modifier.fillMaxWidth()
             )
         }
         if (outlawsAmount > 0) {
-            RowText(
-                title = MR.strings.towns_town_card_outlaw_count.asComposableString(),
-                desc = outlawsAmount.toString(),
+            OptionInfo(
+                text = TR.strings.towns_town_card_outlaw_count.asComposableString(),
+                endText = outlawsAmount.toString(),
                 modifier = Modifier.fillMaxWidth()
             )
         }
 
-        RowText(
-            title = MR.strings.towns_town_card_registered.asComposableString(),
-            desc = remember {
+        OptionInfo(
+            text = TR.strings.towns_town_card_registered.asComposableString(),
+            endText = remember {
                 timeFormatter.format(
                     instant = Instant.fromEpochMilliseconds(registered),
                     format = "dd.MM.yyyy"
@@ -136,15 +142,15 @@ internal fun TownCard(
             },
             modifier = Modifier.fillMaxWidth()
         )
-        RowText(
-            title = MR.strings.towns_town_card_entrance.asComposableString(),
-            desc = when (isOpen) {
-                true -> MR.strings.towns_town_card_entrance_public.asComposableString()
-                false -> MR.strings.towns_town_card_entrance_private.asComposableString()
+        OptionInfo(
+            text = TR.strings.towns_town_card_entrance.asComposableString(),
+            endText = when (isOpen) {
+                true -> TR.strings.towns_town_card_entrance_public.asComposableString()
+                false -> TR.strings.towns_town_card_entrance_private.asComposableString()
             },
-            descColor = when (isOpen) {
-                true -> AppTheme.customColors.colorPositive
-                false -> AppTheme.customColors.colorNegative
+            iconTint = when (isOpen) {
+                true -> AppTheme.astraColors.action.colorPositive
+                false -> AppTheme.astraColors.action.colorNegative
             },
             modifier = Modifier.fillMaxWidth()
         )

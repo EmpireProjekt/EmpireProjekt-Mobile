@@ -11,5 +11,9 @@ internal data class TownyPageContext(
         override fun next(pageContext: TownyPageContext): TownyPageContext {
             return pageContext.copy(page = pageContext.page + 1)
         }
+
+        override fun prev(pageContext: TownyPageContext): TownyPageContext {
+            return pageContext.copy(page = pageContext.page - 1)
+        }
     }
 }

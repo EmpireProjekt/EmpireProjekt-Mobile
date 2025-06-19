@@ -8,6 +8,7 @@ plugins {
     id("ru.astrainteractive.gradleplugin.java.core")
     id("ru.astrainteractive.gradleplugin.android.core")
     alias(libs.plugins.kotlin.serialization)
+    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 kotlin {
@@ -34,7 +35,7 @@ kotlin {
                 // Ktor
                 implementation(libs.ktor.client.core)
                 // Local
-                implementation(projects.modules.services.core)
+                implementation(projects.modules.services.core.common)
                 implementation(projects.modules.features.status.api)
             }
         }
@@ -51,4 +52,9 @@ kotlin {
 }
 android {
     namespace = "${requireProjectInfo.group}.status"
+}
+
+multiplatformResources {
+    resourcesPackage.set("${requireProjectInfo.group}.status")
+    resourcesClassName.set("SR")
 }

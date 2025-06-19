@@ -5,7 +5,11 @@ import kotlinx.coroutines.launch
 import ru.astrainteractive.empireapi.models.towny.TownsFilterModel
 import ru.astrainteractive.klibs.mikro.core.util.mapStateFlow
 import ru.astrainteractive.klibs.mikro.extensions.arkivanov.CoroutineFeature
-import ru.astrainteractive.klibs.paging.PagingCollectorExt.resetAndLoadNextPage
+import ru.astrainteractive.klibs.paging.state.isFailure
+import ru.astrainteractive.klibs.paging.state.isLastPage
+import ru.astrainteractive.klibs.paging.state.isLoading
+import ru.astrainteractive.klibs.paging.util.loadNextPage
+import ru.astrainteractive.klibs.paging.util.resetAndLoadNextPage
 
 internal class TownsFeature(
     dependencies: TownsDependencies
@@ -27,9 +31,9 @@ internal class TownsFeature(
     val model = townsRepository.pagingCollector.state.mapStateFlow {
         TownsComponent.Model(
             items = it.items,
-            isLoading = it.isLoading,
-            isFailure = it.isFailure,
-            isLastPage = it.isLastPage,
+            isLoading = it.pageResult.isLoading,
+            isFailure = it.pageResult.isFailure,
+            isLastPage = it.pageResult.isLastPage,
             filter = it.pageContext.filter
         )
     }

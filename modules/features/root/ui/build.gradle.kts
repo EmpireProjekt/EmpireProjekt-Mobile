@@ -30,10 +30,13 @@ kotlin {
                 implementation(libs.decompose.core)
                 implementation(libs.decompose.compose)
                 // Local
-                implementation(projects.modules.services.coreResources)
-                implementation(projects.modules.services.buildKonfig)
-                implementation(projects.modules.services.coreUi)
-                implementation(projects.modules.services.core)
+                implementation(projects.modules.services.core.resources)
+                implementation(projects.modules.services.core.buildKonfig)
+                implementation(projects.modules.services.core.ui.common)
+                implementation(projects.modules.services.core.ui.dialog)
+                implementation(projects.modules.services.core.ui.sheet)
+                implementation(projects.modules.services.core.ui.theme)
+                implementation(projects.modules.services.core.common)
                 implementation(projects.modules.features.root.api)
                 implementation(projects.modules.features.root.impl)
                 implementation(projects.modules.features.rating.api)
@@ -52,8 +55,11 @@ kotlin {
                 implementation(projects.modules.features.towns.ui)
                 implementation(projects.modules.features.info.ui)
                 implementation(projects.modules.features.map.ui)
+                implementation(projects.modules.features.votes.ui)
                 implementation(projects.modules.features.tabs.impl)
                 implementation(projects.modules.features.tabs.ui)
+                implementation(projects.modules.features.webview.impl)
+                implementation(projects.modules.features.webview.ui)
             }
         }
         val androidMain by getting {

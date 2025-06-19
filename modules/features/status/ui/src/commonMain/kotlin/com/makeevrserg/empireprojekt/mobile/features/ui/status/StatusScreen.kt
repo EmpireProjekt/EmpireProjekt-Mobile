@@ -19,13 +19,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.ui.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.topbar.AstraCenterAlignedTopAppBar
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.features.root.modal.RootBottomSheetRouter
 import com.makeevrserg.empireprojekt.mobile.features.status.root.presentation.RootStatusComponent
 import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.ThemeSwitcherComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.status.widget.StatusWidget
+import com.makeevrserg.empireprojekt.mobile.status.SR
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -37,7 +39,7 @@ fun StatusScreen(
     Scaffold(
         modifier = Modifier,
         topBar = {
-            AstraCenterAlignedTopAppBar(title = MR.strings.status_title.asComposableString()) {
+            AstraCenterAlignedTopAppBar(title = SR.strings.status_title.asComposableString()) {
                 Icon(
                     imageVector = Icons.Filled.WbSunny,
                     contentDescription = null,
@@ -60,7 +62,7 @@ fun StatusScreen(
                 Icon(
                     imageVector = Icons.Filled.Info,
                     contentDescription = null,
-                    tint = AppTheme.customColors.onSecondaryVariant
+                    tint = AppTheme.astraColors.surface.onSecondaryVariant
                 )
             }
         },
@@ -73,9 +75,10 @@ fun StatusScreen(
         ) {
             item {
                 Text(
-                    text = MR.strings.status_subtitle.asComposableString(),
+                    text = SR.strings.status_subtitle.asComposableString(),
                     style = MaterialTheme.typography.body1,
-                    color = MaterialTheme.colors.onPrimary.copy(alpha = .5f)
+                    color = MaterialTheme.colors.onPrimary.copy(alpha = .5f),
+                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
                 )
             }
             items(rootStatusComponent.statusComponents) {

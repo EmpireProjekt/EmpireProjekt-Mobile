@@ -9,6 +9,7 @@ plugins {
     id("ru.astrainteractive.gradleplugin.java.core")
     id("ru.astrainteractive.gradleplugin.android.core")
     alias(libs.plugins.kotlin.compose.gradle)
+    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 kotlin {
@@ -28,10 +29,14 @@ kotlin {
                 // Moko
                 implementation(libs.moko.resources.core)
                 // Local
-                implementation(projects.modules.services.core)
-                implementation(projects.modules.services.coreResources)
-                implementation(projects.modules.services.coreUi)
-                implementation(projects.modules.services.buildKonfig)
+                implementation(projects.modules.services.core.common)
+                implementation(projects.modules.services.core.resources)
+                implementation(projects.modules.services.core.ui.common)
+                implementation(projects.modules.services.core.ui.dialog)
+                implementation(projects.modules.services.core.ui.sheet)
+                implementation(projects.modules.services.core.ui.option)
+                implementation(projects.modules.services.core.ui.theme)
+                implementation(projects.modules.services.core.buildKonfig)
             }
         }
     }
@@ -39,4 +44,9 @@ kotlin {
 
 android {
     namespace = "${requireProjectInfo.group}.features.info.ui"
+}
+
+multiplatformResources {
+    resourcesPackage.set("${requireProjectInfo.group}.features.info.ui")
+    resourcesClassName.set("IR")
 }

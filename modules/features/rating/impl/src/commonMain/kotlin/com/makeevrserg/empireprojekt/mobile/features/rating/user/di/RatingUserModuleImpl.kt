@@ -9,7 +9,7 @@ import com.makeevrserg.empireprojekt.mobile.services.core.di.CoreModule
 
 class RatingUserModuleImpl(
     apiEmpireApiModule: ApiEmpireApiModule,
-    coreModule: CoreModule
+    private val coreModule: CoreModule
 ) : RatingUserModule {
     private val ratingUserRepository by lazy {
         RatingUserRepositoryImpl(
@@ -27,7 +27,8 @@ class RatingUserModuleImpl(
             componentContext = componentContext,
             userId = userId,
             userName = userName,
-            ratingUserRepository = ratingUserRepository
+            ratingUserRepository = ratingUserRepository,
+            dispatchers = coreModule.dispatchers
         )
     }
 }

@@ -5,6 +5,7 @@ import com.makeevrserg.empireprojekt.mobile.features.rating.user.di.RatingUserMo
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.di.RatingUserModuleImpl
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.di.RatingUsersModule
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.di.RatingUsersModuleImpl
+import com.makeevrserg.empireprojekt.mobile.features.root.pager.di.PagerModule
 import com.makeevrserg.empireprojekt.mobile.features.splash.di.SplashComponentModule
 import com.makeevrserg.empireprojekt.mobile.features.status.di.StatusModule
 import com.makeevrserg.empireprojekt.mobile.features.status.di.StatusModuleImpl
@@ -23,7 +24,7 @@ interface RootModule {
     val ratingUserModule: RatingUserModule
     val ratingUsersModule: RatingUsersModule
     val townsModule: TownsModule
-    val pagerModule: com.makeevrserg.empireprojekt.mobile.features.root.pager.di.PagerModule
+    val pagerModule: PagerModule
     val apiEmpireApiModule: ApiEmpireApiModule
 
     class Default : RootModule {
@@ -74,12 +75,8 @@ interface RootModule {
             )
         }
 
-        override val pagerModule: com.makeevrserg.empireprojekt.mobile.features.root.pager.di.PagerModule by lazy {
-            com.makeevrserg.empireprojekt.mobile.features.root.pager.di.PagerModule.Default(
-                ratingUsersModule = ratingUsersModule,
-                themeSwitcherModule = themeSwitcherModule,
-                statusModule = statusModule,
-                townsModule = townsModule,
+        override val pagerModule: PagerModule by lazy {
+            PagerModule.Default(
                 coreModule = coreModule
             )
         }

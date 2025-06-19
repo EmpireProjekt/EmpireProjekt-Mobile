@@ -35,7 +35,8 @@ class RatingUsersModuleImpl(
             createRatingUsersFeature = { filterProvider ->
                 RatingUsersFeature(
                     dependencies = dependencies,
-                    filterProvider = filterProvider
+                    filterProvider = filterProvider,
+                    dispatchers = coreModule.dispatchers
                 )
             },
             createFilterFeature = {

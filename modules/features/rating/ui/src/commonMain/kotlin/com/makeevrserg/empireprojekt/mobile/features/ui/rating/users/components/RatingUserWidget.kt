@@ -28,12 +28,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.ui.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.PlayerHeadBox
-import com.makeevrserg.empireprojekt.mobile.core.ui.components.RowText
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
+import com.makeevrserg.empireprojekt.mobile.rating.RR
 import kotlinx.datetime.Instant
 import ru.astrainteractive.empireapi.models.rating.RatingUserModel
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
@@ -56,10 +59,13 @@ internal fun RatingUserWidget(
         Column {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(vertical = AppTheme.dimens.XS, horizontal = AppTheme.dimens.S),
+                modifier = Modifier.padding(
+                    vertical = AppTheme.dimens.XS,
+                    horizontal = AppTheme.dimens.S
+                ),
                 horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)
             ) {
-                Column {
+                Column(verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         PlayerHeadBox(
                             uuid = model.minecraftUUID,
@@ -72,7 +78,8 @@ internal fun RatingUserWidget(
                             text = model.minecraftName,
                             style = MaterialTheme.typography.h6,
                             color = MaterialTheme.colors.onPrimary,
-                            textAlign = TextAlign.Center
+                            textAlign = TextAlign.Center,
+                            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
                         )
                         Spacer(Modifier.weight(1f))
                         Icon(
@@ -82,19 +89,22 @@ internal fun RatingUserWidget(
                             modifier = Modifier.size(AppTheme.dimens.M)
                         )
                     }
-                    RowText(
-                        title = MR.strings.rating_rating.asComposableString(),
-                        desc = "${model.totalRating}",
-                        modifier = Modifier.fillMaxWidth()
+                    OptionInfo(
+                        text = RR.strings.rating_rating.asComposableString(),
+                        endText = "${model.totalRating}",
+                        modifier = Modifier.fillMaxWidth(),
+                        icon = MR.images.ic_thumb_up_down.asPainter(),
                     )
-                    RowText(
-                        title = MR.strings.rating_votes_count.asComposableString(),
-                        desc = "${model.ratingVotes}",
-                        modifier = Modifier.fillMaxWidth()
+                    OptionInfo(
+                        text = RR.strings.rating_votes_count.asComposableString(),
+                        endText = "${model.ratingVotes}",
+                        modifier = Modifier.fillMaxWidth(),
+                        icon = MR.images.ic_raised_hand.asPainter(),
                     )
-                    RowText(
-                        title = MR.strings.rating_last_updated.asComposableString(),
-                        desc = remember {
+                    OptionInfo(
+                        icon = MR.images.ic_calendar_today.asPainter(),
+                        text = RR.strings.rating_last_updated.asComposableString(),
+                        endText = remember {
                             timeFormatter.format(
                                 instant = Instant.fromEpochMilliseconds(model.lastUpdated),
                                 format = "dd.MM.yyyy"

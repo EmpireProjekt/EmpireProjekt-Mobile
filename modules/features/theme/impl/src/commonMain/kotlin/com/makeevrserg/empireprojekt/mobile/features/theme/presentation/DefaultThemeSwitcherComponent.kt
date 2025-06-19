@@ -32,6 +32,6 @@ internal class DefaultThemeSwitcherComponent(
     }
 
     init {
-        themeFlowStorageValue.loadAndGet()
+        themeFlowStorageValue.getValue()
     }
 }

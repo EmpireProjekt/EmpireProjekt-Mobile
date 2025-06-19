@@ -35,9 +35,9 @@ kotlin {
                 // MVIKotlin
                 implementation(libs.mvikotlin)
                 // Local
-                implementation(projects.modules.services.coreResources)
-                implementation(projects.modules.services.core)
-                implementation(projects.modules.services.apiEmpireapi)
+                implementation(projects.modules.services.core.resources)
+                implementation(projects.modules.services.core.common)
+                implementation(projects.modules.services.data.empireapi)
                 implementation(projects.modules.features.root.api)
                 implementation(projects.modules.features.splash.impl)
                 implementation(projects.modules.features.rating.api)
@@ -49,6 +49,7 @@ kotlin {
                 implementation(projects.modules.features.towns.api)
                 implementation(projects.modules.features.towns.impl)
                 implementation(projects.modules.features.tabs.impl)
+                implementation(projects.modules.features.webview.impl)
             }
         }
         val androidMain by getting {

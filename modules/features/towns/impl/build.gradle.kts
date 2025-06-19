@@ -8,6 +8,7 @@ plugins {
     id("ru.astrainteractive.gradleplugin.java.core")
     id("ru.astrainteractive.gradleplugin.android.core")
     alias(libs.plugins.kotlin.serialization)
+    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 kotlin {
@@ -38,9 +39,9 @@ kotlin {
                 implementation(libs.mvikotlin.main)
                 implementation(libs.mvikotlin.coroutines)
                 // Local
-                implementation(projects.modules.services.coreResources)
-                implementation(projects.modules.services.core)
-                implementation(projects.modules.services.apiEmpireapi)
+                implementation(projects.modules.services.core.resources)
+                implementation(projects.modules.services.core.common)
+                implementation(projects.modules.services.data.empireapi)
                 implementation(projects.modules.features.towns.api)
             }
         }
@@ -48,4 +49,9 @@ kotlin {
 }
 android {
     namespace = "${requireProjectInfo.group}.feature.towns"
+}
+
+multiplatformResources {
+    resourcesPackage.set("${requireProjectInfo.group}.feature.towns")
+    resourcesClassName.set("TR")
 }
