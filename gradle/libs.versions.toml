@@ -36,7 +36,7 @@ klibs-gradleplugin = "1.5.1"
 klibs-paging = "2.6.0"
 
 # Compose
-kotlin-compose = "1.9.0+" # https://github.com/JetBrains/compose-multiplatform
+kotlin-compose = "1.8.2" # https://github.com/JetBrains/compose-multiplatform
 
 # Moko
 moko-resources = "0.25.0"

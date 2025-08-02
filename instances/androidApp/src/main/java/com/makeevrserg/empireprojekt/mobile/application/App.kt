@@ -4,8 +4,8 @@ import android.app.Application
 import android.content.Context
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.data.WearDataLayerRegistry
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.ktx.initialize
+import com.google.firebase.Firebase
+import com.google.firebase.initialize
 import com.makeevrserg.empireprojekt.mobile.features.root.di.RootModule
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.di.WearMessengerModule
 import kotlinx.coroutines.cancel

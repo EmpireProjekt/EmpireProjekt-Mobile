@@ -118,12 +118,10 @@ dependencies {
     implementation("androidx.compose.material:material")
     // FireBase
     implementation(platform(libs.google.firebase.bom))
-    implementation("com.google.firebase:firebase-auth-ktx")
-    implementation("com.google.firebase:firebase-messaging-ktx")
-    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-crashlytics-ndk")
+    implementation("com.google.firebase:firebase-analytics")
     implementation(libs.google.auth)
     implementation(libs.kotlin.coroutines.playServices)
-    implementation(libs.google.firebase.crsahlytics.ktx)
     debugImplementation(libs.leakcanary)
     // klibs
     implementation(libs.klibs.mikro.core)
