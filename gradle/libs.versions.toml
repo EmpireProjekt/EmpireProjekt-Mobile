@@ -2,41 +2,41 @@
 # Kotlin
 kotlin-version = "2.2.0"
 kotlin-coroutines = "1.10.2"
-kotlin-android-application = "8.11.1"
+kotlin-android-application = "8.12.0"
 kotlin-serialization-json = "1.9.0"
 
 # Androidx
 androidx-compose-bom = "2025.07.00"
 androidx-activity-compose = "1.10.1"
-android-work = "2.10.2"
+android-work = "2.10.3"
 leakcanary = "2.14"
-horologist = "0.6.23"
+horologist = "0.7.15"
 compose-wear = "1.4.1"
 
 # Google
 google-coroutinesPlayServices = "1.10.2"
 google-auth = "21.4.0"
-google-crashlytics = "3.0.5"
+google-crashlytics = "3.0.6"
 google-services = "4.4.3"
 google-accompanist = "0.36.1-SNAPSHOT"
-google-firebase-bom = "34.0.0"
+google-firebase-bom = "34.1.0"
 
 # Testw
 tests-assertk = "0.28.1"
 tests-turbine = "1.2.1"
 
 # Other
-ktor = "3.2.2"
+ktor = "3.2.3"
 
 # klibs
-klibs-mikro = "1.11.0"
-klibs-kstorage = "4.2.1"
+klibs-mikro = "1.11.1"
+klibs-kstorage = "4.2.2"
 klibs-kdi = "1.4.8"
 klibs-gradleplugin = "1.5.1"
-klibs-paging = "2.6.0"
+klibs-paging = "2.6.1"
 
 # Compose
-kotlin-compose = "1.8.2" # https://github.com/JetBrains/compose-multiplatform
+kotlin-compose = "1.9.10+dev2772" # https://github.com/JetBrains/compose-multiplatform
 
 # Moko
 moko-resources = "0.25.0"
