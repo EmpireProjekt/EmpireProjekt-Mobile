@@ -1,17 +1,17 @@
 [versions]
 # Kotlin
-kotlin-version = "2.2.0"
+kotlin-version = "2.2.20"
 kotlin-coroutines = "1.10.2"
-kotlin-android-application = "8.12.0"
+kotlin-android-application = "8.13.0"
 kotlin-serialization-json = "1.9.0"
 
 # Androidx
-androidx-compose-bom = "2025.07.00"
-androidx-activity-compose = "1.10.1"
-android-work = "2.10.3"
+androidx-compose-bom = "2025.09.01"
+androidx-activity-compose = "1.11.0"
+android-work = "2.10.5"
 leakcanary = "2.14"
 horologist = "0.7.15"
-compose-wear = "1.4.1"
+compose-wear = "1.5.2"
 
 # Google
 google-coroutinesPlayServices = "1.10.2"
@@ -19,30 +19,30 @@ google-auth = "21.4.0"
 google-crashlytics = "3.0.6"
 google-services = "4.4.3"
 google-accompanist = "0.36.1-SNAPSHOT"
-google-firebase-bom = "34.1.0"
+google-firebase-bom = "34.3.0"
 
 # Testw
 tests-assertk = "0.28.1"
 tests-turbine = "1.2.1"
 
 # Other
-ktor = "3.2.3"
+ktor = "3.3.0"
 
 # klibs
-klibs-mikro = "1.11.1"
+klibs-mikro = "1.14.1"
 klibs-kstorage = "4.2.2"
 klibs-kdi = "1.4.8"
 klibs-gradleplugin = "1.5.1"
 klibs-paging = "2.6.1"
 
 # Compose
-kotlin-compose = "1.8.2" # https://github.com/JetBrains/compose-multiplatform
+kotlin-compose = "1.10.0+dev3004" # https://github.com/JetBrains/compose-multiplatform
 
 # Moko
 moko-resources = "0.25.0"
 
 # Decompose
-decompose = "3.3.0" # https://github.com/arkivanov/Decompose/releases
+decompose = "3.4.0" # https://github.com/arkivanov/Decompose/releases
 essenty = "2.5.0"
 
 # MVIKotlin
@@ -56,9 +56,9 @@ wear-glance-tiles = "1.0.0-alpha05"
 wear-tiles = "1.5.0"
 wear-complications = "1.2.1"
 
-composables = "1.39.0" # https://github.com/composablehorizons/compose-unstyled
+composables = "1.44.0" # https://github.com/composablehorizons/compose-unstyled
 
-placeholder = "1.0.11" # https://github.com/eygraber/compose-placeholder
+placeholder = "1.0.12" # https://github.com/eygraber/compose-placeholder
 
 [libraries]
 # wear
