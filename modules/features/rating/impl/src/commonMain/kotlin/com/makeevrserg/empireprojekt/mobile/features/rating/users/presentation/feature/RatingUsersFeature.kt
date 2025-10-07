@@ -9,8 +9,10 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ru.astrainteractive.empireapi.models.rating.RatingsFilterModel
+import ru.astrainteractive.klibs.mikro.core.coroutines.CoroutineFeature
 import ru.astrainteractive.klibs.mikro.core.dispatchers.KotlinDispatchers
-import ru.astrainteractive.klibs.mikro.extensions.arkivanov.CoroutineFeature
+import ru.astrainteractive.klibs.mikro.extensions.arkivanov.EssentyCoroutineFeature
+import ru.astrainteractive.klibs.mikro.extensions.arkivanov.asEssentyCoroutineFeature
 import ru.astrainteractive.klibs.paging.collector.IntPagerCollector
 import ru.astrainteractive.klibs.paging.data.PagedListDataSource
 import ru.astrainteractive.klibs.paging.util.loadNextPage
@@ -21,7 +23,7 @@ internal class RatingUsersFeature(
     dependencies: RatingUsersDependencies,
     private val filterProvider: FilterProvider,
     private val dispatchers: KotlinDispatchers
-) : CoroutineFeature by CoroutineFeature.Main(),
+) : EssentyCoroutineFeature by CoroutineFeature.Main.asEssentyCoroutineFeature(),
     RatingUsersDependencies by dependencies {
 
     private val pagingCollector = IntPagerCollector(

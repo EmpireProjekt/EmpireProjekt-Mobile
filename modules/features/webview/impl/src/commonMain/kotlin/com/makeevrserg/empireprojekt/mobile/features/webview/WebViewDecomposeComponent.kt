@@ -5,7 +5,7 @@ import com.arkivanov.essenty.backhandler.BackCallback
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
-import ru.astrainteractive.klibs.mikro.extensions.arkivanov.CoroutineScopeExt.coroutineScope
+import ru.astrainteractive.klibs.mikro.extensions.arkivanov.coroutineScope
 
 class WebViewDecomposeComponent(
     componentContext: ComponentContext,

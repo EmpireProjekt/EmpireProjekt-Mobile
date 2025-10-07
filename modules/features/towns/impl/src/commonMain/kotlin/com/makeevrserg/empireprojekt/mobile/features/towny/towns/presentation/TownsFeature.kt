@@ -3,8 +3,10 @@ package com.makeevrserg.empireprojekt.mobile.features.towny.towns.presentation
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.di.TownsDependencies
 import kotlinx.coroutines.launch
 import ru.astrainteractive.empireapi.models.towny.TownsFilterModel
+import ru.astrainteractive.klibs.mikro.core.coroutines.CoroutineFeature
 import ru.astrainteractive.klibs.mikro.core.util.mapStateFlow
-import ru.astrainteractive.klibs.mikro.extensions.arkivanov.CoroutineFeature
+import ru.astrainteractive.klibs.mikro.extensions.arkivanov.EssentyCoroutineFeature
+import ru.astrainteractive.klibs.mikro.extensions.arkivanov.asEssentyCoroutineFeature
 import ru.astrainteractive.klibs.paging.state.isFailure
 import ru.astrainteractive.klibs.paging.state.isLastPage
 import ru.astrainteractive.klibs.paging.state.isLoading
@@ -13,7 +15,7 @@ import ru.astrainteractive.klibs.paging.util.resetAndLoadNextPage
 
 internal class TownsFeature(
     dependencies: TownsDependencies
-) : CoroutineFeature by CoroutineFeature.Main(),
+) : EssentyCoroutineFeature by CoroutineFeature.Main.asEssentyCoroutineFeature(),
     TownsDependencies by dependencies {
 
     fun loadNextPage() {
