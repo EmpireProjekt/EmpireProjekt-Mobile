@@ -4,9 +4,11 @@ import com.makeevrserg.empireprojekt.mobile.features.rating.user.data.RatingUser
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ru.astrainteractive.empireapi.models.rating.UserRatingsRequest
+import ru.astrainteractive.klibs.mikro.core.coroutines.CoroutineFeature
 import ru.astrainteractive.klibs.mikro.core.dispatchers.KotlinDispatchers
 import ru.astrainteractive.klibs.mikro.core.util.mapStateFlow
-import ru.astrainteractive.klibs.mikro.extensions.arkivanov.CoroutineFeature
+import ru.astrainteractive.klibs.mikro.extensions.arkivanov.EssentyCoroutineFeature
+import ru.astrainteractive.klibs.mikro.extensions.arkivanov.asEssentyCoroutineFeature
 import ru.astrainteractive.klibs.paging.collector.IntPagerCollector
 import ru.astrainteractive.klibs.paging.data.PagedListDataSource
 import ru.astrainteractive.klibs.paging.state.isFailure
@@ -20,7 +22,7 @@ internal class RatingUserFeature(
     userName: String,
     private val ratingUserRepository: RatingUserRepository,
     private val dispatchers: KotlinDispatchers
-) : CoroutineFeature by CoroutineFeature.Main() {
+) : EssentyCoroutineFeature by CoroutineFeature.Main.asEssentyCoroutineFeature() {
     private val pagingCollector = IntPagerCollector(
         pager = PagedListDataSource { pagingState ->
             withContext(dispatchers.IO) {
