@@ -19,8 +19,8 @@ class RootScreenComponentChildFactory(
     private val townsModule: TownsModule,
     private val onRootNavigation: (RootRouter.Configuration) -> Unit,
     private val onPop: () -> Unit,
-) : Factory<DefaultRootScreenComponent.Configuration> {
-    override fun create(): DefaultRootScreenComponent.Configuration {
+) {
+    fun create(): DefaultRootScreenComponent.Configuration {
         return when (config) {
             RootRouter.Configuration.Splash -> {
                 DefaultRootScreenComponent.Configuration.Splash(

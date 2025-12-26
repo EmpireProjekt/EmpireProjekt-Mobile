@@ -17,11 +17,9 @@ class App : Application(), WearMessengerApplication {
 
     override fun onCreate() {
         super.onCreate()
-        wearRootModule.coreModule.platformConfiguration.initialize {
-            DefaultAndroidPlatformConfiguration(
-                applicationContext
-            )
-        }
+        wearRootModule.coreModule.platformConfiguration = DefaultAndroidPlatformConfiguration(
+            applicationContext
+        )
     }
 
     companion object {

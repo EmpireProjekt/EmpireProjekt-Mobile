@@ -13,8 +13,10 @@ import androidx.wear.tiles.TileBuilders
 import androidx.wear.tiles.TileService
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.tiles.SuspendingTileService
-import com.makeevrserg.empireprojekt.mobile.core.resources.R
+import com.makeevrserg.empireprojekt.mobile.modules.services.core.resources.R
 import com.makeevrserg.empireprojekt.mobile.wear.application.App.Companion.asEmpireApp
+import com.makeevrserg.empireprojekt.mobile.wear.di.WearRootModule
+import com.makeevrserg.empireprojekt.mobile.wear.features.status.presentation.DefaultWearStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.tile.components.MainTileRenderer
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -28,13 +30,11 @@ private const val RESOURCES_VERSION = "1"
 @OptIn(ExperimentalHorologistApi::class)
 class StatusesTileService : SuspendingTileService() {
 
-    private val wearRootModule by Provider {
-        application.asEmpireApp().wearRootModule
-    }
-    private val wearStatusComponent by Provider {
-        wearRootModule.wearStatusComponent.value
-    }
-    private val mainTileRenderer by Single {
+    private val wearRootModule: WearRootModule.Default
+        get() = application.asEmpireApp().wearRootModule
+    private val wearStatusComponent: DefaultWearStatusComponent
+        get() = wearRootModule.wearStatusComponent
+    private val mainTileRenderer by lazy {
         MainTileRenderer(applicationContext)
     }
 
@@ -44,7 +44,7 @@ class StatusesTileService : SuspendingTileService() {
         lifecycleScope.launch {
             while (isActive) {
                 delay(1000L)
-                TileService.getUpdater(applicationContext).requestUpdate(StatusesTileService::class.java)
+                getUpdater(applicationContext).requestUpdate(StatusesTileService::class.java)
             }
         }
     }
@@ -87,12 +87,12 @@ class StatusesTileService : SuspendingTileService() {
     }
 }
 
-val Color.colorProp: ColorBuilders.ColorProp
+val Color.colorProp: ColorProp
     get() = ColorProp.Builder()
         .setArgb(this.toArgb())
         .build()
 
-val Int.asColorProp: ColorBuilders.ColorProp
+val Int.asColorProp: ColorProp
     get() = ColorProp.Builder()
         .setArgb(this)
         .build()

@@ -54,7 +54,7 @@ fun StatusesScreen(wearStatusComponent: WearStatusComponent) {
                     modifier = Modifier.fillMaxWidth(),
                     text = mergedState.successCount.toString(),
                     imageVector = Icons.Filled.WifiTethering,
-                    iconColor = AppTheme.astraColors.astraLogo.colorPositive
+                    iconColor = AppTheme.astraColors.action.colorPositive
                 )
             }
             item {
@@ -70,7 +70,7 @@ fun StatusesScreen(wearStatusComponent: WearStatusComponent) {
                     modifier = Modifier.fillMaxWidth(),
                     text = mergedState.failureCount.toString(),
                     imageVector = Icons.Filled.WifiTetheringOff,
-                    iconColor = AppTheme.astraColors.astraLogo.colorNegative
+                    iconColor = AppTheme.astraColors.action.colorNegative
                 )
             }
         }

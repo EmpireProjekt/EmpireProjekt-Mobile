@@ -18,7 +18,7 @@ import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.compose.tools.TileLayoutPreview
 import com.google.android.horologist.compose.tools.buildDeviceParameters
 import com.google.android.horologist.tiles.render.SingleTileLayoutRenderer
-import com.makeevrserg.empireprojekt.mobile.core.resources.R
+import com.makeevrserg.empireprojekt.mobile.modules.services.core.resources.R
 import com.makeevrserg.empireprojekt.mobile.wear.MainActivity
 import com.makeevrserg.empireprojekt.mobile.wear.features.status.presentation.WearStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.tile.asColorProp

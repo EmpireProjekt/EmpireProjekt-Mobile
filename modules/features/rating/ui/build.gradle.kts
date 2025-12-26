@@ -17,6 +17,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(libs.kotlin.datetime)
                 // Compose MPP
                 implementation(compose.foundation)
                 implementation(compose.ui)

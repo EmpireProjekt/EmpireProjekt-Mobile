@@ -10,7 +10,7 @@ import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.makeevrserg.empireprojekt.mobile.MainActivity
-import com.makeevrserg.empireprojekt.mobile.core.resources.R
+import com.makeevrserg.empireprojekt.mobile.modules.services.core.resources.R
 
 class StatusNotificationFactory(private val applicationContext: Context) {
     private val intentOpen by lazy {
@@ -40,7 +40,6 @@ class StatusNotificationFactory(private val applicationContext: Context) {
 
     fun create(): Notification {
         createNotificationChannel()
-
         // Make sure we are foreground.
         return NotificationCompat.Builder(applicationContext, CHANNEL_ID)
             .setContentTitle("Empire Wear")

@@ -18,7 +18,7 @@ class App : Application() {
     }
     val wearMessengerModule by lazy {
         WearMessengerModule.Default(
-            context = rootModule.coreModule.platformConfiguration.value.applicationContext,
+            context = rootModule.coreModule.platformConfiguration.applicationContext,
             coroutineScope = rootModule.coreModule.mainScope,
         )
     }
@@ -40,11 +40,9 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         Firebase.initialize(this)
-        rootModule.coreModule.platformConfiguration.initialize {
-            DefaultAndroidPlatformConfiguration(
-                applicationContext
-            )
-        }
+        rootModule.coreModule.platformConfiguration = DefaultAndroidPlatformConfiguration(
+            applicationContext
+        )
     }
 
     companion object {

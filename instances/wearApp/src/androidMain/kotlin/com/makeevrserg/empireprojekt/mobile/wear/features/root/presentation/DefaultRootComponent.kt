@@ -34,7 +34,7 @@ class DefaultRootComponent(
                 )
 
                 Configuration.Statuses -> RootComponent.Child.Statuses(
-                    wearStatusComponent = wearRootModule.wearStatusComponent.value
+                    wearStatusComponent = wearRootModule.wearStatusComponent
                 )
             }
         }

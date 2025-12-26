@@ -11,26 +11,26 @@ import com.makeevrserg.empireprojekt.mobile.wear.messenger.di.WearMessengerModul
 interface WearRootModule {
     val coreModule: CoreModule
     val themeSwitcherModule: ThemeSwitcherModule
-    val wearStatusComponent: Single<WearStatusComponent>
+    val wearStatusComponent: WearStatusComponent
     val wearMessengerModule: WearMessengerModule
     val pingModule: PingModule
 
     class Default : WearRootModule {
-        override val coreModule: CoreModule by lazy {
+        override val coreModule: CoreModule.Default by lazy {
             CoreModule.Default()
         }
         override val themeSwitcherModule: ThemeSwitcherModule by lazy {
             ThemeSwitcherModuleImpl(coreModule = coreModule)
         }
 
-        override val wearMessengerModule: WearMessengerModule by Single {
+        override val wearMessengerModule: WearMessengerModule by lazy {
             WearMessengerModule.Default(
-                context = coreModule.platformConfiguration.value.applicationContext,
+                context = coreModule.platformConfiguration.applicationContext,
                 coroutineScope = coreModule.mainScope,
             )
         }
 
-        override val wearStatusComponent: Single<WearStatusComponent> = Single {
+        override val wearStatusComponent by lazy {
             DefaultWearStatusComponent(
                 wearMessageConsumer = wearMessengerModule.wearMessageConsumer,
                 coroutineScope = coreModule.mainScope

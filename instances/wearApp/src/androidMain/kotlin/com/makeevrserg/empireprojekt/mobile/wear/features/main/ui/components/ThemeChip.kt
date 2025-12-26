@@ -22,6 +22,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.model.Theme
 import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.ThemeSwitcherComponent
 import com.makeevrserg.empireprojekt.mobile.wear.features.components.AstraChip
+import com.makeevrserg.empireprojekt.mobile.wearapp.WR
 
 @Composable
 fun ThemeChip(themeSwitcherComponent: ThemeSwitcherComponent) {
@@ -41,7 +42,7 @@ fun ThemeChip(themeSwitcherComponent: ThemeSwitcherComponent) {
         modifier = Modifier.fillMaxWidth(),
         label = {
             Text(
-                text = MR.strings.wear_switch_theme.asComposableString(),
+                text = WR.strings.wear_switch_theme.asComposableString(),
                 style = MaterialTheme.typography.caption,
                 color = MaterialTheme.colors.onPrimary
             )
