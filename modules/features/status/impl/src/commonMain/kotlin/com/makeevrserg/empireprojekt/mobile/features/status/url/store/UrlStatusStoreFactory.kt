@@ -10,9 +10,9 @@ import com.makeevrserg.empireprojekt.mobile.features.status.url.store.UrlStatusS
 internal class UrlStatusStoreFactory(
     private val storeFactory: StoreFactory,
     private val urlStatusRepository: UrlStatusRepository
-) : Factory<UrlStatusStore> {
+) {
 
-    override fun create(): UrlStatusStore {
+    fun create(): UrlStatusStore {
         return UrlStatusStoreImpl()
     }
 
