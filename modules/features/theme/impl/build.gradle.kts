@@ -19,7 +19,6 @@ kotlin {
                 // klibs
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.kdi)
                 // Settings
                 implementation(libs.mppsettings)
                 // Decompose

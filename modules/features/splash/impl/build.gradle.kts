@@ -21,7 +21,6 @@ kotlin {
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.platform)
                 implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.kdi)
                 // Decompose
                 implementation(libs.decompose.core)
                 // Local

@@ -7,8 +7,6 @@ import com.makeevrserg.empireprojekt.mobile.wear.features.ping.di.PingModule
 import com.makeevrserg.empireprojekt.mobile.wear.features.status.presentation.DefaultWearStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.features.status.presentation.WearStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.di.WearMessengerModule
-import ru.astrainteractive.klibs.kdi.Single
-import ru.astrainteractive.klibs.kdi.getValue
 
 interface WearRootModule {
     val coreModule: CoreModule

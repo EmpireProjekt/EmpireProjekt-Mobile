@@ -19,9 +19,6 @@ import com.makeevrserg.empireprojekt.mobile.wear.tile.components.MainTileRendere
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import ru.astrainteractive.klibs.kdi.Provider
-import ru.astrainteractive.klibs.kdi.Single
-import ru.astrainteractive.klibs.kdi.getValue
 
 private const val RESOURCES_VERSION = "1"
 

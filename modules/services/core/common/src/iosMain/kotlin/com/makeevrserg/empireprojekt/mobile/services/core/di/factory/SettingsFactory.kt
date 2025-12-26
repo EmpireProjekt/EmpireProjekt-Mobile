@@ -2,7 +2,6 @@ package com.makeevrserg.empireprojekt.mobile.services.core.di.factory
 
 import com.russhwolf.settings.NSUserDefaultsSettings
 import com.russhwolf.settings.Settings
-import ru.astrainteractive.klibs.kdi.Factory
 import ru.astrainteractive.klibs.mikro.platform.PlatformConfiguration
 
 @Suppress("UnusedPrivateMember")

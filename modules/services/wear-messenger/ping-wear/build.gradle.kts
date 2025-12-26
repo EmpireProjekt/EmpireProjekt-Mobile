@@ -23,7 +23,6 @@ kotlin {
                 implementation(libs.klibs.mikro.platform)
                 implementation(libs.klibs.mikro.extensions)
                 implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.kdi)
                 // horologist
                 implementation(libs.google.horologist.datalayer)
                 // Coroutines

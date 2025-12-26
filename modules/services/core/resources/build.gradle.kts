@@ -4,10 +4,11 @@ import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt
 
 plugins {
     id("dev.icerock.mobile.multiplatform-resources")
-    id("com.android.library")
+    alias(libs.plugins.android.library)
     kotlin("multiplatform")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
+    alias(libs.plugins.klibs.gradle.android.namespace)
 }
 
 kotlin {
@@ -19,19 +20,15 @@ kotlin {
                 implementation(libs.moko.resources.core)
             }
         }
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.androidx.splash)
+                implementation(libs.android.material)
+            }
+        }
     }
 }
 
 multiplatformResources {
     resourcesPackage.set("${requireProjectInfo.group}.core.resources")
-}
-
-android {
-    namespace = "${requireProjectInfo.group}.core.resources"
-    dependencies {
-        implementation("com.google.android.material:material:1.13.0")
-    }
-    sourceSets {
-        getByName("main").java.srcDirs("build/generated/moko/androidMain/src")
-    }
 }

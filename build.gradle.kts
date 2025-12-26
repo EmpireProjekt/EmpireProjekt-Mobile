@@ -27,6 +27,7 @@ plugins {
     alias(libs.plugins.klibs.gradle.android.compose) apply false
     alias(libs.plugins.klibs.gradle.android.apk.sign) apply false
     alias(libs.plugins.klibs.gradle.android.apk.name) apply false
+    alias(libs.plugins.klibs.gradle.android.namespace) apply false
 }
 
 apply(plugin = "ru.astrainteractive.gradleplugin.detekt")

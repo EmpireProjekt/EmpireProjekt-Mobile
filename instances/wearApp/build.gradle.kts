@@ -129,6 +129,7 @@ dependencies {
     // Compose
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.splash)
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.material:material")
     implementation("androidx.compose.foundation:foundation")
@@ -152,7 +153,6 @@ dependencies {
     implementation(libs.klibs.mikro.core)
     implementation(libs.klibs.mikro.platform)
     implementation(libs.klibs.kstorage)
-    implementation(libs.klibs.kdi)
     // Settings
     implementation(libs.mppsettings)
     // moko

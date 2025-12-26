@@ -21,7 +21,6 @@ kotlin {
                 implementation(libs.kotlin.serialization.json)
                 // klibs
                 implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.kdi)
                 // Decompose
                 implementation(libs.decompose.core)
                 // MviKotlin

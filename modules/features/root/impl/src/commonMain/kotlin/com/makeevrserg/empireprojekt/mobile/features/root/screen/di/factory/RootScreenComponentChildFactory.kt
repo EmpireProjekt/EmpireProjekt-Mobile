@@ -8,7 +8,6 @@ import com.makeevrserg.empireprojekt.mobile.features.root.screen.RootRouter
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.RootScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.di.TownsModule
 import com.makeevrserg.empireprojekt.mobile.features.webview.WebViewDecomposeComponent
-import ru.astrainteractive.klibs.kdi.Factory
 
 @Suppress("LongParameterList")
 class RootScreenComponentChildFactory(

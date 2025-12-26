@@ -11,8 +11,6 @@ import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.model.StatusMo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
-import ru.astrainteractive.klibs.kdi.Provider
-import ru.astrainteractive.klibs.kdi.getValue
 import kotlin.time.Duration.Companion.seconds
 
 class CheckStatusWork(

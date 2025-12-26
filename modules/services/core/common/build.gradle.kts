@@ -31,7 +31,6 @@ kotlin {
                 // klibs
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.platform)
-                implementation(libs.klibs.kdi)
                 // Coroutines
                 implementation(libs.kotlin.coroutines.core)
             }

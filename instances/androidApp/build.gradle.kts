@@ -141,7 +141,6 @@ dependencies {
     implementation(libs.klibs.mikro.core)
     implementation(libs.klibs.mikro.platform)
     implementation(libs.klibs.kstorage)
-    implementation(libs.klibs.kdi)
     // moko
     implementation(libs.moko.resources.core)
     // Decompose
@@ -154,6 +153,7 @@ dependencies {
     implementation(libs.androidx.work.runtime)
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.lifecycle.service)
+    implementation(libs.androidx.splash)
     // Local
     implementation(projects.modules.features.root.api)
     implementation(projects.modules.features.root.impl)

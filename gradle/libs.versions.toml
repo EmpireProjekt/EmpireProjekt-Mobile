@@ -1,45 +1,46 @@
 [versions]
 # Kotlin
-kotlin-version = "2.2.20"
+kotlin-version = "2.3.0"
 kotlin-coroutines = "1.10.2"
-kotlin-android-application = "8.13.0"
+kotlin-android-application = "8.12.0"
 kotlin-serialization-json = "1.9.0"
 
 # Androidx
-androidx-compose-bom = "2025.09.01"
-androidx-activity-compose = "1.11.0"
-android-work = "2.10.5"
+androidx-compose-bom = "2025.12.01"
+androidx-activity-compose = "1.12.2"
+androidx-material = "1.13.0" # https://github.com/material-components/material-components-android
+androidx-splash = "1.2.0" # https://developer.android.com/jetpack/androidx/releases/core
+android-work = "2.11.0"
 leakcanary = "2.14"
 horologist = "0.7.15"
-compose-wear = "1.5.2"
+compose-wear = "1.5.6"
 
 # Google
 google-coroutinesPlayServices = "1.10.2"
 google-auth = "21.4.0"
 google-crashlytics = "3.0.6"
-google-services = "4.4.3"
+google-services = "4.4.4"
 google-accompanist = "0.36.0"
-google-firebase-bom = "34.3.0"
+google-firebase-bom = "34.7.0"
 
 # Testw
 tests-assertk = "0.28.1"
 tests-turbine = "1.2.1"
 
 # Other
-ktor = "3.3.0"
+ktor = "3.3.3"
 
 # klibs
-klibs-mikro = "1.14.1"
-klibs-kstorage = "4.2.2"
-klibs-kdi = "1.4.8"
-klibs-gradleplugin = "1.13.1" # https://github.com/makeevrserg/gradle-plugin
-klibs-paging = "2.6.1"
+klibs-mikro = "1.17.1"
+klibs-kstorage = "4.4.2"
+klibs-gradleplugin = "1.13.3" # https://github.com/makeevrserg/gradle-plugin
+klibs-paging = "2.6.3"
 
 # Compose
-kotlin-compose = "1.10.0+dev3004" # https://github.com/JetBrains/compose-multiplatform
+kotlin-compose = "1.9.3" # https://github.com/JetBrains/compose-multiplatform
 
 # Moko
-moko-resources = "0.25.0"
+moko-resources = "0.25.2"
 
 # Decompose
 decompose = "3.4.0" # https://github.com/arkivanov/Decompose/releases
@@ -52,11 +53,11 @@ mvikotlin = "4.3.0"
 mppsettings = "1.3.0"
 
 # wear
-wear-glance-tiles = "1.0.0-alpha05"
+wear-glance-tiles = "1.0.0-alpha07"
 wear-tiles = "1.5.0"
 wear-complications = "1.2.1"
 
-composables = "1.44.0" # https://github.com/composablehorizons/compose-unstyled
+composables = "1.49.3" # https://github.com/composablehorizons/compose-unstyled
 
 placeholder = "1.0.12" # https://github.com/eygraber/compose-placeholder
 
@@ -71,7 +72,6 @@ klibs-mikro-core = { module = "ru.astrainteractive.klibs:mikro-core", version.re
 klibs-mikro-platform = { module = "ru.astrainteractive.klibs:mikro-platform", version.ref = "klibs-mikro" }
 klibs-mikro-extensions = { module = "ru.astrainteractive.klibs:mikro-extensions", version.ref = "klibs-mikro" }
 klibs-kstorage = { module = "ru.astrainteractive.klibs:kstorage", version.ref = "klibs-kstorage" }
-klibs-kdi = { module = "ru.astrainteractive.klibs:kdi", version.ref = "klibs-kdi" }
 klibs-paging = { module = "ru.astrainteractive.klibs:paging", version.ref = "klibs-paging" }
 
 # Settings
@@ -89,7 +89,7 @@ decompose-compose = { module = "com.arkivanov.decompose:extensions-compose", ver
 essenty = { module = "com.arkivanov.essenty:lifecycle", version.ref = "essenty" }
 
 # Kotlin
-kotlin-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.strictly = "0.7.0-0.6.x-compat" }
+kotlin-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.strictly = "0.7.1" }
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
 kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
 kotlin-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlin-coroutines" }
@@ -98,13 +98,16 @@ kotlin-coroutines-playServices = { module = "org.jetbrains.kotlinx:kotlinx-corou
 leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
 
 # Androidx
-androidx-lifecycle-service = { module = "androidx.lifecycle:lifecycle-service", version.strictly = "2.8.7" }
+androidx-lifecycle-service = { module = "androidx.lifecycle:lifecycle-service", version.strictly = "2.10.0" }
 androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidx-compose-bom" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
 androidx-work-runtime = { module = "androidx.work:work-runtime", version.ref = "android-work" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "android-work" }
 androidx-compose-wear-material = { module = "androidx.wear.compose:compose-material", version.ref = "compose-wear" }
 androidx-compose-wear-foundation = { module = "androidx.wear.compose:compose-foundation", version.ref = "compose-wear" }
+android-material = { module = "com.google.android.material:material", version.ref = "androidx-material" }
+androidx-splash = { module = "androidx.core:core-splashscreen", version.ref = "androidx-splash" }
+
 # Google
 google-firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "google-firebase-bom" }
 google-firebase-crsahlytics-ktx = { module = "com.google.firebase:firebase-crashlytics-ktx" }
@@ -140,7 +143,7 @@ moko-resources-core = { module = "dev.icerock.moko:resources", version.ref = "mo
 moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources" }
 
 # Compose ext
-composeext-shimmer = { module = "com.valentinilk.shimmer:compose-shimmer", version.strictly = "1.2.0" }
+composeext-shimmer = { module = "com.valentinilk.shimmer:compose-shimmer", version.strictly = "1.3.3" }
 
 composables = { module = "com.composables:core", version.ref = "composables" }
 
@@ -154,15 +157,14 @@ kotlin-compose = { id = "org.jetbrains.compose", version.ref = "kotlin-compose" 
 kotlin-compose-gradle = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-version" }
 
 # Android
-android-library = { id = "com.android.application", version.ref = "kotlin-android-application" }
-android-application = { id = "com.android.library", version.ref = "kotlin-android-application" }
+android-library = { id = "com.android.library", version.ref = "kotlin-android-application" }
+android-application = { id = "com.android.application", version.ref = "kotlin-android-application" }
 
 # Gradle
-gradle-buildconfig = { id = "com.github.gmazzo.buildconfig", version.strictly = "5.5.1" }
+gradle-buildconfig = { id = "com.github.gmazzo.buildconfig", version.strictly = "6.0.6" }
 
 # moko
 moko-resources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko-resources" }
-
 
 # klibs - core
 klibs-gradle-detekt = { id = "ru.astrainteractive.gradleplugin.detekt", version.ref = "klibs-gradleplugin" }

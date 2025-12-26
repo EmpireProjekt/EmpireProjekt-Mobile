@@ -17,12 +17,12 @@
         android:launchMode="singleInstance"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/MSplashTheme"
+        android:theme="@style/Theme.AppTemplate.Splash"
         android:windowSoftInputMode="adjustResize">
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/MSplashTheme">
+            android:theme="@style/Theme.AppTemplate.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
