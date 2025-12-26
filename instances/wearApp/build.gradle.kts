@@ -1,18 +1,22 @@
-import ru.astrainteractive.gradleplugin.property.PropertyValue.Companion.baseGradleProperty
-import ru.astrainteractive.gradleplugin.property.PropertyValue.Companion.secretProperty
+@file:OptIn(ExperimentalEncodingApi::class)
+
+import ru.astrainteractive.gradleplugin.property.baseGradleProperty
 import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.stringOrEmpty
-import ru.astrainteractive.gradleplugin.util.Base64Util
+import ru.astrainteractive.gradleplugin.property.secretProperty
+import kotlin.io.encoding.Base64
+import kotlin.io.encoding.ExperimentalEncodingApi
+
 
 plugins {
-    kotlin("multiplatform")
     kotlin("plugin.serialization")
     id("com.android.application")
-    id("ru.astrainteractive.gradleplugin.java.core")
-    id("ru.astrainteractive.gradleplugin.android.core")
-    alias(libs.plugins.kotlin.compose.gradle)
+    alias(libs.plugins.kotlin.multiplatform)
+    id("ru.astrainteractive.gradleplugin.java.version")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.android.apk.name")
+    alias(libs.plugins.kotlin.compose.gradle)
     id("dev.icerock.mobile.multiplatform-resources")
 }
 
@@ -23,21 +27,38 @@ kotlin {
 
 android {
     namespace = "${requireProjectInfo.group}"
-    compileSdk = baseGradleProperty("android.sdk.compile").requireInt
+    val gServicesFile = file("google-services.json")
+    if (!gServicesFile.exists()) {
+        logger.warn("google-services.json not exists - creating")
+        val base64String = secretProperty("GSERVICES_BASE64").stringOrEmpty
+        if (base64String.isNotBlank()) {
+            val byteArray = Base64.decode(base64String)
+            gServicesFile.createNewFile()
+            gServicesFile.writeBytes(byteArray)
+        }
+    }
 
+    if (file("google-services.json").exists()) {
+        apply(plugin = "com.google.gms.google-services")
+        apply(plugin = "com.google.firebase.crashlytics")
+    } else {
+        logger.error("google-services.json not exists - could not create from secret!")
+    }
     defaultConfig {
-        applicationId = "${requireProjectInfo.group}"
-        minSdk = 26
-        targetSdk = baseGradleProperty("android.sdk.target").requireInt
+        applicationId = requireProjectInfo.group
         versionCode = baseGradleProperty("project.version.code").requireInt
         versionName = requireProjectInfo.versionString
+        setProperty(
+            "archivesBaseName",
+            "${requireProjectInfo.name}-${requireProjectInfo.versionString}"
+        )
+    }
+    defaultConfig {
+        multiDexEnabled = true
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
-        setProperty(
-            "archivesBaseName",
-            "${requireProjectInfo.name}-wearos-${requireProjectInfo.versionString}"
-        )
     }
 
     signingConfigs {
@@ -48,10 +69,14 @@ android {
         if (!keyStoreFile.exists()) {
             logger.warn("Keystore file not exists - creating")
             val base64String = secretProperty("KEYSTORE_BASE64").stringOrEmpty
-            if (base64String.isNotBlank()) Base64Util.fromBase64(base64String, keyStoreFile)
+            if (base64String.isNotBlank()) {
+                val byteArray = Base64.decode(base64String)
+                keyStoreFile.createNewFile()
+                keyStoreFile.writeBytes(byteArray)
+            }
         }
         if (!keyStoreFile.exists()) {
-            logger.error("Keystore file could not be created")
+            logger.warn("Keystore file could not be created")
         }
         getByName("debug") {
             if (keyStoreFile.exists()) {
@@ -70,6 +95,7 @@ android {
             }
         }
     }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -84,10 +110,11 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
+    buildFeatures {
+        compose = true
+    }
+    lint {
+        abortOnError = false
     }
 }
 

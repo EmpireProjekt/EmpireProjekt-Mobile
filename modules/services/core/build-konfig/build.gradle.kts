@@ -1,15 +1,15 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.property.PropertyValue.Companion.baseGradleProperty
+import ru.astrainteractive.gradleplugin.property.baseGradleProperty
 import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
 
 plugins {
     id("com.android.library")
     kotlin("multiplatform")
-    id("ru.astrainteractive.gradleplugin.java.core")
+    id("ru.astrainteractive.gradleplugin.java.version")
     id("com.github.gmazzo.buildconfig")
-    id("ru.astrainteractive.gradleplugin.android.core")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
 }
 
 buildConfig {
