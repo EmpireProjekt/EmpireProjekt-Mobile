@@ -31,7 +31,7 @@ object PagingWidget {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                painter = MR.images.ic_splash.asPainter(),
+                painter = MR.images.img_splash.asPainter(),
                 modifier = Modifier.size(96.dp),
                 contentDescription = null
             )

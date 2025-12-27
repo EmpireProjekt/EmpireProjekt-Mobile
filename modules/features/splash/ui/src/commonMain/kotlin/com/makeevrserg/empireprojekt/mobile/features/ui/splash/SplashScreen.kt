@@ -50,7 +50,7 @@ fun SplashScreenComponent(
                 contentAlignment = Alignment.Center
             ) {
                 Image(
-                    painter = MR.images.ic_splash.asPainter(),
+                    painter = MR.images.img_splash.asPainter(),
                     contentDescription = null,
                     contentScale = ContentScale.FillWidth
                 )

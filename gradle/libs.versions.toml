@@ -13,7 +13,7 @@ google-accompanist = "0.36.0"
 google-auth = "21.4.0"
 google-coroutinesPlayServices = "1.10.2"
 google-crashlytics = "3.0.6"
-gradle-buildconfig="6.0.6"
+gradle-buildconfig = "6.0.6"
 google-firebase-bom = "34.7.0"
 google-services = "4.4.4"
 horologist = "0.6.23"
@@ -37,7 +37,7 @@ tests-turbine = "1.2.1"
 wear-complications = "1.2.1"
 wear-glance-tiles = "1.0.0-alpha07"
 wear-tiles = "1.5.0"
-
+composeext-shimmer = "1.3.3"
 [libraries]
 android-material = { module = "com.google.android.material:material", version.ref = "androidx-material" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
@@ -51,7 +51,7 @@ androidx-splash = { module = "androidx.core:core-splashscreen", version.ref = "a
 androidx-work-runtime = { module = "androidx.work:work-runtime", version.ref = "android-work" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "android-work" }
 composables = { module = "com.composables:core", version.ref = "composables" }
-composeext-shimmer = { module = "com.valentinilk.shimmer:compose-shimmer" }
+composeext-shimmer = { module = "com.valentinilk.shimmer:compose-shimmer", version.ref = "composeext-shimmer" }
 decompose-compose = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "decompose" }
 decompose-core = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
 essenty = { module = "com.arkivanov.essenty:lifecycle", version.ref = "essenty" }

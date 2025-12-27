@@ -29,7 +29,7 @@ fun NavChip(text: String, onClick: () -> Unit) {
         onClick = onClick,
         icon = {
             Icon(
-                painter = painterResource(id = R.drawable.ic_splash),
+                painter = painterResource(id = R.drawable.img_splash),
                 contentDescription = null,
                 tint = Color.Unspecified,
                 modifier = Modifier

@@ -91,7 +91,7 @@ class ComposeTileService : GlanceTileService() {
 
             Spacer(GlanceModifier.height(15.dp))
             Image(
-                provider = ImageProvider(R.drawable.esmptelegram),
+                provider = ImageProvider(R.drawable.ic_esmptelegram),
                 modifier = GlanceModifier
                     .size(24.dp)
                     .clickable(actionStartActivity(MainActivity::class.java)),

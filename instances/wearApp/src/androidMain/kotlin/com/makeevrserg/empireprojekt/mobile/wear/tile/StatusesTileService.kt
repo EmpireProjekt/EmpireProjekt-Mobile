@@ -53,11 +53,11 @@ class StatusesTileService : SuspendingTileService() {
         return ResourceBuilders.Resources.Builder()
             .setVersion(RESOURCES_VERSION)
             .addIdToImageMapping(
-                R.drawable.esmptelegram::class.simpleName!!,
+                R.drawable.ic_esmptelegram::class.simpleName!!,
                 ResourceBuilders.ImageResource.Builder()
                     .setAndroidResourceByResId(
                         ResourceBuilders.AndroidImageResourceByResId.Builder()
-                            .setResourceId(R.drawable.esmptelegram)
+                            .setResourceId(R.drawable.ic_esmptelegram)
                             .build()
                     ).build()
             )

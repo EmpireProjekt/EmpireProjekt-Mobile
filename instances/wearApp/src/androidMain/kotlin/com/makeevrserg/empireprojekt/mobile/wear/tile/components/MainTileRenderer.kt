@@ -35,7 +35,7 @@ class MainTileRenderer(
         val image = LayoutElementBuilders.Image.Builder()
             .setWidth(DimensionBuilders.dp(24f))
             .setHeight(DimensionBuilders.dp(24f))
-            .setResourceId(R.drawable.esmptelegram::class.simpleName!!)
+            .setResourceId(R.drawable.ic_esmptelegram::class.simpleName!!)
             .setModifiers(
                 ModifiersBuilders.Modifiers.Builder()
                     .setSemantics(

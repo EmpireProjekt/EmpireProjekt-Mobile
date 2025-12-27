@@ -39,55 +39,55 @@ fun VotesScreenComponent(
             name = "FrontierSmp",
             url = "https://minecraftrating.ru/vote/290898/",
             hasPrize = false,
-            image = MR.images.ic_minecraftrating
+            image = MR.images.img_minecraftrating
         ),
         VoteUrl(
             name = "WildernessSmp",
             url = "https://minecraftrating.ru/vote/295288/",
             hasPrize = false,
-            image = MR.images.ic_minecraftrating
+            image = MR.images.img_minecraftrating
         ),
         VoteUrl(
             name = "EndureCraft",
             url = "https://minecraftrating.ru/vote/295287/",
             hasPrize = false,
-            image = MR.images.ic_minecraftrating
+            image = MR.images.img_minecraftrating
         ),
         VoteUrl(
             name = "ExploreSmp",
             url = "https://minecraftrating.ru/vote/293843/",
             hasPrize = false,
-            image = MR.images.ic_minecraftrating
+            image = MR.images.img_minecraftrating
         ),
         VoteUrl(
             name = "LongExile",
             url = "https://minecraftrating.ru/vote/290896/",
             hasPrize = false,
-            image = MR.images.ic_minecraftrating
+            image = MR.images.img_minecraftrating
         ),
         VoteUrl(
             url = "https://minecraftrating.ru/projects/empireprojekt/",
             hasPrize = true,
-            image = MR.images.ic_minecraftrating,
+            image = MR.images.img_minecraftrating,
             name = "Server Project"
         ),
         VoteUrl(
             name = "FrontierSurvival",
             url = "https://hotmc.ru/minecraft-server-200387",
             hasPrize = true,
-            image = MR.images.ic_hotmc
+            image = MR.images.img_hotmc
         ),
         VoteUrl(
             name = "WildernessSmp",
             url = "https://hotmc.ru/minecraft-server-258775",
             hasPrize = true,
-            image = MR.images.ic_hotmc
+            image = MR.images.img_hotmc
         ),
         VoteUrl(
             name = "EndureCraft",
             url = "https://hotmc.ru/minecraft-server-258776",
             hasPrize = true,
-            image = MR.images.ic_hotmc
+            image = MR.images.img_hotmc
         ),
     )
     Scaffold(
