@@ -15,7 +15,6 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
-    id("ru.astrainteractive.gradleplugin.android.apk.name")
     alias(libs.plugins.kotlin.compose.gradle)
     id("dev.icerock.mobile.multiplatform-resources")
 }
@@ -50,7 +49,7 @@ android {
         versionName = requireProjectInfo.versionString
         setProperty(
             "archivesBaseName",
-            "${requireProjectInfo.name}-${requireProjectInfo.versionString}"
+            "${requireProjectInfo.name}-wearos-${requireProjectInfo.versionString}"
         )
     }
     defaultConfig {
