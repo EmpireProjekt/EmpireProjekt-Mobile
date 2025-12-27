@@ -3,7 +3,6 @@ package com.makeevrserg.empireprojekt.mobile.features.theme.presentation
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.ThemeSwitcherRepository
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.model.Theme
 import kotlinx.coroutines.flow.StateFlow
-import ru.astrainteractive.klibs.kdi.getValue
 import ru.astrainteractive.klibs.mikro.core.util.next
 
 internal class DefaultThemeSwitcherComponent(

@@ -32,6 +32,7 @@ fun AdaptThemeFade(
     composeTheme: ComposeTheme = ComposeTheme.DARK,
     content: @Composable () -> Unit
 ) {
+    TransparentBars(composeTheme.isDark)
     val appTheme = when (composeTheme) {
         ComposeTheme.DARK -> AppTheme(
             astraColors = AstraColors.Dark

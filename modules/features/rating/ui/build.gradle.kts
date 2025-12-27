@@ -6,8 +6,8 @@ plugins {
     id("org.jetbrains.compose")
     id("com.android.library")
     kotlin("multiplatform")
-    id("ru.astrainteractive.gradleplugin.java.core")
-    id("ru.astrainteractive.gradleplugin.android.core")
+    id("ru.astrainteractive.gradleplugin.java.version")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
     alias(libs.plugins.kotlin.compose.gradle)
 }
 
@@ -17,6 +17,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(libs.kotlin.datetime)
                 // Compose MPP
                 implementation(compose.foundation)
                 implementation(compose.ui)
@@ -27,8 +28,6 @@ kotlin {
                 implementation(compose.materialIconsExtended)
                 // klibs
                 implementation(libs.klibs.mikro.extensions)
-                // Kotlin
-                implementation(libs.kotlin.datetime)
                 // Moko
                 implementation(libs.moko.resources.core)
                 // Local

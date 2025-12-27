@@ -29,7 +29,7 @@ interface RootModule {
 
     class Default : RootModule {
 
-        override val coreModule: CoreModule by lazy {
+        override val coreModule: CoreModule.Default by lazy {
             CoreModule.Default()
         }
 

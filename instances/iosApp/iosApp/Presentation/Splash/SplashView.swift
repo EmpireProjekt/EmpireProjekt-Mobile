@@ -21,7 +21,7 @@ struct SplashView: View {
     var body: some View {
         Group {
             VStack {
-                Image(resource: \.ic_splash)
+                Image(resource: \.img_splash)
                     .resizable()
                     .frame(width: 128.0, height: 128.0, alignment: .center)
                     .aspectRatio(contentMode: .fill)

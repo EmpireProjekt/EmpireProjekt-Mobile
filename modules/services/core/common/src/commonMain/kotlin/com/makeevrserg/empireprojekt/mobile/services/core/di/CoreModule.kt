@@ -14,15 +14,13 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.serialization.json.Json
-import ru.astrainteractive.klibs.kdi.Lateinit
-import ru.astrainteractive.klibs.kdi.getValue
 import ru.astrainteractive.klibs.mikro.core.dispatchers.DefaultKotlinDispatchers
 import ru.astrainteractive.klibs.mikro.core.dispatchers.KotlinDispatchers
 import ru.astrainteractive.klibs.mikro.platform.PlatformConfiguration
 
 interface CoreModule {
 
-    val platformConfiguration: Lateinit<PlatformConfiguration>
+    val platformConfiguration: PlatformConfiguration
     val jsonConfiguration: Json
     val httpClient: HttpClient
     val linkBrowser: LinkBrowser
@@ -32,7 +30,7 @@ interface CoreModule {
 
     class Default : CoreModule {
 
-        override val platformConfiguration = Lateinit<PlatformConfiguration>()
+        override lateinit var platformConfiguration: PlatformConfiguration
 
         override val jsonConfiguration by lazy {
             Json {
@@ -55,11 +53,11 @@ interface CoreModule {
         }
 
         override val linkBrowser by lazy {
-            LinkBrowserFactory(platformConfiguration.value).create()
+            LinkBrowserFactory(platformConfiguration).create()
         }
 
         override val settings by lazy {
-            val configuration by platformConfiguration
+            val configuration = platformConfiguration
             SettingsFactory(configuration).create()
         }
 

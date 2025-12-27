@@ -6,8 +6,8 @@ plugins {
     id("org.jetbrains.compose")
     id("com.android.library")
     kotlin("multiplatform")
-    id("ru.astrainteractive.gradleplugin.java.core")
-    id("ru.astrainteractive.gradleplugin.android.core")
+    id("ru.astrainteractive.gradleplugin.java.version")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
     alias(libs.plugins.kotlin.compose.gradle)
 }
 
@@ -28,13 +28,6 @@ kotlin {
                 implementation(projects.modules.services.core.ui.theme)
                 implementation(projects.modules.features.theme.api)
                 implementation(projects.modules.features.theme.impl)
-            }
-        }
-
-        val androidMain by getting {
-            dependencies {
-                // Accompanist
-                implementation(libs.google.accompanist.systemuicontroller)
             }
         }
     }

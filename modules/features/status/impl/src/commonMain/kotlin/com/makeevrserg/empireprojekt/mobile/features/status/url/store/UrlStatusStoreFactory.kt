@@ -6,14 +6,13 @@ import com.makeevrserg.empireprojekt.mobile.features.status.url.data.UrlStatusRe
 import com.makeevrserg.empireprojekt.mobile.features.status.url.store.UrlStatusStore.Intent
 import com.makeevrserg.empireprojekt.mobile.features.status.url.store.UrlStatusStore.Label
 import com.makeevrserg.empireprojekt.mobile.features.status.url.store.UrlStatusStore.State
-import ru.astrainteractive.klibs.kdi.Factory
 
 internal class UrlStatusStoreFactory(
     private val storeFactory: StoreFactory,
     private val urlStatusRepository: UrlStatusRepository
-) : Factory<UrlStatusStore> {
+) {
 
-    override fun create(): UrlStatusStore {
+    fun create(): UrlStatusStore {
         return UrlStatusStoreImpl()
     }
 

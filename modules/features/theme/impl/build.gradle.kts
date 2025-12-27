@@ -5,8 +5,8 @@ import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt
 plugins {
     id("com.android.library")
     kotlin("multiplatform")
-    id("ru.astrainteractive.gradleplugin.java.core")
-    id("ru.astrainteractive.gradleplugin.android.core")
+    id("ru.astrainteractive.gradleplugin.java.version")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
     alias(libs.plugins.kotlin.serialization)
 }
 
@@ -19,7 +19,6 @@ kotlin {
                 // klibs
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.kdi)
                 // Settings
                 implementation(libs.mppsettings)
                 // Decompose

@@ -21,7 +21,7 @@ struct StatusWidget: View {
         HStack {
             HStack {
                 StatusIcon(status: model.value.status)
-                Image(resource: \.ic_splash)
+                Image(resource: \.img_splash)
                     .resizable()
                     .frame(width: 50, height: 50, alignment: .center)
                     .aspectRatio(contentMode: .fill)

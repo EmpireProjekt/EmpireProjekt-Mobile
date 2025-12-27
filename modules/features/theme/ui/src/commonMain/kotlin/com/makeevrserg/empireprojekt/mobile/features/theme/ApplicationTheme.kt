@@ -19,8 +19,6 @@ fun ApplicationTheme(
         Theme.DARK -> ComposeTheme.DARK
         Theme.LIGHT -> ComposeTheme.LIGHT
     }
-    TransparentBars(composeTheme.isDark)
-
     AdaptThemeFade(composeTheme) {
         content.invoke()
     }

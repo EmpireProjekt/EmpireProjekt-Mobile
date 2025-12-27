@@ -5,8 +5,8 @@ import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt
 plugins {
     id("com.android.library")
     kotlin("multiplatform")
-    id("ru.astrainteractive.gradleplugin.java.core")
-    id("ru.astrainteractive.gradleplugin.android.core")
+    id("ru.astrainteractive.gradleplugin.java.version")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
     alias(libs.plugins.kotlin.serialization)
     id("dev.icerock.mobile.multiplatform-resources")
 }
@@ -24,7 +24,6 @@ kotlin {
                 implementation(libs.klibs.mikro.extensions)
                 implementation(libs.klibs.mikro.platform)
                 implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.kdi)
                 // Decompose
                 implementation(libs.decompose.core)
                 implementation(libs.essenty)

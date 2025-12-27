@@ -8,7 +8,6 @@ import com.makeevrserg.empireprojekt.mobile.features.root.screen.RootRouter
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.RootScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.di.TownsModule
 import com.makeevrserg.empireprojekt.mobile.features.webview.WebViewDecomposeComponent
-import ru.astrainteractive.klibs.kdi.Factory
 
 @Suppress("LongParameterList")
 class RootScreenComponentChildFactory(
@@ -20,8 +19,8 @@ class RootScreenComponentChildFactory(
     private val townsModule: TownsModule,
     private val onRootNavigation: (RootRouter.Configuration) -> Unit,
     private val onPop: () -> Unit,
-) : Factory<DefaultRootScreenComponent.Configuration> {
-    override fun create(): DefaultRootScreenComponent.Configuration {
+) {
+    fun create(): DefaultRootScreenComponent.Configuration {
         return when (config) {
             RootRouter.Configuration.Splash -> {
                 DefaultRootScreenComponent.Configuration.Splash(

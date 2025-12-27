@@ -1,18 +1,27 @@
-import ru.astrainteractive.gradleplugin.property.PropertyValue.Companion.baseGradleProperty
-import ru.astrainteractive.gradleplugin.property.PropertyValue.Companion.secretProperty
+@file:OptIn(ExperimentalEncodingApi::class)
+
+import ru.astrainteractive.gradleplugin.property.baseGradleProperty
 import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.stringOrEmpty
-import ru.astrainteractive.gradleplugin.util.Base64Util
+import ru.astrainteractive.gradleplugin.property.secretProperty
+import kotlin.io.encoding.Base64
+import kotlin.io.encoding.ExperimentalEncodingApi
+
 
 plugins {
     kotlin("plugin.serialization")
     id("com.android.application")
-    id("kotlin-android")
-    id("ru.astrainteractive.gradleplugin.java.core")
-    id("ru.astrainteractive.gradleplugin.android.core")
-    alias(libs.plugins.kotlin.compose.gradle)
+    alias(libs.plugins.kotlin.multiplatform)
+    id("ru.astrainteractive.gradleplugin.java.version")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.android.apk.name")
+    alias(libs.plugins.kotlin.compose.gradle)
+}
+
+kotlin {
+    androidTarget()
+    applyDefaultHierarchyTemplate()
 }
 
 android {
@@ -21,7 +30,11 @@ android {
     if (!gServicesFile.exists()) {
         logger.warn("google-services.json not exists - creating")
         val base64String = secretProperty("GSERVICES_BASE64").stringOrEmpty
-        if (base64String.isNotBlank()) Base64Util.fromBase64(base64String, gServicesFile)
+        if (base64String.isNotBlank()) {
+            val byteArray = Base64.decode(base64String)
+            gServicesFile.createNewFile()
+            gServicesFile.writeBytes(byteArray)
+        }
     }
 
     if (file("google-services.json").exists()) {
@@ -55,10 +68,14 @@ android {
         if (!keyStoreFile.exists()) {
             logger.warn("Keystore file not exists - creating")
             val base64String = secretProperty("KEYSTORE_BASE64").stringOrEmpty
-            if (base64String.isNotBlank()) Base64Util.fromBase64(base64String, keyStoreFile)
+            if (base64String.isNotBlank()) {
+                val byteArray = Base64.decode(base64String)
+                keyStoreFile.createNewFile()
+                keyStoreFile.writeBytes(byteArray)
+            }
         }
         if (!keyStoreFile.exists()) {
-            logger.error("Keystore file could not be created")
+            logger.warn("Keystore file could not be created")
         }
         getByName("debug") {
             if (keyStoreFile.exists()) {
@@ -77,6 +94,7 @@ android {
             }
         }
     }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -91,12 +109,13 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
-    packagingOptions {
+    packaging {
         with(resources.excludes) {
-            add("META-INF/*.kotlin_module")
-            add("META-INF/AL2.0")
-            add("META-INF/LGPL2.1")
+            add("META-INF/INDEX.LIST")
         }
+    }
+    buildFeatures {
+        compose = true
     }
     lint {
         abortOnError = false
@@ -127,7 +146,6 @@ dependencies {
     implementation(libs.klibs.mikro.core)
     implementation(libs.klibs.mikro.platform)
     implementation(libs.klibs.kstorage)
-    implementation(libs.klibs.kdi)
     // moko
     implementation(libs.moko.resources.core)
     // Decompose
@@ -140,6 +158,7 @@ dependencies {
     implementation(libs.androidx.work.runtime)
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.lifecycle.service)
+    implementation(libs.androidx.splash)
     // Local
     implementation(projects.modules.features.root.api)
     implementation(projects.modules.features.root.impl)
