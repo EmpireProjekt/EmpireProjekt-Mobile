@@ -1,0 +1,19 @@
+name: Check Develop
+on:
+  pull_request:
+    branches:
+      - 'develop'
+      - 'master'
+      - 'rc'
+jobs:
+  gradle_validation:
+    name: "Gradle Wrapper"
+    uses: ./.github/workflows/call-gradle-wrapper-validation.yml
+  detekt_validation:
+    name: "Detekt"
+    needs: gradle_validation
+    uses: ./.github/workflows/call-detekt-validation.yml
+  tests_validation:
+    name: "Tests"
+    needs: gradle_validation
+    uses: ./.github/workflows/call-tests-validation.yml

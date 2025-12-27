@@ -1,4 +1,4 @@
-name: CI
+name: Build Release
 on:
   push:
     branches:
@@ -6,13 +6,17 @@ on:
 jobs:
   gradle_validation:
     uses: ./.github/workflows/call-gradle-wrapper-validation.yml
-  create_artifact:
+  upload_artifact:
     needs: [ gradle_validation ]
-    uses: ./.github/workflows/call-create-artifacts.yml
+    uses: ./.github/workflows/call-upload-artifacts.yml
     secrets:
       ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
       KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
       STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
       KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
-      GSERVICES_BASE64: ${{ secrets.GSERVICES_BASE64 }}
+  release:
+    needs: [ gradle_validation, upload_artifact ]
+    uses: ./.github/workflows/call-upload-github-release.yml
+    secrets:
+      ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
