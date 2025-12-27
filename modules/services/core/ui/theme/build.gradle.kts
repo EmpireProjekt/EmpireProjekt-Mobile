@@ -38,6 +38,14 @@ kotlin {
                 implementation(projects.modules.services.core.common)
             }
         }
+        val androidMain by getting {
+            dependencies {
+                // Accompanist
+                implementation(libs.google.accompanist.systemuicontroller)
+                implementation(libs.androidx.core)
+                implementation(libs.androidx.core.ktx)
+            }
+        }
     }
 }
 android {

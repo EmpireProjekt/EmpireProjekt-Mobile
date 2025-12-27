@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.features.theme
+package com.makeevrserg.empireprojekt.mobile.core.ui.theme
 
 import androidx.compose.runtime.Composable
 

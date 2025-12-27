@@ -13,7 +13,7 @@ androidx-splash = "1.2.0" # https://developer.android.com/jetpack/androidx/relea
 android-work = "2.11.0"
 leakcanary = "2.14"
 horologist = "0.6.23"
-    # "0.7.15"
+# "0.7.15"
 compose-wear = "1.5.6"
 
 # Google
@@ -23,6 +23,7 @@ google-crashlytics = "3.0.6"
 google-services = "4.4.4"
 google-accompanist = "0.36.0"
 google-firebase-bom = "34.7.0"
+androidx-core = "1.17.0"
 
 # Testw
 tests-assertk = "0.28.1"
@@ -63,6 +64,8 @@ composables = "1.49.3" # https://github.com/composablehorizons/compose-unstyled
 placeholder = "1.0.12" # https://github.com/eygraber/compose-placeholder
 
 [libraries]
+androidx-core = { module = "androidx.core:core", version.ref = "androidx-core" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
 # wear
 wear-glance-tiles = { module = "androidx.glance:glance-wear-tiles", version.ref = "wear-glance-tiles" }
 wear-tiles = { module = "androidx.wear.tiles:tiles", version.ref = "wear-tiles" }

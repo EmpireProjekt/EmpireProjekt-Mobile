@@ -30,13 +30,6 @@ kotlin {
                 implementation(projects.modules.features.theme.impl)
             }
         }
-
-        val androidMain by getting {
-            dependencies {
-                // Accompanist
-                implementation(libs.google.accompanist.systemuicontroller)
-            }
-        }
     }
 }
 
