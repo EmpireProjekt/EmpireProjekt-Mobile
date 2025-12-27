@@ -3,14 +3,12 @@ package com.makeevrserg.empireprojekt.mobile.wear.tile
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.lifecycle.lifecycleScope
-import androidx.wear.protolayout.ColorBuilders
 import androidx.wear.protolayout.ColorBuilders.ColorProp
 import androidx.wear.protolayout.LayoutElementBuilders
 import androidx.wear.protolayout.ResourceBuilders
 import androidx.wear.protolayout.TimelineBuilders
 import androidx.wear.tiles.RequestBuilders
 import androidx.wear.tiles.TileBuilders
-import androidx.wear.tiles.TileService
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.tiles.SuspendingTileService
 import com.makeevrserg.empireprojekt.mobile.modules.services.core.resources.R

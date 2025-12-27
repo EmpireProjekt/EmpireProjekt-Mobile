@@ -109,6 +109,11 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+    packaging {
+        with(resources.excludes) {
+            add("META-INF/INDEX.LIST")
+        }
+    }
     buildFeatures {
         compose = true
     }
