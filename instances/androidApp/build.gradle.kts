@@ -1,5 +1,7 @@
 @file:OptIn(ExperimentalEncodingApi::class)
 
+import com.android.build.gradle.internal.tasks.ValidateSigningTask
+import ru.astrainteractive.gradleplugin.plugin.secretfile.SecretFileTask
 import ru.astrainteractive.gradleplugin.property.baseGradleProperty
 import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
@@ -12,29 +14,33 @@ import kotlin.io.encoding.ExperimentalEncodingApi
 plugins {
     kotlin("plugin.serialization")
     id("com.android.application")
-    alias(libs.plugins.kotlin.multiplatform)
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
+    id("ru.astrainteractive.gradleplugin.android.java")
+    id("ru.astrainteractive.gradleplugin.android.apk.name")
+    id("ru.astrainteractive.gradleplugin.android.apk.sign")
+    id("ru.astrainteractive.gradleplugin.android.compose")
     alias(libs.plugins.kotlin.compose.gradle)
 }
 
-kotlin {
-    androidTarget()
-    applyDefaultHierarchyTemplate()
+tasks.register<SecretFileTask>("exportKeystore") {
+    targetFile = file("keystore.jks")
+    base64 = secretProperty("KEYSTORE_BASE64").stringOrEmpty
+    tasks.withType<ValidateSigningTask>().all {
+        this.dependsOn(this@register)
+    }
+}
+
+tasks.register<SecretFileTask>("exportGServicesFile") {
+    targetFile = file("google-services.json")
+    base64 = secretProperty("GSERVICES_BASE64").stringOrEmpty
+    tasks.withType<ValidateSigningTask>().all {
+        this.dependsOn(this@register)
+    }
 }
 
 android {
     namespace = "${requireProjectInfo.group}"
-    val gServicesFile = file("google-services.json")
-    if (!gServicesFile.exists()) {
-        logger.warn("google-services.json not exists - creating")
-        val base64String = secretProperty("GSERVICES_BASE64").stringOrEmpty
-        if (base64String.isNotBlank()) {
-            val byteArray = Base64.decode(base64String)
-            gServicesFile.createNewFile()
-            gServicesFile.writeBytes(byteArray)
-        }
-    }
 
     if (file("google-services.json").exists()) {
         apply(plugin = "com.google.gms.google-services")
@@ -46,51 +52,12 @@ android {
         applicationId = requireProjectInfo.group
         versionCode = baseGradleProperty("project.version.code").requireInt
         versionName = requireProjectInfo.versionString
-        setProperty(
-            "archivesBaseName",
-            "${requireProjectInfo.name}-android-${requireProjectInfo.versionString}"
-        )
     }
     defaultConfig {
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
-        }
-    }
-
-    signingConfigs {
-        val keyStoreFile = file("keystore.jks")
-        val secretKeyAlias = secretProperty("KEY_ALIAS").stringOrEmpty
-        val secretKeyPassword = secretProperty("KEY_PASSWORD").stringOrEmpty
-        val secretStorePassword = secretProperty("STORE_PASSWORD").stringOrEmpty
-        if (!keyStoreFile.exists()) {
-            logger.warn("Keystore file not exists - creating")
-            val base64String = secretProperty("KEYSTORE_BASE64").stringOrEmpty
-            if (base64String.isNotBlank()) {
-                val byteArray = Base64.decode(base64String)
-                keyStoreFile.createNewFile()
-                keyStoreFile.writeBytes(byteArray)
-            }
-        }
-        if (!keyStoreFile.exists()) {
-            logger.warn("Keystore file could not be created")
-        }
-        getByName("debug") {
-            if (keyStoreFile.exists()) {
-                keyAlias = secretKeyAlias
-                keyPassword = secretKeyPassword
-                storePassword = secretStorePassword
-                storeFile = keyStoreFile
-            }
-        }
-        create("release") {
-            if (keyStoreFile.exists()) {
-                keyAlias = secretKeyAlias
-                keyPassword = secretKeyPassword
-                storePassword = secretStorePassword
-                storeFile = keyStoreFile
-            }
         }
     }
 
@@ -101,20 +68,15 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("release")
         }
         debug {
             isDebuggable = true
-            signingConfig = signingConfigs.getByName("debug")
         }
     }
     packaging {
         with(resources.excludes) {
             add("META-INF/INDEX.LIST")
         }
-    }
-    buildFeatures {
-        compose = true
     }
     lint {
         abortOnError = false
@@ -128,12 +90,14 @@ dependencies {
     implementation(libs.kotlin.coroutines.core)
     implementation(libs.kotlin.coroutines.android)
     // Compose
-    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.material:material")
-    implementation("androidx.compose.foundation:foundation")
-    implementation("androidx.compose.material:material")
+    implementation(libs.jetbrains.compose.foundation)
+    implementation(libs.jetbrains.compose.material)
+    implementation(libs.jetbrains.compose.material3)
+    implementation(libs.jetbrains.compose.preview)
+    implementation(libs.jetbrains.compose.runtime)
+    implementation(libs.jetbrains.compose.tooling)
+    implementation(libs.jetbrains.compose.ui)
     // FireBase
     implementation(platform(libs.google.firebase.bom))
     implementation("com.google.firebase:firebase-crashlytics-ndk")
