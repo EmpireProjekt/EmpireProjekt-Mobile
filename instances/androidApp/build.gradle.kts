@@ -73,6 +73,11 @@ android {
         }
     }
     packaging {
+        resources {
+            merges += "**/values-night/colors.xml"
+            merges += "**/values/colors.xml"
+            merges += "**/values/multiplatform_strings.xml"
+        }
         with(resources.excludes) {
             add("META-INF/INDEX.LIST")
         }
