@@ -4,10 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.WifiTethering
-import androidx.compose.material.icons.filled.WifiTetheringError
-import androidx.compose.material.icons.filled.WifiTetheringOff
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -19,7 +15,9 @@ import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
+import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.wear.features.components.IconTextChip
 import com.makeevrserg.empireprojekt.mobile.wear.features.status.presentation.WearStatusComponent
 
@@ -53,7 +51,7 @@ fun StatusesScreen(wearStatusComponent: WearStatusComponent) {
                 IconTextChip(
                     modifier = Modifier.fillMaxWidth(),
                     text = mergedState.successCount.toString(),
-                    imageVector = Icons.Filled.WifiTethering,
+                    painter = MR.images.ic_wifi_tethering.asPainter(),
                     iconColor = AppTheme.astraColors.action.colorPositive
                 )
             }
@@ -61,7 +59,7 @@ fun StatusesScreen(wearStatusComponent: WearStatusComponent) {
                 IconTextChip(
                     modifier = Modifier.fillMaxWidth(),
                     text = mergedState.loadingCount.toString(),
-                    imageVector = Icons.Filled.WifiTetheringError,
+                    painter = MR.images.ic_wifi_tethering_error.asPainter(),
                     iconColor = AppTheme.astraColors.astraLogo.astraOrange
                 )
             }
@@ -69,7 +67,7 @@ fun StatusesScreen(wearStatusComponent: WearStatusComponent) {
                 IconTextChip(
                     modifier = Modifier.fillMaxWidth(),
                     text = mergedState.failureCount.toString(),
-                    imageVector = Icons.Filled.WifiTetheringOff,
+                    painter = MR.images.ic_wifi_tethering_off.asPainter(),
                     iconColor = AppTheme.astraColors.action.colorNegative
                 )
             }

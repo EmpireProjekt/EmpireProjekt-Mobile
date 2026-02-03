@@ -1,17 +1,16 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
-
 plugins {
-    id("com.android.library")
+    id("com.android.kotlin.multiplatform.library")
     kotlin("multiplatform")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     alias(libs.plugins.kotlin.serialization)
+    id("ru.astrainteractive.gradleplugin.android.namespace")
 }
 
 kotlin {
-    androidTarget()
+    androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
         val commonMain by getting {
@@ -58,18 +57,12 @@ kotlin {
         }
     }
 }
-android {
-    namespace = "${requireProjectInfo.group}.shared"
-    sourceSets {
-        getByName("main").java.srcDirs("build/generated/moko/androidMain/src")
-    }
-}
 
-dependencies {
-    // FireBase
-    implementation(platform(libs.google.firebase.bom))
-    implementation(libs.klibs.kstorage)
-    implementation(libs.google.auth)
-    implementation(libs.kotlin.coroutines.playServices)
-    implementation("io.ktor:ktor-client-logging-jvm:${libs.versions.ktor.get()}")
-}
+// dependencies {
+//    // FireBase
+//    implementation(platform(libs.google.firebase.bom))
+//    implementation(libs.klibs.kstorage)
+//    implementation(libs.google.auth)
+//    implementation(libs.kotlin.coroutines.playServices)
+//    implementation("io.ktor:ktor-client-logging-jvm:${libs.versions.ktor.get()}")
+// }

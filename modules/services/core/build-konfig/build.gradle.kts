@@ -5,11 +5,12 @@ import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
 
 plugins {
-    id("com.android.library")
+    id("com.android.kotlin.multiplatform.library")
     kotlin("multiplatform")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("com.github.gmazzo.buildconfig")
     id("ru.astrainteractive.gradleplugin.android.sdk")
+    id("ru.astrainteractive.gradleplugin.android.namespace")
 }
 
 buildConfig {
@@ -30,10 +31,6 @@ buildConfig {
     )
 }
 kotlin {
-    androidTarget()
+    androidLibrary {}
     applyDefaultHierarchyTemplate()
-}
-
-android {
-    namespace = "${requireProjectInfo.group}.buildkonfig"
 }

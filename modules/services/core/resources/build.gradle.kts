@@ -3,7 +3,7 @@
 import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
 
 plugins {
-    id("dev.icerock.mobile.multiplatform-resources")
+    id("ru.astrainteractive.mokoresources.multiplatform-resources")
     alias(libs.plugins.android.library)
     kotlin("multiplatform")
     id("ru.astrainteractive.gradleplugin.java.version")
@@ -12,7 +12,7 @@ plugins {
 }
 
 kotlin {
-    androidTarget()
+    androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
         val commonMain by getting {

@@ -6,29 +6,29 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Bedtime
-import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.Icon
 import androidx.wear.compose.material.Text
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.R
+import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.model.Theme
 import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.ThemeSwitcherComponent
 import com.makeevrserg.empireprojekt.mobile.wear.features.components.AstraChip
-import com.makeevrserg.empireprojekt.mobile.wearapp.WR
 
 @Composable
 fun ThemeChip(themeSwitcherComponent: ThemeSwitcherComponent) {
     val theme by themeSwitcherComponent.theme.collectAsState()
+
     val icon = when (theme) {
-        Theme.DARK -> Icons.Filled.Bedtime
-        Theme.LIGHT -> Icons.Filled.WbSunny
+        Theme.DARK -> MR.images.ic_bedtime
+        Theme.LIGHT -> MR.images.ic_sunny
     }
     val color by animateColorAsState(
         targetValue = when (theme) {
@@ -41,7 +41,7 @@ fun ThemeChip(themeSwitcherComponent: ThemeSwitcherComponent) {
         modifier = Modifier.fillMaxWidth(),
         label = {
             Text(
-                text = WR.strings.wear_switch_theme.asComposableString(),
+                text = stringResource(R.string.wear_switch_theme),
                 style = MaterialTheme.typography.caption,
                 color = MaterialTheme.colors.onPrimary
             )
@@ -50,7 +50,7 @@ fun ThemeChip(themeSwitcherComponent: ThemeSwitcherComponent) {
         icon = {
             Crossfade(targetState = icon, label = "LABEL") {
                 Icon(
-                    imageVector = it,
+                    painter = it.asPainter(),
                     contentDescription = null,
                     modifier = Modifier
                         .size(ChipDefaults.LargeIconSize)

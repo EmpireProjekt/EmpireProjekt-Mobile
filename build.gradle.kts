@@ -12,8 +12,8 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.compose) apply false
-    alias(libs.plugins.kotlin.compose.gradle) apply false
     alias(libs.plugins.gradle.buildconfig) apply false
+    alias(libs.plugins.kotlin.compose.gradle) apply false
     alias(libs.plugins.moko.resources) apply false
     // klibs - core
     alias(libs.plugins.klibs.gradle.detekt) apply false
@@ -24,12 +24,12 @@ plugins {
     alias(libs.plugins.klibs.gradle.rootinfo) apply false
     // klibs - android
     alias(libs.plugins.klibs.gradle.android.sdk) apply false
+    alias(libs.plugins.klibs.gradle.android.java) apply false
     alias(libs.plugins.klibs.gradle.android.compose) apply false
     alias(libs.plugins.klibs.gradle.android.apk.sign) apply false
     alias(libs.plugins.klibs.gradle.android.apk.name) apply false
     alias(libs.plugins.klibs.gradle.android.namespace) apply false
 }
-
 apply(plugin = "ru.astrainteractive.gradleplugin.detekt")
 
 /**
