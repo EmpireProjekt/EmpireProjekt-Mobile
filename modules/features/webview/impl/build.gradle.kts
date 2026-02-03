@@ -1,8 +1,5 @@
 @file:Suppress("UnusedPrivateMember")
 
-import com.android.build.gradle.internal.ide.kmp.KotlinAndroidSourceSetMarker.Companion.android
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
-
 plugins {
     id("com.android.kotlin.multiplatform.library")
     kotlin("multiplatform")

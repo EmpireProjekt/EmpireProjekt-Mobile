@@ -1,7 +1,6 @@
 @file:OptIn(ExperimentalEncodingApi::class)
 
 import com.android.build.gradle.internal.tasks.ValidateSigningTask
-import org.gradle.kotlin.dsl.assign
 import org.gradle.kotlin.dsl.register
 import org.gradle.kotlin.dsl.withType
 import ru.astrainteractive.gradleplugin.plugin.secretfile.SecretFileTask
@@ -10,7 +9,6 @@ import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.stringOrEmpty
 import ru.astrainteractive.gradleplugin.property.secretProperty
-import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
 
 
@@ -24,7 +22,6 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.apk.sign")
     id("ru.astrainteractive.gradleplugin.android.compose")
     alias(libs.plugins.kotlin.compose.gradle)
-    id("ru.astrainteractive.mokoresources.multiplatform-resources")
 }
 
 tasks.register<SecretFileTask>("exportKeystore") {
@@ -146,9 +143,5 @@ dependencies {
     implementation(projects.modules.services.wearMessenger.pingWear)
     implementation(projects.modules.services.wearMessenger.common)
     implementation(projects.modules.services.core.common)
-}
-
-multiplatformResources {
-    resourcesPackage.set("${requireProjectInfo.group}.wearapp")
-    resourcesClassName.set("WR")
+    implementation(projects.modules.services.core.resources)
 }

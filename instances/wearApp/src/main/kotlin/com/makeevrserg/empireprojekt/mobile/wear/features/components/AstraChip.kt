@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.wear.compose.material.Chip
 import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.Icon
@@ -44,7 +44,7 @@ fun AstraChip(
 @Composable
 fun IconTextChip(
     text: String,
-    imageVector: ImageVector,
+    painter: Painter,
     modifier: Modifier = Modifier,
     textColor: Color = MaterialTheme.colors.onPrimary,
     iconColor: Color = Color.Unspecified,
@@ -63,9 +63,9 @@ fun IconTextChip(
         },
         onClick = onClick,
         icon = {
-            Crossfade(targetState = imageVector, label = "LABEL") { imageVector ->
+            Crossfade(targetState = painter, label = "LABEL") { painter ->
                 Icon(
-                    imageVector = imageVector,
+                    painter = painter,
                     contentDescription = null,
                     modifier = Modifier
                         .size(ChipDefaults.LargeIconSize)

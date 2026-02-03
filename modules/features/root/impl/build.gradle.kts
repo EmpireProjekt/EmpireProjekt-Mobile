@@ -1,7 +1,5 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
-
 plugins {
     id("com.android.kotlin.multiplatform.library")
     kotlin("multiplatform")
@@ -60,11 +58,11 @@ kotlin {
     }
 }
 
-//dependencies {
+// dependencies {
 //    // FireBase
 //    implementation(platform(libs.google.firebase.bom))
 //    implementation(libs.klibs.kstorage)
 //    implementation(libs.google.auth)
 //    implementation(libs.kotlin.coroutines.playServices)
 //    implementation("io.ktor:ktor-client-logging-jvm:${libs.versions.ktor.get()}")
-//}
+// }

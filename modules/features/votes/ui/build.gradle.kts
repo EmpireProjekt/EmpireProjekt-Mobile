@@ -44,7 +44,6 @@ kotlin {
     }
 }
 
-
 multiplatformResources {
     resourcesPackage.set("${requireProjectInfo.group}.features.votes.ui")
     resourcesClassName.set("IR")

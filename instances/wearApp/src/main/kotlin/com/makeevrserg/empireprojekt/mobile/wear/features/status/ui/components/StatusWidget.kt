@@ -5,10 +5,6 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.WifiTethering
-import androidx.compose.material.icons.filled.WifiTetheringError
-import androidx.compose.material.icons.filled.WifiTetheringOff
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -17,7 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.Icon
 import androidx.wear.compose.material.Text
+import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.status.url.presentation.UrlStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.features.components.AstraChip
 
@@ -25,10 +23,10 @@ import com.makeevrserg.empireprojekt.mobile.wear.features.components.AstraChip
 internal fun StatusWidget(component: UrlStatusComponent) {
     val model by component.model.collectAsState()
     val icon = when (model.status) {
-        UrlStatusComponent.LoadingStatus.LOADING -> Icons.Filled.WifiTetheringError
-        UrlStatusComponent.LoadingStatus.SUCCESS -> Icons.Filled.WifiTethering
-        UrlStatusComponent.LoadingStatus.ERROR -> Icons.Filled.WifiTetheringOff
-    }
+        UrlStatusComponent.LoadingStatus.LOADING -> MR.images.ic_wifi_tethering_error
+        UrlStatusComponent.LoadingStatus.SUCCESS -> MR.images.ic_wifi_tethering
+        UrlStatusComponent.LoadingStatus.ERROR -> MR.images.ic_wifi_tethering_off
+    }.asPainter()
     val color by animateColorAsState(
         targetValue = when (model.status) {
             UrlStatusComponent.LoadingStatus.LOADING -> AppTheme.astraColors.astraLogo.astraOrange
@@ -49,7 +47,7 @@ internal fun StatusWidget(component: UrlStatusComponent) {
         icon = {
             Crossfade(targetState = icon, label = "LABEL") {
                 Icon(
-                    imageVector = it,
+                    painter = it,
                     contentDescription = null,
                     modifier = Modifier
                         .size(ChipDefaults.LargeIconSize)

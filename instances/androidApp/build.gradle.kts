@@ -7,7 +7,6 @@ import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
 import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.stringOrEmpty
 import ru.astrainteractive.gradleplugin.property.secretProperty
-import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
 
 

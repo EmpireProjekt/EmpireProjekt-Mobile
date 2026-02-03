@@ -1,7 +1,5 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
-
 plugins {
     id("org.jetbrains.compose")
     id("com.android.kotlin.multiplatform.library")
@@ -74,4 +72,3 @@ kotlin {
         }
     }
 }
-

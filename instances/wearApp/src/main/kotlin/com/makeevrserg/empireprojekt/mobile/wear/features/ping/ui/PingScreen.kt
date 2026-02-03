@@ -7,9 +7,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.NetworkCheck
-import androidx.compose.material.icons.filled.NetworkWifi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -22,7 +19,9 @@ import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
 import androidx.wear.compose.material.Icon
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
+import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.wear.features.ping.presentation.PingComponent
 
 @Composable
@@ -53,7 +52,7 @@ private fun PingScreenContent(model: PingComponent.Model) {
             when (model) {
                 is PingComponent.Model.NoConnection -> {
                     Icon(
-                        imageVector = Icons.Default.NetworkCheck,
+                        painter = MR.images.ic_network_check.asPainter(),
                         contentDescription = null,
                         tint = MaterialTheme.colors.error
                     )
@@ -68,7 +67,7 @@ private fun PingScreenContent(model: PingComponent.Model) {
 
                 is PingComponent.Model.Success -> {
                     Icon(
-                        imageVector = Icons.Default.NetworkWifi,
+                        painter = MR.images.ic_network_wifi.asPainter(),
                         contentDescription = null,
                         tint = MaterialTheme.colors.secondaryVariant
                     )
