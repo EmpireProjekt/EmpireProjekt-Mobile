@@ -29,8 +29,7 @@ kotlin-serialization-json = "1.10.0"
 kotlin-version = "2.3.10"
 ktor = "3.4.0"
 leakcanary = "2.14"
-moko-resources = "0.26.1-RC" # https://github.com/icerockdev/moko-resources
-moko-resources-agp8 = "0.26.0" # https://github.com/icerockdev/moko-resources
+moko-resources = "0.26.1" # https://github.com/icerockdev/moko-resources
 mppsettings = "1.3.0"
 mvikotlin = "4.3.0"
 placeholder = "1.0.12"
@@ -95,8 +94,8 @@ ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", vers
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
-moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources-agp8" }
-moko-resources-core = { module = "dev.icerock.moko:resources", version.ref = "moko-resources-agp8" }
+moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources" }
+moko-resources-core = { module = "dev.icerock.moko:resources", version.ref = "moko-resources" }
 mppsettings = { module = "com.russhwolf:multiplatform-settings", version.ref = "mppsettings" }
 mvikotlin = { module = "com.arkivanov.mvikotlin:mvikotlin", version.ref = "mvikotlin" }
 mvikotlin-coroutines = { module = "com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines", version.ref = "mvikotlin" }
@@ -130,4 +129,4 @@ kotlin-compose = { id = "org.jetbrains.compose", version.ref = "kotlin-compose" 
 kotlin-compose-gradle = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-version" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin-version" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-version" }
-moko-resources = { id = "ru.astrainteractive.mokoresources.multiplatform-resources", version.ref = "moko-resources" }
+moko-resources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko-resources" }

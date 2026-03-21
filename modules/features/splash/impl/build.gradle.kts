@@ -2,7 +2,7 @@
 
 plugins {
     id("com.android.kotlin.multiplatform.library")
-    kotlin("multiplatform")
+    id("org.jetbrains.kotlin.multiplatform")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.android.namespace")

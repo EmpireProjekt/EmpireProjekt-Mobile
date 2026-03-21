@@ -34,11 +34,11 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.rating.RR
-import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
 import java.util.UUID
+import kotlin.time.Clock
+import kotlin.time.Instant
 
 @Suppress("LongMethod")
 @Composable

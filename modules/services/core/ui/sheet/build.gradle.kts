@@ -3,10 +3,10 @@
 plugins {
     id("org.jetbrains.compose")
     id("com.android.kotlin.multiplatform.library")
-    kotlin("multiplatform")
+    id("org.jetbrains.kotlin.multiplatform")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
-    alias(libs.plugins.kotlin.compose.gradle)
+    id("org.jetbrains.kotlin.plugin.compose")
     id("ru.astrainteractive.gradleplugin.android.namespace")
 }
 kotlin {

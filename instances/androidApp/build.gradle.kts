@@ -19,7 +19,7 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.apk.name")
     id("ru.astrainteractive.gradleplugin.android.apk.sign")
     id("ru.astrainteractive.gradleplugin.android.compose")
-    alias(libs.plugins.kotlin.compose.gradle)
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 tasks.register<SecretFileTask>("exportKeystore") {
@@ -76,6 +76,7 @@ android {
         resources {
             merges += "**/values-night/colors.xml"
             merges += "**/values/colors.xml"
+            merges += "**/values/multiplatform_strings.xml"
             merges += "**/values/multiplatform_strings.xml"
         }
         with(resources.excludes) {

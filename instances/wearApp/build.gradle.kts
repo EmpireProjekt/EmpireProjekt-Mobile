@@ -21,7 +21,7 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.apk.name")
     id("ru.astrainteractive.gradleplugin.android.apk.sign")
     id("ru.astrainteractive.gradleplugin.android.compose")
-    alias(libs.plugins.kotlin.compose.gradle)
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 tasks.register<SecretFileTask>("exportKeystore") {

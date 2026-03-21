@@ -6,7 +6,7 @@ import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValu
 
 plugins {
     id("com.android.kotlin.multiplatform.library")
-    kotlin("multiplatform")
+    id("org.jetbrains.kotlin.multiplatform")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("com.github.gmazzo.buildconfig")
     id("ru.astrainteractive.gradleplugin.android.sdk")
