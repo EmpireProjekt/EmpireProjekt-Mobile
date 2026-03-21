@@ -1,9 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.wear.tile.components
 
 import android.content.Context
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.ui.platform.LocalContext
 import androidx.wear.protolayout.ActionBuilders
 import androidx.wear.protolayout.DeviceParametersBuilders
 import androidx.wear.protolayout.DimensionBuilders
@@ -15,8 +12,6 @@ import androidx.wear.protolayout.material.Text
 import androidx.wear.protolayout.material.Typography
 import androidx.wear.protolayout.material.layouts.PrimaryLayout
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
-import com.google.android.horologist.compose.tools.TileLayoutPreview
-import com.google.android.horologist.compose.tools.buildDeviceParameters
 import com.google.android.horologist.tiles.render.SingleTileLayoutRenderer
 import com.makeevrserg.empireprojekt.mobile.modules.services.core.resources.R
 import com.makeevrserg.empireprojekt.mobile.wear.MainActivity
@@ -100,7 +95,14 @@ class MainTileRenderer(
             .addContent(statuses)
             .build()
 
-        return PrimaryLayout.Builder(buildDeviceParameters(context.resources))
+        val tileDeviceParameters = DeviceParametersBuilders.DeviceParameters.Builder()
+            .setScreenWidthDp(context.resources.configuration.screenWidthDp)
+            .setScreenHeightDp(context.resources.configuration.screenHeightDp)
+            .setScreenDensity(context.resources.displayMetrics.density)
+            .build()
+
+        return PrimaryLayout.Builder(tileDeviceParameters)
+            .setResponsiveContentInsetEnabled(true)
             .setContent(column)
             .setPrimaryChipContent(compactChip)
             .build()
@@ -112,13 +114,4 @@ class MainTileRenderer(
     ): LayoutElementBuilders.LayoutElement {
         return tileLayout(state, deviceParameters)
     }
-}
-
-@OptIn(ExperimentalHorologistApi::class)
-@DefaultPreview
-@Composable
-fun TilePreview() {
-    val context = LocalContext.current
-    val renderer = remember { MainTileRenderer(context) }
-    TileLayoutPreview(WearStatusComponent.Model(), WearStatusComponent.Model(), renderer)
 }
