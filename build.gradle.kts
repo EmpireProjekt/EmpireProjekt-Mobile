@@ -16,8 +16,7 @@ plugins {
     alias(libs.plugins.kotlin.compose.gradle) apply false
     alias(libs.plugins.moko.resources) apply false
     // klibs - core
-    alias(libs.plugins.klibs.gradle.detekt) apply false
-    alias(libs.plugins.klibs.gradle.detekt.compose) apply false
+    alias(libs.plugins.klibs.gradle.detekt)
     alias(libs.plugins.klibs.gradle.dokka.root) apply false
     alias(libs.plugins.klibs.gradle.dokka.module) apply false
     alias(libs.plugins.klibs.gradle.java.version) apply false
@@ -30,7 +29,6 @@ plugins {
     alias(libs.plugins.klibs.gradle.android.apk.name) apply false
     alias(libs.plugins.klibs.gradle.android.namespace) apply false
 }
-apply(plugin = "ru.astrainteractive.gradleplugin.detekt")
 
 /**
  * This function will delete every ./build folder

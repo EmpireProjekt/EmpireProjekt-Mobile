@@ -37,6 +37,7 @@ data class AstraColors(
     companion object
 }
 
+@Suppress("MagicNumber")
 internal val AstraColors.Companion.Dark: AstraColors
     get() = AstraColors(
         isDark = true,
@@ -62,6 +63,7 @@ internal val AstraColors.Companion.Dark: AstraColors
         )
     )
 
+@Suppress("MagicNumber")
 internal val AstraColors.Companion.Light: AstraColors
     get() = AstraColors(
         isDark = false,
