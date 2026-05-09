@@ -114,7 +114,9 @@ dependencies {
 
     implementation(libs.wear.tiles)
     implementation(libs.wear.tiles.material)
-    implementation(libs.google.horologist.compose.tools)
+    implementation(libs.wear.tiles.tooling.preview)
+    implementation(libs.wear.tooling.preview)
+    debugImplementation(libs.wear.tiles.tooling)
     implementation(libs.google.horologist.tiles)
     implementation(libs.wear.complications.datasource.ktx)
     implementation(libs.google.horologist.datalayer.watch)

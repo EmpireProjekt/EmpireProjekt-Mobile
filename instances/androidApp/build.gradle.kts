@@ -1,7 +1,6 @@
 @file:OptIn(ExperimentalEncodingApi::class)
 
 import com.android.build.gradle.internal.tasks.ValidateSigningTask
-import ru.astrainteractive.gradle.property.api.gradleProperty
 import ru.astrainteractive.gradle.property.api.klibsGradleProperty
 import ru.astrainteractive.gradle.property.api.secretProperty
 import ru.astrainteractive.gradleplugin.property.util.requireInt

@@ -112,7 +112,8 @@ fun VotesScreenComponent(
                 fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
             )
             Text(
-                text = "На этой странице вы можете помочь серверу привлечь новых игроков проголосовав за него на других мониторингах\n" +
+                text = "На этой странице вы можете помочь серверу " +
+                    "привлечь новых игроков проголосовав за него на других мониторингах\n" +
                     "Просто нажмите на один вариант, а лучше на все.\n",
                 style = MaterialTheme.typography.body1,
                 color = MaterialTheme.colors.onSecondary,

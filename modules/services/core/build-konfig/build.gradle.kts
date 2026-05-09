@@ -1,9 +1,8 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradle.property.api.gradleProperty
 import ru.astrainteractive.gradle.property.api.klibsGradleProperty
-import ru.astrainteractive.gradleplugin.property.util.requireProjectInfo
 import ru.astrainteractive.gradleplugin.property.util.requireInt
+import ru.astrainteractive.gradleplugin.property.util.requireProjectInfo
 
 plugins {
     id("com.android.kotlin.multiplatform.library")

@@ -39,6 +39,7 @@ tests-turbine = "1.2.1"
 wear-complications = "1.3.0"
 wear-glance-tiles = "1.0.0-alpha07"
 wear-tiles = "1.6.0"
+wear-tooling-preview = "1.0.0"
 [libraries]
 android-material = { module = "com.google.android.material:material", version.ref = "androidx-material" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
@@ -108,6 +109,9 @@ wear-complications-datasource-ktx = { module = "androidx.wear.watchface:watchfac
 wear-glance-tiles = { module = "androidx.glance:glance-wear-tiles", version.ref = "wear-glance-tiles" }
 wear-tiles = { module = "androidx.wear.tiles:tiles", version.ref = "wear-tiles" }
 wear-tiles-material = { module = "androidx.wear.tiles:tiles-material", version.ref = "wear-tiles" }
+wear-tiles-tooling = { module = "androidx.wear.tiles:tiles-tooling", version.ref = "wear-tiles" }
+wear-tiles-tooling-preview = { module = "androidx.wear.tiles:tiles-tooling-preview", version.ref = "wear-tiles" }
+wear-tooling-preview = { module = "androidx.wear:wear-tooling-preview", version.ref = "wear-tooling-preview" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "kotlin-android-application" }

@@ -1,9 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.wear.tile.components
 
 import android.content.Context
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.ui.platform.LocalContext
 import androidx.wear.protolayout.ActionBuilders
 import androidx.wear.protolayout.DeviceParametersBuilders
 import androidx.wear.protolayout.DimensionBuilders
@@ -14,9 +11,11 @@ import androidx.wear.protolayout.material.CompactChip
 import androidx.wear.protolayout.material.Text
 import androidx.wear.protolayout.material.Typography
 import androidx.wear.protolayout.material.layouts.PrimaryLayout
+import androidx.wear.tiles.tooling.preview.Preview
+import androidx.wear.tiles.tooling.preview.TilePreviewData
+import androidx.wear.tiles.tooling.preview.TilePreviewHelper
+import androidx.wear.tooling.preview.devices.WearDevices
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
-import com.google.android.horologist.compose.tools.TileLayoutPreview
-import com.google.android.horologist.compose.tools.buildDeviceParameters
 import com.google.android.horologist.tiles.render.SingleTileLayoutRenderer
 import com.makeevrserg.empireprojekt.mobile.modules.services.core.resources.R
 import com.makeevrserg.empireprojekt.mobile.wear.MainActivity
@@ -100,7 +99,7 @@ class MainTileRenderer(
             .addContent(statuses)
             .build()
 
-        return PrimaryLayout.Builder(buildDeviceParameters(context.resources))
+        return PrimaryLayout.Builder(deviceParameters)
             .setContent(column)
             .setPrimaryChipContent(compactChip)
             .build()
@@ -115,10 +114,14 @@ class MainTileRenderer(
 }
 
 @OptIn(ExperimentalHorologistApi::class)
-@DefaultPreview
-@Composable
-fun TilePreview() {
-    val context = LocalContext.current
-    val renderer = remember { MainTileRenderer(context) }
-    TileLayoutPreview(WearStatusComponent.Model(), WearStatusComponent.Model(), renderer)
+@Preview(device = WearDevices.SMALL_ROUND, name = "Small Round")
+@Preview(device = WearDevices.LARGE_ROUND, name = "Large Round")
+internal fun mainTilePreview(context: Context): TilePreviewData {
+    val renderer = MainTileRenderer(context)
+    val state = WearStatusComponent.Model()
+    return TilePreviewData { request ->
+        TilePreviewHelper.singleTimelineEntryTileBuilder(
+            renderer.renderTile(state, request.deviceConfiguration)
+        ).build()
+    }
 }
