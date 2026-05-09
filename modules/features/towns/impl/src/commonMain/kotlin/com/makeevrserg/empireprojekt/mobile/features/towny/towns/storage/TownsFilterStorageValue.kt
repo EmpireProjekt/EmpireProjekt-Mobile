@@ -7,8 +7,8 @@ import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
 import ru.astrainteractive.empireapi.models.towny.TownPublicType
 import ru.astrainteractive.empireapi.models.towny.TownsFilterModel
 import ru.astrainteractive.klibs.kstorage.api.CachedMutableKrate
+import ru.astrainteractive.klibs.kstorage.api.asCachedMutableKrate
 import ru.astrainteractive.klibs.kstorage.api.impl.DefaultMutableKrate
-import ru.astrainteractive.klibs.kstorage.util.asCachedMutableKrate
 
 private class Keys(key: String) {
     val queryKey: String = "${key}queryKey"

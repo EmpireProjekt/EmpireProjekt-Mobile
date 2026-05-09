@@ -1,12 +1,13 @@
 @file:OptIn(ExperimentalEncodingApi::class)
 
 import com.android.build.gradle.internal.tasks.ValidateSigningTask
-import ru.astrainteractive.gradleplugin.plugin.secretfile.SecretFileTask
-import ru.astrainteractive.gradleplugin.property.baseGradleProperty
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
-import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
-import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.stringOrEmpty
-import ru.astrainteractive.gradleplugin.property.secretProperty
+import ru.astrainteractive.gradle.property.api.gradleProperty
+import ru.astrainteractive.gradle.property.api.klibsGradleProperty
+import ru.astrainteractive.gradle.property.api.secretProperty
+import ru.astrainteractive.gradleplugin.property.util.requireInt
+import ru.astrainteractive.gradleplugin.property.util.requireProjectInfo
+import ru.astrainteractive.gradleplugin.property.util.stringOrEmpty
+import ru.astrainteractive.gradleplugin.task.SecretFileTask
 import kotlin.io.encoding.ExperimentalEncodingApi
 
 
@@ -49,7 +50,7 @@ android {
     }
     defaultConfig {
         applicationId = requireProjectInfo.group
-        versionCode = baseGradleProperty("project.version.code").requireInt
+        versionCode = klibsGradleProperty("project.version.code").requireInt
         versionName = requireProjectInfo.versionString
     }
     defaultConfig {

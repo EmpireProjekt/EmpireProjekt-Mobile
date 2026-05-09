@@ -5,8 +5,8 @@ import com.russhwolf.settings.Settings
 import com.russhwolf.settings.get
 import com.russhwolf.settings.set
 import ru.astrainteractive.klibs.kstorage.api.StateFlowMutableKrate
+import ru.astrainteractive.klibs.kstorage.api.asStateFlowMutableKrate
 import ru.astrainteractive.klibs.kstorage.api.impl.DefaultMutableKrate
-import ru.astrainteractive.klibs.kstorage.util.asStateFlowMutableKrate
 
 interface LastBottomItemRepository {
     val lastBottomItemIndex: StateFlowMutableKrate<PagerBottomBarItem>

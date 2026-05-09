@@ -28,9 +28,9 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
-import kotlinx.datetime.Instant
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
+import kotlin.time.Instant
 
 @Suppress("LongMethod")
 @Composable

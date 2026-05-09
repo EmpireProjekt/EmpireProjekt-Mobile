@@ -1,8 +1,9 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.property.baseGradleProperty
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
-import ru.astrainteractive.gradleplugin.property.extension.PrimitivePropertyValueExt.requireInt
+import ru.astrainteractive.gradle.property.api.gradleProperty
+import ru.astrainteractive.gradle.property.api.klibsGradleProperty
+import ru.astrainteractive.gradleplugin.property.util.requireProjectInfo
+import ru.astrainteractive.gradleplugin.property.util.requireInt
 
 plugins {
     id("com.android.kotlin.multiplatform.library")
@@ -19,7 +20,7 @@ buildConfig {
     useKotlinOutput { internalVisibility = false }
     buildConfigField(
         name = "VERSION_CODE",
-        value = "${baseGradleProperty("project.version.code").requireInt}"
+        value = "${klibsGradleProperty("project.version.code").requireInt}"
     )
     buildConfigField(
         name = "VERSION_NAME",

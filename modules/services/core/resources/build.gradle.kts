@@ -1,14 +1,14 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
+import ru.astrainteractive.gradleplugin.property.util.requireProjectInfo
 
 plugins {
-    id("ru.astrainteractive.mokoresources.multiplatform-resources")
     alias(libs.plugins.android.library)
     kotlin("multiplatform")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     alias(libs.plugins.klibs.gradle.android.namespace)
+    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 kotlin {
