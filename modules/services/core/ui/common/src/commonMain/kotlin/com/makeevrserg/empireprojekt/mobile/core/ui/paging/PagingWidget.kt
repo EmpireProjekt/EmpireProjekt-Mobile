@@ -56,8 +56,11 @@ object PagingWidget {
     }
 
     @Composable
-    fun NetworkError(onReload: () -> Unit) {
-        Column {
+    fun NetworkError(
+        onReload: () -> Unit,
+        modifier: Modifier = Modifier
+    ) {
+        Column(modifier = modifier) {
             Base(MR.strings.paging_network_error.asComposableString())
             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                 Button(onClick = onReload) {
@@ -81,10 +84,11 @@ object PagingWidget {
             modifier = Modifier.fillMaxWidth(),
             contentAlignment = Alignment.Center
         ) {
-            AstraLoading(AppTheme.dimens.M)
+            AstraLoading(size = AppTheme.dimens.M)
         }
     }
 
+    @Suppress("UnstableCollections")
     @Composable
     fun Auto(
         list: List<*>,

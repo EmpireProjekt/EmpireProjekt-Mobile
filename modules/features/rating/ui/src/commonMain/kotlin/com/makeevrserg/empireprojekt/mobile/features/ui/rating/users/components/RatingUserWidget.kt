@@ -42,7 +42,7 @@ import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
 import kotlin.time.Instant
 
-@Suppress("LongMethod")
+@Suppress("LongMethod", "MagicNumber")
 @Composable
 internal fun RatingUserWidget(
     model: RatingUserModel,

@@ -1,6 +1,5 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.status
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -29,15 +28,16 @@ import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.ThemeSwi
 import com.makeevrserg.empireprojekt.mobile.features.ui.status.widget.StatusWidget
 import com.makeevrserg.empireprojekt.mobile.status.SR
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@Suppress("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun StatusScreen(
     rootBottomSheetRouter: RootBottomSheetRouter,
     themeSwitcherComponent: ThemeSwitcherComponent,
     rootStatusComponent: RootStatusComponent,
+    modifier: Modifier = Modifier
 ) {
     Scaffold(
-        modifier = Modifier,
+        modifier = modifier,
         topBar = {
             AstraCenterAlignedTopAppBar(title = SR.strings.status_title.asComposableString()) {
                 Icon(

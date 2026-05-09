@@ -28,26 +28,30 @@ import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 
 @Composable
 fun AstraCenterAlignedTopAppBar(
-    title: String = "",
     popComponent: PopComponent,
+    modifier: Modifier = Modifier,
+    title: String = "",
     actions: @Composable RowScope.() -> Unit = {}
 ) {
     val popModel by popComponent.popModel.subscribeAsState()
     AstraCenterAlignedTopAppBar(
         title = title,
-        onBackClicked = popModel.popActionOrNull,
+        onBackClick = popModel.popActionOrNull,
+        modifier = modifier,
         actions = actions
     )
 }
 
 @Composable
 fun AstraCenterAlignedTopAppBar(
+    modifier: Modifier = Modifier,
     title: String = "",
-    onBackClicked: (() -> Unit)? = null,
+    onBackClick: (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {}
 ) {
     AstraCenterAlignedTopAppBar(
-        onBackClicked = onBackClicked,
+        onBackClick = onBackClick,
+        modifier = modifier,
         actions = actions,
         title = {
             Text(
@@ -67,17 +71,19 @@ fun AstraCenterAlignedTopAppBar(
 @Composable
 fun AstraCenterAlignedTopAppBar(
     title: @Composable () -> Unit,
-    onBackClicked: (() -> Unit)? = null,
+    modifier: Modifier = Modifier,
+    onBackClick: (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {}
 ) {
     CenterAlignedTopAppBar(
+        modifier = modifier,
         actions = actions,
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
             containerColor = Color.Transparent,
         ),
         title = title,
         navigationIcon = {
-            onBackClicked?.let {
+            onBackClick?.let {
                 IconButton(onClick = it) {
                     Icon(
                         imageVector = Icons.Default.ChevronLeft,
@@ -96,7 +102,7 @@ fun AstraCenterAlignedTopAppBar(
 private fun AstraCenterAlignedTopAppBarPreview() {
     AstraCenterAlignedTopAppBar(
         title = "Hello World",
-        onBackClicked = {},
+        onBackClick = {},
         actions = {
             Box(Modifier.size(24.dp).background(Color.Red))
         }

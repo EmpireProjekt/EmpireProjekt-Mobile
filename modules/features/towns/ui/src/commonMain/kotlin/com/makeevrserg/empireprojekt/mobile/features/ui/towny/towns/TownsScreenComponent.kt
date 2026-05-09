@@ -29,7 +29,8 @@ import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 @Composable
 fun TownsScreenComponent(
     popComponent: PopComponent,
-    townsComponent: TownsComponent
+    townsComponent: TownsComponent,
+    modifier: Modifier = Modifier
 ) {
     val model by townsComponent.model.collectAsState()
     val lazyListState = rememberLazyListState()
@@ -38,7 +39,7 @@ fun TownsScreenComponent(
     }
 
     Scaffold(
-        modifier = Modifier,
+        modifier = modifier,
         topBar = {
             AstraCenterAlignedTopAppBar(
                 title = TR.strings.towns_title.asComposableString(),
@@ -56,13 +57,13 @@ fun TownsScreenComponent(
             item {
                 TownFilterCard(
                     townsFilter = model.filter,
-                    onSortByNationClicked = townsComponent::nextNationSort,
-                    onSortByResidentsClicked = townsComponent::nextResidentsSort,
-                    onSortByTagClicked = townsComponent::nextTagSort,
-                    onSortByDateClicked = townsComponent::nextDateSort,
-                    onSortByNameClicked = townsComponent::nextNameSort,
-                    onPublicTypeClicked = townsComponent::nextPublicType,
-                    onSortByFounderClicked = townsComponent::nextFounderSort
+                    onSortByNationClick = townsComponent::nextNationSort,
+                    onSortByResidentsClick = townsComponent::nextResidentsSort,
+                    onSortByTagClick = townsComponent::nextTagSort,
+                    onSortByDateClick = townsComponent::nextDateSort,
+                    onSortByNameClick = townsComponent::nextNameSort,
+                    onPublicTypeClick = townsComponent::nextPublicType,
+                    onSortByFounderClick = townsComponent::nextFounderSort
                 )
             }
             items(model.items) { townModel ->

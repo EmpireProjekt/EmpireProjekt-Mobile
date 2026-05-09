@@ -28,6 +28,7 @@ import kotlinx.coroutines.flow.onEach
 @Composable
 fun AndroidWebView(
     webViewDecomposeComponent: WebViewDecomposeComponent,
+    modifier: Modifier = Modifier
 ) {
     var webView: WebView? = remember {
         null
@@ -52,7 +53,7 @@ fun AndroidWebView(
         mutableStateOf(true)
     }
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(AppTheme.astraColors.surface.primaryVariant)
             .navigationBarsPadding()
@@ -96,7 +97,7 @@ fun AndroidWebView(
     ) { localIsLoading ->
         if (localIsLoading) {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                AstraLoading(AppTheme.dimens.M)
+                AstraLoading(size = AppTheme.dimens.M)
             }
         }
     }

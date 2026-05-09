@@ -25,7 +25,8 @@ import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 @Composable
 fun RatingUserScreenComponent(
     popComponent: PopComponent,
-    ratingUserComponent: RatingUserComponent
+    ratingUserComponent: RatingUserComponent,
+    modifier: Modifier = Modifier
 ) {
     val model by ratingUserComponent.model.collectAsState()
     val lazyListState = rememberLazyListState()
@@ -35,7 +36,7 @@ fun RatingUserScreenComponent(
     }
 
     Scaffold(
-        modifier = Modifier,
+        modifier = modifier,
         topBar = {
             AstraCenterAlignedTopAppBar(
                 title = model.reviewedUserName,

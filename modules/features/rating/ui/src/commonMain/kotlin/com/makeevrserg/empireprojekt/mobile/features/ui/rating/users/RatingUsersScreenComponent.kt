@@ -27,7 +27,8 @@ import kotlinx.coroutines.Dispatchers
 @Composable
 fun RatingUsersScreenComponent(
     popComponent: PopComponent,
-    ratingUsersComponent: RatingUsersComponent
+    ratingUsersComponent: RatingUsersComponent,
+    modifier: Modifier = Modifier
 ) {
     val model by ratingUsersComponent.model.collectAsState(Dispatchers.Main.immediate)
     val lazyListState = rememberLazyListState()
@@ -36,7 +37,7 @@ fun RatingUsersScreenComponent(
     }
 
     Scaffold(
-        modifier = Modifier.animateContentSize(),
+        modifier = modifier.animateContentSize(),
         topBar = {
             RatingUsersAppBar(
                 popComponent = popComponent,
@@ -54,9 +55,9 @@ fun RatingUsersScreenComponent(
             item {
                 RatingsFilterCard(
                     filter = model.filter,
-                    onNameSortClicked = ratingUsersComponent::nextNameSort,
-                    onLastUpdateSortClicked = ratingUsersComponent::nextLastUpdateSort,
-                    onRatingSortClicked = ratingUsersComponent::nextRatingSort
+                    onNameSortClick = ratingUsersComponent::nextNameSort,
+                    onLastUpdateSortClick = ratingUsersComponent::nextLastUpdateSort,
+                    onRatingSortClick = ratingUsersComponent::nextRatingSort
                 )
             }
             items(model.items) { ratingUserModel ->

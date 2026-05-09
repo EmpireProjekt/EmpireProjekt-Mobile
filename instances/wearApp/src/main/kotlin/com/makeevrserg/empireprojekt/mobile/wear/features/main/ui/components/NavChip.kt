@@ -16,9 +16,13 @@ import com.makeevrserg.empireprojekt.mobile.modules.services.core.resources.R
 import com.makeevrserg.empireprojekt.mobile.wear.features.components.AstraChip
 
 @Composable
-fun NavChip(text: String, onClick: () -> Unit) {
+fun NavChip(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     AstraChip(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         label = {
             Text(
                 text = text,

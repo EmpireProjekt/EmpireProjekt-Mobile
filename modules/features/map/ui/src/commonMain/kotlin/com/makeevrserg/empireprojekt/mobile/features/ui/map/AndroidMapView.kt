@@ -20,7 +20,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.AstraLoading
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 @Composable
-fun AndroidMapView() {
+fun AndroidMapView(modifier: Modifier = Modifier) {
     var webView: WebView? = remember {
         null
     }
@@ -28,7 +28,7 @@ fun AndroidMapView() {
         mutableStateOf(true)
     }
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(AppTheme.astraColors.surface.primaryVariant)
     ) {
@@ -71,7 +71,7 @@ fun AndroidMapView() {
     ) { localIsLoading ->
         if (localIsLoading) {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                AstraLoading(AppTheme.dimens.M)
+                AstraLoading(size = AppTheme.dimens.M)
             }
         }
     }

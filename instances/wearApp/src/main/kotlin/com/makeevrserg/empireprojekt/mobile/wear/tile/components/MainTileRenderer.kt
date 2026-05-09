@@ -26,7 +26,7 @@ import com.makeevrserg.empireprojekt.mobile.wear.tile.asColorProp
 class MainTileRenderer(
     context: Context,
 ) : SingleTileLayoutRenderer<WearStatusComponent.Model, WearStatusComponent.Model>(context) {
-    @Suppress("LongMethod")
+    @Suppress("LongMethod", "MagicNumber")
     private fun tileLayout(
         state: WearStatusComponent.Model,
         deviceParameters: DeviceParametersBuilders.DeviceParameters

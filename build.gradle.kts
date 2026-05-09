@@ -31,10 +31,6 @@ plugins {
 }
 apply(plugin = "ru.astrainteractive.gradleplugin.detekt")
 
-/**
- * This function will delete every ./build folder
- * ./gradlew :cleanProject
- */
 tasks.register("cleanProject", Delete::class) {
     fun clearProject(project: Project) {
         project.childProjects.values.forEach(::clearProject)

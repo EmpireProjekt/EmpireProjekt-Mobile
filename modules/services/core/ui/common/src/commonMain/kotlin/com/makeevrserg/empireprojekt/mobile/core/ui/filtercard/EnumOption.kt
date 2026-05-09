@@ -20,13 +20,13 @@ fun <E : Enum<E>> FilterCardScope.EnumOption(
     text: String,
     selected: E?,
     toString: @Composable (E) -> String,
-    onClicked: () -> Unit,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
         modifier = modifier
             .clip(RoundedCornerShape(AppTheme.dimens.XS))
-            .clickable { onClicked.invoke() },
+            .clickable { onClick.invoke() },
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {

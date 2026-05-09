@@ -33,10 +33,10 @@ fun AstraChip(
             contentColor = MaterialTheme.colors.onPrimary,
             secondaryContentColor = MaterialTheme.colors.secondary,
             iconColor = MaterialTheme.colors.onPrimary,
-            disabledBackgroundColor = MaterialTheme.colors.primary.copy(0.5f),
-            disabledContentColor = MaterialTheme.colors.onPrimary.copy(0.5f),
-            disabledSecondaryContentColor = MaterialTheme.colors.secondary.copy(0.5f),
-            disabledIconColor = MaterialTheme.colors.onPrimary.copy(0.5f)
+            disabledBackgroundColor = MaterialTheme.colors.primary.copy(alpha = 0.5f),
+            disabledContentColor = MaterialTheme.colors.onPrimary.copy(alpha = 0.5f),
+            disabledSecondaryContentColor = MaterialTheme.colors.secondary.copy(alpha = 0.5f),
+            disabledIconColor = MaterialTheme.colors.onPrimary.copy(alpha = 0.5f)
         ),
     )
 }

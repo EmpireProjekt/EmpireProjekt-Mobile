@@ -22,11 +22,14 @@ import com.makeevrserg.empireprojekt.mobile.wear.features.components.IconTextChi
 import com.makeevrserg.empireprojekt.mobile.wear.features.status.presentation.WearStatusComponent
 
 @Composable
-fun StatusesScreen(wearStatusComponent: WearStatusComponent) {
+fun StatusesScreen(
+    wearStatusComponent: WearStatusComponent,
+    modifier: Modifier = Modifier
+) {
     val mergedState by wearStatusComponent.mergedState.collectAsState()
     val listState = rememberScalingLazyListState()
     Scaffold(
-        modifier = Modifier.background(MaterialTheme.colors.primaryVariant),
+        modifier = modifier.background(MaterialTheme.colors.primaryVariant),
         positionIndicator = {
             PositionIndicator(
                 scalingLazyListState = listState

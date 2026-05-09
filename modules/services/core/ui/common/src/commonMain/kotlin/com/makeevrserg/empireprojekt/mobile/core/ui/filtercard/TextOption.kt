@@ -12,13 +12,14 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 @Composable
 fun TextOption(
     text: String,
+    modifier: Modifier = Modifier,
     color: Color = MaterialTheme.colors.secondaryVariant
 ) {
     Text(
         text = text,
         color = color,
         textAlign = TextAlign.Start,
-        modifier = Modifier,
+        modifier = modifier,
         style = MaterialTheme.typography.subtitle2,
         fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
     )

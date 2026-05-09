@@ -22,9 +22,9 @@ import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
 @Composable
 internal fun RatingsFilterCard(
     filter: RatingsFilterModel,
-    onNameSortClicked: () -> Unit,
-    onLastUpdateSortClicked: () -> Unit,
-    onRatingSortClicked: () -> Unit,
+    onNameSortClick: () -> Unit,
+    onLastUpdateSortClick: () -> Unit,
+    onRatingSortClick: () -> Unit,
 ) {
     FilterCard {
         TitleOption(text = MR.strings.shared_filter.asComposableString())
@@ -33,19 +33,19 @@ internal fun RatingsFilterCard(
             text = RR.strings.rating_ratings_filter_name.asComposableString(),
             selected = filter.nameSort,
             toString = { it.toStringDesc().asComposableString() },
-            onClicked = onNameSortClicked
+            onClick = onNameSortClick
         )
         EnumOption(
             text = RR.strings.rating_ratings_filter_last_update.asComposableString(),
             selected = filter.lastUpdatedSort,
             toString = { it.toStringDesc().asComposableString() },
-            onClicked = onLastUpdateSortClicked
+            onClick = onLastUpdateSortClick
         )
         EnumOption(
             text = RR.strings.rating_ratings_filter_rating.asComposableString(),
             selected = filter.ratingSort,
             toString = { it.toStringDesc().asComposableString() },
-            onClicked = onRatingSortClicked
+            onClick = onRatingSortClick
         )
     }
 }
@@ -60,9 +60,9 @@ private fun TownFilterCardPreview() {
                     nameSort = LocalSortOrder.ASC,
                     lastUpdatedSort = LocalSortOrder.DESC
                 ),
-                onLastUpdateSortClicked = {},
-                onNameSortClicked = {},
-                onRatingSortClicked = {},
+                onLastUpdateSortClick = {},
+                onNameSortClick = {},
+                onRatingSortClick = {},
             )
         }
     }

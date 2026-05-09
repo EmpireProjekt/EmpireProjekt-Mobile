@@ -16,18 +16,18 @@ import com.makeevrserg.empireprojekt.mobile.features.ui.pager.components.PagerBo
 @Composable
 fun PagerScreenComponent(
     pagerComponent: PagerComponent,
-    modifier: Modifier = Modifier,
     menuScreen: DecomposeScreen<PagerComponent.Child.Menu>,
-    mapScreen: DecomposeScreen<PagerComponent.Child.Map>
+    mapScreen: DecomposeScreen<PagerComponent.Child.Map>,
+    modifier: Modifier = Modifier
 ) {
     val selectedChild by pagerComponent.selectedChild.collectAsState()
     val selectedBottomBarItem by pagerComponent.selectedBottomBarItem.collectAsState()
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
     ) {
         Crossfade(
-            modifier = modifier.fillMaxWidth(),
             targetState = selectedChild,
+            modifier = Modifier.fillMaxWidth(),
             label = "Crossfade instance composable"
         ) { instance ->
             when (instance) {
@@ -44,7 +44,7 @@ fun PagerScreenComponent(
         }
         PagerBottomBar(
             selectedIndex = selectedBottomBarItem.ordinal,
-            onClicked = pagerComponent::select,
+            onTabClick = pagerComponent::select,
             modifier = Modifier.align(Alignment.BottomCenter)
         )
     }

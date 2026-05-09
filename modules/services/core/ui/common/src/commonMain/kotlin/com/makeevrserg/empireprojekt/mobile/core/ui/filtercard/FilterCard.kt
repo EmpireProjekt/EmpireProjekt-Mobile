@@ -12,9 +12,12 @@ import androidx.compose.ui.draw.clip
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 @Composable
-fun FilterCard(content: @Composable FilterCardScope.() -> Unit) {
+fun FilterCard(
+    modifier: Modifier = Modifier,
+    content: @Composable FilterCardScope.() -> Unit
+) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .clip(RoundedCornerShape(AppTheme.dimens.XS))
             .background(MaterialTheme.colors.primary)
             .padding(

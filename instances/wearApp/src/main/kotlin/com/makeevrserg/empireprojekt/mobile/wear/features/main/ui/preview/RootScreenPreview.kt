@@ -12,8 +12,8 @@ private fun RootScreenPreview() {
     ApplicationTheme {
         MainScreen(
             themeSwitcherComponent = PreviewThemeSwitcherComponent(),
-            onOpenStatusesClicked = {},
-            onOpenPingClicked = {}
+            onOpenStatusesClick = {},
+            onOpenPingClick = {}
         )
     }
 }
