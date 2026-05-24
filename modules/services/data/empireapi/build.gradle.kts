@@ -2,11 +2,11 @@
 
 plugins {
     id("com.android.kotlin.multiplatform.library")
-    kotlin("multiplatform")
-    id("ru.astrainteractive.gradleplugin.java.version")
-    id("ru.astrainteractive.gradleplugin.android.sdk")
-    alias(libs.plugins.kotlin.serialization)
+    id("org.jetbrains.kotlin.multiplatform")
+    id("org.jetbrains.kotlin.plugin.serialization")
     id("ru.astrainteractive.gradleplugin.android.namespace")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
+    id("ru.astrainteractive.gradleplugin.java.version")
 }
 
 kotlin {
@@ -15,13 +15,9 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Ktor
-                implementation(libs.ktor.client.core)
-                // Serialization
-                implementation(libs.kotlin.serialization.json)
-                // Coroutines
                 implementation(libs.kotlin.coroutines.core)
-                // Local
+                implementation(libs.kotlin.serialization.json)
+                implementation(libs.ktor.client.core)
                 implementation(projects.modules.services.core.buildKonfig)
                 implementation(projects.modules.services.core.common)
             }

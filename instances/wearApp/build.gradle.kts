@@ -13,15 +13,15 @@ import kotlin.io.encoding.ExperimentalEncodingApi
 
 
 plugins {
-    kotlin("plugin.serialization")
     id("com.android.application")
-    id("ru.astrainteractive.gradleplugin.java.version")
-    id("ru.astrainteractive.gradleplugin.android.sdk")
-    id("ru.astrainteractive.gradleplugin.android.java")
+    id("org.jetbrains.kotlin.plugin.compose")
+    id("org.jetbrains.kotlin.plugin.serialization")
     id("ru.astrainteractive.gradleplugin.android.apk.name")
     id("ru.astrainteractive.gradleplugin.android.apk.sign")
     id("ru.astrainteractive.gradleplugin.android.compose")
-    alias(libs.plugins.kotlin.compose.gradle)
+    id("ru.astrainteractive.gradleplugin.android.java")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
+    id("ru.astrainteractive.gradleplugin.java.version")
 }
 
 tasks.register<SecretFileTask>("exportKeystore") {
@@ -90,16 +90,17 @@ android {
 }
 
 dependencies {
-    // Kotlin
-    implementation(libs.kotlin.serialization.json)
-    // klibs
-    implementation(libs.klibs.mikro.extensions)
-    // Coroutines
-    implementation(libs.kotlin.coroutines.core)
-    implementation(libs.kotlin.coroutines.android)
-    // Compose
+    debugImplementation(libs.wear.tiles.tooling)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.wear.foundation)
+    implementation(libs.androidx.compose.wear.material)
     implementation(libs.androidx.splash)
+    implementation(libs.decompose.compose)
+    implementation(libs.decompose.core)
+    implementation(libs.google.gms.services.wearable)
+    implementation(libs.google.horologist.datalayer.phone)
+    implementation(libs.google.horologist.datalayer.watch)
+    implementation(libs.google.horologist.tiles)
     implementation(libs.jetbrains.compose.foundation)
     implementation(libs.jetbrains.compose.material)
     implementation(libs.jetbrains.compose.material3)
@@ -107,48 +108,36 @@ dependencies {
     implementation(libs.jetbrains.compose.runtime)
     implementation(libs.jetbrains.compose.tooling)
     implementation(libs.jetbrains.compose.ui)
-    implementation(libs.androidx.compose.wear.material)
-    implementation(libs.androidx.compose.wear.foundation)
-
+    implementation(libs.klibs.kstorage)
+    implementation(libs.klibs.mikro.core)
+    implementation(libs.klibs.mikro.extensions)
+    implementation(libs.klibs.mikro.platform)
+    implementation(libs.kotlin.coroutines.android)
+    implementation(libs.kotlin.coroutines.core)
+    implementation(libs.kotlin.serialization.json)
+    implementation(libs.moko.resources.core)
+    implementation(libs.mppsettings)
+    implementation(libs.wear.complications.datasource.ktx)
     implementation(libs.wear.glance.tiles)
-
     implementation(libs.wear.tiles)
     implementation(libs.wear.tiles.material)
     implementation(libs.wear.tiles.tooling.preview)
     implementation(libs.wear.tooling.preview)
-    debugImplementation(libs.wear.tiles.tooling)
-    implementation(libs.google.horologist.tiles)
-    implementation(libs.wear.complications.datasource.ktx)
-    implementation(libs.google.horologist.datalayer.watch)
-    implementation(libs.google.horologist.datalayer.phone)
-    // klibs
-    implementation(libs.klibs.mikro.core)
-    implementation(libs.klibs.mikro.platform)
-    implementation(libs.klibs.kstorage)
-    // Settings
-    implementation(libs.mppsettings)
-    // moko
-    implementation(libs.moko.resources.core)
-    // Decompose
-    implementation(libs.decompose.core)
-    implementation(libs.decompose.compose)
-    implementation(libs.google.gms.services.wearable)
-    // Local
     implementation(projects.modules.features.root.api)
     implementation(projects.modules.features.root.impl)
+    implementation(projects.modules.features.status.api)
+    implementation(projects.modules.features.status.impl)
     implementation(projects.modules.features.theme.api)
     implementation(projects.modules.features.theme.impl)
     implementation(projects.modules.features.theme.ui)
-    implementation(projects.modules.features.status.api)
-    implementation(projects.modules.features.status.impl)
+    implementation(projects.modules.services.core.common)
+    implementation(projects.modules.services.core.resources)
+    implementation(projects.modules.services.core.resources)
     implementation(projects.modules.services.core.ui.common)
     implementation(projects.modules.services.core.ui.dialog)
     implementation(projects.modules.services.core.ui.sheet)
     implementation(projects.modules.services.core.ui.theme)
-    implementation(projects.modules.services.core.resources)
     implementation(projects.modules.services.wearMessenger.api)
-    implementation(projects.modules.services.wearMessenger.pingWear)
     implementation(projects.modules.services.wearMessenger.common)
-    implementation(projects.modules.services.core.common)
-    implementation(projects.modules.services.core.resources)
+    implementation(projects.modules.services.wearMessenger.pingWear)
 }

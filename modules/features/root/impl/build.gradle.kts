@@ -2,11 +2,11 @@
 
 plugins {
     id("com.android.kotlin.multiplatform.library")
-    kotlin("multiplatform")
-    id("ru.astrainteractive.gradleplugin.java.version")
-    id("ru.astrainteractive.gradleplugin.android.sdk")
-    alias(libs.plugins.kotlin.serialization)
+    id("org.jetbrains.kotlin.multiplatform")
+    id("org.jetbrains.kotlin.plugin.serialization")
     id("ru.astrainteractive.gradleplugin.android.namespace")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
+    id("ru.astrainteractive.gradleplugin.java.version")
 }
 
 kotlin {
@@ -15,39 +15,31 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // kotlin
-                implementation(libs.kotlin.serialization.json)
-                // klibs
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.mikro.platform)
-                implementation(libs.klibs.kstorage)
-                // Decompose
                 implementation(libs.decompose.core)
                 implementation(libs.essenty)
-                // Moko
-                implementation(libs.moko.resources.core)
-                // Coroutines
+                implementation(libs.klibs.kstorage)
+                implementation(libs.klibs.mikro.core)
+                implementation(libs.klibs.mikro.platform)
                 implementation(libs.kotlin.coroutines.core)
-                // settings
+                implementation(libs.kotlin.serialization.json)
+                implementation(libs.moko.resources.core)
                 implementation(libs.mppsettings)
-                // MVIKotlin
                 implementation(libs.mvikotlin)
-                // Local
-                implementation(projects.modules.services.core.resources)
-                implementation(projects.modules.services.core.common)
-                implementation(projects.modules.services.data.empireapi)
-                implementation(projects.modules.features.root.api)
-                implementation(projects.modules.features.splash.impl)
                 implementation(projects.modules.features.rating.api)
                 implementation(projects.modules.features.rating.impl)
-                implementation(projects.modules.features.theme.api)
-                implementation(projects.modules.features.theme.impl)
+                implementation(projects.modules.features.root.api)
+                implementation(projects.modules.features.splash.impl)
                 implementation(projects.modules.features.status.api)
                 implementation(projects.modules.features.status.impl)
+                implementation(projects.modules.features.tabs.impl)
+                implementation(projects.modules.features.theme.api)
+                implementation(projects.modules.features.theme.impl)
                 implementation(projects.modules.features.towns.api)
                 implementation(projects.modules.features.towns.impl)
-                implementation(projects.modules.features.tabs.impl)
                 implementation(projects.modules.features.webview.impl)
+                implementation(projects.modules.services.core.common)
+                implementation(projects.modules.services.core.resources)
+                implementation(projects.modules.services.data.empireapi)
             }
         }
         val androidMain by getting {
@@ -57,12 +49,3 @@ kotlin {
         }
     }
 }
-
-// dependencies {
-//    // FireBase
-//    implementation(platform(libs.google.firebase.bom))
-//    implementation(libs.klibs.kstorage)
-//    implementation(libs.google.auth)
-//    implementation(libs.kotlin.coroutines.playServices)
-//    implementation("io.ktor:ktor-client-logging-jvm:${libs.versions.ktor.get()}")
-// }

@@ -3,11 +3,11 @@
 import ru.astrainteractive.gradleplugin.property.util.requireProjectInfo
 
 plugins {
-    alias(libs.plugins.android.library)
-    kotlin("multiplatform")
-    id("ru.astrainteractive.gradleplugin.java.version")
+    id("com.android.kotlin.multiplatform.library")
+    id("org.jetbrains.kotlin.multiplatform")
+    id("ru.astrainteractive.gradleplugin.android.namespace")
     id("ru.astrainteractive.gradleplugin.android.sdk")
-    alias(libs.plugins.klibs.gradle.android.namespace)
+    id("ru.astrainteractive.gradleplugin.java.version")
     id("dev.icerock.mobile.multiplatform-resources")
 }
 
@@ -22,8 +22,8 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation(libs.androidx.splash)
                 implementation(libs.android.material)
+                implementation(libs.androidx.splash)
             }
         }
     }

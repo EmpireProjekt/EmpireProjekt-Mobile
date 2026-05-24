@@ -4,12 +4,12 @@ import ru.astrainteractive.gradleplugin.property.util.requireProjectInfo
 
 plugins {
     id("com.android.kotlin.multiplatform.library")
-    kotlin("multiplatform")
-    id("ru.astrainteractive.gradleplugin.java.version")
-    id("ru.astrainteractive.gradleplugin.android.sdk")
-    alias(libs.plugins.kotlin.serialization)
-    id("dev.icerock.mobile.multiplatform-resources")
+    id("org.jetbrains.kotlin.multiplatform")
+    id("org.jetbrains.kotlin.plugin.serialization")
     id("ru.astrainteractive.gradleplugin.android.namespace")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
+    id("ru.astrainteractive.gradleplugin.java.version")
+    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 kotlin {
@@ -18,31 +18,23 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // settings
-                implementation(libs.mppsettings)
-                // klibs
+                implementation(libs.decompose.core)
+                implementation(libs.essenty)
+                implementation(libs.klibs.kstorage)
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.extensions)
                 implementation(libs.klibs.mikro.platform)
-                implementation(libs.klibs.kstorage)
-                // Decompose
-                implementation(libs.decompose.core)
-                implementation(libs.essenty)
-                // Moko
-                implementation(libs.moko.resources.core)
-                // Paging
                 implementation(libs.klibs.paging)
-                // Coroutines
                 implementation(libs.kotlin.coroutines.core)
-                // MVIKotlin
+                implementation(libs.moko.resources.core)
+                implementation(libs.mppsettings)
                 implementation(libs.mvikotlin)
-                implementation(libs.mvikotlin.main)
                 implementation(libs.mvikotlin.coroutines)
-                // Local
-                implementation(projects.modules.services.core.resources)
-                implementation(projects.modules.services.core.common)
-                implementation(projects.modules.services.data.empireapi)
+                implementation(libs.mvikotlin.main)
                 implementation(projects.modules.features.towns.api)
+                implementation(projects.modules.services.core.common)
+                implementation(projects.modules.services.core.resources)
+                implementation(projects.modules.services.data.empireapi)
             }
         }
     }

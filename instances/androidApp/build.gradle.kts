@@ -11,15 +11,15 @@ import kotlin.io.encoding.ExperimentalEncodingApi
 
 
 plugins {
-    kotlin("plugin.serialization")
     id("com.android.application")
-    id("ru.astrainteractive.gradleplugin.java.version")
-    id("ru.astrainteractive.gradleplugin.android.sdk")
-    id("ru.astrainteractive.gradleplugin.android.java")
+    id("org.jetbrains.kotlin.plugin.compose")
+    id("org.jetbrains.kotlin.plugin.serialization")
     id("ru.astrainteractive.gradleplugin.android.apk.name")
     id("ru.astrainteractive.gradleplugin.android.apk.sign")
     id("ru.astrainteractive.gradleplugin.android.compose")
-    alias(libs.plugins.kotlin.compose.gradle)
+    id("ru.astrainteractive.gradleplugin.android.java")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
+    id("ru.astrainteractive.gradleplugin.java.version")
 }
 
 tasks.register<SecretFileTask>("exportKeystore") {
@@ -88,13 +88,19 @@ android {
 }
 
 dependencies {
-    // Kotlin
-    implementation(libs.kotlin.serialization.json)
-    // Coroutines
-    implementation(libs.kotlin.coroutines.core)
-    implementation(libs.kotlin.coroutines.android)
-    // Compose
+    debugImplementation(libs.leakcanary)
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-crashlytics-ndk")
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle.service)
+    implementation(libs.androidx.splash)
+    implementation(libs.androidx.work.runtime)
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.decompose.compose)
+    implementation(libs.decompose.core)
+    implementation(libs.google.auth)
+    implementation(libs.google.gms.services.wearable)
+    implementation(libs.google.horologist.datalayer)
     implementation(libs.jetbrains.compose.foundation)
     implementation(libs.jetbrains.compose.material)
     implementation(libs.jetbrains.compose.material3)
@@ -102,46 +108,30 @@ dependencies {
     implementation(libs.jetbrains.compose.runtime)
     implementation(libs.jetbrains.compose.tooling)
     implementation(libs.jetbrains.compose.ui)
-    // FireBase
-    implementation(platform(libs.google.firebase.bom))
-    implementation("com.google.firebase:firebase-crashlytics-ndk")
-    implementation("com.google.firebase:firebase-analytics")
-    implementation(libs.google.auth)
-    implementation(libs.kotlin.coroutines.playServices)
-    debugImplementation(libs.leakcanary)
-    // klibs
+    implementation(libs.klibs.kstorage)
     implementation(libs.klibs.mikro.core)
     implementation(libs.klibs.mikro.platform)
-    implementation(libs.klibs.kstorage)
-    // moko
+    implementation(libs.kotlin.coroutines.android)
+    implementation(libs.kotlin.coroutines.core)
+    implementation(libs.kotlin.coroutines.playServices)
+    implementation(libs.kotlin.serialization.json)
     implementation(libs.moko.resources.core)
-    // Decompose
-    implementation(libs.decompose.core)
-    implementation(libs.decompose.compose)
-    implementation(libs.google.gms.services.wearable)
-    // wear
-    implementation(libs.google.horologist.datalayer)
-    // work
-    implementation(libs.androidx.work.runtime)
-    implementation(libs.androidx.work.runtime.ktx)
-    implementation(libs.androidx.lifecycle.service)
-    implementation(libs.androidx.splash)
-    // Local
+    implementation(platform(libs.google.firebase.bom))
     implementation(projects.modules.features.root.api)
     implementation(projects.modules.features.root.impl)
     implementation(projects.modules.features.root.ui)
+    implementation(projects.modules.features.status.api)
+    implementation(projects.modules.features.status.impl)
     implementation(projects.modules.features.theme.api)
     implementation(projects.modules.features.theme.impl)
     implementation(projects.modules.features.theme.ui)
-    implementation(projects.modules.features.status.api)
-    implementation(projects.modules.features.status.impl)
+    implementation(projects.modules.services.core.common)
+    implementation(projects.modules.services.core.resources)
     implementation(projects.modules.services.core.ui.common)
     implementation(projects.modules.services.core.ui.dialog)
     implementation(projects.modules.services.core.ui.sheet)
     implementation(projects.modules.services.core.ui.theme)
-    implementation(projects.modules.services.core.common)
-    implementation(projects.modules.services.core.resources)
     implementation(projects.modules.services.wearMessenger.api)
-    implementation(projects.modules.services.wearMessenger.pingWear)
     implementation(projects.modules.services.wearMessenger.common)
+    implementation(projects.modules.services.wearMessenger.pingWear)
 }
