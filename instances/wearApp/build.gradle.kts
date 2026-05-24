@@ -24,20 +24,20 @@ plugins {
     id("ru.astrainteractive.gradleplugin.java.version")
 }
 
-tasks.register<SecretFileTask>("exportKeystore") {
+val exportKeystore = tasks.register<SecretFileTask>("exportKeystore") {
     targetFile = file("keystore.jks")
     base64 = secretProperty("KEYSTORE_BASE64").stringOrEmpty
-    tasks.withType<ValidateSigningTask>().all {
-        this.dependsOn(this@register)
-    }
+}
+tasks.withType<ValidateSigningTask>().configureEach {
+    dependsOn(exportKeystore)
 }
 
-tasks.register<SecretFileTask>("exportGServicesFile") {
+val exportGServicesFile = tasks.register<SecretFileTask>("exportGServicesFile") {
     targetFile = file("google-services.json")
     base64 = secretProperty("GSERVICES_BASE64").stringOrEmpty
-    tasks.withType<ValidateSigningTask>().all {
-        this.dependsOn(this@register)
-    }
+}
+tasks.withType<ValidateSigningTask>().configureEach {
+    dependsOn(exportGServicesFile)
 }
 
 android {
