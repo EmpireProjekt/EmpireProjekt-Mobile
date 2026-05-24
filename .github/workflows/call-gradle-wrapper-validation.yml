@@ -1,12 +1,13 @@
+name: "Gradle Wrapper Validation"
 on:
   workflow_call:
 
 jobs:
   validation:
-    name: "Gradle Wrapper Validation"
+    name: "Validate Gradle Wrapper"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        name: "Checkout"
+      - name: "Checkout"
+        uses: actions/checkout@v6
       - name: "Validate Gradle Wrapper"
         uses: gradle/wrapper-validation-action@v3

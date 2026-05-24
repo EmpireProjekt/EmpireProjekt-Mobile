@@ -1,4 +1,4 @@
-name: "Upload GitHub release"
+name: "Upload GitHub Release"
 on:
   workflow_call:
     secrets:
@@ -6,40 +6,40 @@ on:
         required: true
 jobs:
   upload_github_release:
-    name: Upload GitHub release
+    name: "Upload GitHub Release"
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Git repo
+      - name: "Checkout"
         uses: actions/checkout@v6
 
-      - uses: christian-draeger/read-properties@1.1.1
+      - name: "Read Project Properties"
         id: properties
+        uses: christian-draeger/read-properties@1.1.1
         with:
           path: './gradle.properties'
-          properties: 'makeevrserg.project.name makeevrserg.project.version.string'
+          properties: 'klibs.project.name klibs.project.version.string'
 
-      - uses: actions/download-artifact@d0ce8fd1167ed839810201de977912a090ab10a7
-        name: "Download android"
+      - name: "Download android-apk"
+        uses: actions/download-artifact@d0ce8fd1167ed839810201de977912a090ab10a7
         with:
-          name: android
+          name: android-apk
           path: ./artifacts
 
-      - uses: actions/download-artifact@d0ce8fd1167ed839810201de977912a090ab10a7
-        name: "Download wear"
+      - name: "Download wear-apk"
+        uses: actions/download-artifact@d0ce8fd1167ed839810201de977912a090ab10a7
         with:
-          name: wear
+          name: wear-apk
           path: ./artifacts
 
-      - name: Create release
+      - name: "Create GitHub Release"
         id: create_release
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
         with:
           files: |
             ./artifacts/*.apk
-            ./artifacts/*.aab
-          tag_name: ${{ steps.properties.outputs.makeevrserg-project-version-string }}
-          name: ${{ steps.properties.outputs.makeevrserg-project-name }} - ${{ steps.properties.outputs.makeevrserg-project-version-string }}
+          tag_name: ${{ steps.properties.outputs.klibs-project-version-string }}
+          name: ${{ steps.properties.outputs.klibs-project-name }} - ${{ steps.properties.outputs.klibs-project-version-string }}
           draft: false
           prerelease: false

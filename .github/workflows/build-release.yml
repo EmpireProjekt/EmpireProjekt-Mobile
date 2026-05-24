@@ -1,22 +1,24 @@
-name: Build Release
+name: "Build Release"
 on:
   push:
     branches:
       - master
 jobs:
   gradle_validation:
+    name: "Validate Gradle Wrapper"
     uses: ./.github/workflows/call-gradle-wrapper-validation.yml
-  upload_artifact:
+  upload_artifacts:
+    name: "Build and Upload Artifacts"
     needs: [ gradle_validation ]
     uses: ./.github/workflows/call-upload-artifacts.yml
     secrets:
-      ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
       KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
       KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
       STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
       KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
   release:
-    needs: [ gradle_validation, upload_artifact ]
+    name: "Upload GitHub Release"
+    needs: [ upload_artifacts ]
     uses: ./.github/workflows/call-upload-github-release.yml
     secrets:
       ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
