@@ -1,9 +1,7 @@
-name: "Create artifacts"
+name: "Build and Upload Artifacts"
 on:
   workflow_call:
     secrets:
-      ACTIONS_TOKEN:
-        required: true
       KEY_ALIAS:
         required: true
       KEY_PASSWORD:
@@ -13,34 +11,38 @@ on:
       KEYSTORE_BASE64:
         required: true
 jobs:
-  publish:
-    name: Upload artifacts
+  upload_artifacts:
+    name: "Build and Upload (${{ matrix.id }})"
     runs-on: ubuntu-latest
     strategy:
       matrix:
         include:
-          - id: "android"
+          - id: "android-apk"
             task: ":instances:androidApp:assembleRelease"
             artifacts_path: "./instances/androidApp/build/outputs/apk/release"
-          - id: "wear"
+          - id: "wear-apk"
             task: ":instances:wearApp:assembleRelease"
             artifacts_path: "./instances/wearApp/build/outputs/apk/release"
+          - id: "android-aab"
+            task: ":instances:androidApp:bundleRelease"
+            artifacts_path: "./instances/androidApp/build/outputs/bundle/release"
     steps:
-      - name: Checkout Git repo
-        uses: actions/checkout@v4
-      - uses: christian-draeger/read-properties@1.1.1
+      - name: "Checkout"
+        uses: actions/checkout@v6
+      - name: "Read Project Properties"
         id: properties
+        uses: christian-draeger/read-properties@1.1.1
         with:
           path: './gradle.properties'
-          properties: 'makeevrserg.project.name makeevrserg.project.version.string'
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
+          properties: 'klibs.project.name klibs.project.version.string'
+      - name: "Set Up JDK 21"
+        uses: actions/setup-java@v5
         with:
-          distribution: 'adopt'
+          distribution: 'temurin'
           java-version: 21
-      - name: Give gradle permission
+      - name: "Give Gradle Permission"
         run: chmod +x gradlew
-      - name: Build with Gradle ${{ matrix.id }}
+      - name: "Build ${{ matrix.id }}"
         uses: gradle/gradle-build-action@v3
         env:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
@@ -49,8 +51,8 @@ jobs:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
         with:
           arguments: ${{ matrix.task }} --stacktrace
-      - uses: actions/upload-artifact@184d73b71b93c222403b2e7f1ffebe4508014249
-        name: "Upload ${{ matrix.id }}"
+      - name: "Upload ${{ matrix.id }}"
+        uses: actions/upload-artifact@6027e3dd177782cd8ab9af838c04fd81a07f1d47
         with:
           name: ${{ matrix.id }}
           path: ${{ matrix.artifacts_path }}

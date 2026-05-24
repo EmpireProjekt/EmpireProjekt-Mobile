@@ -11,13 +11,13 @@ import com.makeevrserg.empireprojekt.mobile.wear.ui.SwipeToDismissBox
 fun RootScreen(
     rootComponent: RootComponent,
 ) {
-    SwipeToDismissBox(stack = rootComponent.childStack, onDismissed = rootComponent::pop) { child ->
+    SwipeToDismissBox(stack = rootComponent.childStack, onDismiss = rootComponent::pop) { child ->
         when (val instance = child.instance) {
             is RootComponent.Child.Main -> MainScreen(
                 themeSwitcherComponent =
                 instance.themeSwitcherComponent,
-                onOpenStatusesClicked = rootComponent::openStatuses,
-                onOpenPingClicked = rootComponent::openPing
+                onOpenStatusesClick = rootComponent::openStatuses,
+                onOpenPingClick = rootComponent::openPing
             )
 
             is RootComponent.Child.Ping -> PingScreen(

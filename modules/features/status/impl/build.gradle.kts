@@ -1,15 +1,15 @@
 @file:Suppress("UnusedPrivateMember")
 
-import ru.astrainteractive.gradleplugin.property.extension.ModelPropertyValueExt.requireProjectInfo
+import ru.astrainteractive.gradleplugin.property.util.requireProjectInfo
 
 plugins {
     id("com.android.kotlin.multiplatform.library")
-    kotlin("multiplatform")
-    id("ru.astrainteractive.gradleplugin.java.version")
-    id("ru.astrainteractive.gradleplugin.android.sdk")
-    alias(libs.plugins.kotlin.serialization)
-    id("ru.astrainteractive.mokoresources.multiplatform-resources")
+    id("org.jetbrains.kotlin.multiplatform")
+    id("org.jetbrains.kotlin.plugin.serialization")
     id("ru.astrainteractive.gradleplugin.android.namespace")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
+    id("ru.astrainteractive.gradleplugin.java.version")
+    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 kotlin {
@@ -18,34 +18,26 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // kotlin
-                implementation(libs.kotlin.serialization.json)
-                // klibs
-                implementation(libs.klibs.mikro.core)
-                // Decompose
                 implementation(libs.decompose.core)
-                // MviKotlin
-                implementation(libs.mvikotlin)
-                implementation(libs.mvikotlin.main)
-                implementation(libs.mvikotlin.coroutines)
-                // Coroutines
+                implementation(libs.klibs.mikro.core)
                 implementation(libs.kotlin.coroutines.core)
-                // Moko
-                implementation(libs.moko.resources.core)
-                // Ktor
+                implementation(libs.kotlin.serialization.json)
                 implementation(libs.ktor.client.core)
-                // Local
-                implementation(projects.modules.services.core.common)
+                implementation(libs.moko.resources.core)
+                implementation(libs.mvikotlin)
+                implementation(libs.mvikotlin.coroutines)
+                implementation(libs.mvikotlin.main)
                 implementation(projects.modules.features.status.api)
+                implementation(projects.modules.services.core.common)
             }
         }
 
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+                implementation(libs.kotlin.coroutines.test)
                 implementation(libs.tests.assertk)
                 implementation(libs.tests.turbine)
-                implementation(libs.kotlin.coroutines.test)
             }
         }
     }

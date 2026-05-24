@@ -1,20 +1,22 @@
+name: "Detekt Validation"
 on:
   workflow_call:
+
 jobs:
   detekt:
-    name: "Check project by detekt"
+    name: "Run Detekt"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        name: "Checkout"
-      - name: "Set up JDK 1.21"
-        uses: actions/setup-java@v4
+      - name: "Checkout"
+        uses: actions/checkout@v6
+      - name: "Set Up JDK 21"
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: '21'
-      - name: "Give gradle permission"
+      - name: "Give Gradle Permission"
         run: chmod +x gradlew
-      - name: detekt
+      - name: "Run Detekt"
         uses: gradle/gradle-build-action@v3
         with:
           arguments: detekt

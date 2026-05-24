@@ -26,18 +26,19 @@ import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 fun RatingUsersAppBar(
     popComponent: PopComponent,
     model: RatingUsersComponent.Model,
-    onUpdateQuery: (String) -> Unit
+    onUpdateQuery: (String) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     var searchBarState by remember {
         val state = if (model.filter.query.isEmpty()) SearchBarState.Closed else SearchBarState.Open
         mutableStateOf(state)
     }
-    Crossfade(searchBarState) { state ->
+    Crossfade(modifier = modifier, targetState = searchBarState) { state ->
         if (state == SearchBarState.Open) {
             SearchAppBar(
                 query = model.filter.query,
-                onTextChanged = onUpdateQuery,
-                onCloseClicked = {
+                onTextChange = onUpdateQuery,
+                onCloseClick = {
                     onUpdateQuery.invoke("")
                     searchBarState = SearchBarState.Closed
                 }

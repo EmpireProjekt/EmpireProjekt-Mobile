@@ -1,6 +1,5 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.pager.components
 
-import android.annotation.SuppressLint
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
@@ -74,7 +73,7 @@ private fun AstraBottomNavItem(
 @Composable
 internal fun PagerBottomBar(
     selectedIndex: Int,
-    onClicked: (PagerBottomBarItem) -> Unit,
+    onTabClick: (PagerBottomBarItem) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val items = remember {
@@ -86,7 +85,6 @@ internal fun PagerBottomBar(
     Row(
         modifier
             .wrapContentWidth()
-            .clickable(enabled = false, onClick = {})
             .navigationBarsPadding()
             .wrapContentHeight()
             .padding(horizontal = AppTheme.dimens.S)
@@ -99,7 +97,8 @@ internal fun PagerBottomBar(
             )
             .background(MaterialTheme.colors.primary)
             .padding(vertical = AppTheme.dimens.S)
-            .padding(horizontal = AppTheme.dimens.S),
+            .padding(horizontal = AppTheme.dimens.S)
+            .clickable(enabled = false, onClick = {}),
         horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.L),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -107,13 +106,13 @@ internal fun PagerBottomBar(
             AstraBottomNavItem(
                 icon = rememberVectorPainter(item.icon),
                 isSelected = selectedIndex == index,
-                onClick = { onClicked.invoke(item) }
+                onClick = { onTabClick.invoke(item) }
             )
         }
     }
 }
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@Suppress("UnusedMaterialScaffoldPaddingParameter")
 @Preview
 @Composable
 private fun PagerBottomBarPreview() {
@@ -122,7 +121,7 @@ private fun PagerBottomBarPreview() {
             bottomBar = {
                 PagerBottomBar(
                     selectedIndex = 1,
-                    onClicked = {
+                    onTabClick = {
                     }
                 )
             }

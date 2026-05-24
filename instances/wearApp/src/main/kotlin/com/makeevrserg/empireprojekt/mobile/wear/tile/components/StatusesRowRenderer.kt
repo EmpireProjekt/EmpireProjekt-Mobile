@@ -39,6 +39,7 @@ class StatusesRowRenderer(
         ).setTextContent(amount.toString()).build()
     }
 
+    @Suppress("MagicNumber")
     override fun renderTile(
         state: WearStatusComponent.Model,
         deviceParameters: DeviceParametersBuilders.DeviceParameters

@@ -25,11 +25,14 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.wear.features.ping.presentation.PingComponent
 
 @Composable
-fun PingScreen(pingComponent: PingComponent) {
+fun PingScreen(
+    pingComponent: PingComponent,
+    modifier: Modifier = Modifier
+) {
     val model by pingComponent.model.collectAsState()
 
     Scaffold(
-        modifier = Modifier.background(MaterialTheme.colors.primaryVariant),
+        modifier = modifier.background(MaterialTheme.colors.primaryVariant),
     ) {
         ScalingLazyColumn(
             modifier = Modifier.fillMaxSize(),

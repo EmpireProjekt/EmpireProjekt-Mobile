@@ -15,7 +15,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -30,8 +30,11 @@ import kotlinx.coroutines.launch
 import java.util.Collections
 
 @Composable
-fun AstraLoading(size: Dp = 64.dp) {
-    var position by remember { mutableStateOf(1) }
+fun AstraLoading(
+    modifier: Modifier = Modifier,
+    size: Dp = 64.dp
+) {
+    var position by remember { mutableIntStateOf(1) }
     LaunchedEffect(key1 = "Animation") {
         launch {
             while (true) {
@@ -64,7 +67,10 @@ fun AstraLoading(size: Dp = 64.dp) {
     // 8 1 2
     // 7   3
     // 6 5 4
-    Column(Modifier.width(size * 3), horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(
+        modifier = modifier.width(size * 3),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         val r = (position % 8)
         Column {
             Row(Modifier.fillMaxWidth()) {

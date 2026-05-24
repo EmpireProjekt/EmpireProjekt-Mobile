@@ -9,12 +9,15 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 
 @Composable
-fun TitleOption(text: String) {
+fun TitleOption(
+    text: String,
+    modifier: Modifier = Modifier
+) {
     Text(
         text = text,
         color = MaterialTheme.colors.onPrimary,
         textAlign = TextAlign.Start,
-        modifier = Modifier,
+        modifier = modifier,
         style = MaterialTheme.typography.h6,
         fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
     )

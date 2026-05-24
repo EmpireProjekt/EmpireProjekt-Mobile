@@ -28,21 +28,6 @@
                 android:name="androidx.wear.tiles.PREVIEW"
                 android:resource="@mipmap/ic_launcher" />
         </service>
-        <service
-            android:name=".wear.tile.ComposeTileService"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="ComposeTileService"
-            android:permission="com.google.android.wearable.permission.BIND_TILE_PROVIDER"
-            android:roundIcon="@mipmap/ic_launcher">
-            <intent-filter>
-                <action android:name="androidx.wear.tiles.action.BIND_TILE_PROVIDER" />
-            </intent-filter>
-
-            <meta-data
-                android:name="androidx.wear.tiles.PREVIEW"
-                android:resource="@mipmap/ic_launcher" />
-        </service>
 
         <uses-library
             android:name="com.google.android.wearable"

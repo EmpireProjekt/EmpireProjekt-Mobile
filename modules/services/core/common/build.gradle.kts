@@ -2,10 +2,10 @@
 
 plugins {
     id("com.android.kotlin.multiplatform.library")
-    kotlin("multiplatform")
-    id("ru.astrainteractive.gradleplugin.java.version")
-    id("ru.astrainteractive.gradleplugin.android.sdk")
+    id("org.jetbrains.kotlin.multiplatform")
     id("ru.astrainteractive.gradleplugin.android.namespace")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
+    id("ru.astrainteractive.gradleplugin.java.version")
 }
 
 kotlin {
@@ -14,24 +14,18 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Settings
-                implementation(libs.mppsettings)
-                // Ktor
-                implementation(libs.ktor.client.core)
-                implementation(libs.ktor.client.contentNegitiation)
-                implementation(libs.ktor.client.serialization)
-                implementation(libs.ktor.client.json)
-                implementation(libs.ktor.serialization.json)
-                implementation(libs.ktor.logging)
-                // Decompose
                 implementation(libs.decompose.core)
-                // Serialization
-                implementation(libs.kotlin.serialization.json)
-                // klibs
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.platform)
-                // Coroutines
                 implementation(libs.kotlin.coroutines.core)
+                implementation(libs.kotlin.serialization.json)
+                implementation(libs.ktor.client.contentNegitiation)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.json)
+                implementation(libs.ktor.client.serialization)
+                implementation(libs.ktor.logging)
+                implementation(libs.ktor.serialization.json)
+                implementation(libs.mppsettings)
             }
         }
     }

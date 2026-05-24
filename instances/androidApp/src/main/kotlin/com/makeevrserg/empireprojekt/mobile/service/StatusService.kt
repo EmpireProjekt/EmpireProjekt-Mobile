@@ -47,6 +47,7 @@ class StatusService : LifecycleService() {
         }
     }
 
+    @Suppress("MagicNumber")
     private fun startNotification() {
         val notification = StatusNotificationFactory(applicationContext).create()
         if (Build.VERSION.SDK_INT >= 29) {

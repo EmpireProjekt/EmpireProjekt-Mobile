@@ -38,18 +38,18 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 @Composable
 fun SearchAppBar(
     query: String,
-    onTextChanged: (String) -> Unit,
-    onCloseClicked: () -> Unit,
+    onTextChange: (String) -> Unit,
+    onCloseClick: () -> Unit,
     modifier: Modifier = Modifier,
     actions: @Composable () -> Unit = {},
     focusRequester: FocusRequester = remember { FocusRequester() },
     hint: String = "...",
 ) {
     val keyboardController = LocalSoftwareKeyboardController.current
-    Column {
+    Column(modifier = modifier) {
         Box(modifier = Modifier.systemBarsPadding())
         Surface(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .height(64.dp),
             elevation = AppBarDefaults.TopAppBarElevation,
@@ -60,7 +60,7 @@ fun SearchAppBar(
             }
             TextField(
                 value = query,
-                onValueChange = onTextChanged,
+                onValueChange = onTextChange,
                 modifier = Modifier
                     .fillMaxWidth()
                     .focusRequester(focusRequester),
@@ -91,7 +91,7 @@ fun SearchAppBar(
                             onClick = {
                                 focusRequester.freeFocus()
                                 keyboardController?.hide()
-                                onCloseClicked.invoke()
+                                onCloseClick.invoke()
                             },
                             modifier = Modifier.alpha(ContentAlpha.medium)
                         ) {

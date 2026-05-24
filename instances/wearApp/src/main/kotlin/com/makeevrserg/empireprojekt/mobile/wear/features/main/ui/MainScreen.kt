@@ -22,11 +22,12 @@ import com.makeevrserg.empireprojekt.mobile.wear.features.main.ui.components.The
 @Composable
 fun MainScreen(
     themeSwitcherComponent: ThemeSwitcherComponent,
-    onOpenStatusesClicked: () -> Unit,
-    onOpenPingClicked: () -> Unit
+    onOpenStatusesClick: () -> Unit,
+    onOpenPingClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Scaffold(
-        modifier = Modifier.background(MaterialTheme.colors.primaryVariant),
+        modifier = modifier.background(MaterialTheme.colors.primaryVariant),
         positionIndicator = {
         }
     ) {
@@ -42,12 +43,12 @@ fun MainScreen(
             Spacer(modifier = Modifier.height(AppTheme.dimens.S))
             NavChip(
                 text = stringResource(R.string.wear_statuses),
-                onClick = onOpenStatusesClicked
+                onClick = onOpenStatusesClick
             )
             Spacer(modifier = Modifier.height(AppTheme.dimens.S))
             NavChip(
                 text = stringResource(R.string.wear_ping),
-                onClick = onOpenPingClicked
+                onClick = onOpenPingClick
             )
         }
     }

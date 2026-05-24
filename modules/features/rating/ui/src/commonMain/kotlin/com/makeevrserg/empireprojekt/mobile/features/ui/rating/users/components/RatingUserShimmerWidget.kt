@@ -18,10 +18,11 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.common.placeholder
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
+@Suppress("MagicNumber")
 @Composable
-fun RatingUserShimmerWidget() {
+fun RatingUserShimmerWidget(modifier: Modifier = Modifier) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(AppTheme.dimens.S))
             .background(MaterialTheme.colors.primary)

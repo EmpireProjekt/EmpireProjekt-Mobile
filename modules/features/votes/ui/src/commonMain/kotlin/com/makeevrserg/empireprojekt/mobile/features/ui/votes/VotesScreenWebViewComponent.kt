@@ -1,6 +1,5 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.votes
 
-import android.annotation.SuppressLint
 import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.compose.animation.Crossfade
@@ -24,20 +23,20 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.AstraLoading
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.features.ui.votes.components.LoadingWebViewClient
 
-@Suppress("LongMethod")
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@Suppress("LongMethod", "UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun VotesScreenWebViewComponent(
     url: String,
-    onPop: () -> Unit
+    onPop: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Scaffold(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colors.primaryVariant)
             .padding(horizontal = AppTheme.dimens.XS),
         topBar = {
-            AstraCenterAlignedTopAppBar(onBackClicked = onPop)
+            AstraCenterAlignedTopAppBar(onBackClick = onPop)
         }
     ) { _ ->
         var webView: WebView? = remember {
@@ -85,7 +84,7 @@ fun VotesScreenWebViewComponent(
         ) { localIsLoading ->
             if (localIsLoading) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    AstraLoading(AppTheme.dimens.M)
+                    AstraLoading(size = AppTheme.dimens.M)
                 }
             }
         }

@@ -24,13 +24,13 @@ import ru.astrainteractive.empireapi.models.towny.TownsFilterModel
 @Composable
 internal fun TownFilterCard(
     townsFilter: TownsFilterModel,
-    onPublicTypeClicked: () -> Unit,
-    onSortByNameClicked: () -> Unit,
-    onSortByTagClicked: () -> Unit,
-    onSortByFounderClicked: () -> Unit,
-    onSortByNationClicked: () -> Unit,
-    onSortByDateClicked: () -> Unit,
-    onSortByResidentsClicked: () -> Unit,
+    onPublicTypeClick: () -> Unit,
+    onSortByNameClick: () -> Unit,
+    onSortByTagClick: () -> Unit,
+    onSortByFounderClick: () -> Unit,
+    onSortByNationClick: () -> Unit,
+    onSortByDateClick: () -> Unit,
+    onSortByResidentsClick: () -> Unit,
 ) {
     FilterCard {
         TitleOption(text = MR.strings.shared_filter.asComposableString())
@@ -39,43 +39,43 @@ internal fun TownFilterCard(
             text = TR.strings.towns_towns_filter_public.asComposableString(),
             selected = townsFilter.publicType,
             toString = { it.toStringDesc().asComposableString() },
-            onClicked = onPublicTypeClicked
+            onClick = onPublicTypeClick
         )
         EnumOption(
             text = TR.strings.towns_town_sort_by_name.asComposableString(),
             selected = townsFilter.nameSort,
             toString = { it.toStringDesc().asComposableString() },
-            onClicked = onSortByNameClicked
+            onClick = onSortByNameClick
         )
         EnumOption(
             text = TR.strings.towns_town_sort_by_tag.asComposableString(),
             selected = townsFilter.tagSort,
             toString = { it.toStringDesc().asComposableString() },
-            onClicked = onSortByTagClicked
+            onClick = onSortByTagClick
         )
         EnumOption(
             text = TR.strings.towns_town_sort_by_founder.asComposableString(),
             selected = townsFilter.founderSort,
             toString = { it.toStringDesc().asComposableString() },
-            onClicked = onSortByFounderClicked
+            onClick = onSortByFounderClick
         )
         EnumOption(
             text = TR.strings.towns_town_sort_by_nation.asComposableString(),
             selected = townsFilter.nationSort,
             toString = { it.toStringDesc().asComposableString() },
-            onClicked = onSortByNationClicked
+            onClick = onSortByNationClick
         )
         EnumOption(
             text = TR.strings.towns_town_sort_by_date.asComposableString(),
             selected = townsFilter.dateSort,
             toString = { it.toStringDesc().asComposableString() },
-            onClicked = onSortByDateClicked
+            onClick = onSortByDateClick
         )
         EnumOption(
             text = TR.strings.towns_town_sort_by_residents.asComposableString(),
             selected = townsFilter.residentsSort,
             toString = { it.toStringDesc().asComposableString() },
-            onClicked = onSortByResidentsClicked
+            onClick = onSortByResidentsClick
         )
     }
 }
@@ -91,13 +91,13 @@ private fun TownFilterCardPreview() {
                     tagSort = LocalSortOrder.ASC,
                     nationSort = LocalSortOrder.DESC
                 ),
-                onSortByNationClicked = {},
-                onSortByDateClicked = {},
-                onSortByNameClicked = {},
-                onPublicTypeClicked = {},
-                onSortByTagClicked = {},
-                onSortByFounderClicked = {},
-                onSortByResidentsClicked = {}
+                onSortByNationClick = {},
+                onSortByDateClick = {},
+                onSortByNameClick = {},
+                onPublicTypeClick = {},
+                onSortByTagClick = {},
+                onSortByFounderClick = {},
+                onSortByResidentsClick = {}
             )
         }
     }

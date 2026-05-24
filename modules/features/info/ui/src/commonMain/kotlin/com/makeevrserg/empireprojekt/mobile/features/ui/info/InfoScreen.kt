@@ -47,11 +47,12 @@ fun InfoScreen(
     onRatingsClick: () -> Unit,
     onVotesClick: () -> Unit,
     onThemeToggle: () -> Unit,
-    onWikiClick: () -> Unit
+    onWikiClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val models = remember { InfoScreenLinks.get() }
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colors.primaryVariant)
     ) {

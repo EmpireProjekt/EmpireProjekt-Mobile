@@ -32,7 +32,8 @@ import com.makeevrserg.empireprojekt.mobile.features.ui.votes.model.VoteUrl
 @Composable
 fun VotesScreenComponent(
     onPop: () -> Unit,
-    onClick: (String) -> Unit
+    onClick: (String) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val voteUrls = listOf(
         VoteUrl(
@@ -91,14 +92,14 @@ fun VotesScreenComponent(
         ),
     )
     Scaffold(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colors.primaryVariant)
             .padding(horizontal = AppTheme.dimens.S),
         topBar = {
             AstraCenterAlignedTopAppBar(
                 title = "ГОЛОСОВАНИЕ",
-                onBackClicked = onPop
+                onBackClick = onPop
             )
         }
     ) { scaffoldPadding ->
@@ -112,7 +113,8 @@ fun VotesScreenComponent(
                 fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
             )
             Text(
-                text = "На этой странице вы можете помочь серверу привлечь новых игроков проголосовав за него на других мониторингах\n" +
+                text = "На этой странице вы можете помочь серверу " +
+                    "привлечь новых игроков проголосовав за него на других мониторингах\n" +
                     "Просто нажмите на один вариант, а лучше на все.\n",
                 style = MaterialTheme.typography.body1,
                 color = MaterialTheme.colors.onSecondary,

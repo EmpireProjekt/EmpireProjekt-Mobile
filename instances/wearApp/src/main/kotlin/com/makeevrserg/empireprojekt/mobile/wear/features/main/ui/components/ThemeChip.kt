@@ -23,7 +23,10 @@ import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.ThemeSwi
 import com.makeevrserg.empireprojekt.mobile.wear.features.components.AstraChip
 
 @Composable
-fun ThemeChip(themeSwitcherComponent: ThemeSwitcherComponent) {
+fun ThemeChip(
+    themeSwitcherComponent: ThemeSwitcherComponent,
+    modifier: Modifier = Modifier
+) {
     val theme by themeSwitcherComponent.theme.collectAsState()
 
     val icon = when (theme) {
@@ -38,7 +41,7 @@ fun ThemeChip(themeSwitcherComponent: ThemeSwitcherComponent) {
         label = "LABEL"
     )
     AstraChip(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         label = {
             Text(
                 text = stringResource(R.string.wear_switch_theme),

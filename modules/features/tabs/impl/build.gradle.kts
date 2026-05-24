@@ -2,10 +2,10 @@
 
 plugins {
     id("com.android.kotlin.multiplatform.library")
-    kotlin("multiplatform")
-    id("ru.astrainteractive.gradleplugin.java.version")
-    id("ru.astrainteractive.gradleplugin.android.sdk")
+    id("org.jetbrains.kotlin.multiplatform")
     id("ru.astrainteractive.gradleplugin.android.namespace")
+    id("ru.astrainteractive.gradleplugin.android.sdk")
+    id("ru.astrainteractive.gradleplugin.java.version")
 }
 
 kotlin {
@@ -14,23 +14,18 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Coroutines
-                implementation(libs.kotlin.coroutines.core)
-                // klibs
+                implementation(libs.decompose.core)
+                implementation(libs.klibs.kstorage)
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.platform)
-                implementation(libs.klibs.kstorage)
-                // settings
+                implementation(libs.kotlin.coroutines.core)
                 implementation(libs.mppsettings)
-                // Decompose
-                implementation(libs.decompose.core)
-                // Local
-                implementation(projects.modules.services.core.common)
-                implementation(projects.modules.features.root.api)
-                implementation(projects.modules.features.towns.api)
                 implementation(projects.modules.features.rating.api)
+                implementation(projects.modules.features.root.api)
                 implementation(projects.modules.features.status.api)
                 implementation(projects.modules.features.theme.api)
+                implementation(projects.modules.features.towns.api)
+                implementation(projects.modules.services.core.common)
             }
         }
     }

@@ -17,8 +17,8 @@ import kotlinx.coroutines.flow.drop
 @Composable
 fun <T : Any, K : Any> SlotModalBottomSheet(
     childSlot: ChildSlot<T, K>,
-    skipPartiallyExpanded: Boolean = true,
     onDismiss: () -> Unit,
+    skipPartiallyExpanded: Boolean = true,
     content: @Composable ColumnScope.(K) -> Unit
 ) {
     val child = childSlot.child?.instance

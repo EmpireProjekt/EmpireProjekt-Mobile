@@ -27,7 +27,8 @@ import kotlinx.coroutines.flow.collectLatest
 @Composable
 fun SplashScreenComponent(
     splashComponent: SplashComponent,
-    rootRouter: RootRouter
+    rootRouter: RootRouter,
+    modifier: Modifier = Modifier
 ) {
     LaunchedEffect(key1 = Unit) {
         splashComponent.screenChannelFlow.collectLatest {
@@ -39,7 +40,7 @@ fun SplashScreenComponent(
         }
     }
     Column(
-        Modifier
+        modifier
             .fillMaxSize()
             .background(MaterialTheme.colors.primaryVariant)
     ) {

@@ -28,7 +28,7 @@ import com.arkivanov.decompose.value.Value
 @Composable
 fun <C : Any, T : Any> SwipeToDismissBox(
     stack: Value<ChildStack<C, T>>,
-    onDismissed: () -> Unit,
+    onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
     content: @Composable (child: Child.Created<C, T>) -> Unit,
 ) {
@@ -36,7 +36,7 @@ fun <C : Any, T : Any> SwipeToDismissBox(
 
     SwipeToDismissBox(
         stack = state.value,
-        onDismissed = onDismissed,
+        onDismiss = onDismiss,
         modifier = modifier,
         content = content
     )
@@ -55,7 +55,7 @@ fun <C : Any, T : Any> SwipeToDismissBox(
 @Composable
 fun <C : Any, T : Any> SwipeToDismissBox(
     stack: ChildStack<C, T>,
-    onDismissed: () -> Unit,
+    onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
     content: @Composable (child: Child.Created<C, T>) -> Unit,
 ) {
@@ -66,7 +66,7 @@ fun <C : Any, T : Any> SwipeToDismissBox(
     RetainStates(holder, stack.getConfigurations())
 
     SwipeToDismissBox(
-        onDismissed = onDismissed,
+        onDismissed = onDismiss,
         modifier = modifier,
         backgroundKey = background?.configuration ?: SwipeToDismissKeys.Background,
         contentKey = active.configuration,
@@ -84,8 +84,12 @@ private fun ChildStack<*, *>.getConfigurations(): Set<String> =
 
 private fun Any.key(): String = "${this::class.simpleName}_${hashCode().toString(radix = 36)}"
 
+@Suppress("UnstableCollections")
 @Composable
-private fun RetainStates(holder: SaveableStateHolder, currentKeys: Set<String>) {
+private fun RetainStates(
+    holder: SaveableStateHolder,
+    currentKeys: Set<String>
+) {
     val keys = remember(holder) { Keys(currentKeys) }
 
     DisposableEffect(holder, currentKeys) {

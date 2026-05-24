@@ -41,7 +41,7 @@ class StatusesTileService : SuspendingTileService() {
 
         lifecycleScope.launch {
             while (isActive) {
-                delay(1000L)
+                delay(timeMillis = 1000L)
                 getUpdater(applicationContext).requestUpdate(StatusesTileService::class.java)
             }
         }
@@ -64,6 +64,7 @@ class StatusesTileService : SuspendingTileService() {
             .build()
     }
 
+    @Suppress("MagicNumber")
     override suspend fun tileRequest(
         requestParams: RequestBuilders.TileRequest
     ): TileBuilders.Tile {
