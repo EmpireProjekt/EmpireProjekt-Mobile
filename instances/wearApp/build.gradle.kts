@@ -1,10 +1,12 @@
 @file:OptIn(ExperimentalEncodingApi::class)
 
-import com.android.build.gradle.internal.tasks.ValidateSigningTask
+import com.android.build.api.variant.ApplicationAndroidComponentsExtension
+import com.android.build.api.variant.impl.VariantOutputImpl
+import com.android.build.gradle.tasks.ManifestProcessorTask
 import org.gradle.kotlin.dsl.register
 import org.gradle.kotlin.dsl.withType
 import ru.astrainteractive.gradle.property.api.klibsGradleProperty
-import ru.astrainteractive.gradle.property.api.secretProperty
+import ru.astrainteractive.gradle.property.api.klibsSecretProperty
 import ru.astrainteractive.gradleplugin.property.util.requireInt
 import ru.astrainteractive.gradleplugin.property.util.requireProjectInfo
 import ru.astrainteractive.gradleplugin.property.util.stringOrEmpty
@@ -26,22 +28,21 @@ plugins {
 
 val exportKeystore = tasks.register<SecretFileTask>("exportKeystore") {
     targetFile = file("keystore.jks")
-    base64 = secretProperty("KEYSTORE_BASE64").stringOrEmpty
-}
-tasks.withType<ValidateSigningTask>().configureEach {
-    dependsOn(exportKeystore)
+    base64 = klibsSecretProperty("KEYSTORE_BASE64").stringOrEmpty
 }
 
 val exportGServicesFile = tasks.register<SecretFileTask>("exportGServicesFile") {
     targetFile = file("google-services.json")
-    base64 = secretProperty("GSERVICES_BASE64").stringOrEmpty
+    base64 = klibsSecretProperty("GSERVICES_BASE64").stringOrEmpty
 }
-tasks.withType<ValidateSigningTask>().configureEach {
+
+tasks.withType<ManifestProcessorTask>().configureEach {
+    dependsOn(exportKeystore)
     dependsOn(exportGServicesFile)
 }
 
 android {
-    namespace = "${requireProjectInfo.group}"
+    namespace = requireProjectInfo.group
 
     if (file("google-services.json").exists()) {
         apply(plugin = "com.google.gms.google-services")
@@ -86,6 +87,18 @@ android {
     }
     lint {
         abortOnError = false
+    }
+}
+
+configure<ApplicationAndroidComponentsExtension> {
+    onVariants { variant ->
+        variant.outputs.onEach { output ->
+            if (output is VariantOutputImpl) {
+                val name = requireProjectInfo.name
+                val version = requireProjectInfo.versionString
+                output.outputFileName.set("$name-wearos-$version-${variant.name}.apk")
+            }
+        }
     }
 }
 
