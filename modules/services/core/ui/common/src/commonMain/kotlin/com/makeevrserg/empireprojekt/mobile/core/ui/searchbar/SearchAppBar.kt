@@ -28,6 +28,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
@@ -55,8 +56,11 @@ fun SearchAppBar(
             elevation = AppBarDefaults.TopAppBarElevation,
             color = MaterialTheme.colors.primaryVariant
         ) {
+            val isInspectionMode = LocalInspectionMode.current
             LaunchedEffect(Unit) {
-                focusRequester.requestFocus()
+                if (!isInspectionMode) {
+                    focusRequester.requestFocus()
+                }
             }
             TextField(
                 value = query,

@@ -81,8 +81,8 @@ fun StatusScreen(
                     fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
                 )
             }
-            items(rootStatusComponent.statusComponents) {
-                StatusWidget(it)
+            items(rootStatusComponent.statusComponents) { statusComponent ->
+                StatusWidget(statusComponent)
             }
         }
     }

@@ -14,29 +14,29 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.SearchAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.SearchBarState
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.features.rating.users.presentation.RatingUsersComponent
 import com.makeevrserg.empireprojekt.mobile.rating.RR
-import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 
 @Composable
 fun RatingUsersAppBar(
-    popComponent: PopComponent,
-    model: RatingUsersComponent.Model,
+    query: String,
     onUpdateQuery: (String) -> Unit,
+    onBack: (() -> Unit)?,
     modifier: Modifier = Modifier
 ) {
     var searchBarState by remember {
-        val state = if (model.filter.query.isEmpty()) SearchBarState.Closed else SearchBarState.Open
+        val state = if (query.isEmpty()) SearchBarState.Closed else SearchBarState.Open
         mutableStateOf(state)
     }
     Crossfade(modifier = modifier, targetState = searchBarState) { state ->
         if (state == SearchBarState.Open) {
             SearchAppBar(
-                query = model.filter.query,
+                query = query,
                 onTextChange = onUpdateQuery,
                 onCloseClick = {
                     onUpdateQuery.invoke("")
@@ -46,7 +46,7 @@ fun RatingUsersAppBar(
         } else {
             AstraCenterAlignedTopAppBar(
                 title = RR.strings.rating_user_ratings.asComposableString(),
-                popComponent = popComponent,
+                onBackClick = onBack,
                 actions = {
                     IconButton(
                         onClick = { searchBarState = SearchBarState.Open },
@@ -61,5 +61,29 @@ fun RatingUsersAppBar(
                 }
             )
         }
+    }
+}
+
+@Preview
+@Composable
+private fun RatingUsersAppBarClosedPreview() {
+    AdaptThemeFade {
+        RatingUsersAppBar(
+            query = "",
+            onUpdateQuery = {},
+            onBack = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun RatingUsersAppBarSearchPreview() {
+    AdaptThemeFade {
+        RatingUsersAppBar(
+            query = "RomaRoman",
+            onUpdateQuery = {},
+            onBack = {}
+        )
     }
 }

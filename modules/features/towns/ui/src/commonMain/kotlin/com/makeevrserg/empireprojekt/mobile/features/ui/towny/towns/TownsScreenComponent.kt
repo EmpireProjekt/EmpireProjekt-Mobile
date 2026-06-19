@@ -1,31 +1,13 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.OnEndReached
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingWidget
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
+import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.presentation.TownsComponent
-import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownCard
-import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownFilterCard
-import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownShimmerWidget
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 
-@Suppress("LongMethod")
 @Composable
 fun TownsScreenComponent(
     popComponent: PopComponent,
@@ -33,76 +15,19 @@ fun TownsScreenComponent(
     modifier: Modifier = Modifier
 ) {
     val model by townsComponent.model.collectAsState()
-    val lazyListState = rememberLazyListState()
-    lazyListState.OnEndReached {
-        townsComponent.loadNextPage()
-    }
-
-    Scaffold(
-        modifier = modifier,
-        topBar = {
-            AstraCenterAlignedTopAppBar(
-                title = TR.strings.towns_title.asComposableString(),
-                popComponent = popComponent
-            )
-        }
-    ) {
-        LazyColumn(
-            modifier = Modifier
-                .padding(horizontal = AppTheme.dimens.XS),
-            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
-            contentPadding = it,
-            state = lazyListState
-        ) {
-            item {
-                TownFilterCard(
-                    townsFilter = model.filter,
-                    onSortByNationClick = townsComponent::nextNationSort,
-                    onSortByResidentsClick = townsComponent::nextResidentsSort,
-                    onSortByTagClick = townsComponent::nextTagSort,
-                    onSortByDateClick = townsComponent::nextDateSort,
-                    onSortByNameClick = townsComponent::nextNameSort,
-                    onPublicTypeClick = townsComponent::nextPublicType,
-                    onSortByFounderClick = townsComponent::nextFounderSort
-                )
-            }
-            items(model.items) { townModel ->
-                TownCard(
-                    mayor = townModel.mayor,
-                    townName = townModel.name,
-                    board = townModel.townBoard,
-                    founder = townModel.founder,
-                    nation = townModel.nation,
-                    outlawsAmount = townModel.outlaws.size,
-                    tag = townModel.tag,
-                    registered = townModel.registered,
-                    residentsCount = townModel.residentsCount,
-                    isOpen = townModel.open
-                )
-            }
-
-            item {
-                PagingWidget.Auto(
-                    list = model.items,
-                    isLastPage = model.isLastPage,
-                    isLoading = model.isLoading,
-                    isFailure = model.isFailure,
-                    onReload = {
-                        townsComponent.reset()
-                    },
-                    loader = {
-                        Column(
-                            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
-                            content = {
-                                repeat(times = 8) {
-                                    TownShimmerWidget()
-                                }
-                            }
-                        )
-                    }
-                )
-            }
-            item { Spacer(Modifier.navBarsPadding()) }
-        }
-    }
+    val popModel by popComponent.popModel.subscribeAsState()
+    TownsComposableScreen(
+        model = model,
+        onBack = popModel.popActionOrNull,
+        onLoadNextPage = townsComponent::loadNextPage,
+        onReset = townsComponent::reset,
+        onPublicTypeClick = townsComponent::nextPublicType,
+        onSortByNameClick = townsComponent::nextNameSort,
+        onSortByTagClick = townsComponent::nextTagSort,
+        onSortByFounderClick = townsComponent::nextFounderSort,
+        onSortByNationClick = townsComponent::nextNationSort,
+        onSortByDateClick = townsComponent::nextDateSort,
+        onSortByResidentsClick = townsComponent::nextResidentsSort,
+        modifier = modifier
+    )
 }

@@ -17,6 +17,8 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(compose.materialIconsExtended)
+                implementation(libs.decompose.compose)
+                implementation(libs.decompose.core)
                 implementation(libs.jetbrains.compose.foundation)
                 implementation(libs.jetbrains.compose.material)
                 implementation(libs.jetbrains.compose.material3)
