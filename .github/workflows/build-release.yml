@@ -1,26 +1,25 @@
-name: "Build Release"
+name: Build Release
 on:
   push:
     branches:
       - master
-permissions:
-  contents: write
 jobs:
-  gradle_validation:
-    name: "Validate Gradle Wrapper"
+  validate_gradle_wrapper:
+    name: "Gradle Wrapper"
     uses: ./.github/workflows/call-gradle-wrapper-validation.yml
-  upload_artifacts:
-    name: "Build and Upload Artifacts"
-    needs: [ gradle_validation ]
+  build_release_artifacts:
+    name: "Release Artifacts"
+    needs: [ validate_gradle_wrapper ]
     uses: ./.github/workflows/call-upload-artifacts.yml
     secrets:
-      KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-      STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-      KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
-  release:
-    name: "Upload GitHub Release"
-    needs: [ upload_artifacts ]
+      KLIBS_KEY_ALIAS: ${{ secrets.KLIBS_KEY_ALIAS }}
+      KLIBS_KEY_PASSWORD: ${{ secrets.KLIBS_KEY_PASSWORD }}
+      KLIBS_STORE_PASSWORD: ${{ secrets.KLIBS_STORE_PASSWORD }}
+      KLIBS_KEYSTORE_BASE64: ${{ secrets.KLIBS_KEYSTORE_BASE64 }}
+      KLIBS_GSERVICES_BASE64: ${{ secrets.KLIBS_GSERVICES_BASE64 }}
+  publish_github_release:
+    name: "GitHub Release"
+    needs: [ validate_gradle_wrapper, build_release_artifacts ]
     uses: ./.github/workflows/call-upload-github-release.yml
     secrets:
       ACTIONS_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
