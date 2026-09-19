@@ -3,6 +3,13 @@ package com.makeevrserg.empireprojekt.mobile.features.ui.info.data
 import androidx.compose.material.MaterialTheme
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.model.LinkModel
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_ainteractivelogo
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_alearner
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_boosty
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_esmptelegram
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_github
+import com.makeevrserg.empireprojekt.mobile.core.resources.img_gplay
+import com.makeevrserg.empireprojekt.mobile.core.resources.img_splash
 
 internal object InfoScreenLinks {
     fun get(): List<LinkModel> {

@@ -26,6 +26,7 @@ import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.T
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownShimmerWidget
 import ru.astrainteractive.empireapi.models.towny.TownModel
 import ru.astrainteractive.empireapi.models.towny.TownsFilterModel
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_title
 
 @Suppress("LongMethod", "LongParameterList")
 @Composable

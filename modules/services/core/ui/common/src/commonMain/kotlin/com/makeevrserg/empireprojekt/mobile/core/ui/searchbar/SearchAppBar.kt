@@ -34,6 +34,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 
 @Suppress("LongMethod")
 @Composable

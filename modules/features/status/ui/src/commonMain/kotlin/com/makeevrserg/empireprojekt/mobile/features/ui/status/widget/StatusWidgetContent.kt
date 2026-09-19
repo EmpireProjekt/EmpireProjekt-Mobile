@@ -31,6 +31,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.features.status.url.presentation.UrlStatusComponent
 import dev.icerock.moko.resources.desc.Raw
 import dev.icerock.moko.resources.desc.StringDesc
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 
 private const val FADE_DURATION = 1200
 

@@ -41,6 +41,13 @@ import ru.astrainteractive.empireapi.models.rating.RatingUserModel
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
 import kotlin.time.Instant
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_raised_hand
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_thumb_up_down
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
+import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated
+import com.makeevrserg.empireprojekt.mobile.rating.rating_rating
+import com.makeevrserg.empireprojekt.mobile.rating.rating_votes_count
 
 @Suppress("LongMethod", "MagicNumber")
 @Composable

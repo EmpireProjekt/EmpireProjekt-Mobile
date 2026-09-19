@@ -18,6 +18,11 @@ import com.makeevrserg.empireprojekt.mobile.features.rating.users.util.LocalSort
 import com.makeevrserg.empireprojekt.mobile.rating.RR
 import ru.astrainteractive.empireapi.models.rating.RatingsFilterModel
 import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
+import com.makeevrserg.empireprojekt.mobile.core.resources.shared_filter
+import com.makeevrserg.empireprojekt.mobile.core.resources.shared_warn_multiple_filter
+import com.makeevrserg.empireprojekt.mobile.rating.rating_ratings_filter_last_update
+import com.makeevrserg.empireprojekt.mobile.rating.rating_ratings_filter_name
+import com.makeevrserg.empireprojekt.mobile.rating.rating_ratings_filter_rating
 
 @Composable
 internal fun RatingsFilterCard(

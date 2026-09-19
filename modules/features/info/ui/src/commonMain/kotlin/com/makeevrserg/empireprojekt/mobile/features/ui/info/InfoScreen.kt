@@ -38,6 +38,13 @@ import com.makeevrserg.empireprojekt.mobile.features.info.ui.IR
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.components.LinkWidget
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.data.InfoScreenLinks
 import com.makeevrserg.empireprojekt.mobile.services.core.LinkBrowser
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_knowledge
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_people
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_theme
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_town
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_vote
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
+import com.makeevrserg.empireprojekt.mobile.features.info.ui.info_more_links
 
 @Suppress("LongMethod", "UnusedParameter")
 @Composable

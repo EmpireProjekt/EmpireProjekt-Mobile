@@ -25,6 +25,7 @@ import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 
 @Composable
 fun AstraCenterAlignedTopAppBar(

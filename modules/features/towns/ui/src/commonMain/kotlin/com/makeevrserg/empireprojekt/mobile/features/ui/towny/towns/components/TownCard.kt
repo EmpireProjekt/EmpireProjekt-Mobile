@@ -31,6 +31,15 @@ import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
 import kotlin.time.Instant
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance_private
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance_public
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_founder
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_nation
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_outlaw_count
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_registered
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_tag
 
 @Suppress("LongMethod")
 @Composable

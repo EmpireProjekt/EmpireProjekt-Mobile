@@ -10,6 +10,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.model.LinkModel
 import com.makeevrserg.empireprojekt.mobile.services.core.LinkBrowser
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_github
 
 @Composable
 internal fun LinkWidget(

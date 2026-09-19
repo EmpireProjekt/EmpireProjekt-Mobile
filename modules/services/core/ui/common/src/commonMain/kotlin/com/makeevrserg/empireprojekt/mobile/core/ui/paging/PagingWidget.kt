@@ -21,6 +21,12 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
+import com.makeevrserg.empireprojekt.mobile.core.resources.img_splash
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
+import com.makeevrserg.empireprojekt.mobile.core.resources.paging_last_page
+import com.makeevrserg.empireprojekt.mobile.core.resources.paging_network_error
+import com.makeevrserg.empireprojekt.mobile.core.resources.paging_no_pages
+import com.makeevrserg.empireprojekt.mobile.core.resources.paging_reload
 
 object PagingWidget {
     @Suppress("ModifierMissing")

@@ -14,6 +14,7 @@ import androidx.compose.ui.text.style.TextAlign
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 
 @Composable
 fun <E : Enum<E>> FilterCardScope.EnumOption(

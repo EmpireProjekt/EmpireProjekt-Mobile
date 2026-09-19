@@ -20,6 +20,9 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.wear.features.components.IconTextChip
 import com.makeevrserg.empireprojekt.mobile.wear.features.status.presentation.WearStatusComponent
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_error
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_off
 
 @Composable
 fun StatusesScreen(

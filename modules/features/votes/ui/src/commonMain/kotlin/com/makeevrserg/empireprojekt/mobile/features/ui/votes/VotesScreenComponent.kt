@@ -27,6 +27,9 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.ui.votes.model.VoteUrl
+import com.makeevrserg.empireprojekt.mobile.core.resources.img_hotmc
+import com.makeevrserg.empireprojekt.mobile.core.resources.img_minecraftrating
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 
 @Suppress("LongMethod", "MaximumLineLength", "MaxLineLength")
 @Composable

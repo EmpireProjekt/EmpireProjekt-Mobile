@@ -39,6 +39,11 @@ import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
 import java.util.UUID
 import kotlin.time.Clock
 import kotlin.time.Instant
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_history_edu
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
+import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated
+import com.makeevrserg.empireprojekt.mobile.rating.rating_player_message
 
 @Suppress("LongMethod")
 @Composable

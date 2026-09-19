@@ -21,6 +21,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
+import com.makeevrserg.empireprojekt.mobile.core.resources.img_splash
 
 @Composable
 internal fun SplashComposableScreen(modifier: Modifier = Modifier) {

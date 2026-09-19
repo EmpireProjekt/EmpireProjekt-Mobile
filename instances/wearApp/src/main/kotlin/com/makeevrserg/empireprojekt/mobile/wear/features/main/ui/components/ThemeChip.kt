@@ -21,6 +21,8 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.model.Theme
 import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.ThemeSwitcherComponent
 import com.makeevrserg.empireprojekt.mobile.wear.features.components.AstraChip
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_bedtime
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_sunny
 
 @Composable
 fun ThemeChip(
