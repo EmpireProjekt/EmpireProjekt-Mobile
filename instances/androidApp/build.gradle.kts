@@ -28,11 +28,7 @@ plugins {
 val keystoreBase64 = klibsSecretProperty("KEYSTORE_BASE64").stringOrEmpty
 val gServicesBase64 = klibsSecretProperty("GSERVICES_BASE64").stringOrEmpty
 
-// SecretFileTask creates its target file even when the secret is blank, and an empty
-// google-services.json fails the build harder than a missing one, so skip the task instead.
 val exportKeystore = tasks.register<SecretFileTask>("exportKeystore") {
-    // Held in a local so onlyIf captures the string rather than the enclosing build script,
-    // which the configuration cache cannot serialize.
     val secret = keystoreBase64
     targetFile = file("keystore.jks")
     base64 = secret
@@ -51,8 +47,6 @@ tasks.withType<ManifestProcessorTask>().configureEach {
     dependsOn(exportGServicesFile)
 }
 
-// processReleaseGoogleServices reads google-services.json and validateSigningRelease reads
-// keystore.jks. Neither is ordered after manifest processing, so wire them up explicitly.
 tasks.withType<GoogleServicesTask>().configureEach {
     dependsOn(exportGServicesFile)
 }
@@ -64,11 +58,6 @@ tasks.withType<ValidateSigningTask>().configureEach {
 android {
     namespace = requireProjectInfo.group
 
-    // These plugins have to be applied during configuration, but exportGServicesFile only writes
-    // google-services.json during execution. On a fresh checkout the file is therefore never there
-    // when a file existence check runs here, so release builds used to ship without Firebase even
-    // with the secret set. Decide on the secret instead; the task dependency above puts the file
-    // in place before processGoogleServices reads it.
     if (gServicesBase64.isNotBlank() || file("google-services.json").length() > 0L) {
         apply(plugin = "com.google.gms.google-services")
         apply(plugin = "com.google.firebase.crashlytics")
