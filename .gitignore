@@ -7,5 +7,9 @@
 local.properties
 **/.DS_Store
 **/build
-# Instances
+# Instances - androidApp
+instances/androidApp/google-services.json
 instances/androidApp/keystore.jks
+# Instances - wearApp
+instances/wearApp/google-services.json
+instances/wearApp/keystore.jks

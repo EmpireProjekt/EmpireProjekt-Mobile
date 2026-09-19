@@ -1,4 +1,4 @@
-name: "Check PR"
+name: Validate Pull Request
 on:
   pull_request:
     branches:
@@ -20,14 +20,14 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  gradle_validation:
-    name: "Validate Gradle Wrapper"
+  validate_gradle_wrapper:
+    name: "Gradle Wrapper"
     uses: ./.github/workflows/call-gradle-wrapper-validation.yml
-  detekt_validation:
-    name: "Run Detekt"
-    needs: [ gradle_validation ]
+  run_detekt:
+    name: "Detekt"
+    needs: validate_gradle_wrapper
     uses: ./.github/workflows/call-detekt-validation.yml
-  tests_validation:
-    name: "Run Tests"
-    needs: [ gradle_validation ]
+  run_unit_tests:
+    name: "Tests"
+    needs: validate_gradle_wrapper
     uses: ./.github/workflows/call-tests-validation.yml

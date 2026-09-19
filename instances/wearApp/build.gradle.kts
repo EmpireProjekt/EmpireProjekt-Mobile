@@ -2,7 +2,9 @@
 
 import com.android.build.api.variant.ApplicationAndroidComponentsExtension
 import com.android.build.api.variant.impl.VariantOutputImpl
+import com.android.build.gradle.internal.tasks.ValidateSigningTask
 import com.android.build.gradle.tasks.ManifestProcessorTask
+import com.google.gms.googleservices.GoogleServicesTask
 import org.gradle.kotlin.dsl.register
 import org.gradle.kotlin.dsl.withType
 import ru.astrainteractive.gradle.property.api.klibsGradleProperty
@@ -26,14 +28,21 @@ plugins {
     id("ru.astrainteractive.gradleplugin.java.version")
 }
 
+val keystoreBase64 = klibsSecretProperty("KEYSTORE_BASE64").stringOrEmpty
+val gServicesBase64 = klibsSecretProperty("GSERVICES_BASE64").stringOrEmpty
+
 val exportKeystore = tasks.register<SecretFileTask>("exportKeystore") {
+    val secret = keystoreBase64
     targetFile = file("keystore.jks")
-    base64 = klibsSecretProperty("KEYSTORE_BASE64").stringOrEmpty
+    base64 = secret
+    onlyIf { secret.isNotBlank() }
 }
 
 val exportGServicesFile = tasks.register<SecretFileTask>("exportGServicesFile") {
+    val secret = gServicesBase64
     targetFile = file("google-services.json")
-    base64 = klibsSecretProperty("GSERVICES_BASE64").stringOrEmpty
+    base64 = secret
+    onlyIf { secret.isNotBlank() }
 }
 
 tasks.withType<ManifestProcessorTask>().configureEach {
@@ -41,14 +50,22 @@ tasks.withType<ManifestProcessorTask>().configureEach {
     dependsOn(exportGServicesFile)
 }
 
+tasks.withType<GoogleServicesTask>().configureEach {
+    dependsOn(exportGServicesFile)
+}
+
+tasks.withType<ValidateSigningTask>().configureEach {
+    dependsOn(exportKeystore)
+}
+
 android {
     namespace = requireProjectInfo.group
 
-    if (file("google-services.json").exists()) {
+    if (gServicesBase64.isNotBlank() || file("google-services.json").length() > 0L) {
         apply(plugin = "com.google.gms.google-services")
         apply(plugin = "com.google.firebase.crashlytics")
     } else {
-        logger.error("google-services.json not exists - could not create from secret!")
+        logger.warn("Neither GSERVICES_BASE64 nor google-services.json is available - building without Firebase")
     }
     defaultConfig {
         applicationId = requireProjectInfo.group
