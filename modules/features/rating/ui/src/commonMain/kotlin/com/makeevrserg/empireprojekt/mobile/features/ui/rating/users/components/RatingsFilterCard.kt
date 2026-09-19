@@ -7,6 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.shared_filter
+import com.makeevrserg.empireprojekt.mobile.core.resources.shared_warn_multiple_filter
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.EnumOption
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.FilterCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.TextOption
@@ -16,6 +18,9 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.util.LocalSortOrderExt.toStringDesc
 import com.makeevrserg.empireprojekt.mobile.rating.RR
+import com.makeevrserg.empireprojekt.mobile.rating.rating_ratings_filter_last_update
+import com.makeevrserg.empireprojekt.mobile.rating.rating_ratings_filter_name
+import com.makeevrserg.empireprojekt.mobile.rating.rating_ratings_filter_rating
 import ru.astrainteractive.empireapi.models.rating.RatingsFilterModel
 import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
 

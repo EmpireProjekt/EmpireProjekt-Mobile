@@ -21,6 +21,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.SearchBarState
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.rating.RR
+import com.makeevrserg.empireprojekt.mobile.rating.rating_user_ratings
 
 @Composable
 fun RatingUsersAppBar(

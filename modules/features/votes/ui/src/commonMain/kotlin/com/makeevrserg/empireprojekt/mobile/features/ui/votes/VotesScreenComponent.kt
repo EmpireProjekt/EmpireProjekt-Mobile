@@ -17,6 +17,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.img_hotmc
+import com.makeevrserg.empireprojekt.mobile.core.resources.img_minecraftrating
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionHref

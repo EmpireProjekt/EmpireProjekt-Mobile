@@ -28,6 +28,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_raised_hand
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_thumb_up_down
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
@@ -37,6 +41,9 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.rating.RR
+import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated
+import com.makeevrserg.empireprojekt.mobile.rating.rating_rating
+import com.makeevrserg.empireprojekt.mobile.rating.rating_votes_count
 import ru.astrainteractive.empireapi.models.rating.RatingUserModel
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter

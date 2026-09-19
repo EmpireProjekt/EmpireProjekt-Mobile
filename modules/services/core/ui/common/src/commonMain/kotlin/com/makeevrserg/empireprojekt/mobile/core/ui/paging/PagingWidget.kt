@@ -16,6 +16,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.img_splash
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
+import com.makeevrserg.empireprojekt.mobile.core.resources.paging_last_page
+import com.makeevrserg.empireprojekt.mobile.core.resources.paging_network_error
+import com.makeevrserg.empireprojekt.mobile.core.resources.paging_no_pages
+import com.makeevrserg.empireprojekt.mobile.core.resources.paging_reload
 import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.AstraLoading
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString

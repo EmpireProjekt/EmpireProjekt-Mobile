@@ -12,6 +12,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import coil.compose.SubcomposeAsyncImage
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.img_head_error
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 

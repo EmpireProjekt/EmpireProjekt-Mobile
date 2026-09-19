@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_github
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionHref
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme

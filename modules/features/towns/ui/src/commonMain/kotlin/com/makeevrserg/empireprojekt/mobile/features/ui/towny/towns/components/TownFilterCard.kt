@@ -7,6 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.shared_filter
+import com.makeevrserg.empireprojekt.mobile.core.resources.shared_warn_multiple_filter
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.EnumOption
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.FilterCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.TextOption
@@ -15,6 +17,13 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_sort_by_date
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_sort_by_founder
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_sort_by_name
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_sort_by_nation
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_sort_by_residents
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_sort_by_tag
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_towns_filter_public
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.util.LocalSortOrderExt.toStringDesc
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.util.TownPublicTypeExt.toStringDesc
 import ru.astrainteractive.empireapi.models.towny.LocalSortOrder

@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
@@ -27,6 +28,8 @@ import com.makeevrserg.empireprojekt.mobile.features.status.root.presentation.Ro
 import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.ThemeSwitcherComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.status.widget.StatusWidget
 import com.makeevrserg.empireprojekt.mobile.status.SR
+import com.makeevrserg.empireprojekt.mobile.status.status_subtitle
+import com.makeevrserg.empireprojekt.mobile.status.status_title
 
 @Suppress("UnusedMaterialScaffoldPaddingParameter")
 @Composable

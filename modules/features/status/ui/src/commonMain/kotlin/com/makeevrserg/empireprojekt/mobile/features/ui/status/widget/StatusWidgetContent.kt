@@ -24,6 +24,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
