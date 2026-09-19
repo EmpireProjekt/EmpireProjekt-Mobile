@@ -20,6 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
@@ -28,10 +29,6 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
-import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
-import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
-import kotlin.time.Instant
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance_private
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance_public
@@ -40,6 +37,9 @@ import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_nation
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_outlaw_count
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_registered
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_tag
+import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
+import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
+import kotlin.time.Instant
 
 @Suppress("LongMethod")
 @Composable

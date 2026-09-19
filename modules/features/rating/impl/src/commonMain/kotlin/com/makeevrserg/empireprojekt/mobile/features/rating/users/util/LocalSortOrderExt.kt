@@ -1,10 +1,10 @@
 package com.makeevrserg.empireprojekt.mobile.features.rating.users.util
 
 import com.makeevrserg.empireprojekt.mobile.rating.RR
-import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
 import com.makeevrserg.empireprojekt.mobile.rating.rating_local_sort_asc
 import com.makeevrserg.empireprojekt.mobile.rating.rating_local_sort_desc
 import com.makeevrserg.empireprojekt.mobile.rating.rating_town_sort_by_none
+import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
 
 object LocalSortOrderExt {
     fun LocalSortOrder.toStringDesc() = when (this) {

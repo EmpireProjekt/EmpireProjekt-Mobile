@@ -20,11 +20,11 @@ import androidx.wear.compose.material.Icon
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_network_check
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_network_wifi
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.wear.features.ping.presentation.PingComponent
-import com.makeevrserg.empireprojekt.mobile.core.resources.ic_network_check
-import com.makeevrserg.empireprojekt.mobile.core.resources.ic_network_wifi
 
 @Composable
 fun PingScreen(

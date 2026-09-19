@@ -14,13 +14,13 @@ import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.Icon
 import androidx.wear.compose.material.Text
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_error
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_off
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.status.url.presentation.UrlStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.features.components.AstraChip
-import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering
-import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_error
-import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_off
 
 @Composable
 internal fun StatusWidget(component: UrlStatusComponent) {

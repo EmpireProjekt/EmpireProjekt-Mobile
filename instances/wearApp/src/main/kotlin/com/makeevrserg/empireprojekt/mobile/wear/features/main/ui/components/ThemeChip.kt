@@ -17,12 +17,12 @@ import androidx.wear.compose.material.Icon
 import androidx.wear.compose.material.Text
 import com.makeevrserg.empireprojekt.mobile.R
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_bedtime
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_sunny
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.model.Theme
 import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.ThemeSwitcherComponent
 import com.makeevrserg.empireprojekt.mobile.wear.features.components.AstraChip
-import com.makeevrserg.empireprojekt.mobile.core.resources.ic_bedtime
-import com.makeevrserg.empireprojekt.mobile.core.resources.ic_sunny
 
 @Composable
 fun ThemeChip(

@@ -22,6 +22,11 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.buildkonfig.BuildKonfig
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_knowledge
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_people
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_theme
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_vote
+import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionHref
@@ -35,16 +40,10 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.IR
+import com.makeevrserg.empireprojekt.mobile.features.info.ui.info_more_links
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.components.LinkWidget
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.data.InfoScreenLinks
 import com.makeevrserg.empireprojekt.mobile.services.core.LinkBrowser
-import com.makeevrserg.empireprojekt.mobile.core.resources.ic_knowledge
-import com.makeevrserg.empireprojekt.mobile.core.resources.ic_people
-import com.makeevrserg.empireprojekt.mobile.core.resources.ic_theme
-import com.makeevrserg.empireprojekt.mobile.core.resources.ic_town
-import com.makeevrserg.empireprojekt.mobile.core.resources.ic_vote
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
-import com.makeevrserg.empireprojekt.mobile.features.info.ui.info_more_links
 
 @Suppress("LongMethod", "UnusedParameter")
 @Composable
