@@ -12,7 +12,7 @@ jobs:
       contents: write
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: "Read Project Properties"
         id: properties
@@ -22,20 +22,20 @@ jobs:
           properties: 'klibs.project.name klibs.project.version.string'
 
       - name: "Download android-apk"
-        uses: actions/download-artifact@d0ce8fd1167ed839810201de977912a090ab10a7
+        uses: actions/download-artifact@484a0b528fb4d7bd804637ccb632e47a0e638317
         with:
           name: android-apk
           path: ./artifacts
 
       - name: "Download wear-apk"
-        uses: actions/download-artifact@d0ce8fd1167ed839810201de977912a090ab10a7
+        uses: actions/download-artifact@484a0b528fb4d7bd804637ccb632e47a0e638317
         with:
           name: wear-apk
           path: ./artifacts
 
       - name: "Create GitHub Release"
         id: create_release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         env:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
         with:

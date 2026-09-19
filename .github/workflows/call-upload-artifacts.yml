@@ -28,7 +28,7 @@ jobs:
             artifacts_path: "./instances/androidApp/build/outputs/bundle/release"
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: "Read Project Properties"
         id: properties
         uses: christian-draeger/read-properties@1.1.1
@@ -36,7 +36,7 @@ jobs:
           path: './gradle.properties'
           properties: 'klibs.project.name klibs.project.version.string'
       - name: "Set Up JDK 21"
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
           java-version: 21
@@ -52,7 +52,7 @@ jobs:
         with:
           arguments: ${{ matrix.task }} --stacktrace
       - name: "Upload ${{ matrix.id }}"
-        uses: actions/upload-artifact@6027e3dd177782cd8ab9af838c04fd81a07f1d47
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: ${{ matrix.id }}
           path: ${{ matrix.artifacts_path }}
