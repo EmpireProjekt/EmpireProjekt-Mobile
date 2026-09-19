@@ -6,8 +6,6 @@ on:
         description: "Optional personal access token used to create the release. Falls back to the default GITHUB_TOKEN when not provided."
         required: false
 
-# `contents: write` is required to create a release with the default
-# GITHUB_TOKEN. The caller job must grant the same permission.
 permissions:
   contents: write
 

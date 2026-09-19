@@ -4,10 +4,6 @@ on:
     branches:
       - master
 
-# Explicit least-privilege token permissions so the workflow behaves
-# the same in personal repositories and organizations regardless of
-# the default GITHUB_TOKEN settings. Jobs that need more (e.g. creating
-# a release) elevate their permissions individually.
 permissions:
   contents: read
 
