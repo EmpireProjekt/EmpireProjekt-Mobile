@@ -10,7 +10,11 @@ plugins {
     id("ru.astrainteractive.gradleplugin.java.version")
 }
 kotlin {
-    androidLibrary {}
+    androidLibrary {
+        withHostTest {
+            isIncludeAndroidResources = true
+        }
+    }
     applyDefaultHierarchyTemplate()
     sourceSets {
         val commonMain by getting {
@@ -34,5 +38,23 @@ kotlin {
                 implementation(projects.modules.services.core.ui.theme)
             }
         }
+        val androidHostTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(kotlin("test-junit"))
+                implementation(libs.androidx.compose.ui.test.manifest)
+                implementation(libs.jetbrains.compose.ui.test)
+                implementation(libs.tests.espresso.core)
+                implementation(libs.tests.robolectric)
+            }
+        }
     }
+}
+
+// Robolectric patches FileDescriptor internals, which recent JDKs hide from unnamed modules.
+tasks.withType<Test>().configureEach {
+    jvmArgs(
+        "--add-exports=java.base/jdk.internal.access=ALL-UNNAMED",
+        "--add-opens=java.base/java.io=ALL-UNNAMED"
+    )
 }
