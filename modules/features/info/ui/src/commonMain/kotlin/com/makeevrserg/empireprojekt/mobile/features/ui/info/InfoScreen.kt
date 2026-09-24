@@ -3,7 +3,6 @@ package com.makeevrserg.empireprojekt.mobile.features.ui.info
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,6 +26,7 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.ic_theme
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_vote
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionDefaults
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionHref
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSection
@@ -86,10 +86,7 @@ fun InfoScreen(
                                 onRatingsClick.invoke()
                             },
                             icon = MR.images.ic_people.asPainter(),
-                            contentPadding = PaddingValues(
-                                horizontal = AppTheme.dimens.XS,
-                                vertical = AppTheme.dimens.XS
-                            ),
+                            contentPadding = OptionDefaults.ContentPadding,
                         )
                         OptionSeparator(Modifier.fillMaxWidth())
                         OptionHref(
@@ -98,10 +95,7 @@ fun InfoScreen(
                                 onVotesClick.invoke()
                             },
                             icon = MR.images.ic_vote.asPainter(),
-                            contentPadding = PaddingValues(
-                                horizontal = AppTheme.dimens.XS,
-                                vertical = AppTheme.dimens.XS
-                            ),
+                            contentPadding = OptionDefaults.ContentPadding,
                         )
                         OptionSeparator(Modifier.fillMaxWidth())
                         OptionHref(
@@ -110,10 +104,7 @@ fun InfoScreen(
                                 onWikiClick.invoke()
                             },
                             icon = MR.images.ic_knowledge.asPainter(),
-                            contentPadding = PaddingValues(
-                                horizontal = AppTheme.dimens.XS,
-                                vertical = AppTheme.dimens.XS
-                            ),
+                            contentPadding = OptionDefaults.ContentPadding,
                         )
                         OptionSeparator(Modifier.fillMaxWidth())
                         OptionSwitch(
@@ -123,10 +114,7 @@ fun InfoScreen(
                             },
                             checked = AppTheme.astraColors.isDark,
                             icon = MR.images.ic_theme.asPainter(),
-                            contentPadding = PaddingValues(
-                                horizontal = AppTheme.dimens.XS,
-                                vertical = AppTheme.dimens.XS
-                            ),
+                            contentPadding = OptionDefaults.ContentPadding,
                         )
                     }
                 }
@@ -150,18 +138,11 @@ fun InfoScreen(
             }
 
             item {
-                OptionSection(modifier = Modifier) {
-                    Column {
-                        models.forEachIndexed { i, linkModel ->
-                            LinkWidget(
-                                linkBrowser = linkBrowser,
-                                linkModel = linkModel
-                            )
-                            if (i != models.lastIndex) {
-                                OptionSeparator(Modifier.fillMaxWidth())
-                            }
-                        }
-                    }
+                OptionSection(items = models) { linkModel ->
+                    LinkWidget(
+                        linkBrowser = linkBrowser,
+                        linkModel = linkModel
+                    )
                 }
             }
             item {
@@ -171,10 +152,7 @@ fun InfoScreen(
                         icon = rememberVectorPainter(Icons.Filled.Bolt),
                         text = "Version",
                         endText = "${BuildKonfig.VERSION_CODE} (${BuildKonfig.VERSION_NAME})",
-                        contentPadding = PaddingValues(
-                            horizontal = AppTheme.dimens.XS,
-                            vertical = AppTheme.dimens.XS
-                        ),
+                        contentPadding = OptionDefaults.ContentPadding,
                     )
                 }
             }

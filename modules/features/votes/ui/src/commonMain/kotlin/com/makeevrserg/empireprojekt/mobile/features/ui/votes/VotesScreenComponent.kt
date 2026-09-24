@@ -2,7 +2,6 @@ package com.makeevrserg.empireprojekt.mobile.features.ui.votes
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,9 +19,9 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.img_hotmc
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_minecraftrating
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionDefaults
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionHref
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSection
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSeparator
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
@@ -135,26 +134,16 @@ fun VotesScreenComponent(
                         )
                         Spacer(Modifier.height(AppTheme.dimens.XS))
                     }
-                    OptionSection(modifier = Modifier) {
-                        Column {
-                            voteUrls.forEachIndexed { index, voteUrl ->
-                                OptionHref(
-                                    text = voteUrl.name,
-                                    onClick = {
-                                        onClick.invoke(voteUrl.url)
-                                    },
-                                    icon = voteUrl.image.asPainter(),
-                                    iconTint = Color.Unspecified,
-                                    contentPadding = PaddingValues(
-                                        horizontal = AppTheme.dimens.XS,
-                                        vertical = AppTheme.dimens.XS
-                                    ),
-                                )
-                                if (index != voteUrls.lastIndex) {
-                                    OptionSeparator(Modifier.fillMaxWidth())
-                                }
-                            }
-                        }
+                    OptionSection(items = voteUrls) { voteUrl ->
+                        OptionHref(
+                            text = voteUrl.name,
+                            onClick = {
+                                onClick.invoke(voteUrl.url)
+                            },
+                            icon = voteUrl.image.asPainter(),
+                            iconTint = Color.Unspecified,
+                            contentPadding = OptionDefaults.ContentPadding,
+                        )
                     }
                 }
             Spacer(Modifier.navBarsPadding())
