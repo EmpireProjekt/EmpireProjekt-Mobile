@@ -3,6 +3,7 @@ package com.makeevrserg.empireprojekt.mobile.core.ui.paging
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,6 +26,8 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
+
+private const val SHIMMER_ITEMS_COUNT = 8
 
 object PagingWidget {
     @Suppress("ModifierMissing")
@@ -87,6 +90,24 @@ object PagingWidget {
             contentAlignment = Alignment.Center
         ) {
             AstraLoading(size = AppTheme.dimens.M)
+        }
+    }
+
+    /**
+     * Column of shimmering [item] placeholders shown while a page is being loaded.
+     */
+    @Composable
+    fun ShimmerLoader(
+        modifier: Modifier = Modifier,
+        item: @Composable () -> Unit
+    ) {
+        Column(
+            modifier = modifier,
+            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)
+        ) {
+            repeat(times = SHIMMER_ITEMS_COUNT) {
+                item()
+            }
         }
     }
 

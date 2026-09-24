@@ -2,7 +2,6 @@ package com.makeevrserg.empireprojekt.mobile.features.ui.rating.users
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -79,16 +78,7 @@ internal fun RatingUsersComposableScreen(
                     isLoading = model.isLoading,
                     isFailure = model.isFailure,
                     onReload = onReset,
-                    loader = {
-                        Column(
-                            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
-                            content = {
-                                repeat(times = 8) {
-                                    RatingUserShimmerWidget()
-                                }
-                            }
-                        )
-                    }
+                    loader = { PagingWidget.ShimmerLoader { RatingUserShimmerWidget() } }
                 )
             }
         }

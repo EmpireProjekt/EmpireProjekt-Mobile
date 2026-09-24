@@ -1,7 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -96,16 +95,7 @@ internal fun TownsComposableScreen(
                     isLoading = model.isLoading,
                     isFailure = model.isFailure,
                     onReload = onReset,
-                    loader = {
-                        Column(
-                            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
-                            content = {
-                                repeat(times = 8) {
-                                    TownShimmerWidget()
-                                }
-                            }
-                        )
-                    }
+                    loader = { PagingWidget.ShimmerLoader { TownShimmerWidget() } }
                 )
             }
             item { Spacer(Modifier.navBarsPadding()) }
