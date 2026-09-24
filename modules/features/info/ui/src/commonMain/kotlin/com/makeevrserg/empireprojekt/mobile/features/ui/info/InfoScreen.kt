@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.runtime.Composable
@@ -26,7 +25,6 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.ic_knowledge
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_people
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_theme
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_vote
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionHref
@@ -34,10 +32,10 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSection
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSeparator
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSwitch
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.IR
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.info_more_links
@@ -136,19 +134,17 @@ fun InfoScreen(
 
             item {
                 Column {
-                    Text(
+                    AstraText(
                         text = IR.strings.info_more_links.asComposableString(),
                         style = MaterialTheme.typography.h5,
-                        color = MaterialTheme.colors.onPrimary,
-                        fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                        color = MaterialTheme.colors.onPrimary
                     )
-                    Text(
+                    AstraText(
                         text = "All this links associated with EmpireProjekt and AstraInteractive. " +
                             "This text specially displayed for google play " +
                             "support which considering this links as advertisement.",
                         style = MaterialTheme.typography.overline,
-                        color = MaterialTheme.colors.onPrimary,
-                        fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                        color = MaterialTheme.colors.onPrimary
                     )
                 }
             }

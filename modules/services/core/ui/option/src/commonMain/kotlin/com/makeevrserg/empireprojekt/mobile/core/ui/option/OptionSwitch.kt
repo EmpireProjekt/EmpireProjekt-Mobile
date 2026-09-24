@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Image
 import androidx.compose.runtime.Composable
@@ -25,10 +24,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 
 @Suppress("LongMethod")
 @Composable
@@ -66,7 +63,7 @@ fun OptionSwitch(
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.Center
         ) {
-            Text(
+            AstraText(
                 text = text,
                 color = animateColorAsState(
                     targetValue = when (checked) {
@@ -76,17 +73,15 @@ fun OptionSwitch(
                     }
                 ).value,
                 textAlign = TextAlign.Start,
-                fontSize = 18.sp,
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                fontSize = 18.sp
             )
             infoText?.let {
                 Spacer(Modifier.height(6.dp))
-                Text(
+                AstraText(
                     text = infoText,
                     color = AppTheme.astraColors.surface.onSecondary,
                     style = MaterialTheme.typography.body1,
-                    textAlign = TextAlign.Start,
-                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                    textAlign = TextAlign.Start
                 )
             }
         }

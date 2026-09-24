@@ -14,7 +14,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
@@ -32,9 +31,7 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
-import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 
 @Suppress("LongMethod")
 @Composable
@@ -70,11 +67,10 @@ fun SearchAppBar(
                     .fillMaxWidth()
                     .focusRequester(focusRequester),
                 placeholder = {
-                    Text(
+                    AstraText(
                         modifier = Modifier.alpha(ContentAlpha.medium),
                         text = hint,
-                        color = MaterialTheme.colors.onPrimary,
-                        fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                        color = MaterialTheme.colors.onPrimary
                     )
                 },
                 singleLine = true,

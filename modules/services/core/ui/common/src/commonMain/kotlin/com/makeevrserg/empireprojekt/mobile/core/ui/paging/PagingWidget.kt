@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,15 +16,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_splash
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.resources.paging_last_page
 import com.makeevrserg.empireprojekt.mobile.core.resources.paging_network_error
 import com.makeevrserg.empireprojekt.mobile.core.resources.paging_no_pages
 import com.makeevrserg.empireprojekt.mobile.core.resources.paging_reload
 import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.AstraLoading
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 
 object PagingWidget {
@@ -41,12 +39,11 @@ object PagingWidget {
                 modifier = Modifier.size(96.dp),
                 contentDescription = null
             )
-            Text(
+            AstraText(
                 text = text,
                 style = MaterialTheme.typography.h6,
                 color = MaterialTheme.colors.onPrimary,
-                textAlign = TextAlign.Center,
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                textAlign = TextAlign.Center
             )
         }
     }
@@ -70,13 +67,12 @@ object PagingWidget {
             Base(MR.strings.paging_network_error.asComposableString())
             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                 Button(onClick = onReload) {
-                    Text(
+                    AstraText(
                         text = MR.strings.paging_reload.asComposableString(),
                         modifier = Modifier.clickable { onReload.invoke() },
                         style = MaterialTheme.typography.h6,
                         color = AppTheme.astraColors.astraLogo.astraOrange,
-                        textAlign = TextAlign.Center,
-                        fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                        textAlign = TextAlign.Center
                     )
                 }
             }

@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -19,15 +18,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance_private
@@ -80,15 +77,14 @@ internal fun TownCard(
                         .size(32.dp)
                         .clip(RoundedCornerShape(AppTheme.dimens.XXS)),
                 )
-                Text(
+                AstraText(
                     text = mayor,
                     style = MaterialTheme.typography.h6,
                     color = MaterialTheme.colors.onPrimary,
-                    textAlign = TextAlign.Center,
-                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                    textAlign = TextAlign.Center
                 )
             }
-            Text(
+            AstraText(
                 text = residentsCount.toString(),
                 style = MaterialTheme.typography.subtitle2,
                 color = MaterialTheme.colors.primary,
@@ -97,23 +93,20 @@ internal fun TownCard(
                     .clip(RoundedCornerShape(AppTheme.dimens.XS))
                     .background(AppTheme.astraColors.astraLogo.astraYellow)
                     .padding(horizontal = AppTheme.dimens.XS)
-                    .padding(vertical = AppTheme.dimens.XXS),
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                    .padding(vertical = AppTheme.dimens.XXS)
             )
         }
-        Text(
+        AstraText(
             text = townName,
             style = MaterialTheme.typography.h5,
             color = MaterialTheme.colors.onPrimary,
-            textAlign = TextAlign.Center,
-            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+            textAlign = TextAlign.Center
         )
         if (board.isNotBlank()) {
-            Text(
+            AstraText(
                 text = board,
                 style = MaterialTheme.typography.subtitle1,
-                color = MaterialTheme.colors.onPrimary,
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                color = MaterialTheme.colors.onPrimary
             )
         }
         OptionInfo(

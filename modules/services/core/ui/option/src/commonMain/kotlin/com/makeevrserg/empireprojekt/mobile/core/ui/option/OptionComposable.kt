@@ -22,10 +22,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 
 @Composable
 fun OptionComposable(
@@ -60,20 +58,18 @@ fun OptionComposable(
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.Center
         ) {
-            Text(
+            AstraText(
                 text = text,
                 color = MaterialTheme.colors.onPrimary,
                 textAlign = TextAlign.Start,
-                fontSize = 18.sp,
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                fontSize = 18.sp
             )
             infoText?.let {
-                Text(
+                AstraText(
                     text = infoText,
                     color = AppTheme.astraColors.surface.onSecondary,
                     style = MaterialTheme.typography.body1,
-                    textAlign = TextAlign.Start,
-                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                    textAlign = TextAlign.Start
                 )
             }
         }

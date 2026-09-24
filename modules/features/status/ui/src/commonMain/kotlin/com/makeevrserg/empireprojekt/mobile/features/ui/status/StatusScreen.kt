@@ -10,19 +10,16 @@ import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.features.root.modal.RootBottomSheetRouter
 import com.makeevrserg.empireprojekt.mobile.features.status.root.presentation.RootStatusComponent
 import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.ThemeSwitcherComponent
@@ -77,11 +74,10 @@ fun StatusScreen(
             contentPadding = it,
         ) {
             item {
-                Text(
+                AstraText(
                     text = SR.strings.status_subtitle.asComposableString(),
                     style = MaterialTheme.typography.body1,
-                    color = MaterialTheme.colors.onPrimary.copy(alpha = .5f),
-                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                    color = MaterialTheme.colors.onPrimary.copy(alpha = .5f)
                 )
             }
             items(rootStatusComponent.statusComponents) { statusComponent ->

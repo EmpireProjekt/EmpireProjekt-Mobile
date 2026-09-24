@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,15 +18,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_hotmc
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_minecraftrating
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionHref
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSection
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSeparator
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.ui.votes.model.VoteUrl
 
@@ -107,21 +105,19 @@ fun VotesScreenComponent(
         }
     ) { scaffoldPadding ->
         Column(modifier = Modifier.padding(scaffoldPadding)) {
-            Text(
+            AstraText(
                 text = "Помогите серверу собственноручно!".uppercase(),
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.secondaryVariant,
                 modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center,
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                textAlign = TextAlign.Center
             )
-            Text(
+            AstraText(
                 text = "На этой странице вы можете помочь серверу " +
                     "привлечь новых игроков проголосовав за него на других мониторингах\n" +
                     "Просто нажмите на один вариант, а лучше на все.\n",
                 style = MaterialTheme.typography.body1,
                 color = MaterialTheme.colors.onSecondary,
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily(),
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth()
             )
@@ -130,11 +126,10 @@ fun VotesScreenComponent(
                 .forEach { (hasPrize, voteUrls) ->
                     if (hasPrize) {
                         Spacer(Modifier.height(AppTheme.dimens.XS))
-                        Text(
+                        AstraText(
                             text = "При голосовании за эти сервера вы получите награду!",
                             style = MaterialTheme.typography.body1,
                             color = MaterialTheme.colors.onSecondary,
-                            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily(),
                             textAlign = TextAlign.Center,
                             modifier = Modifier.fillMaxWidth()
                         )

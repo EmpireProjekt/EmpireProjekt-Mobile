@@ -19,7 +19,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Image
@@ -35,10 +34,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 
 @Suppress("LongMethod")
 @Composable
@@ -77,20 +74,18 @@ fun OptionHref(
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.Center
         ) {
-            Text(
+            AstraText(
                 text = text,
                 color = MaterialTheme.colors.onPrimary,
                 textAlign = TextAlign.Start,
-                fontSize = 18.sp,
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                fontSize = 18.sp
             )
             infoText?.let {
-                Text(
+                AstraText(
                     text = infoText,
                     color = AppTheme.astraColors.surface.onSecondary,
                     style = MaterialTheme.typography.body1,
-                    textAlign = TextAlign.Start,
-                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                    textAlign = TextAlign.Start
                 )
             }
         }
@@ -109,7 +104,7 @@ fun OptionHref(
                         }.using(SizeTransform(clip = false))
                     },
                     content = { endText ->
-                        Text(
+                        AstraText(
                             text = endText,
                             color = animateColorAsState(
                                 targetValue = when (isActive) {
@@ -117,8 +112,7 @@ fun OptionHref(
                                     false -> AppTheme.astraColors.surface.onSecondary
                                 }
                             ).value,
-                            fontSize = 16.sp,
-                            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                            fontSize = 16.sp
                         )
                     }
                 )

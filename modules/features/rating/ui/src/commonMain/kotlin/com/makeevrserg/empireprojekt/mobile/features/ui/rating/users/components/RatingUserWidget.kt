@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.runtime.Composable
@@ -31,14 +30,13 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_raised_hand
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_thumb_up_down
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.rating.RR
 import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated
@@ -81,12 +79,11 @@ internal fun RatingUserWidget(
                                 .clip(RoundedCornerShape(AppTheme.dimens.XXS)),
                         )
                         Spacer(Modifier.width(AppTheme.dimens.XS))
-                        Text(
+                        AstraText(
                             text = model.minecraftName,
                             style = MaterialTheme.typography.h6,
                             color = MaterialTheme.colors.onPrimary,
-                            textAlign = TextAlign.Center,
-                            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                            textAlign = TextAlign.Center
                         )
                         Spacer(Modifier.weight(1f))
                         Icon(

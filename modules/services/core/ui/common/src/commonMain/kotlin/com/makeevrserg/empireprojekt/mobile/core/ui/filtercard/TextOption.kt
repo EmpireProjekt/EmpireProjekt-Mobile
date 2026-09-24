@@ -1,14 +1,11 @@
 package com.makeevrserg.empireprojekt.mobile.core.ui.filtercard
 
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 
 @Composable
 fun TextOption(
@@ -16,12 +13,11 @@ fun TextOption(
     modifier: Modifier = Modifier,
     color: Color = MaterialTheme.colors.secondaryVariant
 ) {
-    Text(
+    AstraText(
         text = text,
         color = color,
         textAlign = TextAlign.Start,
         modifier = modifier,
-        style = MaterialTheme.typography.subtitle2,
-        fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+        style = MaterialTheme.typography.subtitle2
     )
 }

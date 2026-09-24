@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ThumbDown
 import androidx.compose.material.icons.filled.ThumbUp
@@ -28,13 +27,12 @@ import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_history_edu
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.rating.RR
 import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated
@@ -74,12 +72,11 @@ internal fun RatingUserWidget(
                         .size(32.dp)
                         .clip(RoundedCornerShape(AppTheme.dimens.XXS)),
                 )
-                Text(
+                AstraText(
                     text = name ?: "-",
                     style = MaterialTheme.typography.subtitle2,
                     color = MaterialTheme.colors.onPrimary,
-                    textAlign = TextAlign.Center,
-                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                    textAlign = TextAlign.Center
                 )
 
                 Spacer(Modifier.weight(1f))
@@ -132,13 +129,12 @@ internal fun RatingUserWidget(
                     .padding(horizontal = AppTheme.dimens.S),
                 icon = MR.images.ic_history_edu.asPainter()
             )
-            Text(
+            AstraText(
                 text = message.trim(),
                 style = MaterialTheme.typography.subtitle2,
                 color = MaterialTheme.colors.onPrimary,
                 textAlign = TextAlign.Start,
-                modifier = Modifier.padding(horizontal = AppTheme.dimens.S),
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                modifier = Modifier.padding(horizontal = AppTheme.dimens.S)
             )
         }
     }
