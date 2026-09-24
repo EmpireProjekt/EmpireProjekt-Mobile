@@ -25,12 +25,11 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_raised_hand
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_thumb_up_down
-import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerAvatar
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
@@ -72,12 +71,7 @@ internal fun RatingUserWidget(
             ) {
                 Column(verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        PlayerHeadBox(
-                            uuid = model.minecraftUUID,
-                            modifier = Modifier
-                                .size(32.dp)
-                                .clip(RoundedCornerShape(AppTheme.dimens.XXS)),
-                        )
+                        PlayerAvatar(uuid = model.minecraftUUID)
                         Spacer(Modifier.width(AppTheme.dimens.XS))
                         AstraText(
                             text = model.minecraftName,

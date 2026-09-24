@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_history_edu
-import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerAvatar
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
@@ -66,12 +66,7 @@ internal fun RatingUserWidget(
                 horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.S),
                 modifier = Modifier.padding(horizontal = AppTheme.dimens.S)
             ) {
-                PlayerHeadBox(
-                    uuid = uuid.orEmpty(),
-                    modifier = Modifier
-                        .size(32.dp)
-                        .clip(RoundedCornerShape(AppTheme.dimens.XXS)),
-                )
+                PlayerAvatar(uuid = uuid.orEmpty())
                 AstraText(
                     text = name ?: "-",
                     style = MaterialTheme.typography.subtitle2,
