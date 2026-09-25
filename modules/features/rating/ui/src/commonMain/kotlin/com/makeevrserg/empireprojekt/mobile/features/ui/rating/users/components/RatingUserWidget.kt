@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
@@ -20,16 +19,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_raised_hand
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_thumb_up_down
-import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerAvatar
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerNameRow
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
-import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
@@ -68,14 +65,7 @@ internal fun RatingUserWidget(
             ) {
                 Column(verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        PlayerAvatar(uuid = model.minecraftUUID)
-                        Spacer(Modifier.width(AppTheme.dimens.XS))
-                        AstraText(
-                            text = model.minecraftName,
-                            style = MaterialTheme.typography.h6,
-                            color = MaterialTheme.colors.onPrimary,
-                            textAlign = TextAlign.Center
-                        )
+                        PlayerNameRow(uuid = model.minecraftUUID, name = model.minecraftName)
                         Spacer(Modifier.weight(1f))
                         Icon(
                             imageVector = Icons.Filled.ChevronRight,

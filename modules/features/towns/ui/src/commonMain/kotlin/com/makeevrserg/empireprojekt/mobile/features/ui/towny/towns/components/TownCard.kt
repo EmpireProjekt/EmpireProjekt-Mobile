@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerAvatar
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerNameRow
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
@@ -65,18 +65,7 @@ internal fun TownCard(
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)
-            ) {
-                PlayerAvatar(uuid = mayor)
-                AstraText(
-                    text = mayor,
-                    style = MaterialTheme.typography.h6,
-                    color = MaterialTheme.colors.onPrimary,
-                    textAlign = TextAlign.Center
-                )
-            }
+            PlayerNameRow(uuid = mayor, name = mayor)
             AstraText(
                 text = residentsCount.toString(),
                 style = MaterialTheme.typography.subtitle2,

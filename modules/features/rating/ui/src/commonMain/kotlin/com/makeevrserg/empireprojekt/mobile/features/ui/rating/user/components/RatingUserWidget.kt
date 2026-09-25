@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_history_edu
-import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerAvatar
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerNameRow
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
@@ -64,14 +64,12 @@ internal fun RatingUserWidget(
                 horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.S),
                 modifier = Modifier.padding(horizontal = AppTheme.dimens.S)
             ) {
-                PlayerAvatar(uuid = uuid.orEmpty())
-                AstraText(
-                    text = name ?: "-",
+                PlayerNameRow(
+                    uuid = uuid.orEmpty(),
+                    name = name ?: "-",
                     style = MaterialTheme.typography.subtitle2,
-                    color = MaterialTheme.colors.onPrimary,
-                    textAlign = TextAlign.Center
+                    spacing = AppTheme.dimens.S
                 )
-
                 Spacer(Modifier.weight(1f))
                 when {
                     rating > 0 -> {
