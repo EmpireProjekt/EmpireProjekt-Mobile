@@ -6,24 +6,20 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.shared_filter
-import com.makeevrserg.empireprojekt.mobile.core.resources.shared_warn_multiple_filter
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.EnumOption
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.FilterCard
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.TextOption
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.TitleOption
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.SortFilterHeader
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_sort_by_date
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_sort_by_founder
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_sort_by_name
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_sort_by_nation
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_sort_by_residents
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_sort_by_tag
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_towns_filter_public
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_public_type_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_created_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_founder_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_name_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_nation_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_residents_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_tag_label
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.util.LocalSortOrderExt.toStringDesc
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.util.TownPublicTypeExt.toStringDesc
 import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
@@ -42,46 +38,45 @@ internal fun TownFilterCard(
     onSortByResidentsClick: () -> Unit,
 ) {
     FilterCard {
-        TitleOption(text = MR.strings.shared_filter.asComposableString())
-        TextOption(text = MR.strings.shared_warn_multiple_filter.asComposableString())
+        SortFilterHeader()
         EnumOption(
-            text = TR.strings.towns_towns_filter_public.asComposableString(),
+            text = TR.strings.towns_filter_public_type_label.asComposableString(),
             selected = townsFilter.publicType,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onPublicTypeClick
         )
         EnumOption(
-            text = TR.strings.towns_town_sort_by_name.asComposableString(),
+            text = TR.strings.towns_filter_sort_name_label.asComposableString(),
             selected = townsFilter.nameSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onSortByNameClick
         )
         EnumOption(
-            text = TR.strings.towns_town_sort_by_tag.asComposableString(),
+            text = TR.strings.towns_filter_sort_tag_label.asComposableString(),
             selected = townsFilter.tagSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onSortByTagClick
         )
         EnumOption(
-            text = TR.strings.towns_town_sort_by_founder.asComposableString(),
+            text = TR.strings.towns_filter_sort_founder_label.asComposableString(),
             selected = townsFilter.founderSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onSortByFounderClick
         )
         EnumOption(
-            text = TR.strings.towns_town_sort_by_nation.asComposableString(),
+            text = TR.strings.towns_filter_sort_nation_label.asComposableString(),
             selected = townsFilter.nationSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onSortByNationClick
         )
         EnumOption(
-            text = TR.strings.towns_town_sort_by_date.asComposableString(),
+            text = TR.strings.towns_filter_sort_created_label.asComposableString(),
             selected = townsFilter.dateSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onSortByDateClick
         )
         EnumOption(
-            text = TR.strings.towns_town_sort_by_residents.asComposableString(),
+            text = TR.strings.towns_filter_sort_residents_label.asComposableString(),
             selected = townsFilter.residentsSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onSortByResidentsClick
@@ -91,7 +86,26 @@ internal fun TownFilterCard(
 
 @Preview
 @Composable
-private fun TownFilterCardPreview() {
+private fun TownFilterCardEmptyPreview() {
+    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+        Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
+            TownFilterCard(
+                townsFilter = TownsFilterModel(),
+                onSortByNationClick = {},
+                onSortByDateClick = {},
+                onSortByNameClick = {},
+                onPublicTypeClick = {},
+                onSortByTagClick = {},
+                onSortByFounderClick = {},
+                onSortByResidentsClick = {}
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun TownFilterCardSelectedPreview() {
     AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             TownFilterCard(

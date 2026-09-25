@@ -14,7 +14,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
@@ -31,10 +30,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
+import com.makeevrserg.empireprojekt.mobile.core.ui.button.AstraIconButton
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 
 @Suppress("LongMethod")
 @Composable
@@ -70,11 +70,10 @@ fun SearchAppBar(
                     .fillMaxWidth()
                     .focusRequester(focusRequester),
                 placeholder = {
-                    Text(
+                    AstraText(
                         modifier = Modifier.alpha(ContentAlpha.medium),
                         text = hint,
-                        color = MaterialTheme.colors.onPrimary,
-                        fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                        color = MaterialTheme.colors.onPrimary
                     )
                 },
                 singleLine = true,
@@ -92,20 +91,15 @@ fun SearchAppBar(
                 },
                 trailingIcon = {
                     Row {
-                        IconButton(
+                        AstraIconButton(
+                            imageVector = Icons.Filled.Close,
                             onClick = {
                                 focusRequester.freeFocus()
                                 keyboardController?.hide()
                                 onCloseClick.invoke()
                             },
                             modifier = Modifier.alpha(ContentAlpha.medium)
-                        ) {
-                            Icon(
-                                imageVector = Icons.Filled.Close,
-                                contentDescription = "",
-                                tint = MaterialTheme.colors.onPrimary
-                            )
-                        }
+                        )
                         actions()
                     }
                 },
@@ -122,5 +116,31 @@ fun SearchAppBar(
                 )
             )
         }
+    }
+}
+
+@Preview
+@Composable
+private fun SearchAppBarEmptyPreview() {
+    AdaptThemeFade {
+        SearchAppBar(
+            query = "",
+            onTextChange = {},
+            onCloseClick = {},
+            hint = "Search"
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun SearchAppBarFilledPreview() {
+    AdaptThemeFade {
+        SearchAppBar(
+            query = "RomaRoman",
+            onTextChange = {},
+            onCloseClick = {},
+            hint = "Search"
+        )
     }
 }

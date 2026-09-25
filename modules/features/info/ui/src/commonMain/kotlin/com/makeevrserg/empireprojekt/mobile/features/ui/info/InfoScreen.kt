@@ -1,17 +1,13 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.info
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Bolt
 import androidx.compose.runtime.Composable
@@ -26,29 +22,29 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.ic_knowledge
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_people
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_theme
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_vote
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraTopBarScreen
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionDefaults
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionHref
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSection
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSeparator
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSwitch
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.IR
-import com.makeevrserg.empireprojekt.mobile.features.info.ui.info_more_links
+import com.makeevrserg.empireprojekt.mobile.features.info.ui.info_links_title
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.components.LinkWidget
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.data.InfoScreenLinks
-import com.makeevrserg.empireprojekt.mobile.services.core.LinkBrowser
 
 @Suppress("LongMethod", "UnusedParameter")
 @Composable
 fun InfoScreen(
-    linkBrowser: LinkBrowser,
+    onLinkClick: (String) -> Unit,
     onTownsClick: () -> Unit,
     onRatingsClick: () -> Unit,
     onVotesClick: () -> Unit,
@@ -57,12 +53,7 @@ fun InfoScreen(
     modifier: Modifier = Modifier
 ) {
     val models = remember { InfoScreenLinks.get() }
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colors.primaryVariant)
-    ) {
-        AstraCenterAlignedTopAppBar(title = "МЕНЮ")
+    AstraTopBarScreen(title = "МЕНЮ", modifier = modifier) {
         LazyColumn(
             modifier = Modifier.padding(horizontal = AppTheme.dimens.XS),
             verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS, Alignment.Top)
@@ -88,10 +79,7 @@ fun InfoScreen(
                                 onRatingsClick.invoke()
                             },
                             icon = MR.images.ic_people.asPainter(),
-                            contentPadding = PaddingValues(
-                                horizontal = AppTheme.dimens.XS,
-                                vertical = AppTheme.dimens.XS
-                            ),
+                            contentPadding = OptionDefaults.ContentPadding,
                         )
                         OptionSeparator(Modifier.fillMaxWidth())
                         OptionHref(
@@ -100,10 +88,7 @@ fun InfoScreen(
                                 onVotesClick.invoke()
                             },
                             icon = MR.images.ic_vote.asPainter(),
-                            contentPadding = PaddingValues(
-                                horizontal = AppTheme.dimens.XS,
-                                vertical = AppTheme.dimens.XS
-                            ),
+                            contentPadding = OptionDefaults.ContentPadding,
                         )
                         OptionSeparator(Modifier.fillMaxWidth())
                         OptionHref(
@@ -112,10 +97,7 @@ fun InfoScreen(
                                 onWikiClick.invoke()
                             },
                             icon = MR.images.ic_knowledge.asPainter(),
-                            contentPadding = PaddingValues(
-                                horizontal = AppTheme.dimens.XS,
-                                vertical = AppTheme.dimens.XS
-                            ),
+                            contentPadding = OptionDefaults.ContentPadding,
                         )
                         OptionSeparator(Modifier.fillMaxWidth())
                         OptionSwitch(
@@ -125,10 +107,7 @@ fun InfoScreen(
                             },
                             checked = AppTheme.astraColors.isDark,
                             icon = MR.images.ic_theme.asPainter(),
-                            contentPadding = PaddingValues(
-                                horizontal = AppTheme.dimens.XS,
-                                vertical = AppTheme.dimens.XS
-                            ),
+                            contentPadding = OptionDefaults.ContentPadding,
                         )
                     }
                 }
@@ -136,36 +115,27 @@ fun InfoScreen(
 
             item {
                 Column {
-                    Text(
-                        text = IR.strings.info_more_links.asComposableString(),
+                    AstraText(
+                        text = IR.strings.info_links_title.asComposableString(),
                         style = MaterialTheme.typography.h5,
-                        color = MaterialTheme.colors.onPrimary,
-                        fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                        color = MaterialTheme.colors.onPrimary
                     )
-                    Text(
+                    AstraText(
                         text = "All this links associated with EmpireProjekt and AstraInteractive. " +
                             "This text specially displayed for google play " +
                             "support which considering this links as advertisement.",
                         style = MaterialTheme.typography.overline,
-                        color = MaterialTheme.colors.onPrimary,
-                        fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                        color = MaterialTheme.colors.onPrimary
                     )
                 }
             }
 
             item {
-                OptionSection(modifier = Modifier) {
-                    Column {
-                        models.forEachIndexed { i, linkModel ->
-                            LinkWidget(
-                                linkBrowser = linkBrowser,
-                                linkModel = linkModel
-                            )
-                            if (i != models.lastIndex) {
-                                OptionSeparator(Modifier.fillMaxWidth())
-                            }
-                        }
-                    }
+                OptionSection(items = models) { linkModel ->
+                    LinkWidget(
+                        linkModel = linkModel,
+                        onClick = { onLinkClick.invoke(linkModel.url) }
+                    )
                 }
             }
             item {
@@ -175,10 +145,7 @@ fun InfoScreen(
                         icon = rememberVectorPainter(Icons.Filled.Bolt),
                         text = "Version",
                         endText = "${BuildKonfig.VERSION_CODE} (${BuildKonfig.VERSION_NAME})",
-                        contentPadding = PaddingValues(
-                            horizontal = AppTheme.dimens.XS,
-                            vertical = AppTheme.dimens.XS
-                        ),
+                        contentPadding = OptionDefaults.ContentPadding,
                     )
                 }
             }
@@ -194,12 +161,25 @@ fun InfoScreen(
 
 @Composable
 @Preview
-private fun InfoScreenPreview() {
-    AdaptThemeFade {
+private fun InfoScreenDarkPreview() {
+    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
         InfoScreen(
-            linkBrowser = object : LinkBrowser {
-                override fun openInBrowser(url: String) = Unit
-            },
+            onLinkClick = {},
+            onRatingsClick = {},
+            onTownsClick = {},
+            onVotesClick = {},
+            onThemeToggle = {},
+            onWikiClick = {}
+        )
+    }
+}
+
+@Composable
+@Preview
+private fun InfoScreenLightPreview() {
+    AdaptThemeFade(composeTheme = ComposeTheme.LIGHT) {
+        InfoScreen(
+            onLinkClick = {},
             onRatingsClick = {},
             onTownsClick = {},
             onVotesClick = {},

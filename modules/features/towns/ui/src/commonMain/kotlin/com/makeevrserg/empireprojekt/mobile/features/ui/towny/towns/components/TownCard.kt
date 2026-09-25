@@ -7,10 +7,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -18,25 +16,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
-import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerNameRow
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance_private
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance_public
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_founder
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_nation
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_outlaw_count
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_registered
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_tag
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_created_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_entrance_closed_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_entrance_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_entrance_open_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_founder_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_nation_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_outlaws_count_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_tag_label
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
 import kotlin.time.Instant
@@ -58,8 +54,7 @@ internal fun TownCard(
     val timeFormatter: TimeFormatter = JvmTimeFormatter()
     Column(
         modifier = Modifier
-            .clip(RoundedCornerShape(AppTheme.dimens.XS))
-            .background(MaterialTheme.colors.primary)
+            .astraCard(RoundedCornerShape(AppTheme.dimens.XS))
             .padding(
                 vertical = AppTheme.dimens.XS,
                 horizontal = AppTheme.dimens.S
@@ -70,25 +65,8 @@ internal fun TownCard(
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)
-            ) {
-                PlayerHeadBox(
-                    uuid = mayor,
-                    modifier = Modifier
-                        .size(32.dp)
-                        .clip(RoundedCornerShape(AppTheme.dimens.XXS)),
-                )
-                Text(
-                    text = mayor,
-                    style = MaterialTheme.typography.h6,
-                    color = MaterialTheme.colors.onPrimary,
-                    textAlign = TextAlign.Center,
-                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
-                )
-            }
-            Text(
+            PlayerNameRow(uuid = mayor, name = mayor)
+            AstraText(
                 text = residentsCount.toString(),
                 style = MaterialTheme.typography.subtitle2,
                 color = MaterialTheme.colors.primary,
@@ -97,52 +75,49 @@ internal fun TownCard(
                     .clip(RoundedCornerShape(AppTheme.dimens.XS))
                     .background(AppTheme.astraColors.astraLogo.astraYellow)
                     .padding(horizontal = AppTheme.dimens.XS)
-                    .padding(vertical = AppTheme.dimens.XXS),
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                    .padding(vertical = AppTheme.dimens.XXS)
             )
         }
-        Text(
+        AstraText(
             text = townName,
             style = MaterialTheme.typography.h5,
             color = MaterialTheme.colors.onPrimary,
-            textAlign = TextAlign.Center,
-            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+            textAlign = TextAlign.Center
         )
         if (board.isNotBlank()) {
-            Text(
+            AstraText(
                 text = board,
                 style = MaterialTheme.typography.subtitle1,
-                color = MaterialTheme.colors.onPrimary,
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                color = MaterialTheme.colors.onPrimary
             )
         }
         OptionInfo(
-            text = TR.strings.towns_town_card_tag.asComposableString(),
+            text = TR.strings.towns_details_tag_label.asComposableString(),
             endText = tag,
             modifier = Modifier.fillMaxWidth()
         )
         OptionInfo(
-            text = TR.strings.towns_town_card_founder.asComposableString(),
+            text = TR.strings.towns_details_founder_label.asComposableString(),
             endText = founder,
             modifier = Modifier.fillMaxWidth()
         )
         if (nation.isNotBlank()) {
             OptionInfo(
-                text = TR.strings.towns_town_card_nation.asComposableString(),
+                text = TR.strings.towns_details_nation_label.asComposableString(),
                 endText = nation,
                 modifier = Modifier.fillMaxWidth()
             )
         }
         if (outlawsAmount > 0) {
             OptionInfo(
-                text = TR.strings.towns_town_card_outlaw_count.asComposableString(),
+                text = TR.strings.towns_details_outlaws_count_label.asComposableString(),
                 endText = outlawsAmount.toString(),
                 modifier = Modifier.fillMaxWidth()
             )
         }
 
         OptionInfo(
-            text = TR.strings.towns_town_card_registered.asComposableString(),
+            text = TR.strings.towns_details_created_label.asComposableString(),
             endText = remember {
                 timeFormatter.format(
                     instant = Instant.fromEpochMilliseconds(registered),
@@ -152,10 +127,10 @@ internal fun TownCard(
             modifier = Modifier.fillMaxWidth()
         )
         OptionInfo(
-            text = TR.strings.towns_town_card_entrance.asComposableString(),
+            text = TR.strings.towns_details_entrance_label.asComposableString(),
             endText = when (isOpen) {
-                true -> TR.strings.towns_town_card_entrance_public.asComposableString()
-                false -> TR.strings.towns_town_card_entrance_private.asComposableString()
+                true -> TR.strings.towns_details_entrance_open_label.asComposableString()
+                false -> TR.strings.towns_details_entrance_closed_label.asComposableString()
             },
             iconTint = when (isOpen) {
                 true -> AppTheme.astraColors.action.colorPositive
@@ -168,7 +143,7 @@ internal fun TownCard(
 
 @Preview
 @Composable
-private fun TownCardPreview() {
+private fun TownCardOpenPreview() {
     AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             TownCard(
@@ -182,6 +157,27 @@ private fun TownCardPreview() {
                 registered = 1706549308031,
                 residentsCount = 10,
                 isOpen = true
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun TownCardClosedPreview() {
+    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+        Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
+            TownCard(
+                mayor = "cinnamonrein",
+                townName = "Moscow",
+                board = "",
+                founder = "cinnamonrein",
+                nation = "",
+                outlawsAmount = 0,
+                tag = "MSK",
+                registered = 1706549308031,
+                residentsCount = 1,
+                isOpen = false
             )
         }
     }

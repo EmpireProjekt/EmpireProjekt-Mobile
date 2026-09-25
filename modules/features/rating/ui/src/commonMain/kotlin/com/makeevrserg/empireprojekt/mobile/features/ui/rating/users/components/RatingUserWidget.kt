@@ -1,6 +1,5 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,40 +9,33 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_raised_hand
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_thumb_up_down
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
-import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerNameRow
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.rating.RR
-import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated
-import com.makeevrserg.empireprojekt.mobile.rating.rating_rating
-import com.makeevrserg.empireprojekt.mobile.rating.rating_votes_count
+import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated_label
+import com.makeevrserg.empireprojekt.mobile.rating.rating_users_total_rating_label
+import com.makeevrserg.empireprojekt.mobile.rating.rating_users_votes_count_label
 import ru.astrainteractive.empireapi.models.rating.RatingUserModel
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
@@ -59,8 +51,7 @@ internal fun RatingUserWidget(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(AppTheme.dimens.S))
-            .background(MaterialTheme.colors.primary)
+            .astraCard()
             .clickable { onClick.invoke() },
     ) {
         Column {
@@ -74,20 +65,7 @@ internal fun RatingUserWidget(
             ) {
                 Column(verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        PlayerHeadBox(
-                            uuid = model.minecraftUUID,
-                            modifier = Modifier
-                                .size(32.dp)
-                                .clip(RoundedCornerShape(AppTheme.dimens.XXS)),
-                        )
-                        Spacer(Modifier.width(AppTheme.dimens.XS))
-                        Text(
-                            text = model.minecraftName,
-                            style = MaterialTheme.typography.h6,
-                            color = MaterialTheme.colors.onPrimary,
-                            textAlign = TextAlign.Center,
-                            fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
-                        )
+                        PlayerNameRow(uuid = model.minecraftUUID, name = model.minecraftName)
                         Spacer(Modifier.weight(1f))
                         Icon(
                             imageVector = Icons.Filled.ChevronRight,
@@ -97,20 +75,20 @@ internal fun RatingUserWidget(
                         )
                     }
                     OptionInfo(
-                        text = RR.strings.rating_rating.asComposableString(),
+                        text = RR.strings.rating_users_total_rating_label.asComposableString(),
                         endText = "${model.totalRating}",
                         modifier = Modifier.fillMaxWidth(),
                         icon = MR.images.ic_thumb_up_down.asPainter(),
                     )
                     OptionInfo(
-                        text = RR.strings.rating_votes_count.asComposableString(),
+                        text = RR.strings.rating_users_votes_count_label.asComposableString(),
                         endText = "${model.ratingVotes}",
                         modifier = Modifier.fillMaxWidth(),
                         icon = MR.images.ic_raised_hand.asPainter(),
                     )
                     OptionInfo(
                         icon = MR.images.ic_calendar_today.asPainter(),
-                        text = RR.strings.rating_last_updated.asComposableString(),
+                        text = RR.strings.rating_last_updated_label.asComposableString(),
                         endText = remember {
                             timeFormatter.format(
                                 instant = Instant.fromEpochMilliseconds(model.lastUpdated),
@@ -146,7 +124,7 @@ internal fun RatingUserWidget(
 
 @Composable
 @Preview
-private fun RatingUserWidgetPreview() {
+private fun RatingUserWidgetPositivePreview() {
     AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
         RatingUserWidget(
             model = RatingUserModel(
@@ -156,6 +134,24 @@ private fun RatingUserWidgetPreview() {
                 lastUpdated = 0,
                 totalRating = 10,
                 ratingVotes = 1
+            ),
+            onClick = {}
+        )
+    }
+}
+
+@Composable
+@Preview
+private fun RatingUserWidgetNegativePreview() {
+    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+        RatingUserWidget(
+            model = RatingUserModel(
+                id = 2,
+                minecraftUUID = "uuid",
+                minecraftName = "name",
+                lastUpdated = 0,
+                totalRating = -10,
+                ratingVotes = 12
             ),
             onClick = {}
         )

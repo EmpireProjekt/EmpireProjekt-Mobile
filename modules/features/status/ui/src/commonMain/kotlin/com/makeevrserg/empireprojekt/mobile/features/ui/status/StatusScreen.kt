@@ -1,37 +1,11 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.status
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.features.root.modal.RootBottomSheetRouter
 import com.makeevrserg.empireprojekt.mobile.features.status.root.presentation.RootStatusComponent
 import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.ThemeSwitcherComponent
-import com.makeevrserg.empireprojekt.mobile.features.ui.status.widget.StatusWidget
-import com.makeevrserg.empireprojekt.mobile.status.SR
-import com.makeevrserg.empireprojekt.mobile.status.status_subtitle
-import com.makeevrserg.empireprojekt.mobile.status.status_title
 
-@Suppress("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun StatusScreen(
     rootBottomSheetRouter: RootBottomSheetRouter,
@@ -39,54 +13,10 @@ fun StatusScreen(
     rootStatusComponent: RootStatusComponent,
     modifier: Modifier = Modifier
 ) {
-    Scaffold(
-        modifier = modifier,
-        topBar = {
-            AstraCenterAlignedTopAppBar(title = SR.strings.status_title.asComposableString()) {
-                Icon(
-                    imageVector = Icons.Filled.WbSunny,
-                    contentDescription = null,
-                    tint = MaterialTheme.colors.onPrimary,
-                    modifier = Modifier
-                        .clip(CircleShape)
-                        .clickable {
-                            themeSwitcherComponent.next()
-                        }
-                )
-            }
-        },
-        floatingActionButton = {
-            FloatingActionButton(
-                backgroundColor = MaterialTheme.colors.secondaryVariant,
-                onClick = {
-                    rootBottomSheetRouter.showInfoSheet()
-                },
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.Info,
-                    contentDescription = null,
-                    tint = AppTheme.astraColors.surface.onSecondaryVariant
-                )
-            }
-        },
-    ) {
-        LazyColumn(
-            modifier = Modifier
-                .padding(horizontal = AppTheme.dimens.S)
-                .navigationBarsPadding(),
-            contentPadding = it,
-        ) {
-            item {
-                Text(
-                    text = SR.strings.status_subtitle.asComposableString(),
-                    style = MaterialTheme.typography.body1,
-                    color = MaterialTheme.colors.onPrimary.copy(alpha = .5f),
-                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
-                )
-            }
-            items(rootStatusComponent.statusComponents) { statusComponent ->
-                StatusWidget(statusComponent)
-            }
-        }
-    }
+    StatusComposableScreen(
+        statusComponents = rootStatusComponent.statusComponents,
+        onThemeClick = themeSwitcherComponent::next,
+        onInfoClick = rootBottomSheetRouter::showInfoSheet,
+        modifier = modifier
+    )
 }

@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.features.ui.votes.components
+package com.makeevrserg.empireprojekt.mobile.core.ui.webview
 
 import android.webkit.WebView
 import android.webkit.WebViewClient

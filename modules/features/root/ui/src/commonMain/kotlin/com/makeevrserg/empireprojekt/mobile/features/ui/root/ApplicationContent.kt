@@ -51,7 +51,7 @@ fun ApplicationContent(
                 pagerComponent = screen.pagerComponent,
                 menuScreen = { modifier, child ->
                     InfoScreen(
-                        linkBrowser = linkBrowser,
+                        onLinkClick = linkBrowser::openInBrowser,
                         onThemeToggle = onThemeToggle,
                         onTownsClick = {
                             rootComponent.rootScreenComponent.push(RootRouter.Configuration.Towns)

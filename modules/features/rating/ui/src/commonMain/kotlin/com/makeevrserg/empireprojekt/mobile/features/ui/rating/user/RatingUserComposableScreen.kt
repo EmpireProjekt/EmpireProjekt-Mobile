@@ -1,22 +1,13 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.rating.user
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.OnEndReached
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingWidget
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingLazyColumn
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.presentation.RatingUserComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.components.RatingUserWidget
@@ -34,9 +25,6 @@ internal fun RatingUserComposableScreen(
     onReset: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val lazyListState = rememberLazyListState()
-    lazyListState.OnEndReached { onLoadNextPage() }
-
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -46,13 +34,16 @@ internal fun RatingUserComposableScreen(
             )
         }
     ) { contentPadding ->
-        LazyColumn(
+        PagingLazyColumn(
+            items = model.items,
+            isLastPage = model.isLastPage,
+            isLoading = model.isLoading,
+            isFailure = model.isFailure,
+            onLoadNextPage = onLoadNextPage,
+            onReload = onReset,
+            shimmerItem = { RatingUserShimmerWidget() },
             contentPadding = contentPadding,
-            modifier = Modifier.padding(horizontal = AppTheme.dimens.XS),
-            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
-            state = lazyListState
-        ) {
-            items(model.items) { ratingModel ->
+            itemContent = { ratingModel ->
                 RatingUserWidget(
                     uuid = ratingModel.userCreatedReport?.minecraftUUID,
                     name = ratingModel.userCreatedReport?.minecraftName,
@@ -61,27 +52,7 @@ internal fun RatingUserComposableScreen(
                     time = ratingModel.time
                 )
             }
-            item {
-                PagingWidget.Auto(
-                    list = model.items,
-                    isLastPage = model.isLastPage,
-                    isLoading = model.isLoading,
-                    isFailure = model.isFailure,
-                    onReload = onReset,
-                    loader = {
-                        Column(
-                            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
-                            content = {
-                                repeat(times = 8) {
-                                    RatingUserShimmerWidget()
-                                }
-                            }
-                        )
-                    }
-                )
-            }
-            item { Spacer(Modifier.navBarsPadding()) }
-        }
+        )
     }
 }
 
@@ -169,6 +140,25 @@ private fun RatingUserComposableScreenLoadingPreview() {
                 isLoading = true,
                 isFailure = false,
                 isLastPage = false
+            ),
+            onBack = {},
+            onLoadNextPage = {},
+            onReset = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun RatingUserComposableScreenEmptyPreview() {
+    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+        RatingUserComposableScreen(
+            model = ratingUserPreviewModel(
+                reviewedUserName = "RomaRoman",
+                items = emptyList(),
+                isLoading = false,
+                isFailure = false,
+                isLastPage = true
             ),
             onBack = {},
             onLoadNextPage = {},

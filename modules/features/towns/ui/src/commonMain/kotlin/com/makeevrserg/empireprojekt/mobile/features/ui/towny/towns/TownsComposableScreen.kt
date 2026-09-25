@@ -1,26 +1,17 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.OnEndReached
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingWidget
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingLazyColumn
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_title
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_list_title
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.presentation.TownsComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownCard
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownFilterCard
@@ -44,25 +35,25 @@ internal fun TownsComposableScreen(
     onSortByResidentsClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val lazyListState = rememberLazyListState()
-    lazyListState.OnEndReached { onLoadNextPage() }
-
     Scaffold(
         modifier = modifier,
         topBar = {
             AstraCenterAlignedTopAppBar(
-                title = TR.strings.towns_title.asComposableString(),
+                title = TR.strings.towns_list_title.asComposableString(),
                 onBackClick = onBack
             )
         }
     ) { contentPadding ->
-        LazyColumn(
-            modifier = Modifier.padding(horizontal = AppTheme.dimens.XS),
-            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
+        PagingLazyColumn(
+            items = model.items,
+            isLastPage = model.isLastPage,
+            isLoading = model.isLoading,
+            isFailure = model.isFailure,
+            onLoadNextPage = onLoadNextPage,
+            onReload = onReset,
+            shimmerItem = { TownShimmerWidget() },
             contentPadding = contentPadding,
-            state = lazyListState
-        ) {
-            item {
+            header = {
                 TownFilterCard(
                     townsFilter = model.filter,
                     onSortByNationClick = onSortByNationClick,
@@ -73,8 +64,8 @@ internal fun TownsComposableScreen(
                     onPublicTypeClick = onPublicTypeClick,
                     onSortByFounderClick = onSortByFounderClick
                 )
-            }
-            items(model.items) { townModel ->
+            },
+            itemContent = { townModel ->
                 TownCard(
                     mayor = townModel.mayor,
                     townName = townModel.name,
@@ -88,28 +79,7 @@ internal fun TownsComposableScreen(
                     isOpen = townModel.open
                 )
             }
-
-            item {
-                PagingWidget.Auto(
-                    list = model.items,
-                    isLastPage = model.isLastPage,
-                    isLoading = model.isLoading,
-                    isFailure = model.isFailure,
-                    onReload = onReset,
-                    loader = {
-                        Column(
-                            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
-                            content = {
-                                repeat(times = 8) {
-                                    TownShimmerWidget()
-                                }
-                            }
-                        )
-                    }
-                )
-            }
-            item { Spacer(Modifier.navBarsPadding()) }
-        }
+        )
     }
 }
 

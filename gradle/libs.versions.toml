@@ -34,7 +34,10 @@ moko-resources = "0.27.0" # https://github.com/icerockdev/moko-resources
 mppsettings = "1.3.0"
 mvikotlin = "4.4.0"
 placeholder = "1.0.12"
+androidx-compose-ui-test = "1.12.0"
 tests-assertk = "0.28.1"
+tests-espresso = "3.7.0"
+tests-robolectric = "4.17"
 tests-turbine = "1.2.1"
 wear-complications = "1.3.0"
 wear-glance-tiles = "1.0.0-alpha07"
@@ -43,6 +46,7 @@ wear-tooling-preview = "1.0.0"
 [libraries]
 android-material = { module = "com.google.android.material:material", version.ref = "androidx-material" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
+androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidx-compose-ui-test" }
 androidx-compose-wear-foundation = { module = "androidx.wear.compose:compose-foundation", version.ref = "compose-wear" }
 androidx-compose-wear-material = { module = "androidx.wear.compose:compose-material", version.ref = "compose-wear" }
 androidx-core = { module = "androidx.core:core", version.ref = "androidx-core" }
@@ -77,6 +81,7 @@ jetbrains-compose-resources = { group = "org.jetbrains.compose.components", name
 jetbrains-compose-runtime = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "kotlin-compose" }
 jetbrains-compose-tooling = { group = "org.jetbrains.compose.ui", name = "ui-tooling", version.ref = "kotlin-compose" }
 jetbrains-compose-ui = { group = "org.jetbrains.compose.ui", name = "ui", version.ref = "kotlin-compose" }
+jetbrains-compose-ui-test = { group = "org.jetbrains.compose.ui", name = "ui-test", version.ref = "kotlin-compose" }
 klibs-kstorage = { module = "ru.astrainteractive.klibs:kstorage", version.ref = "klibs-kstorage" }
 klibs-mikro-core = { module = "ru.astrainteractive.klibs:mikro-core", version.ref = "klibs-mikro" }
 klibs-mikro-extensions = { module = "ru.astrainteractive.klibs:mikro-extensions", version.ref = "klibs-mikro" }
@@ -104,6 +109,8 @@ mvikotlin-coroutines = { module = "com.arkivanov.mvikotlin:mvikotlin-extensions-
 mvikotlin-main = { module = "com.arkivanov.mvikotlin:mvikotlin-main", version.ref = "mvikotlin" }
 placeholder = { module = "com.eygraber:compose-placeholder-material", version.ref = "placeholder" }
 tests-assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "tests-assertk" }
+tests-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "tests-espresso" }
+tests-robolectric = { module = "org.robolectric:robolectric", version.ref = "tests-robolectric" }
 tests-turbine = { module = "app.cash.turbine:turbine", version.ref = "tests-turbine" }
 wear-complications-datasource-ktx = { module = "androidx.wear.watchface:watchface-complications-data-source-ktx", version.ref = "wear-complications" }
 wear-glance-tiles = { module = "androidx.glance:glance-wear-tiles", version.ref = "wear-glance-tiles" }

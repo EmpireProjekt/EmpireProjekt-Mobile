@@ -3,30 +3,33 @@ package com.makeevrserg.empireprojekt.mobile.core.ui.paging
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.common_action_reload
+import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_empty
+import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_last_page_desc
+import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_network_error
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_splash
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
-import com.makeevrserg.empireprojekt.mobile.core.resources.paging_last_page
-import com.makeevrserg.empireprojekt.mobile.core.resources.paging_network_error
-import com.makeevrserg.empireprojekt.mobile.core.resources.paging_no_pages
-import com.makeevrserg.empireprojekt.mobile.core.resources.paging_reload
-import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.AstraLoading
+import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.LoadingContent
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
+
+private const val SHIMMER_ITEMS_COUNT = 8
 
 object PagingWidget {
     @Suppress("ModifierMissing")
@@ -41,24 +44,23 @@ object PagingWidget {
                 modifier = Modifier.size(96.dp),
                 contentDescription = null
             )
-            Text(
+            AstraText(
                 text = text,
                 style = MaterialTheme.typography.h6,
                 color = MaterialTheme.colors.onPrimary,
-                textAlign = TextAlign.Center,
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                textAlign = TextAlign.Center
             )
         }
     }
 
     @Composable
     fun LastPage() {
-        Base(MR.strings.paging_last_page.asComposableString())
+        Base(MR.strings.common_paging_last_page_desc.asComposableString())
     }
 
     @Composable
     fun NoPages() {
-        Base(MR.strings.paging_no_pages.asComposableString())
+        Base(MR.strings.common_paging_empty.asComposableString())
     }
 
     @Composable
@@ -67,16 +69,15 @@ object PagingWidget {
         modifier: Modifier = Modifier
     ) {
         Column(modifier = modifier) {
-            Base(MR.strings.paging_network_error.asComposableString())
+            Base(MR.strings.common_paging_network_error.asComposableString())
             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                 Button(onClick = onReload) {
-                    Text(
-                        text = MR.strings.paging_reload.asComposableString(),
+                    AstraText(
+                        text = MR.strings.common_action_reload.asComposableString(),
                         modifier = Modifier.clickable { onReload.invoke() },
                         style = MaterialTheme.typography.h6,
                         color = AppTheme.astraColors.astraLogo.astraOrange,
-                        textAlign = TextAlign.Center,
-                        fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                        textAlign = TextAlign.Center
                     )
                 }
             }
@@ -86,11 +87,21 @@ object PagingWidget {
     @Suppress("ModifierMissing")
     @Composable
     fun Loading() {
-        Box(
-            modifier = Modifier.fillMaxWidth(),
-            contentAlignment = Alignment.Center
+        LoadingContent(Modifier.fillMaxWidth())
+    }
+
+    @Composable
+    fun ShimmerLoader(
+        modifier: Modifier = Modifier,
+        item: @Composable () -> Unit
+    ) {
+        Column(
+            modifier = modifier,
+            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)
         ) {
-            AstraLoading(size = AppTheme.dimens.M)
+            repeat(times = SHIMMER_ITEMS_COUNT) {
+                item()
+            }
         }
     }
 
@@ -121,5 +132,37 @@ object PagingWidget {
         } else if (isFailure) {
             NetworkError(onReload)
         }
+    }
+}
+
+@Preview
+@Composable
+private fun PagingWidgetLastPagePreview() {
+    AdaptThemeFade {
+        PagingWidget.LastPage()
+    }
+}
+
+@Preview
+@Composable
+private fun PagingWidgetNoPagesPreview() {
+    AdaptThemeFade {
+        PagingWidget.NoPages()
+    }
+}
+
+@Preview
+@Composable
+private fun PagingWidgetNetworkErrorPreview() {
+    AdaptThemeFade {
+        PagingWidget.NetworkError(onReload = {})
+    }
+}
+
+@Preview
+@Composable
+private fun PagingWidgetLoadingPreview() {
+    AdaptThemeFade {
+        PagingWidget.Loading()
     }
 }

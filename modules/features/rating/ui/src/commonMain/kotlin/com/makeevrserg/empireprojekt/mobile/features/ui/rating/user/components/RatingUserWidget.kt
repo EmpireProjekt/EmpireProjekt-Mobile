@@ -1,6 +1,5 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -10,10 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ThumbDown
 import androidx.compose.material.icons.filled.ThumbUp
@@ -21,24 +18,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_history_edu
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
-import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerHeadBox
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerNameRow
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSeparator
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.rating.RR
-import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated
-import com.makeevrserg.empireprojekt.mobile.rating.rating_player_message
+import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated_label
+import com.makeevrserg.empireprojekt.mobile.rating.rating_user_message_label
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
 import java.util.UUID
@@ -58,8 +54,7 @@ internal fun RatingUserWidget(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(AppTheme.dimens.S))
-            .background(MaterialTheme.colors.primary)
+            .astraCard()
             .padding(vertical = AppTheme.dimens.XS)
     ) {
         Column {
@@ -68,20 +63,12 @@ internal fun RatingUserWidget(
                 horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.S),
                 modifier = Modifier.padding(horizontal = AppTheme.dimens.S)
             ) {
-                PlayerHeadBox(
+                PlayerNameRow(
                     uuid = uuid.orEmpty(),
-                    modifier = Modifier
-                        .size(32.dp)
-                        .clip(RoundedCornerShape(AppTheme.dimens.XXS)),
-                )
-                Text(
-                    text = name ?: "-",
+                    name = name ?: "-",
                     style = MaterialTheme.typography.subtitle2,
-                    color = MaterialTheme.colors.onPrimary,
-                    textAlign = TextAlign.Center,
-                    fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                    spacing = AppTheme.dimens.S
                 )
-
                 Spacer(Modifier.weight(1f))
                 when {
                     rating > 0 -> {
@@ -104,15 +91,10 @@ internal fun RatingUserWidget(
                 }
             }
             Spacer(Modifier.height(AppTheme.dimens.XS))
-            Box(
-                Modifier
-                    .fillMaxWidth()
-                    .height(1.dp)
-                    .background(MaterialTheme.colors.onSecondary)
-            )
+            OptionSeparator(Modifier.fillMaxWidth())
             Spacer(Modifier.height(AppTheme.dimens.XS))
             OptionInfo(
-                text = RR.strings.rating_last_updated.asComposableString(),
+                text = RR.strings.rating_last_updated_label.asComposableString(),
                 endText = remember {
                     timeFormatter.format(
                         instant = Instant.fromEpochMilliseconds(time),
@@ -125,20 +107,19 @@ internal fun RatingUserWidget(
                 icon = MR.images.ic_calendar_today.asPainter()
             )
             OptionInfo(
-                text = RR.strings.rating_player_message.asComposableString(),
+                text = RR.strings.rating_user_message_label.asComposableString(),
                 endText = "",
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = AppTheme.dimens.S),
                 icon = MR.images.ic_history_edu.asPainter()
             )
-            Text(
+            AstraText(
                 text = message.trim(),
                 style = MaterialTheme.typography.subtitle2,
                 color = MaterialTheme.colors.onPrimary,
                 textAlign = TextAlign.Start,
-                modifier = Modifier.padding(horizontal = AppTheme.dimens.S),
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                modifier = Modifier.padding(horizontal = AppTheme.dimens.S)
             )
         }
     }
@@ -146,13 +127,27 @@ internal fun RatingUserWidget(
 
 @Preview
 @Composable
-private fun RatingUserWidgetPreview() {
+private fun RatingUserWidgetPositivePreview() {
     AdaptThemeFade {
         RatingUserWidget(
             uuid = UUID.randomUUID().toString(),
             name = "RomaRoman",
             rating = 10,
             message = "Hello world",
+            time = Clock.System.now().toEpochMilliseconds()
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun RatingUserWidgetNegativePreview() {
+    AdaptThemeFade {
+        RatingUserWidget(
+            uuid = null,
+            name = null,
+            rating = -1,
+            message = "Griefed my base.",
             time = Clock.System.now().toEpochMilliseconds()
         )
     }

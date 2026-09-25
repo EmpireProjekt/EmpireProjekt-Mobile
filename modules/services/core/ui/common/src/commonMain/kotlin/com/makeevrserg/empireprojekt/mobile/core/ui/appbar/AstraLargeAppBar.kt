@@ -5,13 +5,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ChevronLeft
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -22,9 +17,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
-import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
+import com.makeevrserg.empireprojekt.mobile.core.ui.button.AstraBackButton
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 
 @Composable
@@ -55,14 +50,13 @@ fun AstraCenterAlignedTopAppBar(
         modifier = modifier,
         actions = actions,
         title = {
-            Text(
+            AstraText(
                 text = title,
                 style = MaterialTheme.typography.body1,
                 color = MaterialTheme.colors.onPrimary,
                 textAlign = TextAlign.Center,
                 overflow = TextOverflow.Ellipsis,
-                maxLines = 1,
-                fontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
+                maxLines = 1
             )
         },
     )
@@ -84,15 +78,8 @@ fun AstraCenterAlignedTopAppBar(
         ),
         title = title,
         navigationIcon = {
-            onBackClick?.let {
-                IconButton(onClick = it) {
-                    Icon(
-                        imageVector = Icons.Default.ChevronLeft,
-                        contentDescription = null,
-                        tint = MaterialTheme.colors.onPrimary,
-                        modifier = Modifier.size(24.dp)
-                    )
-                }
+            onBackClick?.let { backClick ->
+                AstraBackButton(onClick = backClick)
             }
         }
     )
@@ -100,12 +87,22 @@ fun AstraCenterAlignedTopAppBar(
 
 @Preview
 @Composable
-private fun AstraCenterAlignedTopAppBarPreview() {
-    AstraCenterAlignedTopAppBar(
-        title = "Hello World",
-        onBackClick = {},
-        actions = {
-            Box(Modifier.size(24.dp).background(Color.Red))
-        }
-    )
+private fun AstraCenterAlignedTopAppBarWithBackPreview() {
+    AdaptThemeFade {
+        AstraCenterAlignedTopAppBar(
+            title = "Hello World",
+            onBackClick = {},
+            actions = {
+                Box(Modifier.size(24.dp).background(Color.Red))
+            }
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun AstraCenterAlignedTopAppBarTitleOnlyPreview() {
+    AdaptThemeFade {
+        AstraCenterAlignedTopAppBar(title = "Hello World")
+    }
 }

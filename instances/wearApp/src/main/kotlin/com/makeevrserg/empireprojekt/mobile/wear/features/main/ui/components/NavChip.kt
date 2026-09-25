@@ -1,19 +1,13 @@
 package com.makeevrserg.empireprojekt.mobile.wear.features.main.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.wear.compose.material.ChipDefaults
-import androidx.wear.compose.material.Icon
-import androidx.wear.compose.material.Text
+import androidx.compose.ui.tooling.preview.Preview
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.modules.services.core.resources.R
-import com.makeevrserg.empireprojekt.mobile.wear.features.components.AstraChip
+import com.makeevrserg.empireprojekt.mobile.wear.features.components.IconTextChip
 
 @Composable
 fun NavChip(
@@ -21,25 +15,18 @@ fun NavChip(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    AstraChip(
+    IconTextChip(
+        text = text,
+        painter = painterResource(id = R.drawable.img_splash),
         modifier = modifier.fillMaxWidth(),
-        label = {
-            Text(
-                text = text,
-                style = MaterialTheme.typography.caption,
-                color = MaterialTheme.colors.onPrimary
-            )
-        },
-        onClick = onClick,
-        icon = {
-            Icon(
-                painter = painterResource(id = R.drawable.img_splash),
-                contentDescription = null,
-                tint = Color.Unspecified,
-                modifier = Modifier
-                    .size(ChipDefaults.LargeIconSize)
-                    .wrapContentSize(align = Alignment.Center),
-            )
-        }
+        onClick = onClick
     )
+}
+
+@Preview
+@Composable
+private fun NavChipPreview() {
+    AdaptThemeFade {
+        NavChip(text = "Statuses", onClick = {})
+    }
 }
