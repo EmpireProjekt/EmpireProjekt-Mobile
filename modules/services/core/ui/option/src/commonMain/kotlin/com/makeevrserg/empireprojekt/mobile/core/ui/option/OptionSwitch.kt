@@ -42,7 +42,7 @@ fun OptionSwitch(
 ) {
     Row(
         modifier = modifier
-            .clickable(enabled = isEnabled) { onCheckChange.invoke(checked) }
+            .clickable(enabled = isEnabled) { onCheckChange.invoke(!checked) }
             .padding(contentPadding),
         horizontalArrangement = Arrangement.spacedBy(
             8.dp,
