@@ -4,9 +4,14 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingLazyColumn
+import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.SearchBarState
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.presentation.RatingUsersComponent
@@ -31,11 +36,17 @@ internal fun RatingUsersComposableScreen(
     onReset: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    var searchBarState by remember {
+        val state = if (model.filter.query.isEmpty()) SearchBarState.Closed else SearchBarState.Open
+        mutableStateOf(state)
+    }
     Scaffold(
         modifier = modifier.animateContentSize(),
         topBar = {
             RatingUsersAppBar(
                 query = model.filter.query,
+                searchBarState = searchBarState,
+                onSearchBarStateChange = { state -> searchBarState = state },
                 onUpdateQuery = onUpdateQuery,
                 onBack = onBack
             )

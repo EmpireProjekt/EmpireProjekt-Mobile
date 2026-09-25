@@ -5,10 +5,6 @@ import androidx.compose.material.ContentAlpha
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.tooling.preview.Preview
@@ -24,14 +20,12 @@ import com.makeevrserg.empireprojekt.mobile.rating.rating_users_title
 @Composable
 fun RatingUsersAppBar(
     query: String,
+    searchBarState: SearchBarState,
+    onSearchBarStateChange: (SearchBarState) -> Unit,
     onUpdateQuery: (String) -> Unit,
     onBack: (() -> Unit)?,
     modifier: Modifier = Modifier
 ) {
-    var searchBarState by remember {
-        val state = if (query.isEmpty()) SearchBarState.Closed else SearchBarState.Open
-        mutableStateOf(state)
-    }
     Crossfade(modifier = modifier, targetState = searchBarState) { state ->
         if (state == SearchBarState.Open) {
             SearchAppBar(
@@ -39,7 +33,7 @@ fun RatingUsersAppBar(
                 onTextChange = onUpdateQuery,
                 onCloseClick = {
                     onUpdateQuery.invoke("")
-                    searchBarState = SearchBarState.Closed
+                    onSearchBarStateChange.invoke(SearchBarState.Closed)
                 }
             )
         } else {
@@ -49,7 +43,7 @@ fun RatingUsersAppBar(
                 actions = {
                     AstraIconButton(
                         imageVector = Icons.Filled.Search,
-                        onClick = { searchBarState = SearchBarState.Open },
+                        onClick = { onSearchBarStateChange.invoke(SearchBarState.Open) },
                         modifier = Modifier.alpha(ContentAlpha.medium)
                     )
                 }
@@ -64,6 +58,22 @@ private fun RatingUsersAppBarClosedPreview() {
     AdaptThemeFade {
         RatingUsersAppBar(
             query = "",
+            searchBarState = SearchBarState.Closed,
+            onSearchBarStateChange = {},
+            onUpdateQuery = {},
+            onBack = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun RatingUsersAppBarSearchEmptyPreview() {
+    AdaptThemeFade {
+        RatingUsersAppBar(
+            query = "",
+            searchBarState = SearchBarState.Open,
+            onSearchBarStateChange = {},
             onUpdateQuery = {},
             onBack = {}
         )
@@ -76,6 +86,8 @@ private fun RatingUsersAppBarSearchPreview() {
     AdaptThemeFade {
         RatingUsersAppBar(
             query = "RomaRoman",
+            searchBarState = SearchBarState.Open,
+            onSearchBarStateChange = {},
             onUpdateQuery = {},
             onBack = {}
         )
