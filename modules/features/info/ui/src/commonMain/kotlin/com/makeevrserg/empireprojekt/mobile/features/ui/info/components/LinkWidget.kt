@@ -9,21 +9,18 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionHref
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.model.LinkModel
-import com.makeevrserg.empireprojekt.mobile.services.core.LinkBrowser
 
 @Composable
 internal fun LinkWidget(
-    linkBrowser: LinkBrowser,
-    linkModel: LinkModel
+    linkModel: LinkModel,
+    onClick: () -> Unit
 ) {
     OptionHref(
         icon = linkModel.res.asPainter(),
         text = linkModel.title,
         iconTint = linkModel.tint.invoke(),
         contentPadding = OptionDefaults.ContentPadding,
-        onClick = {
-            linkBrowser.openInBrowser(linkModel.url)
-        },
+        onClick = onClick,
     )
 }
 
@@ -32,14 +29,12 @@ internal fun LinkWidget(
 private fun LinkWidgetPreview() {
     AdaptThemeFade {
         LinkWidget(
-            linkBrowser = object : LinkBrowser {
-                override fun openInBrowser(url: String) = Unit
-            },
             linkModel = LinkModel(
                 res = MR.images.ic_github,
                 title = "Astra Github",
                 url = "https://github.com/Astra-Interactive/"
-            )
+            ),
+            onClick = {}
         )
     }
 }

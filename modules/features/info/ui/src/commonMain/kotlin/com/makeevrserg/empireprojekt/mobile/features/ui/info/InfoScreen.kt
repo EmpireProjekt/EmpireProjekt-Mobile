@@ -33,18 +33,18 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSwitch
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.IR
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.info_links_title
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.components.LinkWidget
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.data.InfoScreenLinks
-import com.makeevrserg.empireprojekt.mobile.services.core.LinkBrowser
 
 @Suppress("LongMethod", "UnusedParameter")
 @Composable
 fun InfoScreen(
-    linkBrowser: LinkBrowser,
+    onLinkClick: (String) -> Unit,
     onTownsClick: () -> Unit,
     onRatingsClick: () -> Unit,
     onVotesClick: () -> Unit,
@@ -133,8 +133,8 @@ fun InfoScreen(
             item {
                 OptionSection(items = models) { linkModel ->
                     LinkWidget(
-                        linkBrowser = linkBrowser,
-                        linkModel = linkModel
+                        linkModel = linkModel,
+                        onClick = { onLinkClick.invoke(linkModel.url) }
                     )
                 }
             }
@@ -161,12 +161,25 @@ fun InfoScreen(
 
 @Composable
 @Preview
-private fun InfoScreenPreview() {
-    AdaptThemeFade {
+private fun InfoScreenDarkPreview() {
+    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
         InfoScreen(
-            linkBrowser = object : LinkBrowser {
-                override fun openInBrowser(url: String) = Unit
-            },
+            onLinkClick = {},
+            onRatingsClick = {},
+            onTownsClick = {},
+            onVotesClick = {},
+            onThemeToggle = {},
+            onWikiClick = {}
+        )
+    }
+}
+
+@Composable
+@Preview
+private fun InfoScreenLightPreview() {
+    AdaptThemeFade(composeTheme = ComposeTheme.LIGHT) {
+        InfoScreen(
+            onLinkClick = {},
             onRatingsClick = {},
             onTownsClick = {},
             onVotesClick = {},
