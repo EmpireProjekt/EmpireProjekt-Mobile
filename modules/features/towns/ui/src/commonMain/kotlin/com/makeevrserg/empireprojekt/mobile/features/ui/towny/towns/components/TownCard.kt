@@ -24,14 +24,14 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance_private
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_entrance_public
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_founder
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_nation
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_outlaw_count
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_registered
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_town_card_tag
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_created_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_entrance_closed_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_entrance_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_entrance_open_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_founder_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_nation_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_outlaws_count_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_tag_label
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
 import kotlin.time.Instant
@@ -103,32 +103,32 @@ internal fun TownCard(
             )
         }
         OptionInfo(
-            text = TR.strings.towns_town_card_tag.asComposableString(),
+            text = TR.strings.towns_details_tag_label.asComposableString(),
             endText = tag,
             modifier = Modifier.fillMaxWidth()
         )
         OptionInfo(
-            text = TR.strings.towns_town_card_founder.asComposableString(),
+            text = TR.strings.towns_details_founder_label.asComposableString(),
             endText = founder,
             modifier = Modifier.fillMaxWidth()
         )
         if (nation.isNotBlank()) {
             OptionInfo(
-                text = TR.strings.towns_town_card_nation.asComposableString(),
+                text = TR.strings.towns_details_nation_label.asComposableString(),
                 endText = nation,
                 modifier = Modifier.fillMaxWidth()
             )
         }
         if (outlawsAmount > 0) {
             OptionInfo(
-                text = TR.strings.towns_town_card_outlaw_count.asComposableString(),
+                text = TR.strings.towns_details_outlaws_count_label.asComposableString(),
                 endText = outlawsAmount.toString(),
                 modifier = Modifier.fillMaxWidth()
             )
         }
 
         OptionInfo(
-            text = TR.strings.towns_town_card_registered.asComposableString(),
+            text = TR.strings.towns_details_created_label.asComposableString(),
             endText = remember {
                 timeFormatter.format(
                     instant = Instant.fromEpochMilliseconds(registered),
@@ -138,10 +138,10 @@ internal fun TownCard(
             modifier = Modifier.fillMaxWidth()
         )
         OptionInfo(
-            text = TR.strings.towns_town_card_entrance.asComposableString(),
+            text = TR.strings.towns_details_entrance_label.asComposableString(),
             endText = when (isOpen) {
-                true -> TR.strings.towns_town_card_entrance_public.asComposableString()
-                false -> TR.strings.towns_town_card_entrance_private.asComposableString()
+                true -> TR.strings.towns_details_entrance_open_label.asComposableString()
+                false -> TR.strings.towns_details_entrance_closed_label.asComposableString()
             },
             iconTint = when (isOpen) {
                 true -> AppTheme.astraColors.action.colorPositive

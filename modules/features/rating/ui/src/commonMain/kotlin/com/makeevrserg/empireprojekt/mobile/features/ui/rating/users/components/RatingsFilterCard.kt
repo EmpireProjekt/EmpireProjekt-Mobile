@@ -7,8 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.shared_filter
-import com.makeevrserg.empireprojekt.mobile.core.resources.shared_warn_multiple_filter
+import com.makeevrserg.empireprojekt.mobile.core.resources.common_filter_multiple_sort_desc
+import com.makeevrserg.empireprojekt.mobile.core.resources.common_filter_title
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.EnumOption
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.FilterCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.TextOption
@@ -18,9 +18,9 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.util.LocalSortOrderExt.toStringDesc
 import com.makeevrserg.empireprojekt.mobile.rating.RR
-import com.makeevrserg.empireprojekt.mobile.rating.rating_ratings_filter_last_update
-import com.makeevrserg.empireprojekt.mobile.rating.rating_ratings_filter_name
-import com.makeevrserg.empireprojekt.mobile.rating.rating_ratings_filter_rating
+import com.makeevrserg.empireprojekt.mobile.rating.rating_filter_sort_last_update_label
+import com.makeevrserg.empireprojekt.mobile.rating.rating_filter_sort_name_label
+import com.makeevrserg.empireprojekt.mobile.rating.rating_filter_sort_rating_label
 import ru.astrainteractive.empireapi.models.rating.RatingsFilterModel
 import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
 
@@ -32,22 +32,22 @@ internal fun RatingsFilterCard(
     onRatingSortClick: () -> Unit,
 ) {
     FilterCard {
-        TitleOption(text = MR.strings.shared_filter.asComposableString())
-        TextOption(text = MR.strings.shared_warn_multiple_filter.asComposableString())
+        TitleOption(text = MR.strings.common_filter_title.asComposableString())
+        TextOption(text = MR.strings.common_filter_multiple_sort_desc.asComposableString())
         EnumOption(
-            text = RR.strings.rating_ratings_filter_name.asComposableString(),
+            text = RR.strings.rating_filter_sort_name_label.asComposableString(),
             selected = filter.nameSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onNameSortClick
         )
         EnumOption(
-            text = RR.strings.rating_ratings_filter_last_update.asComposableString(),
+            text = RR.strings.rating_filter_sort_last_update_label.asComposableString(),
             selected = filter.lastUpdatedSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onLastUpdateSortClick
         )
         EnumOption(
-            text = RR.strings.rating_ratings_filter_rating.asComposableString(),
+            text = RR.strings.rating_filter_sort_rating_label.asComposableString(),
             selected = filter.ratingSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onRatingSortClick

@@ -46,7 +46,7 @@ fun ThemeChip(
         modifier = modifier.fillMaxWidth(),
         label = {
             Text(
-                text = stringResource(R.string.wear_switch_theme),
+                text = stringResource(R.string.wear_main_switch_theme_action),
                 style = MaterialTheme.typography.caption,
                 color = MaterialTheme.colors.onPrimary
             )

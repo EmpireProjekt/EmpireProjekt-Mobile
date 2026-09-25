@@ -21,7 +21,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.SearchBarState
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.rating.RR
-import com.makeevrserg.empireprojekt.mobile.rating.rating_user_ratings
+import com.makeevrserg.empireprojekt.mobile.rating.rating_users_title
 
 @Composable
 fun RatingUsersAppBar(
@@ -46,7 +46,7 @@ fun RatingUsersAppBar(
             )
         } else {
             AstraCenterAlignedTopAppBar(
-                title = RR.strings.rating_user_ratings.asComposableString(),
+                title = RR.strings.rating_users_title.asComposableString(),
                 onBackClick = onBack,
                 actions = {
                     IconButton(

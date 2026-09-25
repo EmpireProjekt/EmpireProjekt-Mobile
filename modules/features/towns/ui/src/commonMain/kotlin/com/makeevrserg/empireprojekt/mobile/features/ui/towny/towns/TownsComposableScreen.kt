@@ -19,7 +19,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
-import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_title
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_list_title
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.presentation.TownsComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownCard
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownFilterCard
@@ -50,7 +50,7 @@ internal fun TownsComposableScreen(
         modifier = modifier,
         topBar = {
             AstraCenterAlignedTopAppBar(
-                title = TR.strings.towns_title.asComposableString(),
+                title = TR.strings.towns_list_title.asComposableString(),
                 onBackClick = onBack
             )
         }

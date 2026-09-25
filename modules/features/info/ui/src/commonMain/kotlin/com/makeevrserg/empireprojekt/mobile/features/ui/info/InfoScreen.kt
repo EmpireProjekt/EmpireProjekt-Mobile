@@ -38,7 +38,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.IR
-import com.makeevrserg.empireprojekt.mobile.features.info.ui.info_more_links
+import com.makeevrserg.empireprojekt.mobile.features.info.ui.info_links_title
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.components.LinkWidget
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.data.InfoScreenLinks
 import com.makeevrserg.empireprojekt.mobile.services.core.LinkBrowser
@@ -123,7 +123,7 @@ fun InfoScreen(
             item {
                 Column {
                     AstraText(
-                        text = IR.strings.info_more_links.asComposableString(),
+                        text = IR.strings.info_links_title.asComposableString(),
                         style = MaterialTheme.typography.h5,
                         color = MaterialTheme.colors.onPrimary
                     )

@@ -25,8 +25,8 @@ import com.makeevrserg.empireprojekt.mobile.features.status.root.presentation.Ro
 import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.ThemeSwitcherComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.status.widget.StatusWidget
 import com.makeevrserg.empireprojekt.mobile.status.SR
-import com.makeevrserg.empireprojekt.mobile.status.status_subtitle
-import com.makeevrserg.empireprojekt.mobile.status.status_title
+import com.makeevrserg.empireprojekt.mobile.status.status_network_desc
+import com.makeevrserg.empireprojekt.mobile.status.status_network_title
 
 @Suppress("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -39,7 +39,7 @@ fun StatusScreen(
     Scaffold(
         modifier = modifier,
         topBar = {
-            AstraCenterAlignedTopAppBar(title = SR.strings.status_title.asComposableString()) {
+            AstraCenterAlignedTopAppBar(title = SR.strings.status_network_title.asComposableString()) {
                 Icon(
                     imageVector = Icons.Filled.WbSunny,
                     contentDescription = null,
@@ -75,7 +75,7 @@ fun StatusScreen(
         ) {
             item {
                 AstraText(
-                    text = SR.strings.status_subtitle.asComposableString(),
+                    text = SR.strings.status_network_desc.asComposableString(),
                     style = MaterialTheme.typography.body1,
                     color = MaterialTheme.colors.onPrimary.copy(alpha = .5f)
                 )

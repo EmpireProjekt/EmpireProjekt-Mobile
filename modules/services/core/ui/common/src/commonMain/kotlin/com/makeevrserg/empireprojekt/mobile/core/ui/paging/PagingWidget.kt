@@ -16,11 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.common_action_reload
+import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_empty
+import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_last_page_desc
+import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_network_error
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_splash
-import com.makeevrserg.empireprojekt.mobile.core.resources.paging_last_page
-import com.makeevrserg.empireprojekt.mobile.core.resources.paging_network_error
-import com.makeevrserg.empireprojekt.mobile.core.resources.paging_no_pages
-import com.makeevrserg.empireprojekt.mobile.core.resources.paging_reload
 import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.AstraLoading
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
@@ -53,12 +53,12 @@ object PagingWidget {
 
     @Composable
     fun LastPage() {
-        Base(MR.strings.paging_last_page.asComposableString())
+        Base(MR.strings.common_paging_last_page_desc.asComposableString())
     }
 
     @Composable
     fun NoPages() {
-        Base(MR.strings.paging_no_pages.asComposableString())
+        Base(MR.strings.common_paging_empty.asComposableString())
     }
 
     @Composable
@@ -67,11 +67,11 @@ object PagingWidget {
         modifier: Modifier = Modifier
     ) {
         Column(modifier = modifier) {
-            Base(MR.strings.paging_network_error.asComposableString())
+            Base(MR.strings.common_paging_network_error.asComposableString())
             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                 Button(onClick = onReload) {
                     AstraText(
-                        text = MR.strings.paging_reload.asComposableString(),
+                        text = MR.strings.common_action_reload.asComposableString(),
                         modifier = Modifier.clickable { onReload.invoke() },
                         style = MaterialTheme.typography.h6,
                         color = AppTheme.astraColors.astraLogo.astraOrange,

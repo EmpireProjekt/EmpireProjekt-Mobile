@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    Wear    -->
-    <string name="wear_switch_theme">Switch theme</string>
-    <string name="wear_statuses">Statuses</string>
-    <string name="wear_ping">Ping</string>
+    <string name="wear_main_switch_theme_action">Switch theme</string>
+    <string name="wear_main_statuses_action">Statuses</string>
+    <string name="wear_main_ping_action">Ping</string>
 </resources>

@@ -35,8 +35,8 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.rating.RR
-import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated
-import com.makeevrserg.empireprojekt.mobile.rating.rating_player_message
+import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated_label
+import com.makeevrserg.empireprojekt.mobile.rating.rating_user_message_label
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
 import java.util.UUID
@@ -104,7 +104,7 @@ internal fun RatingUserWidget(
             )
             Spacer(Modifier.height(AppTheme.dimens.XS))
             OptionInfo(
-                text = RR.strings.rating_last_updated.asComposableString(),
+                text = RR.strings.rating_last_updated_label.asComposableString(),
                 endText = remember {
                     timeFormatter.format(
                         instant = Instant.fromEpochMilliseconds(time),
@@ -117,7 +117,7 @@ internal fun RatingUserWidget(
                 icon = MR.images.ic_calendar_today.asPainter()
             )
             OptionInfo(
-                text = RR.strings.rating_player_message.asComposableString(),
+                text = RR.strings.rating_user_message_label.asComposableString(),
                 endText = "",
                 modifier = Modifier
                     .fillMaxWidth()

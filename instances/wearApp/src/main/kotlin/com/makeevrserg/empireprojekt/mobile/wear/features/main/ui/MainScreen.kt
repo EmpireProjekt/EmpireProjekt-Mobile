@@ -42,12 +42,12 @@ fun MainScreen(
             ThemeChip(themeSwitcherComponent = themeSwitcherComponent)
             Spacer(modifier = Modifier.height(AppTheme.dimens.S))
             NavChip(
-                text = stringResource(R.string.wear_statuses),
+                text = stringResource(R.string.wear_main_statuses_action),
                 onClick = onOpenStatusesClick
             )
             Spacer(modifier = Modifier.height(AppTheme.dimens.S))
             NavChip(
-                text = stringResource(R.string.wear_ping),
+                text = stringResource(R.string.wear_main_ping_action),
                 onClick = onOpenPingClick
             )
         }

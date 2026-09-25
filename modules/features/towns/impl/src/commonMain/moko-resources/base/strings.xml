@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    Towns      -->
-    <string name="towns.title">Города</string>
-    <string name="towns.towns_filter.filter">Фильтр</string>
-    <string name="towns.towns_filter.public">Публичные</string>
-    <string name="towns.towns_filter.sort">Сортировка</string>
-    <string name="towns.town_public_type.none">Не важно</string>
-    <string name="towns.town_public_type.public">Публичные</string>
-    <string name="towns.town_public_type.private">Приватные</string>
-    <string name="towns.town_sort_by.none">Не важно</string>
-    <string name="towns.town_sort_by.name">Имя</string>
-    <string name="towns.town_sort_by.tag">Тэг</string>
-    <string name="towns.town_sort_by.founder">Основатель</string>
-    <string name="towns.town_sort_by.nation">Нация</string>
-    <string name="towns.town_sort_by.date">Создан</string>
-    <string name="towns.town_sort_by.residents">Жители</string>
-    <string name="towns.local_sort.asc">Возр.</string>
-    <string name="towns.local_sort.desc">Убыв.</string>
-    <string name="towns.town_card.tag">Тэг:</string>
-    <string name="towns.town_card.founder">Основатель:</string>
-    <string name="towns.town_card.nation">Нация:</string>
-    <string name="towns.town_card.outlaw_count">Изгоев:</string>
-    <string name="towns.town_card.registered">Создан:</string>
-    <string name="towns.town_card.entrance">Вход:</string>
-    <string name="towns.town_card.entrance.public">Открыт</string>
-    <string name="towns.town_card.entrance.private">Закрыт</string>
+    <string name="towns_list_title">Города</string>
+    <string name="towns_filter_title">Фильтр</string>
+    <string name="towns_filter_public_type_label">Публичные</string>
+    <string name="towns_filter_sort_title">Сортировка</string>
+    <string name="towns_public_type_none_label">Не важно</string>
+    <string name="towns_public_type_public_label">Публичные</string>
+    <string name="towns_public_type_private_label">Приватные</string>
+    <string name="towns_sort_order_none_label">Не важно</string>
+    <string name="towns_filter_sort_name_label">Имя</string>
+    <string name="towns_filter_sort_tag_label">Тэг</string>
+    <string name="towns_filter_sort_founder_label">Основатель</string>
+    <string name="towns_filter_sort_nation_label">Нация</string>
+    <string name="towns_filter_sort_created_label">Создан</string>
+    <string name="towns_filter_sort_residents_label">Жители</string>
+    <string name="towns_sort_order_ascending_label">Возр.</string>
+    <string name="towns_sort_order_descending_label">Убыв.</string>
+    <string name="towns_details_tag_label">Тэг:</string>
+    <string name="towns_details_founder_label">Основатель:</string>
+    <string name="towns_details_nation_label">Нация:</string>
+    <string name="towns_details_outlaws_count_label">Изгоев:</string>
+    <string name="towns_details_created_label">Создан:</string>
+    <string name="towns_details_entrance_label">Вход:</string>
+    <string name="towns_details_entrance_open_label">Открыт</string>
+    <string name="towns_details_entrance_closed_label">Закрыт</string>
 </resources>

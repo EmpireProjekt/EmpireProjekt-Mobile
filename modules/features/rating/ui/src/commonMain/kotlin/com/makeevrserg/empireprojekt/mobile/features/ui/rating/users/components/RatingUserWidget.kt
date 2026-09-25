@@ -38,9 +38,9 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.rating.RR
-import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated
-import com.makeevrserg.empireprojekt.mobile.rating.rating_rating
-import com.makeevrserg.empireprojekt.mobile.rating.rating_votes_count
+import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated_label
+import com.makeevrserg.empireprojekt.mobile.rating.rating_users_total_rating_label
+import com.makeevrserg.empireprojekt.mobile.rating.rating_users_votes_count_label
 import ru.astrainteractive.empireapi.models.rating.RatingUserModel
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
@@ -88,20 +88,20 @@ internal fun RatingUserWidget(
                         )
                     }
                     OptionInfo(
-                        text = RR.strings.rating_rating.asComposableString(),
+                        text = RR.strings.rating_users_total_rating_label.asComposableString(),
                         endText = "${model.totalRating}",
                         modifier = Modifier.fillMaxWidth(),
                         icon = MR.images.ic_thumb_up_down.asPainter(),
                     )
                     OptionInfo(
-                        text = RR.strings.rating_votes_count.asComposableString(),
+                        text = RR.strings.rating_users_votes_count_label.asComposableString(),
                         endText = "${model.ratingVotes}",
                         modifier = Modifier.fillMaxWidth(),
                         icon = MR.images.ic_raised_hand.asPainter(),
                     )
                     OptionInfo(
                         icon = MR.images.ic_calendar_today.asPainter(),
-                        text = RR.strings.rating_last_updated.asComposableString(),
+                        text = RR.strings.rating_last_updated_label.asComposableString(),
                         endText = remember {
                             timeFormatter.format(
                                 instant = Instant.fromEpochMilliseconds(model.lastUpdated),
