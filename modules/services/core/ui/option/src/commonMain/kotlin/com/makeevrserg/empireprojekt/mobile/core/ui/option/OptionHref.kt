@@ -30,7 +30,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -50,84 +49,56 @@ fun OptionHref(
     iconTint: Color = AppTheme.astraColors.surface.onSecondary,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
-    Row(
+    OptionRow(
+        text = text,
         modifier = Modifier
             .clickable { onClick.invoke() }
             .padding(contentPadding)
             .then(modifier),
-        horizontalArrangement = Arrangement.spacedBy(
-            8.dp,
-            Alignment.CenterHorizontally
-        ),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        icon?.let { icon ->
-            Icon(
-                painter = icon,
-                contentDescription = null,
-                tint = iconTint,
-                modifier = Modifier.size(24.dp)
-            )
-        }
-        Column(
-            modifier = Modifier.weight(1f),
-            horizontalAlignment = Alignment.Start,
-            verticalArrangement = Arrangement.Center
-        ) {
-            AstraText(
-                text = text,
-                color = MaterialTheme.colors.onPrimary,
-                textAlign = TextAlign.Start,
-                fontSize = 18.sp
-            )
-            infoText?.let {
-                AstraText(
-                    text = infoText,
-                    color = AppTheme.astraColors.surface.onSecondary,
-                    style = MaterialTheme.typography.body1,
-                    textAlign = TextAlign.Start
+        icon = icon,
+        iconTint = iconTint,
+        infoText = infoText,
+        end = {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(2.dp)
+            ) {
+                endText?.let {
+                    AnimatedContent(
+                        targetState = endText,
+                        transitionSpec = {
+                            if (targetState > initialState) {
+                                slideInVertically { it } + fadeIn() togetherWith slideOutVertically { -it } + fadeOut()
+                            } else {
+                                slideInVertically { -it } + fadeIn() togetherWith slideOutVertically { it } + fadeOut()
+                            }.using(SizeTransform(clip = false))
+                        },
+                        content = { endText ->
+                            AstraText(
+                                text = endText,
+                                color = animateColorAsState(
+                                    targetValue = when (isActive) {
+                                        true -> MaterialTheme.colors.onPrimary
+                                        false -> AppTheme.astraColors.surface.onSecondary
+                                    }
+                                ).value,
+                                fontSize = 16.sp
+                            )
+                        }
+                    )
+                }
+                Icon(
+                    painter = rememberVectorPainter(Icons.AutoMirrored.Filled.KeyboardArrowRight),
+                    contentDescription = null,
+                    tint = AppTheme.astraColors.surface.onSecondary,
+                    modifier = Modifier
+                        .size(24.dp)
+                        .clip(CircleShape)
+                        .clickable(onClick = onClick)
                 )
             }
         }
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(2.dp)
-        ) {
-            endText?.let {
-                AnimatedContent(
-                    targetState = endText,
-                    transitionSpec = {
-                        if (targetState > initialState) {
-                            slideInVertically { it } + fadeIn() togetherWith slideOutVertically { -it } + fadeOut()
-                        } else {
-                            slideInVertically { -it } + fadeIn() togetherWith slideOutVertically { it } + fadeOut()
-                        }.using(SizeTransform(clip = false))
-                    },
-                    content = { endText ->
-                        AstraText(
-                            text = endText,
-                            color = animateColorAsState(
-                                targetValue = when (isActive) {
-                                    true -> MaterialTheme.colors.onPrimary
-                                    false -> AppTheme.astraColors.surface.onSecondary
-                                }
-                            ).value,
-                            fontSize = 16.sp
-                        )
-                    }
-                )
-            }
-            Icon(
-                painter = rememberVectorPainter(Icons.AutoMirrored.Filled.KeyboardArrowRight),
-                contentDescription = null,
-                tint = AppTheme.astraColors.surface.onSecondary,
-                modifier = Modifier
-                    .size(24.dp)
-                    .clip(CircleShape)
-                    .clickable(onClick = onClick)
-            )
-        }
-    }
+    )
 }
 
 internal const val TEXT = "Some text"

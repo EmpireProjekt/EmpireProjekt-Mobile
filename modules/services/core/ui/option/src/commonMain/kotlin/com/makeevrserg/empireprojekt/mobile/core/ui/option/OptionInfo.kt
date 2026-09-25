@@ -1,18 +1,13 @@
 package com.makeevrserg.empireprojekt.mobile.core.ui.option
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Image
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
@@ -24,6 +19,8 @@ import androidx.compose.ui.unit.sp
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
+private val END_TEXT_FONT_SIZE = 18.sp
+
 @Composable
 fun OptionInfo(
     text: String,
@@ -34,50 +31,22 @@ fun OptionInfo(
     iconTint: Color = AppTheme.astraColors.surface.onSecondary,
     contentPadding: PaddingValues = PaddingValues(0.dp)
 ) {
-    Row(
-        modifier = modifier
-            .padding(contentPadding),
-        horizontalArrangement = Arrangement.spacedBy(
-            8.dp,
-            Alignment.End
-        ),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        icon?.let { icon ->
-            Icon(
-                painter = icon,
-                contentDescription = null,
-                tint = iconTint,
-                modifier = Modifier.size(24.dp)
-            )
-        }
-        Column(
-            modifier = Modifier.weight(1f, true),
-            horizontalAlignment = Alignment.Start,
-            verticalArrangement = Arrangement.Center
-        ) {
+    OptionRow(
+        text = text,
+        modifier = modifier.padding(contentPadding),
+        textColor = AppTheme.astraColors.surface.onSecondary,
+        icon = icon,
+        iconTint = iconTint,
+        infoText = infoText,
+        end = {
             AstraText(
-                text = text,
-                color = AppTheme.astraColors.surface.onSecondary,
-                textAlign = TextAlign.Start,
-                fontSize = 18.sp
+                text = endText,
+                fontSize = END_TEXT_FONT_SIZE,
+                textAlign = TextAlign.End,
+                color = MaterialTheme.colors.onPrimary
             )
-            infoText?.let {
-                AstraText(
-                    text = infoText,
-                    color = AppTheme.astraColors.surface.onSecondary,
-                    style = MaterialTheme.typography.body1,
-                    textAlign = TextAlign.Start
-                )
-            }
         }
-        AstraText(
-            text = endText,
-            fontSize = 18.sp,
-            textAlign = TextAlign.End,
-            color = MaterialTheme.colors.onPrimary
-        )
-    }
+    )
 }
 
 @Composable
