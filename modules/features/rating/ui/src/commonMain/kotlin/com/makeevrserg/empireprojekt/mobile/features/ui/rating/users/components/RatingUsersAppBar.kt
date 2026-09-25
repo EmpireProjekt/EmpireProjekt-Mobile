@@ -2,9 +2,6 @@ package com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.material.ContentAlpha
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
@@ -16,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
+import com.makeevrserg.empireprojekt.mobile.core.ui.button.AstraIconButton
 import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.SearchAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.SearchBarState
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
@@ -49,16 +47,11 @@ fun RatingUsersAppBar(
                 title = RR.strings.rating_users_title.asComposableString(),
                 onBackClick = onBack,
                 actions = {
-                    IconButton(
+                    AstraIconButton(
+                        imageVector = Icons.Filled.Search,
                         onClick = { searchBarState = SearchBarState.Open },
                         modifier = Modifier.alpha(ContentAlpha.medium)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Filled.Search,
-                            contentDescription = "",
-                            tint = MaterialTheme.colors.onPrimary
-                        )
-                    }
+                    )
                 }
             )
         }

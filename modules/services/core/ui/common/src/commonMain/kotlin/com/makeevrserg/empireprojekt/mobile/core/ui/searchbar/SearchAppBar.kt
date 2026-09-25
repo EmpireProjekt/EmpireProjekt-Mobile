@@ -31,6 +31,7 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import com.makeevrserg.empireprojekt.mobile.core.ui.button.AstraIconButton
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 
 @Suppress("LongMethod")
@@ -88,20 +89,15 @@ fun SearchAppBar(
                 },
                 trailingIcon = {
                     Row {
-                        IconButton(
+                        AstraIconButton(
+                            imageVector = Icons.Filled.Close,
                             onClick = {
                                 focusRequester.freeFocus()
                                 keyboardController?.hide()
                                 onCloseClick.invoke()
                             },
                             modifier = Modifier.alpha(ContentAlpha.medium)
-                        ) {
-                            Icon(
-                                imageVector = Icons.Filled.Close,
-                                contentDescription = "",
-                                tint = MaterialTheme.colors.onPrimary
-                            )
-                        }
+                        )
                         actions()
                     }
                 },
