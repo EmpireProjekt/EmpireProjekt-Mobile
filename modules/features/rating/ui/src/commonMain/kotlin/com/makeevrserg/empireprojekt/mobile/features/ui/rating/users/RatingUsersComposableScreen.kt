@@ -1,19 +1,13 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.rating.users
 
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.OnEndReached
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingWidget
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingLazyColumn
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.presentation.RatingUsersComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components.RatingUserShimmerWidget
@@ -37,9 +31,6 @@ internal fun RatingUsersComposableScreen(
     onReset: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val lazyListState = rememberLazyListState()
-    lazyListState.OnEndReached { onLoadNextPage() }
-
     Scaffold(
         modifier = modifier.animateContentSize(),
         topBar = {
@@ -50,38 +41,30 @@ internal fun RatingUsersComposableScreen(
             )
         }
     ) { contentPadding ->
-        LazyColumn(
-            modifier = Modifier.padding(horizontal = AppTheme.dimens.XS),
-            verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS),
+        PagingLazyColumn(
+            items = model.items,
+            isLastPage = model.isLastPage,
+            isLoading = model.isLoading,
+            isFailure = model.isFailure,
+            onLoadNextPage = onLoadNextPage,
+            onReload = onReset,
+            shimmerItem = { RatingUserShimmerWidget() },
             contentPadding = contentPadding,
-            state = lazyListState
-        ) {
-            item {
+            header = {
                 RatingsFilterCard(
                     filter = model.filter,
                     onNameSortClick = onNameSortClick,
                     onLastUpdateSortClick = onLastUpdateSortClick,
                     onRatingSortClick = onRatingSortClick
                 )
-            }
-            items(model.items) { ratingUserModel ->
+            },
+            itemContent = { ratingUserModel ->
                 RatingUserWidget(
                     model = ratingUserModel,
                     onClick = { onUserClick(ratingUserModel) }
                 )
             }
-
-            item {
-                PagingWidget.Auto(
-                    list = model.items,
-                    isLastPage = model.isLastPage,
-                    isLoading = model.isLoading,
-                    isFailure = model.isFailure,
-                    onReload = onReset,
-                    loader = { PagingWidget.ShimmerLoader { RatingUserShimmerWidget() } }
-                )
-            }
-        }
+        )
     }
 }
 
