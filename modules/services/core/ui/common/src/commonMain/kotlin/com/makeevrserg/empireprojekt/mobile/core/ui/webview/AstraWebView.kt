@@ -35,12 +35,6 @@ internal fun WebView.applyAstraSettings() {
     isScrollbarFadingEnabled = false
 }
 
-/**
- * Zoomable, JavaScript-enabled [WebView] showing [url] with a loading indicator on top
- * until each page finishes loading.
- *
- * @param onWebViewCreate receives the created [WebView], e.g. to drive its back navigation
- */
 @Composable
 fun AstraWebView(
     url: String,

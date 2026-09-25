@@ -29,9 +29,6 @@ fun OptionSection(
     )
 }
 
-/**
- * [OptionSection] listing one [item] row per element, with an [OptionSeparator] between rows.
- */
 @Suppress("UnstableCollections")
 @Composable
 fun <T> OptionSection(

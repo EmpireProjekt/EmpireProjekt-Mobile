@@ -24,11 +24,6 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 private val ICON_SIZE = 24.dp
 private val TITLE_FONT_SIZE = 18.sp
 
-/**
- * Skeleton shared by every option row: optional icon, title with optional info line, then [end].
- *
- * @param infoSpacing gap between the title and [infoText]
- */
 @Composable
 internal fun OptionRow(
     text: String,

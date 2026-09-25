@@ -12,9 +12,6 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 private val AVATAR_SIZE = 32.dp
 
-/**
- * Minecraft head of a player at the size used next to player names in lists and cards.
- */
 @Composable
 fun PlayerAvatar(uuid: String, modifier: Modifier = Modifier) {
     PlayerHeadBox(

@@ -9,10 +9,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Shape
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
-/**
- * Card surface of the design system: content clipped to [shape] over the primary color.
- * Put `clickable` after it so the ripple stays inside the card.
- */
 @Composable
 @Suppress("ModifierComposable")
 fun Modifier.astraCard(shape: Shape = RoundedCornerShape(AppTheme.dimens.S)): Modifier {

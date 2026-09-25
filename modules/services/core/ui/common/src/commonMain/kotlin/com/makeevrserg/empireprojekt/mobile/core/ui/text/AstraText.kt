@@ -17,9 +17,6 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 
-/**
- * [Text] set in JetBrains Mono, the typeface of the whole design system.
- */
 @Composable
 fun AstraText(
     text: String,

@@ -9,9 +9,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
-/**
- * [AstraLoading] centred in the space given by [modifier].
- */
 @Composable
 fun LoadingContent(modifier: Modifier = Modifier) {
     Box(

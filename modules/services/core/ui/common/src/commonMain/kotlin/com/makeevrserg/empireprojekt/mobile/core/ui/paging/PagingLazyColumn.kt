@@ -19,12 +19,6 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
-/**
- * Paged list of cards: asks for the next page when the end is reached and closes the list with the
- * [PagingWidget] state (shimmering [shimmerItem]s while loading) and the navigation bar inset.
- *
- * @param header optional first item, e.g. a filter card
- */
 @Suppress("UnstableCollections", "LongParameterList")
 @Composable
 fun <T> PagingLazyColumn(

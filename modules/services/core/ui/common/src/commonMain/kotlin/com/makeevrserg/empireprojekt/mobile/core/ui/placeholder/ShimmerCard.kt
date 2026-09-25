@@ -15,11 +15,6 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.common.placeholder
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
-/**
- * Shimmering bar standing in for one line of text while content loads.
- *
- * @param widthFraction share of the available width in the range 0.0..1.0
- */
 @Composable
 fun ShimmerLine(
     widthFraction: Float,
@@ -33,9 +28,6 @@ fun ShimmerLine(
     )
 }
 
-/**
- * Card surface for [ShimmerLine]s, shaped like the list cards it replaces while loading.
- */
 @Composable
 fun ShimmerCard(
     modifier: Modifier = Modifier,

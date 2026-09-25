@@ -56,7 +56,6 @@ kotlin {
     }
 }
 
-// Robolectric patches FileDescriptor internals, which recent JDKs hide from unnamed modules.
 tasks.withType<Test>().configureEach {
     jvmArgs(
         "--add-exports=java.base/jdk.internal.access=ALL-UNNAMED",

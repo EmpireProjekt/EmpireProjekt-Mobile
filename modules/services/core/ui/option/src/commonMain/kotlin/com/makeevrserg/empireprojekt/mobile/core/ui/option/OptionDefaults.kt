@@ -6,9 +6,6 @@ import androidx.compose.runtime.ReadOnlyComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 object OptionDefaults {
-    /**
-     * Inset of an option row placed inside an [OptionSection].
-     */
     val ContentPadding: PaddingValues
         @Composable
         @ReadOnlyComposable

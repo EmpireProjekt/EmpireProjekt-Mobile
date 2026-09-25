@@ -88,9 +88,6 @@ object PagingWidget {
         LoadingContent(Modifier.fillMaxWidth())
     }
 
-    /**
-     * Column of shimmering [item] placeholders shown while a page is being loaded.
-     */
     @Composable
     fun ShimmerLoader(
         modifier: Modifier = Modifier,

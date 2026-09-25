@@ -13,9 +13,6 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
-/**
- * [PlayerAvatar] followed by the player's name, as shown at the top of player and town cards.
- */
 @Composable
 fun PlayerNameRow(
     uuid: String,

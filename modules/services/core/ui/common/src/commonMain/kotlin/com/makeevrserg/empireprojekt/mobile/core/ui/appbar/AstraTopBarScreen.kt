@@ -12,9 +12,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 
-/**
- * Full-screen page on the screen background with an [AstraCenterAlignedTopAppBar] above [content].
- */
 @Composable
 fun AstraTopBarScreen(
     title: String,
