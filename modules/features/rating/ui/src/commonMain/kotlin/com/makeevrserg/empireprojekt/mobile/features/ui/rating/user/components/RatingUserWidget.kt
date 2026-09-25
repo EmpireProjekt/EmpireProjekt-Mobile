@@ -1,6 +1,5 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,13 +20,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_history_edu
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerNameRow
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSeparator
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
@@ -92,12 +91,7 @@ internal fun RatingUserWidget(
                 }
             }
             Spacer(Modifier.height(AppTheme.dimens.XS))
-            Box(
-                Modifier
-                    .fillMaxWidth()
-                    .height(1.dp)
-                    .background(MaterialTheme.colors.onSecondary)
-            )
+            OptionSeparator(Modifier.fillMaxWidth())
             Spacer(Modifier.height(AppTheme.dimens.XS))
             OptionInfo(
                 text = RR.strings.rating_last_updated_label.asComposableString(),

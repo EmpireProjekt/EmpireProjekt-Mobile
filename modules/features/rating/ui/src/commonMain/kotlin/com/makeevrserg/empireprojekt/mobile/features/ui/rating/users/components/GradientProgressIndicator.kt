@@ -14,7 +14,6 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
@@ -29,7 +28,7 @@ internal fun GradientProgressIndicator(
         Canvas(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(4.dp)
+                .height(AppTheme.dimens.XXS)
         ) {
             drawRect(
                 color = backgroundColor,
