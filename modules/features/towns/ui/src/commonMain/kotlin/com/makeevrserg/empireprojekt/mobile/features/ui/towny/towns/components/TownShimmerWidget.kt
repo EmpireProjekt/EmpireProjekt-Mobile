@@ -26,7 +26,7 @@ fun TownShimmerWidget(modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-private fun RatingUserShimmerWidgetPreview() {
+private fun TownShimmerWidgetPreview() {
     AdaptThemeFade {
         TownShimmerWidget()
     }

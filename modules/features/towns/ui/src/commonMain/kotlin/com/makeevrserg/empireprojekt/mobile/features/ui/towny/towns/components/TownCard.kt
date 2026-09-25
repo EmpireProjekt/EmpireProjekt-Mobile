@@ -143,7 +143,7 @@ internal fun TownCard(
 
 @Preview
 @Composable
-private fun TownCardPreview() {
+private fun TownCardOpenPreview() {
     AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             TownCard(
@@ -157,6 +157,27 @@ private fun TownCardPreview() {
                 registered = 1706549308031,
                 residentsCount = 10,
                 isOpen = true
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun TownCardClosedPreview() {
+    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+        Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
+            TownCard(
+                mayor = "cinnamonrein",
+                townName = "Moscow",
+                board = "",
+                founder = "cinnamonrein",
+                nation = "",
+                outlawsAmount = 0,
+                tag = "MSK",
+                registered = 1706549308031,
+                residentsCount = 1,
+                isOpen = false
             )
         }
     }

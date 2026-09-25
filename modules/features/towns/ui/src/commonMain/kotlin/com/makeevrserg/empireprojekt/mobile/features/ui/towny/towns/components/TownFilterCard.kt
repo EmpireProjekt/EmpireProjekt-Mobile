@@ -86,7 +86,26 @@ internal fun TownFilterCard(
 
 @Preview
 @Composable
-private fun TownFilterCardPreview() {
+private fun TownFilterCardEmptyPreview() {
+    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+        Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
+            TownFilterCard(
+                townsFilter = TownsFilterModel(),
+                onSortByNationClick = {},
+                onSortByDateClick = {},
+                onSortByNameClick = {},
+                onPublicTypeClick = {},
+                onSortByTagClick = {},
+                onSortByFounderClick = {},
+                onSortByResidentsClick = {}
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun TownFilterCardSelectedPreview() {
     AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             TownFilterCard(
