@@ -21,7 +21,7 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_empty
 import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_last_page_desc
 import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_network_error
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_splash
-import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.AstraLoading
+import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.LoadingContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
@@ -85,12 +85,7 @@ object PagingWidget {
     @Suppress("ModifierMissing")
     @Composable
     fun Loading() {
-        Box(
-            modifier = Modifier.fillMaxWidth(),
-            contentAlignment = Alignment.Center
-        ) {
-            AstraLoading(size = AppTheme.dimens.M)
-        }
+        LoadingContent(Modifier.fillMaxWidth())
     }
 
     /**

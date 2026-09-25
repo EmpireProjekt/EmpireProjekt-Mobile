@@ -10,11 +10,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
-import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.AstraLoading
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.LoadingContent
 
 internal fun WebView.applyAstraSettings() {
     layoutParams = ViewGroup.LayoutParams(
@@ -66,9 +64,7 @@ fun AstraWebView(
             label = "web view loading indicator"
         ) { isPageLoading ->
             if (isPageLoading) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    AstraLoading(size = AppTheme.dimens.M)
-                }
+                LoadingContent(Modifier.fillMaxSize())
             }
         }
     }
