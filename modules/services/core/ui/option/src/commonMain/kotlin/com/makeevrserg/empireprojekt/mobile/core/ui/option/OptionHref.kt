@@ -34,6 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 @Suppress("LongMethod")
@@ -110,70 +111,72 @@ internal val LONG_TEXT = List(size = 10) {
 @Composable
 @Preview
 private fun OptionHrefPreview() {
-    val modifier = Modifier.padding(
-        horizontal = 8.dp,
-        vertical = 4.dp
-    )
-    Column {
-        OptionHref(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            endText = "20m",
-            onClick = {},
-            modifier = modifier
+    AdaptThemeFade {
+        val modifier = Modifier.padding(
+            horizontal = 8.dp,
+            vertical = 4.dp
         )
-        OptionHref(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            endText = "20m",
-            onClick = {},
-            modifier = modifier,
-            isActive = false
-        )
-        OptionHref(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            onClick = {},
-            modifier = modifier
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionHref(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = LONG_TEXT,
-            onClick = {},
-            modifier = modifier
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionHref(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            infoText = TEXT,
-            onClick = {},
-            modifier = modifier
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionHref(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = LONG_TEXT,
-            infoText = TEXT,
-            onClick = {},
-            modifier = modifier
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionHref(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = LONG_TEXT,
-            infoText = LONG_TEXT,
-            onClick = {},
-            modifier = modifier
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionHref(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            infoText = LONG_TEXT,
-            onClick = {},
-            modifier = modifier
-        )
+        Column {
+            OptionHref(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                endText = "20m",
+                onClick = {},
+                modifier = modifier
+            )
+            OptionHref(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                endText = "20m",
+                onClick = {},
+                modifier = modifier,
+                isActive = false
+            )
+            OptionHref(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                onClick = {},
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionHref(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = LONG_TEXT,
+                onClick = {},
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionHref(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                infoText = TEXT,
+                onClick = {},
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionHref(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = LONG_TEXT,
+                infoText = TEXT,
+                onClick = {},
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionHref(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = LONG_TEXT,
+                infoText = LONG_TEXT,
+                onClick = {},
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionHref(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                infoText = LONG_TEXT,
+                onClick = {},
+                modifier = modifier
+            )
+        }
     }
 }

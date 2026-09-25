@@ -6,6 +6,8 @@ import androidx.compose.material3.SwitchDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 @Composable
@@ -40,4 +42,28 @@ fun M3Switch(
 //            disabledUncheckedTrackColor = LocalCorruptedPallet.current.transparent.whiteInvert.tertiary,
         )
     )
+}
+
+@Preview
+@Composable
+private fun M3SwitchCheckedPreview() {
+    AdaptThemeFade {
+        M3Switch(checked = true, onCheckedChange = {}, enabled = true)
+    }
+}
+
+@Preview
+@Composable
+private fun M3SwitchUncheckedPreview() {
+    AdaptThemeFade {
+        M3Switch(checked = false, onCheckedChange = {}, enabled = true)
+    }
+}
+
+@Preview
+@Composable
+private fun M3SwitchDisabledPreview() {
+    AdaptThemeFade {
+        M3Switch(checked = true, onCheckedChange = {}, enabled = false)
+    }
 }

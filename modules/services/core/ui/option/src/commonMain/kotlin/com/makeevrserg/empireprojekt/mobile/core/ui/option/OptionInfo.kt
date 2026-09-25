@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 private val END_TEXT_FONT_SIZE = 18.sp
@@ -52,55 +53,57 @@ fun OptionInfo(
 @Composable
 @Preview
 private fun OptionInfoPreview() {
-    val modifier = Modifier.padding(
-        horizontal = 8.dp,
-        vertical = 4.dp
-    )
-    Column {
-        OptionInfo(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            endText = TEXT,
-            modifier = modifier
+    AdaptThemeFade {
+        val modifier = Modifier.padding(
+            horizontal = 8.dp,
+            vertical = 4.dp
         )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionInfo(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = LONG_TEXT,
-            endText = TEXT,
-            modifier = modifier
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionInfo(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            infoText = TEXT,
-            endText = TEXT,
-            modifier = modifier
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionInfo(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = LONG_TEXT,
-            infoText = TEXT,
-            endText = TEXT,
-            modifier = modifier
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionInfo(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = LONG_TEXT,
-            infoText = LONG_TEXT,
-            endText = TEXT,
-            modifier = modifier
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionInfo(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            infoText = LONG_TEXT,
-            endText = TEXT,
-            modifier = modifier
-        )
+        Column {
+            OptionInfo(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                endText = TEXT,
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionInfo(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = LONG_TEXT,
+                endText = TEXT,
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionInfo(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                infoText = TEXT,
+                endText = TEXT,
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionInfo(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = LONG_TEXT,
+                infoText = TEXT,
+                endText = TEXT,
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionInfo(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = LONG_TEXT,
+                infoText = LONG_TEXT,
+                endText = TEXT,
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionInfo(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                infoText = LONG_TEXT,
+                endText = TEXT,
+                modifier = modifier
+            )
+        }
     }
 }

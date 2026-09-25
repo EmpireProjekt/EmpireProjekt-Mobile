@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 @Composable
@@ -42,73 +43,75 @@ fun OptionComposable(
 @Preview
 @Suppress("LongMethod")
 private fun OptionComposablePreview() {
-    val modifier = Modifier.padding(
-        horizontal = 8.dp,
-        vertical = 4.dp
-    )
-    Column {
-        OptionComposable(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            onClick = {},
-            modifier = modifier,
-            end = {
-                Text("Hello!")
-            }
+    AdaptThemeFade {
+        val modifier = Modifier.padding(
+            horizontal = 8.dp,
+            vertical = 4.dp
         )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionComposable(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = LONG_TEXT,
-            onClick = {},
-            modifier = modifier,
-            end = {
-                Text("Hello!")
-            }
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionComposable(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            infoText = TEXT,
-            onClick = {},
-            modifier = modifier,
-            end = {
-                Text("Hello!")
-            }
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionComposable(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = LONG_TEXT,
-            infoText = TEXT,
-            onClick = {},
-            modifier = modifier,
-            end = {
-                Text("Hello!")
-            }
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionComposable(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = LONG_TEXT,
-            infoText = LONG_TEXT,
-            onClick = {},
-            modifier = modifier,
-            end = {
-                Text("Hello!")
-            }
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionComposable(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            infoText = LONG_TEXT,
-            onClick = {},
-            modifier = modifier,
-            end = {
-                Text("Hello!")
-            }
-        )
+        Column {
+            OptionComposable(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                onClick = {},
+                modifier = modifier,
+                end = {
+                    Text("Hello!")
+                }
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionComposable(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = LONG_TEXT,
+                onClick = {},
+                modifier = modifier,
+                end = {
+                    Text("Hello!")
+                }
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionComposable(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                infoText = TEXT,
+                onClick = {},
+                modifier = modifier,
+                end = {
+                    Text("Hello!")
+                }
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionComposable(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = LONG_TEXT,
+                infoText = TEXT,
+                onClick = {},
+                modifier = modifier,
+                end = {
+                    Text("Hello!")
+                }
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionComposable(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = LONG_TEXT,
+                infoText = LONG_TEXT,
+                onClick = {},
+                modifier = modifier,
+                end = {
+                    Text("Hello!")
+                }
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionComposable(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                infoText = LONG_TEXT,
+                onClick = {},
+                modifier = modifier,
+                end = {
+                    Text("Hello!")
+                }
+            )
+        }
     }
 }

@@ -9,16 +9,21 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 private val ICON_SIZE = 24.dp
@@ -73,5 +78,30 @@ internal fun OptionRow(
             }
         }
         end.invoke(this)
+    }
+}
+
+@Preview
+@Composable
+private fun OptionRowPreview() {
+    AdaptThemeFade {
+        OptionRow(
+            text = TEXT,
+            icon = rememberVectorPainter(Icons.Filled.Image),
+            end = { AstraText(text = "20m") }
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun OptionRowWithInfoPreview() {
+    AdaptThemeFade {
+        OptionRow(
+            text = TEXT,
+            icon = rememberVectorPainter(Icons.Filled.Image),
+            infoText = LONG_TEXT,
+            end = { AstraText(text = "20m") }
+        )
     }
 }

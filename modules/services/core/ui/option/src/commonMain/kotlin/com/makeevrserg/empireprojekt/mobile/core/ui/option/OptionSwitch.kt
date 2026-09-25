@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 private val INFO_SPACING = 6.dp
@@ -63,60 +64,62 @@ fun OptionSwitch(
 @Preview
 @Suppress("LongMethod")
 private fun OptionSwitchPreview() {
-    val modifier = Modifier.padding(
-        horizontal = 8.dp,
-        vertical = 4.dp
-    )
-    Column {
-        OptionSwitch(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            onCheckChange = {},
-            modifier = modifier
+    AdaptThemeFade {
+        val modifier = Modifier.padding(
+            horizontal = 8.dp,
+            vertical = 4.dp
         )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionSwitch(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = LONG_TEXT,
-            checked = false,
-            onCheckChange = {},
-            modifier = modifier
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionSwitch(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            infoText = TEXT,
-            checked = true,
-            isEnabled = false,
-            onCheckChange = {},
-            modifier = modifier
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionSwitch(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = LONG_TEXT,
-            infoText = TEXT,
-            checked = false,
-            isEnabled = true,
-            onCheckChange = {},
-            modifier = modifier
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionSwitch(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = LONG_TEXT,
-            infoText = LONG_TEXT,
-            onCheckChange = {},
-            modifier = modifier
-        )
-        OptionSeparator(Modifier.fillMaxWidth())
-        OptionSwitch(
-            icon = rememberVectorPainter(Icons.Filled.Image),
-            text = TEXT,
-            infoText = LONG_TEXT,
-            onCheckChange = {},
-            modifier = modifier
-        )
+        Column {
+            OptionSwitch(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                onCheckChange = {},
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionSwitch(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = LONG_TEXT,
+                checked = false,
+                onCheckChange = {},
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionSwitch(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                infoText = TEXT,
+                checked = true,
+                isEnabled = false,
+                onCheckChange = {},
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionSwitch(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = LONG_TEXT,
+                infoText = TEXT,
+                checked = false,
+                isEnabled = true,
+                onCheckChange = {},
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionSwitch(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = LONG_TEXT,
+                infoText = LONG_TEXT,
+                onCheckChange = {},
+                modifier = modifier
+            )
+            OptionSeparator(Modifier.fillMaxWidth())
+            OptionSwitch(
+                icon = rememberVectorPainter(Icons.Filled.Image),
+                text = TEXT,
+                infoText = LONG_TEXT,
+                onCheckChange = {},
+                modifier = modifier
+            )
+        }
     }
 }
