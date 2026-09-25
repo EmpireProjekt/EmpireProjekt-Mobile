@@ -150,6 +150,25 @@ private fun RatingUserComposableScreenLoadingPreview() {
 
 @Preview
 @Composable
+private fun RatingUserComposableScreenEmptyPreview() {
+    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+        RatingUserComposableScreen(
+            model = ratingUserPreviewModel(
+                reviewedUserName = "RomaRoman",
+                items = emptyList(),
+                isLoading = false,
+                isFailure = false,
+                isLastPage = true
+            ),
+            onBack = {},
+            onLoadNextPage = {},
+            onReset = {}
+        )
+    }
+}
+
+@Preview
+@Composable
 private fun RatingUserComposableScreenFailurePreview() {
     AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
         RatingUserComposableScreen(

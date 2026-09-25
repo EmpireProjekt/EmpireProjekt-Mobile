@@ -52,7 +52,22 @@ internal fun RatingsFilterCard(
 
 @Preview
 @Composable
-private fun TownFilterCardPreview() {
+private fun RatingsFilterCardEmptyPreview() {
+    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+        Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
+            RatingsFilterCard(
+                filter = RatingsFilterModel(),
+                onLastUpdateSortClick = {},
+                onNameSortClick = {},
+                onRatingSortClick = {},
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun RatingsFilterCardSelectedPreview() {
     AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             RatingsFilterCard(

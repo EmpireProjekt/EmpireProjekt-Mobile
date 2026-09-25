@@ -124,7 +124,7 @@ internal fun RatingUserWidget(
 
 @Composable
 @Preview
-private fun RatingUserWidgetPreview() {
+private fun RatingUserWidgetPositivePreview() {
     AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
         RatingUserWidget(
             model = RatingUserModel(
@@ -134,6 +134,24 @@ private fun RatingUserWidgetPreview() {
                 lastUpdated = 0,
                 totalRating = 10,
                 ratingVotes = 1
+            ),
+            onClick = {}
+        )
+    }
+}
+
+@Composable
+@Preview
+private fun RatingUserWidgetNegativePreview() {
+    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+        RatingUserWidget(
+            model = RatingUserModel(
+                id = 2,
+                minecraftUUID = "uuid",
+                minecraftName = "name",
+                lastUpdated = 0,
+                totalRating = -10,
+                ratingVotes = 12
             ),
             onClick = {}
         )

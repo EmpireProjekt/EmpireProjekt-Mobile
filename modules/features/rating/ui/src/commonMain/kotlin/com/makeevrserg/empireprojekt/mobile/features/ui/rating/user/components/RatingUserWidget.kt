@@ -127,13 +127,27 @@ internal fun RatingUserWidget(
 
 @Preview
 @Composable
-private fun RatingUserWidgetPreview() {
+private fun RatingUserWidgetPositivePreview() {
     AdaptThemeFade {
         RatingUserWidget(
             uuid = UUID.randomUUID().toString(),
             name = "RomaRoman",
             rating = 10,
             message = "Hello world",
+            time = Clock.System.now().toEpochMilliseconds()
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun RatingUserWidgetNegativePreview() {
+    AdaptThemeFade {
+        RatingUserWidget(
+            uuid = null,
+            name = null,
+            rating = -1,
+            message = "Griefed my base.",
             time = Clock.System.now().toEpochMilliseconds()
         )
     }
