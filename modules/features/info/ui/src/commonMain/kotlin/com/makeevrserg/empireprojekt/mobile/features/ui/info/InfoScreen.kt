@@ -1,10 +1,8 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.info
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -24,7 +22,7 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.ic_knowledge
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_people
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_theme
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_vote
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraTopBarScreen
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.navBarsPadding
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionDefaults
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionHref
@@ -55,12 +53,7 @@ fun InfoScreen(
     modifier: Modifier = Modifier
 ) {
     val models = remember { InfoScreenLinks.get() }
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colors.primaryVariant)
-    ) {
-        AstraCenterAlignedTopAppBar(title = "МЕНЮ")
+    AstraTopBarScreen(title = "МЕНЮ", modifier = modifier) {
         LazyColumn(
             modifier = Modifier.padding(horizontal = AppTheme.dimens.XS),
             verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS, Alignment.Top)
