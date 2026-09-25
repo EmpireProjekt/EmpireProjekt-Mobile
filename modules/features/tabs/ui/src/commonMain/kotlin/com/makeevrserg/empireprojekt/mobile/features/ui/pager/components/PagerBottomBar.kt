@@ -115,7 +115,25 @@ internal fun PagerBottomBar(
 @Suppress("UnusedMaterialScaffoldPaddingParameter")
 @Preview
 @Composable
-private fun PagerBottomBarPreview() {
+private fun PagerBottomBarMenuSelectedPreview() {
+    AdaptThemeFade {
+        Scaffold(
+            bottomBar = {
+                PagerBottomBar(
+                    selectedIndex = 0,
+                    onTabClick = {
+                    }
+                )
+            }
+        ) {
+        }
+    }
+}
+
+@Suppress("UnusedMaterialScaffoldPaddingParameter")
+@Preview
+@Composable
+private fun PagerBottomBarMapSelectedPreview() {
     AdaptThemeFade {
         Scaffold(
             bottomBar = {
