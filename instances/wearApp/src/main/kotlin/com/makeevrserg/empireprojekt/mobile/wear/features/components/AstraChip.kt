@@ -11,10 +11,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.wear.compose.material.Chip
 import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.Icon
 import androidx.wear.compose.material.Text
+import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.img_splash
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 
 @Composable
 fun AstraChip(
@@ -75,4 +80,26 @@ fun IconTextChip(
             }
         }
     )
+}
+
+@Preview
+@Composable
+private fun AstraChipPreview() {
+    AdaptThemeFade {
+        AstraChip(
+            label = { Text(text = "EmpireProjekt") },
+            onClick = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun IconTextChipPreview() {
+    AdaptThemeFade {
+        IconTextChip(
+            text = "EmpireProjekt",
+            painter = MR.images.img_splash.asPainter()
+        )
+    }
 }
