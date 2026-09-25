@@ -6,13 +6,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.resources.MR
-import com.makeevrserg.empireprojekt.mobile.core.resources.common_filter_multiple_sort_desc
-import com.makeevrserg.empireprojekt.mobile.core.resources.common_filter_title
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.EnumOption
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.FilterCard
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.TextOption
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.TitleOption
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.SortFilterHeader
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
@@ -42,8 +38,7 @@ internal fun TownFilterCard(
     onSortByResidentsClick: () -> Unit,
 ) {
     FilterCard {
-        TitleOption(text = MR.strings.common_filter_title.asComposableString())
-        TextOption(text = MR.strings.common_filter_multiple_sort_desc.asComposableString())
+        SortFilterHeader()
         EnumOption(
             text = TR.strings.towns_filter_public_type_label.asComposableString(),
             selected = townsFilter.publicType,
