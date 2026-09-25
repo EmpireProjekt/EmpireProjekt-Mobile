@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.makeevrserg.empireprojekt.mobile.core.ui.button.AstraBackButton
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 
 @Composable
@@ -86,12 +87,22 @@ fun AstraCenterAlignedTopAppBar(
 
 @Preview
 @Composable
-private fun AstraCenterAlignedTopAppBarPreview() {
-    AstraCenterAlignedTopAppBar(
-        title = "Hello World",
-        onBackClick = {},
-        actions = {
-            Box(Modifier.size(24.dp).background(Color.Red))
-        }
-    )
+private fun AstraCenterAlignedTopAppBarWithBackPreview() {
+    AdaptThemeFade {
+        AstraCenterAlignedTopAppBar(
+            title = "Hello World",
+            onBackClick = {},
+            actions = {
+                Box(Modifier.size(24.dp).background(Color.Red))
+            }
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun AstraCenterAlignedTopAppBarTitleOnlyPreview() {
+    AdaptThemeFade {
+        AstraCenterAlignedTopAppBar(title = "Hello World")
+    }
 }

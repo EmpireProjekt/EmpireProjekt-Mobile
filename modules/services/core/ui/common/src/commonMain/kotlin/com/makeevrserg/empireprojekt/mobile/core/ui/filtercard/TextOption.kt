@@ -5,7 +5,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 
 @Composable
 fun TextOption(
@@ -20,4 +22,12 @@ fun TextOption(
         modifier = modifier,
         style = MaterialTheme.typography.subtitle2
     )
+}
+
+@Preview
+@Composable
+private fun TextOptionPreview() {
+    AdaptThemeFade {
+        TextOption(text = "Tap an option to change its sort order")
+    }
 }

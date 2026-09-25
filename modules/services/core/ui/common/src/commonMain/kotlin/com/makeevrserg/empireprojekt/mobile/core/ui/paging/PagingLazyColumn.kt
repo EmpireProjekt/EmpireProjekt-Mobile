@@ -60,20 +60,87 @@ fun <T> PagingLazyColumn(
     }
 }
 
-@Suppress("MagicNumber")
+@Suppress("MagicNumber", "UnstableCollections")
+@Composable
+private fun PagingLazyColumnPreviewContent(
+    items: List<String>,
+    isLastPage: Boolean,
+    isLoading: Boolean,
+    isFailure: Boolean
+) {
+    PagingLazyColumn(
+        items = items,
+        isLastPage = isLastPage,
+        isLoading = isLoading,
+        isFailure = isFailure,
+        onLoadNextPage = {},
+        onReload = {},
+        shimmerItem = { ShimmerCard { ShimmerLine(widthFraction = 0.5f) } },
+        itemContent = { name -> AstraText(text = name) }
+    )
+}
+
+@Preview
+@Composable
+private fun PagingLazyColumnLoadedPreview() {
+    AdaptThemeFade {
+        PagingLazyColumnPreviewContent(
+            items = listOf("RomaRoman", "cinnamonrein"),
+            isLastPage = false,
+            isLoading = false,
+            isFailure = false
+        )
+    }
+}
+
 @Preview
 @Composable
 private fun PagingLazyColumnLoadingPreview() {
     AdaptThemeFade {
-        PagingLazyColumn(
+        PagingLazyColumnPreviewContent(
             items = listOf("RomaRoman", "cinnamonrein"),
             isLastPage = false,
             isLoading = true,
-            isFailure = false,
-            onLoadNextPage = {},
-            onReload = {},
-            shimmerItem = { ShimmerCard { ShimmerLine(widthFraction = 0.5f) } },
-            itemContent = { name -> AstraText(text = name) }
+            isFailure = false
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun PagingLazyColumnLastPagePreview() {
+    AdaptThemeFade {
+        PagingLazyColumnPreviewContent(
+            items = listOf("RomaRoman", "cinnamonrein"),
+            isLastPage = true,
+            isLoading = false,
+            isFailure = false
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun PagingLazyColumnEmptyPreview() {
+    AdaptThemeFade {
+        PagingLazyColumnPreviewContent(
+            items = emptyList(),
+            isLastPage = true,
+            isLoading = false,
+            isFailure = false
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun PagingLazyColumnFailurePreview() {
+    AdaptThemeFade {
+        PagingLazyColumnPreviewContent(
+            items = listOf("RomaRoman", "cinnamonrein"),
+            isLastPage = false,
+            isLoading = false,
+            isFailure = true
         )
     }
 }

@@ -10,7 +10,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 @Composable
@@ -43,5 +46,35 @@ fun <E : Enum<E>> FilterCardScope.EnumOption(
                 .weight(1f),
             style = MaterialTheme.typography.subtitle1
         )
+    }
+}
+
+@Preview
+@Composable
+private fun EnumOptionSelectedPreview() {
+    AdaptThemeFade {
+        FilterCard {
+            EnumOption(
+                text = "Direction",
+                selected = LayoutDirection.Ltr,
+                toString = { direction -> direction.name },
+                onClick = {}
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun EnumOptionUnselectedPreview() {
+    AdaptThemeFade {
+        FilterCard {
+            EnumOption<LayoutDirection>(
+                text = "Direction",
+                selected = null,
+                toString = { direction -> direction.name },
+                onClick = {}
+            )
+        }
     }
 }

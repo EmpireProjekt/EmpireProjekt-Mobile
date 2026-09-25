@@ -10,7 +10,9 @@ import androidx.compose.material.primarySurface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 
 @Composable
 fun BSheetDragIndicator(modifier: Modifier = Modifier) {
@@ -21,4 +23,12 @@ fun BSheetDragIndicator(modifier: Modifier = Modifier) {
             .clip(RoundedCornerShape(100.dp))
             .background(MaterialTheme.colors.primarySurface)
     )
+}
+
+@Preview
+@Composable
+private fun BSheetDragIndicatorPreview() {
+    AdaptThemeFade {
+        BSheetDragIndicator()
+    }
 }

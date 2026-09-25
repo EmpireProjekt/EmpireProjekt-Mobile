@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.common_action_reload
@@ -23,6 +24,7 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_network
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_splash
 import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.LoadingContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
@@ -130,5 +132,37 @@ object PagingWidget {
         } else if (isFailure) {
             NetworkError(onReload)
         }
+    }
+}
+
+@Preview
+@Composable
+private fun PagingWidgetLastPagePreview() {
+    AdaptThemeFade {
+        PagingWidget.LastPage()
+    }
+}
+
+@Preview
+@Composable
+private fun PagingWidgetNoPagesPreview() {
+    AdaptThemeFade {
+        PagingWidget.NoPages()
+    }
+}
+
+@Preview
+@Composable
+private fun PagingWidgetNetworkErrorPreview() {
+    AdaptThemeFade {
+        PagingWidget.NetworkError(onReload = {})
+    }
+}
+
+@Preview
+@Composable
+private fun PagingWidgetLoadingPreview() {
+    AdaptThemeFade {
+        PagingWidget.Loading()
     }
 }

@@ -30,9 +30,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.ui.button.AstraIconButton
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 
 @Suppress("LongMethod")
 @Composable
@@ -114,5 +116,31 @@ fun SearchAppBar(
                 )
             )
         }
+    }
+}
+
+@Preview
+@Composable
+private fun SearchAppBarEmptyPreview() {
+    AdaptThemeFade {
+        SearchAppBar(
+            query = "",
+            onTextChange = {},
+            onCloseClick = {},
+            hint = "Search"
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun SearchAppBarFilledPreview() {
+    AdaptThemeFade {
+        SearchAppBar(
+            query = "RomaRoman",
+            onTextChange = {},
+            onCloseClick = {},
+            hint = "Search"
+        )
     }
 }
