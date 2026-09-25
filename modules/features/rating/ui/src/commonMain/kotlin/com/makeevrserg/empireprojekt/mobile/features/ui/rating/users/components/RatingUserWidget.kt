@@ -1,6 +1,5 @@
 package com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
@@ -20,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
@@ -30,6 +27,7 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_raised_hand
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_thumb_up_down
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerAvatar
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
@@ -56,8 +54,7 @@ internal fun RatingUserWidget(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(AppTheme.dimens.S))
-            .background(MaterialTheme.colors.primary)
+            .astraCard()
             .clickable { onClick.invoke() },
     ) {
         Column {

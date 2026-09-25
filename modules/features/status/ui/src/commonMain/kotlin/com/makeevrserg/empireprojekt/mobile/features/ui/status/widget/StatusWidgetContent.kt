@@ -6,7 +6,6 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.with
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -19,9 +18,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
@@ -46,8 +45,7 @@ internal fun StatusWidgetContent(
             .padding(vertical = AppTheme.dimens.S)
             .height(54.dp)
             .fillMaxWidth()
-            .clip(RoundedCornerShape(AppTheme.dimens.XS))
-            .background(MaterialTheme.colors.primary)
+            .astraCard(RoundedCornerShape(AppTheme.dimens.XS))
             .clickable(onClick = onClick),
         verticalAlignment = Alignment.CenterVertically
     ) {

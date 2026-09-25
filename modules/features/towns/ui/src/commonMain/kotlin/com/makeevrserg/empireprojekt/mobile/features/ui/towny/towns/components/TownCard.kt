@@ -17,6 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.PlayerAvatar
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
@@ -53,8 +54,7 @@ internal fun TownCard(
     val timeFormatter: TimeFormatter = JvmTimeFormatter()
     Column(
         modifier = Modifier
-            .clip(RoundedCornerShape(AppTheme.dimens.XS))
-            .background(MaterialTheme.colors.primary)
+            .astraCard(RoundedCornerShape(AppTheme.dimens.XS))
             .padding(
                 vertical = AppTheme.dimens.XS,
                 horizontal = AppTheme.dimens.S
