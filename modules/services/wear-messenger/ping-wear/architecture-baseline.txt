@@ -1,0 +1,1 @@
+UtilShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/wear/messenger/ping/util/PingWearMessage.kt	PingWearMessage

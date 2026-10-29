@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>DataClassDefaultValue:RatingUserComponent.kt:RatingUserComponent.Model$val isFailure: Boolean = false</ID>
+    <ID>DataClassDefaultValue:RatingUserComponent.kt:RatingUserComponent.Model$val isLastPage: Boolean = false</ID>
+    <ID>DataClassDefaultValue:RatingUserComponent.kt:RatingUserComponent.Model$val isLoading: Boolean = false</ID>
+    <ID>DataClassDefaultValue:RatingUserComponent.kt:RatingUserComponent.Model$val items: List&lt;RatingModel> = emptyList()</ID>
+    <ID>DataClassDefaultValue:RatingUsersComponent.kt:RatingUsersComponent.Model$val filter: RatingsFilterModel = RatingsFilterModel()</ID>
+    <ID>DataClassDefaultValue:RatingUsersComponent.kt:RatingUsersComponent.Model$val isFailure: Boolean = false</ID>
+    <ID>DataClassDefaultValue:RatingUsersComponent.kt:RatingUsersComponent.Model$val isLastPage: Boolean = false</ID>
+    <ID>DataClassDefaultValue:RatingUsersComponent.kt:RatingUsersComponent.Model$val isLoading: Boolean = false</ID>
+    <ID>DataClassDefaultValue:RatingUsersComponent.kt:RatingUsersComponent.Model$val items: List&lt;RatingUserModel> = emptyList()</ID>
+  </CurrentIssues>
+</SmellBaseline>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ArgumentPerLine:M3Switch.kt:M3Switch(checked = false, onCheckedChange = {}, enabled = true)</ID>
+    <ID>ArgumentPerLine:M3Switch.kt:M3Switch(checked = true, onCheckedChange = {}, enabled = false)</ID>
+    <ID>ArgumentPerLine:M3Switch.kt:M3Switch(checked = true, onCheckedChange = {}, enabled = true)</ID>
+    <ID>ArgumentPerLine:OptionHref.kt:joinToString(" ", "", "")</ID>
+    <ID>ArgumentPerLine:OptionRowTest.kt:OptionRowTest$OptionComposable(text = "Theme", end = {}, onClick = { clicks++ })</ID>
+    <ID>ArgumentPerLine:OptionRowTest.kt:OptionRowTest$OptionHref(text = "Votes", endText = "20m", onClick = { clicks++ })</ID>
+    <ID>ArgumentPerLine:OptionSection.kt:listOf("Github", "Discord", "Telegram")</ID>
+    <ID>ArgumentPerLine:OptionSectionTest.kt:OptionSectionTest$listOf("first", "second", "third")</ID>
+    <ID>ComposeConstantCase:OptionHref.kt:internal val LONG_TEXT = List(size = 10) { TEXT }.joinToString(" ", "", "")</ID>
+    <ID>ComposeConstantCase:OptionInfo.kt:private val END_TEXT_FONT_SIZE = 18.sp</ID>
+    <ID>ComposeConstantCase:OptionRow.kt:private val ICON_SIZE = 24.dp</ID>
+    <ID>ComposeConstantCase:OptionRow.kt:private val TITLE_FONT_SIZE = 18.sp</ID>
+    <ID>ComposeConstantCase:OptionSwitch.kt:private val INFO_SPACING = 6.dp</ID>
+    <ID>DeclarationOrder:OptionHref.kt:internal const val TEXT = "Some text"</ID>
+    <ID>DeclarationOrder:OptionHref.kt:internal val LONG_TEXT = List(size = 10) { TEXT }.joinToString(" ", "", "")</ID>
+    <ID>ExpressionBodyOnOneLine:OptionRowTest.kt:OptionRowTest$@Test fun GIVEN_clickable_option_WHEN_clicked_THEN_click_is_reported</ID>
+    <ID>ExpressionBodyOnOneLine:OptionRowTest.kt:OptionRowTest$@Test fun GIVEN_info_row_WHEN_shown_THEN_title_info_and_value_are_displayed</ID>
+    <ID>ExpressionBodyOnOneLine:OptionRowTest.kt:OptionRowTest$@Test fun GIVEN_link_row_WHEN_title_is_clicked_THEN_link_is_opened</ID>
+    <ID>ExpressionBodyOnOneLine:OptionRowTest.kt:OptionRowTest$@Test fun GIVEN_row_without_info_WHEN_shown_THEN_only_the_title_is_displayed</ID>
+    <ID>ExpressionBodyOnOneLine:OptionSectionTest.kt:OptionSectionTest$@Test fun GIVEN_default_option_padding_WHEN_applied_to_a_row_THEN_row_content_is_inset_on_every_side</ID>
+    <ID>ExpressionBodyOnOneLine:OptionSectionTest.kt:OptionSectionTest$@Test fun GIVEN_several_items_WHEN_section_is_shown_THEN_rows_are_divided_by_one_pixel_separators</ID>
+    <ID>ExpressionBodyOnOneLine:OptionSectionTest.kt:OptionSectionTest$@Test fun GIVEN_single_item_WHEN_section_is_shown_THEN_no_separator_is_added</ID>
+    <ID>ExpressionBodyOnOneLine:OptionSwitchTest.kt:OptionSwitchTest$@Test fun GIVEN_checked_switch_WHEN_row_is_clicked_THEN_unchecked_state_is_requested</ID>
+    <ID>ExpressionBodyOnOneLine:OptionSwitchTest.kt:OptionSwitchTest$@Test fun GIVEN_disabled_switch_WHEN_row_is_clicked_THEN_nothing_is_requested</ID>
+    <ID>ExpressionBodyOnOneLine:OptionSwitchTest.kt:OptionSwitchTest$@Test fun GIVEN_unchecked_switch_WHEN_row_is_clicked_THEN_checked_state_is_requested</ID>
+    <ID>ImplicitItParameter:OptionHref.kt:it</ID>
+    <ID>TrivialLambdaReference:OptionComposable.kt:{ end.invoke() }</ID>
+  </CurrentIssues>
+</SmellBaseline>

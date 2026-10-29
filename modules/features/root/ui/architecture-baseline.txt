@@ -1,0 +1,1 @@
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/root/ApplicationContent.kt	ApplicationContent

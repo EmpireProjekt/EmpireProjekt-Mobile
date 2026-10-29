@@ -8,6 +8,12 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.namespace")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unitKind.set("library")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.ui.splash")
 }
 
 kotlin {

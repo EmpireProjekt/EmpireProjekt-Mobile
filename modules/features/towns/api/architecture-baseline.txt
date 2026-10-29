@@ -1,0 +1,2 @@
+ApiUnitDependency	build.gradle.kts	:modules:services:data:empireapi
+UnitDependency	build.gradle.kts	:modules:services:data:empireapi

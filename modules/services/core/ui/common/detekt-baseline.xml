@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ActualFileSuffix:MokoResExt.kt:@Composable actual fun StringResource.asComposableString: String</ID>
+    <ID>ActualFileSuffix:WindowInsets.kt:actual fun Modifier.navBarsPadding: Modifier</ID>
+    <ID>ArgumentPerLine:AstraLoading.kt:BoxItem(r, 0, AppTheme.astraColors.astraLogo.astraBlue)</ID>
+    <ID>ArgumentPerLine:AstraLoading.kt:BoxItem(r, 1, AppTheme.astraColors.astraLogo.astraOrange)</ID>
+    <ID>ArgumentPerLine:AstraLoading.kt:BoxItem(r, 2, AppTheme.astraColors.astraLogo.astraYellow)</ID>
+    <ID>ArgumentPerLine:AstraLoading.kt:BoxItem(r, 6, AppTheme.astraColors.astraLogo.astraRed)</ID>
+    <ID>ArgumentPerLine:AstraLoading.kt:BoxItem(r, 7, AppTheme.astraColors.astraLogo.astraRed)</ID>
+    <ID>ArgumentPerLine:AstraWebViewTest.kt:AstraWebViewTest$listOf(true, false, true)</ID>
+    <ID>ArgumentPerLine:PlayerNameRowTest.kt:PlayerNameRowTest$PlayerNameRow(uuid = "uuid", name = "RomaRoman", spacing = 16.dp)</ID>
+    <ID>ComposableFileType:DecomposeScreen.kt:DecomposeScreen&lt;T : Any></ID>
+    <ID>ComposableFileType:PagingWidget.kt:PagingWidget</ID>
+    <ID>ComposeConstantCase:PlayerAvatar.kt:private val AVATAR_SIZE = 32.dp</ID>
+    <ID>DeclarationOrder:LoadingWebViewClient.kt:LoadingWebViewClient$override fun onPageFinished</ID>
+    <ID>DeclarationOrder:LoadingWebViewClient.kt:LoadingWebViewClient$override fun shouldOverrideUrlLoading: Boolean</ID>
+    <ID>ExplicitInvoke:PagingLazyColumn.kt:items(items) { value -> itemContent.invoke(this, value) }</ID>
+    <ID>ExplicitInvoke:PagingLazyColumn.kt:onLoadNextPage()</ID>
+    <ID>ExplicitInvoke:PagingWidget.kt:PagingWidget$item()</ID>
+    <ID>ExplicitInvoke:SearchAppBar.kt:actions()</ID>
+    <ID>ExpressionBodyOnOneLine:AstraCardTest.kt:AstraCardTest$@Test fun GIVEN_card_WHEN_drawn_THEN_it_is_filled_with_primary_and_its_corners_are_rounded</ID>
+    <ID>ExpressionBodyOnOneLine:AstraIconButtonTest.kt:AstraIconButtonTest$@Test fun GIVEN_back_button_WHEN_clicked_THEN_back_is_reported</ID>
+    <ID>ExpressionBodyOnOneLine:AstraIconButtonTest.kt:AstraIconButtonTest$@Test fun GIVEN_icon_button_WHEN_clicked_THEN_click_is_reported</ID>
+    <ID>ExpressionBodyOnOneLine:AstraTextTest.kt:AstraTextTest$@Test fun GIVEN_styled_text_WHEN_shown_THEN_it_keeps_the_style_and_uses_the_design_system_font</ID>
+    <ID>ExpressionBodyOnOneLine:AstraTopBarScreenTest.kt:AstraTopBarScreenTest$@Test fun GIVEN_screen_WHEN_shown_THEN_content_is_placed_below_the_titled_bar</ID>
+    <ID>ExpressionBodyOnOneLine:AstraWebViewTest.kt:AstraWebViewTest$@Test fun GIVEN_url_WHEN_web_view_is_shown_THEN_created_web_view_loads_it</ID>
+    <ID>ExpressionBodyOnOneLine:LoadingContentTest.kt:LoadingContentTest$@Test fun GIVEN_area_WHEN_loading_is_shown_THEN_it_takes_the_given_area</ID>
+    <ID>ExpressionBodyOnOneLine:PagingLazyColumnTest.kt:PagingLazyColumnTest$@Test fun GIVEN_header_and_items_WHEN_list_is_shown_THEN_both_are_displayed</ID>
+    <ID>ExpressionBodyOnOneLine:PagingLazyColumnTest.kt:PagingLazyColumnTest$@Test fun GIVEN_loading_page_WHEN_list_is_shown_THEN_a_page_of_shimmer_placeholders_is_displayed</ID>
+    <ID>ExpressionBodyOnOneLine:PagingLazyColumnTest.kt:PagingLazyColumnTest$@Test fun GIVEN_short_list_WHEN_its_end_is_visible_THEN_next_page_is_requested</ID>
+    <ID>ExpressionBodyOnOneLine:PlayerAvatarTest.kt:PlayerAvatarTest$@Test fun GIVEN_player_WHEN_avatar_is_shown_THEN_it_has_the_list_avatar_size</ID>
+    <ID>ExpressionBodyOnOneLine:PlayerNameRowTest.kt:PlayerNameRowTest$@Test fun GIVEN_custom_spacing_WHEN_row_is_shown_THEN_name_moves_by_that_spacing</ID>
+    <ID>ExpressionBodyOnOneLine:PlayerNameRowTest.kt:PlayerNameRowTest$@Test fun GIVEN_player_WHEN_row_is_shown_THEN_name_follows_the_avatar_after_default_spacing</ID>
+    <ID>ExpressionBodyOnOneLine:ShimmerCardTest.kt:ShimmerCardTest$@Test fun GIVEN_card_WHEN_lines_are_placed_inside_THEN_they_are_inset_and_spaced</ID>
+    <ID>ExpressionBodyOnOneLine:ShimmerCardTest.kt:ShimmerCardTest$@Test fun GIVEN_item_WHEN_shimmer_loader_is_shown_THEN_a_full_page_of_spaced_placeholders_is_displayed</ID>
+    <ID>ExpressionBodyOnOneLine:ShimmerCardTest.kt:ShimmerCardTest$@Test fun GIVEN_width_fraction_WHEN_line_is_shown_THEN_it_takes_that_share_of_the_width</ID>
+    <ID>ExpressionBodyOnOneLine:SortFilterHeaderTest.kt:SortFilterHeaderTest$@Test fun GIVEN_filter_card_WHEN_sort_header_is_shown_THEN_title_and_multiple_sort_hint_are_displayed</ID>
+    <ID>ImplicitItParameter:AstraLoading.kt:it</ID>
+    <ID>ImplicitItParameter:EnumOption.kt:it</ID>
+    <ID>ImplicitItParameter:LazyListStateExt.kt:it</ID>
+    <ID>LambdaSingleIfGuard:AstraWebView.kt:if (isPageLoading) { LoadingContent(Modifier.fillMaxSize()) }</ID>
+    <ID>LambdaSingleIfGuard:LazyListStateExt.kt:if (it) block.invoke()</ID>
+    <ID>LambdaSingleIfGuard:PagingWidget.kt:PagingWidget$if (isLoading) { loader.invoke() }</ID>
+    <ID>LambdaSingleIfGuard:SearchAppBar.kt:if (!isInspectionMode) { focusRequester.requestFocus() }</ID>
+    <ID>NamespaceObject:PagingWidget.kt:PagingWidget</ID>
+    <ID>OneTypeFamilyPerFile:PagingWidget.kt:@Preview @Composable private fun PagingWidgetLastPagePreview</ID>
+    <ID>OneTypeFamilyPerFile:PagingWidget.kt:@Preview @Composable private fun PagingWidgetLoadingPreview</ID>
+    <ID>OneTypeFamilyPerFile:PagingWidget.kt:@Preview @Composable private fun PagingWidgetNetworkErrorPreview</ID>
+    <ID>OneTypeFamilyPerFile:PagingWidget.kt:@Preview @Composable private fun PagingWidgetNoPagesPreview</ID>
+    <ID>TrivialLambdaReference:EnumOption.kt:{ direction -> direction.name }</ID>
+  </CurrentIssues>
+</SmellBaseline>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ArgumentPerLine:TownsComposableScreen.kt:previewTownModel(name = "Moscow", mayor = "cinnamonrein", nation = "USSR", residentsCount = 42)</ID>
+    <ID>ArgumentPerLine:TownsComposableScreen.kt:previewTownModel(name = "Rostov", mayor = "RomaRoman", nation = "NCR", residentsCount = 10)</ID>
+    <ID>ComposeConstantCase:TownsComposableScreen.kt:private val previewTownItems: List&lt;TownModel> = listOf( previewTownModel(name = "Rostov", mayor = "RomaRoman", nation = "NCR", residentsCount = 10), previewTownModel(name = "Moscow", mayor = "cinnamonrein", nation = "USSR", residentsCount = 42) )</ID>
+    <ID>DeclarationOrder:TownsComposableScreen.kt:private val previewTownItems: List&lt;TownModel> = listOf( previewTownModel(name = "Rostov", mayor = "RomaRoman", nation = "NCR", residentsCount = 10), previewTownModel(name = "Moscow", mayor = "cinnamonrein", nation = "USSR", residentsCount = 42) )</ID>
+    <ID>ExpressionBodyOnOneLine:TownsComposableScreen.kt:@Suppress("MagicNumber") private fun previewTownModel: TownModel</ID>
+    <ID>ImplicitItParameter:TownFilterCard.kt:it</ID>
+  </CurrentIssues>
+</SmellBaseline>

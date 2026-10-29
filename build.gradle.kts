@@ -15,7 +15,7 @@ plugins {
     alias(libs.plugins.klibs.gradle.android.java) apply false
     alias(libs.plugins.klibs.gradle.android.namespace) apply false
     alias(libs.plugins.klibs.gradle.android.sdk) apply false
-    alias(libs.plugins.klibs.gradle.detekt) apply true
+    alias(libs.plugins.klibs.rules)
     alias(libs.plugins.klibs.gradle.dokka) apply false
     alias(libs.plugins.klibs.gradle.java.version) apply false
     alias(libs.plugins.klibs.gradle.rootinfo) apply false

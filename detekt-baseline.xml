@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ActualFileSuffix:LinkBrowserFactory.kt:LinkBrowserFactory</ID>
+    <ID>ActualFileSuffix:MokoResExt.kt:@Composable actual fun StringResource.asComposableString: String</ID>
+    <ID>ActualFileSuffix:SettingsFactory.kt:SettingsFactory</ID>
+    <ID>ActualFileSuffix:SettingsFactory.kt:SettingsFactory : Factory</ID>
+    <ID>ActualFileSuffix:TransparentBars.kt:@Composable internal actual fun TransparentBars</ID>
+    <ID>ActualFileSuffix:WindowInsets.kt:actual fun Modifier.navBarsPadding: Modifier</ID>
+    <ID>ArgumentPerLine:AstraLoading.kt:BoxItem(r, 0, AppTheme.astraColors.astraLogo.astraBlue)</ID>
+    <ID>ArgumentPerLine:AstraLoading.kt:BoxItem(r, 1, AppTheme.astraColors.astraLogo.astraOrange)</ID>
+    <ID>ArgumentPerLine:AstraLoading.kt:BoxItem(r, 2, AppTheme.astraColors.astraLogo.astraYellow)</ID>
+    <ID>ArgumentPerLine:AstraLoading.kt:BoxItem(r, 6, AppTheme.astraColors.astraLogo.astraRed)</ID>
+    <ID>ArgumentPerLine:AstraLoading.kt:BoxItem(r, 7, AppTheme.astraColors.astraLogo.astraRed)</ID>
+    <ID>ArgumentPerLine:AstraWebViewTest.kt:AstraWebViewTest$listOf(true, false, true)</ID>
+    <ID>ArgumentPerLine:DefaultWearStatusComponent.kt:DefaultWearStatusComponent$stateIn(coroutineScope, SharingStarted.Eagerly, WearStatusComponent.Model())</ID>
+    <ID>ArgumentPerLine:GradientProgressIndicator.kt:listOf(Color.Red, Color.Yellow, Color.Green)</ID>
+    <ID>ArgumentPerLine:M3Switch.kt:M3Switch(checked = false, onCheckedChange = {}, enabled = true)</ID>
+    <ID>ArgumentPerLine:M3Switch.kt:M3Switch(checked = true, onCheckedChange = {}, enabled = false)</ID>
+    <ID>ArgumentPerLine:M3Switch.kt:M3Switch(checked = true, onCheckedChange = {}, enabled = true)</ID>
+    <ID>ArgumentPerLine:ModalBottomSheetSlot.kt:LaunchedEffect(instance, modalSheetState, childContent.value) { getLogicEventFlow( instance = instance, modalSheetState = modalSheetState ).onEach { logicEvent -> handleLogicEvent( logicEvent = logicEvent, modalSheetState = modalSheetState, childContent = childContent, content = content ) }.collect() }</ID>
+    <ID>ArgumentPerLine:OptionHref.kt:joinToString(" ", "", "")</ID>
+    <ID>ArgumentPerLine:OptionRowTest.kt:OptionRowTest$OptionComposable(text = "Theme", end = {}, onClick = { clicks++ })</ID>
+    <ID>ArgumentPerLine:OptionRowTest.kt:OptionRowTest$OptionHref(text = "Votes", endText = "20m", onClick = { clicks++ })</ID>
+    <ID>ArgumentPerLine:OptionSection.kt:listOf("Github", "Discord", "Telegram")</ID>
+    <ID>ArgumentPerLine:OptionSectionTest.kt:OptionSectionTest$listOf("first", "second", "third")</ID>
+    <ID>ArgumentPerLine:PlayerNameRowTest.kt:PlayerNameRowTest$PlayerNameRow(uuid = "uuid", name = "RomaRoman", spacing = 16.dp)</ID>
+    <ID>ArgumentPerLine:StatusNotificationFactory.kt:StatusNotificationFactory$addAction(R.drawable.img_splash, "Stop", intentStop)</ID>
+    <ID>ArgumentPerLine:StatusService.kt:StatusService$onStartCommand(intent, flags, startId)</ID>
+    <ID>ArgumentPerLine:TownsComposableScreen.kt:previewTownModel(name = "Moscow", mayor = "cinnamonrein", nation = "USSR", residentsCount = 42)</ID>
+    <ID>ArgumentPerLine:TownsComposableScreen.kt:previewTownModel(name = "Rostov", mayor = "RomaRoman", nation = "NCR", residentsCount = 10)</ID>
+    <ID>ArgumentPerLine:TransparentBars.kt:LaunchedEffect(view, window, isDarkTheme) { if (window == null) return@LaunchedEffect val controller = WindowInsetsControllerCompat(window, view) controller.isAppearanceLightStatusBars = !isDarkTheme controller.isAppearanceLightNavigationBars = !isDarkTheme }</ID>
+    <ID>BooleanOperatorWrapping:ModalBottomSheetSlot.kt:&amp;&amp;</ID>
+    <ID>CalleeBeforeCaller:CheckStatusWork.kt:CheckStatusWork$override suspend fun doWork: Result</ID>
+    <ID>CalleeBeforeCaller:DefaultWearStatusComponent.kt:DefaultWearStatusComponent$private fun toModel: WearStatusComponent.Model</ID>
+    <ID>CalleeBeforeCaller:PingListenerService.kt:PingListenerService$override fun onMessageReceived</ID>
+    <ID>CalleeBeforeCaller:PreviewThemeSwitcherComponent.kt:PreviewThemeSwitcherComponent$override fun selectDarkTheme</ID>
+    <ID>CalleeBeforeCaller:PreviewThemeSwitcherComponent.kt:PreviewThemeSwitcherComponent$override fun selectLightTheme</ID>
+    <ID>CalleeBeforeCaller:StatusListenerService.kt:StatusListenerService$override fun onMessageReceived</ID>
+    <ID>CalleeBeforeCaller:StatusService.kt:StatusService$override fun onStartCommand: Int</ID>
+    <ID>CalleeBeforeCaller:SwipeToDismissBox.kt:@Composable fun &lt;C : Any, T : Any> SwipeToDismissBox</ID>
+    <ID>CalleeBeforeCaller:SwipeToDismissBox.kt:private fun ChildStack&lt;*, *>.getConfigurations: Set&lt;String></ID>
+    <ID>CalleeBeforeCaller:UrlStatusBootstrapper.kt:UrlStatusBootstrapper$override fun invoke</ID>
+    <ID>CalleeBeforeCaller:UrlStatusExecutor.kt:UrlStatusExecutor$override fun executeAction</ID>
+    <ID>CalleeBeforeCaller:UrlStatusExecutor.kt:UrlStatusExecutor$override fun executeIntent</ID>
+    <ID>ComposableFileType:DecomposeScreen.kt:DecomposeScreen&lt;T : Any></ID>
+    <ID>ComposableFileType:ModalBottomSheetSlot.kt:LogicEvent&lt;out C></ID>
+    <ID>ComposableFileType:PagingWidget.kt:PagingWidget</ID>
+    <ID>ComposableFileType:StatusComposableScreen.kt:PreviewUrlStatusComponent : UrlStatusComponent</ID>
+    <ID>ComposableFileType:SwipeToDismissBox.kt:Keys</ID>
+    <ID>ComposableFileType:ThemeAdapt.kt:ComposeTheme</ID>
+    <ID>ComposableWhenBranch:AndroidWebView.kt:WebViewDecomposeComponent.Event.BackPressed -> { if (webView?.canGoBack() == false) { val action = WebViewDecomposeComponent.Action.CantGoBack webViewDecomposeComponent.onAction(action) } else { webView?.goBack() } }</ID>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:DefaultRootScreenComponent.Configuration.Votes -> VotesScreenComponent( onPop = rootComponent.rootScreenComponent::pop, onClick = { url -> rootComponent.rootScreenComponent.push(RootRouter.Configuration.WebView(url)) } )</ID>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:is DefaultRootScreenComponent.Configuration.Pager -> PagerScreenComponent( pagerComponent = screen.pagerComponent, menuScreen = { modifier, child -> InfoScreen( onLinkClick = linkBrowser::openInBrowser, onThemeToggle = onThemeToggle, onTownsClick = { rootComponent.rootScreenComponent.push(RootRouter.Configuration.Towns) }, onRatingsClick = { rootComponent.rootScreenComponent.push(RootRouter.Configuration.RatingUsers) }, onVotesClick = { rootComponent.rootScreenComponent.push(RootRouter.Configuration.Votes) }, onWikiClick = { rootComponent.rootScreenComponent.push( RootRouter.Configuration.WebView("https://astra-interactive.github.io/EmpireNetwork/") ) } ) }, mapScreen = { modifier, child -> AndroidMapView() } )</ID>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:is DefaultRootScreenComponent.Configuration.RatingUser -> RatingUserScreenComponent( ratingUserComponent = screen.ratingUserComponent, popComponent = rootComponent.rootScreenComponent )</ID>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:is DefaultRootScreenComponent.Configuration.RatingUsers -> RatingUsersScreenComponent( popComponent = rootComponent.rootScreenComponent, ratingUsersComponent = screen.ratingUsersComponent )</ID>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:is DefaultRootScreenComponent.Configuration.Splash -> SplashScreenComponent( rootRouter = rootComponent.rootScreenComponent, splashComponent = screen.splashComponent )</ID>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:is DefaultRootScreenComponent.Configuration.Towns -> TownsScreenComponent( popComponent = rootComponent.rootScreenComponent, townsComponent = screen.townsComponent )</ID>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:is DefaultRootScreenComponent.Configuration.WebView -> AndroidWebView( webViewDecomposeComponent = screen.webViewDecomposeComponent )</ID>
+    <ID>ComposableWhenBranch:PagerComposableScreen.kt:is PagerComponent.Child.Map -> mapScreen.Render( child = instance, modifier = Modifier )</ID>
+    <ID>ComposableWhenBranch:PagerComposableScreen.kt:is PagerComponent.Child.Menu -> menuScreen.Render( child = instance, modifier = Modifier )</ID>
+    <ID>ComposableWhenBranch:PingComposableScreen.kt:is PingComponent.Model.NoConnection -> { Icon( painter = MR.images.ic_network_check.asPainter(), contentDescription = null, tint = MaterialTheme.colors.error ) Text( text = model.updatedAt, style = MaterialTheme.typography.caption, color = MaterialTheme.colors.onPrimary, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center ) }</ID>
+    <ID>ComposableWhenBranch:PingComposableScreen.kt:is PingComponent.Model.Success -> { Icon( painter = MR.images.ic_network_wifi.asPainter(), contentDescription = null, tint = MaterialTheme.colors.secondaryVariant ) Text( text = model.updatedAt, style = MaterialTheme.typography.caption, color = MaterialTheme.colors.onPrimary, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center ) }</ID>
+    <ID>ComposableWhenBranch:RatingUserWidget.kt:else -> { Icon( imageVector = Icons.Filled.ThumbDown, contentDescription = null, tint = AppTheme.astraColors.action.colorNegative, modifier = Modifier.size(AppTheme.dimens.M) ) }</ID>
+    <ID>ComposableWhenBranch:RatingUserWidget.kt:rating > 0 -> { Icon( imageVector = Icons.Filled.ThumbUp, contentDescription = null, tint = AppTheme.astraColors.action.colorPositive, modifier = Modifier.size(AppTheme.dimens.M) ) }</ID>
+    <ID>ComposableWhenBranch:RootScreen.kt:is RootComponent.Child.Main -> MainScreen( themeSwitcherComponent = instance.themeSwitcherComponent, onOpenStatusesClick = rootComponent::openStatuses, onOpenPingClick = rootComponent::openPing )</ID>
+    <ID>ComposableWhenBranch:RootScreen.kt:is RootComponent.Child.Ping -> PingScreen( pingComponent = instance.pingComponent )</ID>
+    <ID>ComposableWhenBranch:RootScreen.kt:is RootComponent.Child.Statuses -> StatusesScreen( wearStatusComponent = instance.wearStatusComponent )</ID>
+    <ID>ComposableWhenBranch:SideColorStatusWidget.kt:status == UrlStatusComponent.LoadingStatus.ERROR -> { Box( modifier = Modifier .fillMaxHeight() .width(AppTheme.dimens.XXS) .background(AppTheme.astraColors.action.colorNegative) ) }</ID>
+    <ID>ComposableWhenBranch:SideColorStatusWidget.kt:status == UrlStatusComponent.LoadingStatus.LOADING || isLoading -> { LinearProgressIndicator( modifier = Modifier .fillMaxHeight() .width(AppTheme.dimens.XXS), color = AppTheme.astraColors.astraLogo.astraOrange, backgroundColor = AppTheme.astraColors.astraLogo.astraYellow ) }</ID>
+    <ID>ComposableWhenBranch:SideColorStatusWidget.kt:status == UrlStatusComponent.LoadingStatus.SUCCESS -> { Box( modifier = Modifier .fillMaxHeight() .width(AppTheme.dimens.XXS) .background(AppTheme.astraColors.action.colorPositive) ) }</ID>
+    <ID>ComposableWhenBranch:SplashScreen.kt:is SplashComponent.Label.InitialLaunch -> { rootRouter.replaceCurrent(RootRouter.Configuration.Pager) }</ID>
+    <ID>ComposableWhenBranch:ThemeAdapt.kt:ComposeTheme.DARK -> AppTheme( astraColors = AstraColors.Dark )</ID>
+    <ID>ComposableWhenBranch:ThemeAdapt.kt:ComposeTheme.LIGHT -> AppTheme( astraColors = AstraColors.Light )</ID>
+    <ID>ComposeConstantCase:ModalBottomSheetSlot.kt:private val emptyContent: @Composable ModalBottomSheetScope.() -> Unit = { BModalBottomSheetContent { Box(Modifier) } }</ID>
+    <ID>ComposeConstantCase:OptionHref.kt:internal val LONG_TEXT = List(size = 10) { TEXT }.joinToString(" ", "", "")</ID>
+    <ID>ComposeConstantCase:OptionInfo.kt:private val END_TEXT_FONT_SIZE = 18.sp</ID>
+    <ID>ComposeConstantCase:OptionRow.kt:private val ICON_SIZE = 24.dp</ID>
+    <ID>ComposeConstantCase:OptionRow.kt:private val TITLE_FONT_SIZE = 18.sp</ID>
+    <ID>ComposeConstantCase:OptionSwitch.kt:private val INFO_SPACING = 6.dp</ID>
+    <ID>ComposeConstantCase:PlayerAvatar.kt:private val AVATAR_SIZE = 32.dp</ID>
+    <ID>ComposeConstantCase:TownsComposableScreen.kt:private val previewTownItems: List&lt;TownModel> = listOf( previewTownModel(name = "Rostov", mayor = "RomaRoman", nation = "NCR", residentsCount = 10), previewTownModel(name = "Moscow", mayor = "cinnamonrein", nation = "USSR", residentsCount = 42) )</ID>
+    <ID>ConstantOutsideCompanion:LastBottomItemRepository.kt:LastBottomItemRepositoryImpl$@Suppress("VariableNaming") private val KEY = "LAST_BOTTOM"</ID>
+    <ID>ConstantOutsideCompanion:ThemeSwitcherRepositoryImpl.kt:ThemeSwitcherRepositoryImpl$private val key = "THEME"</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val L: Dp = 32.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val M: Dp = 21.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val S: Dp = 16.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val SXL: Dp = 40.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val XL: Dp = 48.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val XS: Dp = 8.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val XXL: Dp = 64.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val XXS: Dp = 4.dp</ID>
+    <ID>DataClassDefaultValue:Material2Theme.kt:Material2Theme$val shapes: Shapes = Shapes()</ID>
+    <ID>DataClassDefaultValue:Material2Theme.kt:Material2Theme$val typography: Typography = Typography()</ID>
+    <ID>DataClassDefaultValue:Material3Theme.kt:Material3Theme$val shapes: Shapes = Shapes()</ID>
+    <ID>DataClassDefaultValue:Material3Theme.kt:Material3Theme$val typography: Typography = Typography()</ID>
+    <ID>DataClassDefaultValue:PingComponent.kt:PingComponent.Model.NoConnection$val updatedAt: String = "..."</ID>
+    <ID>DataClassDefaultValue:PingComponent.kt:PingComponent.Model.Success$val updatedAt: String = "..."</ID>
+    <ID>DataClassDefaultValue:RatingUserComponent.kt:RatingUserComponent.Model$val isFailure: Boolean = false</ID>
+    <ID>DataClassDefaultValue:RatingUserComponent.kt:RatingUserComponent.Model$val isLastPage: Boolean = false</ID>
+    <ID>DataClassDefaultValue:RatingUserComponent.kt:RatingUserComponent.Model$val isLoading: Boolean = false</ID>
+    <ID>DataClassDefaultValue:RatingUserComponent.kt:RatingUserComponent.Model$val items: List&lt;RatingModel> = emptyList()</ID>
+    <ID>DataClassDefaultValue:RatingUsersComponent.kt:RatingUsersComponent.Model$val filter: RatingsFilterModel = RatingsFilterModel()</ID>
+    <ID>DataClassDefaultValue:RatingUsersComponent.kt:RatingUsersComponent.Model$val isFailure: Boolean = false</ID>
+    <ID>DataClassDefaultValue:RatingUsersComponent.kt:RatingUsersComponent.Model$val isLastPage: Boolean = false</ID>
+    <ID>DataClassDefaultValue:RatingUsersComponent.kt:RatingUsersComponent.Model$val isLoading: Boolean = false</ID>
+    <ID>DataClassDefaultValue:RatingUsersComponent.kt:RatingUsersComponent.Model$val items: List&lt;RatingUserModel> = emptyList()</ID>
+    <ID>DataClassDefaultValue:TownsComponent.kt:TownsComponent.Model$val isFailure: Boolean = false</ID>
+    <ID>DataClassDefaultValue:TownsComponent.kt:TownsComponent.Model$val isLastPage: Boolean = false</ID>
+    <ID>DataClassDefaultValue:TownsComponent.kt:TownsComponent.Model$val isLoading: Boolean = false</ID>
+    <ID>DataClassDefaultValue:TownsComponent.kt:TownsComponent.Model$val items: List&lt;TownModel> = emptyList()</ID>
+    <ID>DataClassDefaultValue:TownyPageContext.kt:TownyPageContext$val page: Int = 0</ID>
+    <ID>DataClassDefaultValue:WearStatusComponent.kt:WearStatusComponent.Model$val failureCount: Int = 0</ID>
+    <ID>DataClassDefaultValue:WearStatusComponent.kt:WearStatusComponent.Model$val loadingCount: Int = 0</ID>
+    <ID>DataClassDefaultValue:WearStatusComponent.kt:WearStatusComponent.Model$val successCount: Int = 0</ID>
+    <ID>DataClassDefaultValue:WearStatusComponent.kt:WearStatusComponent.Model$val updatedAt: String = "..."</ID>
+    <ID>DeclarationOrder:DefaultPingComponent.kt:DefaultPingComponent$override val model: StateFlow&lt;PingComponent.Model> = pingFeature.model.mapStateFlow { when (it) { is PingState.Connected -> PingComponent.Model.Success( updatedAt = getTimeStamp(it.timestamp) ) is PingState.NotConnected -> PingComponent.Model.NoConnection( updatedAt = getTimeStamp(it.timestamp) ) } }</ID>
+    <ID>DeclarationOrder:LoadingWebViewClient.kt:LoadingWebViewClient$override fun onPageFinished</ID>
+    <ID>DeclarationOrder:LoadingWebViewClient.kt:LoadingWebViewClient$override fun shouldOverrideUrlLoading: Boolean</ID>
+    <ID>DeclarationOrder:OptionHref.kt:internal const val TEXT = "Some text"</ID>
+    <ID>DeclarationOrder:OptionHref.kt:internal val LONG_TEXT = List(size = 10) { TEXT }.joinToString(" ", "", "")</ID>
+    <ID>DeclarationOrder:RatingUsersFeature.kt:RatingUsersFeature$val state = pagingCollector.state</ID>
+    <ID>DeclarationOrder:SplashComponentTest.kt:SplashComponentTest$private val componentContext = DefaultComponentContext(LifecycleRegistry())</ID>
+    <ID>DeclarationOrder:StatusService.kt:StatusService$private val dispatcher = Executors.newFixedThreadPool(2).asCoroutineDispatcher()</ID>
+    <ID>DeclarationOrder:ThemeAdapt.kt:@Suppress("ComposableNaming", "CompositionLocalAllowlist") internal val LocalAppTheme: ProvidableCompositionLocal&lt;AppTheme> = compositionLocalOf { AppTheme() }</ID>
+    <ID>DeclarationOrder:TownsComposableScreen.kt:private val previewTownItems: List&lt;TownModel> = listOf( previewTownModel(name = "Rostov", mayor = "RomaRoman", nation = "NCR", residentsCount = 10), previewTownModel(name = "Moscow", mayor = "cinnamonrein", nation = "USSR", residentsCount = 42) )</ID>
+    <ID>DeclarationOrder:TownsFeature.kt:TownsFeature$val model = townsRepository.pagingCollector.state.mapStateFlow { TownsComponent.Model( items = it.items, isLoading = it.pageResult.isLoading, isFailure = it.pageResult.isFailure, isLastPage = it.pageResult.isLastPage, filter = it.pageContext.filter ) }</ID>
+    <ID>ExplicitInvoke:AnyStateFlow.kt:AnyStateFlow$onEach(it)</ID>
+    <ID>ExplicitInvoke:DefaultRootComponent.kt:DefaultRootComponent$childStack( source = navigation, initialConfiguration = Configuration.Main, serializer = wearRootModule.coreModule.jsonConfiguration.serializersModule.serializer(), handleBackButton = true, childFactory = { config, childContext -> when (config) { Configuration.Main -> RootComponent.Child.Main( themeSwitcherComponent = wearRootModule.themeSwitcherModule.themeSwitcherComponent ) Configuration.Ping -> RootComponent.Child.Ping( pingComponent = wearRootModule.pingModule.createPingComponent(childContext) ) Configuration.Statuses -> RootComponent.Child.Statuses( wearStatusComponent = wearRootModule.wearStatusComponent ) } } )</ID>
+    <ID>ExplicitInvoke:DefaultRootScreenComponent.kt:DefaultRootScreenComponent$childStack( source = navigation, initialConfiguration = RootRouter.Configuration.Splash, handleBackButton = true, serializer = rootModule.coreModule.jsonConfiguration.serializersModule.serializer(), childFactory = { config, context -> RootScreenComponentChildFactory( config = config, childContext = context, rootModule = rootModule, instance = this, ratingUsersModule = rootModule.ratingUsersModule, townsModule = rootModule.townsModule, onRootNavigation = { configuration -> push(configuration) }, onPop = { pop() } ).create() } )</ID>
+    <ID>ExplicitInvoke:ModalBottomSheetSlot.kt:content(logicEvent.instance)</ID>
+    <ID>ExplicitInvoke:ModalBottomSheetSlot.kt:onDismiss()</ID>
+    <ID>ExplicitInvoke:PagingLazyColumn.kt:items(items) { value -> itemContent.invoke(this, value) }</ID>
+    <ID>ExplicitInvoke:PagingLazyColumn.kt:onLoadNextPage()</ID>
+    <ID>ExplicitInvoke:PagingWidget.kt:PagingWidget$item()</ID>
+    <ID>ExplicitInvoke:RatingUsersComposableScreen.kt:onUserClick(ratingUserModel)</ID>
+    <ID>ExplicitInvoke:SearchAppBar.kt:actions()</ID>
+    <ID>ExplicitInvoke:SwipeToDismissBox.kt:content(child)</ID>
+    <ID>ExpressionBodyOnOneLine:AstraCardTest.kt:AstraCardTest$@Test fun GIVEN_card_WHEN_drawn_THEN_it_is_filled_with_primary_and_its_corners_are_rounded</ID>
+    <ID>ExpressionBodyOnOneLine:AstraIconButtonTest.kt:AstraIconButtonTest$@Test fun GIVEN_back_button_WHEN_clicked_THEN_back_is_reported</ID>
+    <ID>ExpressionBodyOnOneLine:AstraIconButtonTest.kt:AstraIconButtonTest$@Test fun GIVEN_icon_button_WHEN_clicked_THEN_click_is_reported</ID>
+    <ID>ExpressionBodyOnOneLine:AstraTextTest.kt:AstraTextTest$@Test fun GIVEN_styled_text_WHEN_shown_THEN_it_keeps_the_style_and_uses_the_design_system_font</ID>
+    <ID>ExpressionBodyOnOneLine:AstraTopBarScreenTest.kt:AstraTopBarScreenTest$@Test fun GIVEN_screen_WHEN_shown_THEN_content_is_placed_below_the_titled_bar</ID>
+    <ID>ExpressionBodyOnOneLine:AstraWebViewTest.kt:AstraWebViewTest$@Test fun GIVEN_url_WHEN_web_view_is_shown_THEN_created_web_view_loads_it</ID>
+    <ID>ExpressionBodyOnOneLine:CheckStatusWork.kt:CheckStatusWork$override suspend fun doWork: Result</ID>
+    <ID>ExpressionBodyOnOneLine:CheckStatusWork.kt:CheckStatusWork$private suspend fun sendStatus</ID>
+    <ID>ExpressionBodyOnOneLine:InstanceKeeperExt.kt:InstanceKeeperExt$fun &lt;T> T.wrapInstanceKeeper</ID>
+    <ID>ExpressionBodyOnOneLine:JsonWearMessage.kt:@Suppress("FunctionNaming") inline fun &lt;reified T> JsonWearMessage: WearMessage&lt;T></ID>
+    <ID>ExpressionBodyOnOneLine:LoadingContentTest.kt:LoadingContentTest$@Test fun GIVEN_area_WHEN_loading_is_shown_THEN_it_takes_the_given_area</ID>
+    <ID>ExpressionBodyOnOneLine:LocalSortOrderExt.kt:LocalSortOrderExt$fun LocalSortOrder.toStringDesc</ID>
+    <ID>ExpressionBodyOnOneLine:OptionRowTest.kt:OptionRowTest$@Test fun GIVEN_clickable_option_WHEN_clicked_THEN_click_is_reported</ID>
+    <ID>ExpressionBodyOnOneLine:OptionRowTest.kt:OptionRowTest$@Test fun GIVEN_info_row_WHEN_shown_THEN_title_info_and_value_are_displayed</ID>
+    <ID>ExpressionBodyOnOneLine:OptionRowTest.kt:OptionRowTest$@Test fun GIVEN_link_row_WHEN_title_is_clicked_THEN_link_is_opened</ID>
+    <ID>ExpressionBodyOnOneLine:OptionRowTest.kt:OptionRowTest$@Test fun GIVEN_row_without_info_WHEN_shown_THEN_only_the_title_is_displayed</ID>
+    <ID>ExpressionBodyOnOneLine:OptionSectionTest.kt:OptionSectionTest$@Test fun GIVEN_default_option_padding_WHEN_applied_to_a_row_THEN_row_content_is_inset_on_every_side</ID>
+    <ID>ExpressionBodyOnOneLine:OptionSectionTest.kt:OptionSectionTest$@Test fun GIVEN_several_items_WHEN_section_is_shown_THEN_rows_are_divided_by_one_pixel_separators</ID>
+    <ID>ExpressionBodyOnOneLine:OptionSectionTest.kt:OptionSectionTest$@Test fun GIVEN_single_item_WHEN_section_is_shown_THEN_no_separator_is_added</ID>
+    <ID>ExpressionBodyOnOneLine:OptionSwitchTest.kt:OptionSwitchTest$@Test fun GIVEN_checked_switch_WHEN_row_is_clicked_THEN_unchecked_state_is_requested</ID>
+    <ID>ExpressionBodyOnOneLine:OptionSwitchTest.kt:OptionSwitchTest$@Test fun GIVEN_disabled_switch_WHEN_row_is_clicked_THEN_nothing_is_requested</ID>
+    <ID>ExpressionBodyOnOneLine:OptionSwitchTest.kt:OptionSwitchTest$@Test fun GIVEN_unchecked_switch_WHEN_row_is_clicked_THEN_checked_state_is_requested</ID>
+    <ID>ExpressionBodyOnOneLine:PagerComposableScreen.kt:private fun &lt;T : Any> previewPagerScreen: DecomposeScreen&lt;T></ID>
+    <ID>ExpressionBodyOnOneLine:PagerModule.kt:PagerModule.Default$override fun createPagerComponent: PagerComponent</ID>
+    <ID>ExpressionBodyOnOneLine:PagingLazyColumnTest.kt:PagingLazyColumnTest$@Test fun GIVEN_header_and_items_WHEN_list_is_shown_THEN_both_are_displayed</ID>
+    <ID>ExpressionBodyOnOneLine:PagingLazyColumnTest.kt:PagingLazyColumnTest$@Test fun GIVEN_loading_page_WHEN_list_is_shown_THEN_a_page_of_shimmer_placeholders_is_displayed</ID>
+    <ID>ExpressionBodyOnOneLine:PagingLazyColumnTest.kt:PagingLazyColumnTest$@Test fun GIVEN_short_list_WHEN_its_end_is_visible_THEN_next_page_is_requested</ID>
+    <ID>ExpressionBodyOnOneLine:PingListenerService.kt:PingListenerService$private suspend fun receivePingMessage</ID>
+    <ID>ExpressionBodyOnOneLine:PingWorker.kt:PingWorker$override suspend fun doWork: Result</ID>
+    <ID>ExpressionBodyOnOneLine:PlayerAvatarTest.kt:PlayerAvatarTest$@Test fun GIVEN_player_WHEN_avatar_is_shown_THEN_it_has_the_list_avatar_size</ID>
+    <ID>ExpressionBodyOnOneLine:PlayerNameRowTest.kt:PlayerNameRowTest$@Test fun GIVEN_custom_spacing_WHEN_row_is_shown_THEN_name_moves_by_that_spacing</ID>
+    <ID>ExpressionBodyOnOneLine:PlayerNameRowTest.kt:PlayerNameRowTest$@Test fun GIVEN_player_WHEN_row_is_shown_THEN_name_follows_the_avatar_after_default_spacing</ID>
+    <ID>ExpressionBodyOnOneLine:RatingUserComposableScreen.kt:@Suppress("MagicNumber") private fun ratingUserPreviewModel: RatingUserComponent.Model</ID>
+    <ID>ExpressionBodyOnOneLine:RatingUserFeature.kt:RatingUserFeature$fun loadNextPage</ID>
+    <ID>ExpressionBodyOnOneLine:RatingUserFeature.kt:RatingUserFeature$fun reset</ID>
+    <ID>ExpressionBodyOnOneLine:RatingUserRepositoryImpl.kt:RatingUserRepositoryImpl$override suspend fun getRatings: List&lt;RatingModel></ID>
+    <ID>ExpressionBodyOnOneLine:RatingUsersComposableScreen.kt:@Suppress("MagicNumber") private fun ratingUsersPreviewItems: List&lt;RatingUserModel></ID>
+    <ID>ExpressionBodyOnOneLine:ShimmerCardTest.kt:ShimmerCardTest$@Test fun GIVEN_card_WHEN_lines_are_placed_inside_THEN_they_are_inset_and_spaced</ID>
+    <ID>ExpressionBodyOnOneLine:ShimmerCardTest.kt:ShimmerCardTest$@Test fun GIVEN_item_WHEN_shimmer_loader_is_shown_THEN_a_full_page_of_spaced_placeholders_is_displayed</ID>
+    <ID>ExpressionBodyOnOneLine:ShimmerCardTest.kt:ShimmerCardTest$@Test fun GIVEN_width_fraction_WHEN_line_is_shown_THEN_it_takes_that_share_of_the_width</ID>
+    <ID>ExpressionBodyOnOneLine:SortFilterHeaderTest.kt:SortFilterHeaderTest$@Test fun GIVEN_filter_card_WHEN_sort_header_is_shown_THEN_title_and_multiple_sort_hint_are_displayed</ID>
+    <ID>ExpressionBodyOnOneLine:SplashComponentTest.kt:SplashComponentTest$@Test fun TEST_initial_launch_false: Unit</ID>
+    <ID>ExpressionBodyOnOneLine:SplashComponentTest.kt:SplashComponentTest$@Test fun TEST_initial_launch_true: Unit</ID>
+    <ID>ExpressionBodyOnOneLine:SplashComponentTest.kt:SplashComponentTest$private fun buildDependencies</ID>
+    <ID>ExpressionBodyOnOneLine:StatusListenerService.kt:StatusListenerService$private suspend fun receivePingMessage</ID>
+    <ID>ExpressionBodyOnOneLine:StatusService.kt:StatusService$private fun stopSelfInternal</ID>
+    <ID>ExpressionBodyOnOneLine:SwipeToDismissBox.kt:private fun ChildStack&lt;*, *>.getConfigurations: Set&lt;String></ID>
+    <ID>ExpressionBodyOnOneLine:TownPublicTypeExt.kt:TownPublicTypeExt$fun TownPublicType.toStringDesc</ID>
+    <ID>ExpressionBodyOnOneLine:TownsComposableScreen.kt:@Suppress("MagicNumber") private fun previewTownModel: TownModel</ID>
+    <ID>ExpressionBodyOnOneLine:TownsFeature.kt:TownsFeature$fun updateFilter</ID>
+    <ID>ExpressionBodyOnOneLine:TransparentBars.kt:private tailrec fun Context.findWindow: Window?</ID>
+    <ID>ExpressionBodyOnOneLine:UrlStatusBootstrapper.kt:UrlStatusBootstrapper$private fun startPeriodicCheck</ID>
+    <ID>ExpressionBodyOnOneLine:UrlStatusComponentTest.kt:UrlStatusComponentTest$@Test fun testFailureState: Unit</ID>
+    <ID>ExpressionBodyOnOneLine:UrlStatusComponentTest.kt:UrlStatusComponentTest$@Test fun testFailureWithExceptionState: Unit</ID>
+    <ID>ExpressionBodyOnOneLine:UrlStatusComponentTest.kt:UrlStatusComponentTest$@Test fun testInitialLoadingState: Unit</ID>
+    <ID>ExpressionBodyOnOneLine:UrlStatusComponentTest.kt:UrlStatusComponentTest$@Test fun testSuccessState: Unit</ID>
+    <ID>ExpressionBodyOnOneLine:UrlStatusRepositoryImpl.kt:UrlStatusRepositoryImpl$override suspend fun isActive: Result&lt;Boolean></ID>
+    <ID>ExpressionBodyOnOneLine:WearMessageProducerImpl.kt:WearMessageProducerImpl$override suspend fun &lt;T> produce: Unit</ID>
+    <ID>ForbiddenImport/time:DefaultPingComponent.kt:import java.time.Instant</ID>
+    <ID>ForbiddenImport/time:DefaultPingComponent.kt:import java.time.LocalDateTime</ID>
+    <ID>ForbiddenImport/time:DefaultWearStatusComponent.kt:import java.time.LocalDateTime</ID>
+    <ID>ForbiddenImport/time:PingFeature.kt:import java.time.Instant</ID>
+    <ID>FunctionVerb:DefaultPingComponent.kt:DefaultPingComponent$private fun getTimeStamp: String</ID>
+    <ID>FunctionVerb:DefaultWearStatusComponent.kt:DefaultWearStatusComponent$private fun getTimeStamp: String</ID>
+    <ID>FunctionVerb:InfoScreenLinks.kt:InfoScreenLinks$fun get: List&lt;LinkModel></ID>
+    <ID>FunctionVerb:ModalBottomSheetSlot.kt:private fun &lt;C : Any> getLogicEventFlow: Flow&lt;LogicEvent&lt;C>></ID>
+    <ID>FunctionVerb:ModalBottomSheetSlot.kt:private suspend fun &lt;C : Any> handleLogicEvent</ID>
+    <ID>FunctionVerb:PagerComponent.kt:PagerComponent$fun selectMap</ID>
+    <ID>FunctionVerb:PingFeature.kt:PingFeature$private fun getMillis: Long</ID>
+    <ID>FunctionVerb:RatingUserRepository.kt:RatingUserRepository$suspend fun getRatings: List&lt;RatingModel></ID>
+    <ID>FunctionVerb:SettingsExt.kt:SettingsExt$fun &lt;E : Enum&lt;E>> Settings.getEnumByOrdinalOrDefault: E</ID>
+    <ID>FunctionVerb:SwipeToDismissBox.kt:private fun ChildStack&lt;*, *>.getConfigurations: Set&lt;String></ID>
+    <ID>GetOrThrowInMain:RatingUsersFeature.kt:RatingUsersFeature$getOrThrow()</ID>
+    <ID>ImplementationName:LastBottomItemRepository.kt:LastBottomItemRepositoryImpl : LastBottomItemRepository</ID>
+    <ID>ImplementationName:MinecraftStatusRepositoryImpl.kt:MinecraftStatusRepositoryImpl : UrlStatusRepository</ID>
+    <ID>ImplementationName:RatingApiImpl.kt:RatingApiImpl : RatingApi</ID>
+    <ID>ImplementationName:RatingUserModuleImpl.kt:RatingUserModuleImpl : RatingUserModule</ID>
+    <ID>ImplementationName:RatingUserRepositoryImpl.kt:RatingUserRepositoryImpl : RatingUserRepository</ID>
+    <ID>ImplementationName:RatingUsersModuleImpl.kt:RatingUsersModuleImpl : RatingUsersModule</ID>
+    <ID>ImplementationName:RatingUsersRepositoryImpl.kt:RatingUsersRepositoryImpl : RatingUsersRepository</ID>
+    <ID>ImplementationName:SplashComponentRepositoryImpl.kt:SplashComponentRepositoryImpl : SplashComponentRepository</ID>
+    <ID>ImplementationName:StatusModuleImpl.kt:StatusModuleImpl : StatusModule</ID>
+    <ID>ImplementationName:StatusServiceControllerImpl.kt:StatusServiceControllerImpl : StatusServiceController</ID>
+    <ID>ImplementationName:ThemeSwitcherModuleImpl.kt:ThemeSwitcherModuleImpl : ThemeSwitcherModule</ID>
+    <ID>ImplementationName:ThemeSwitcherRepositoryImpl.kt:ThemeSwitcherRepositoryImpl : ThemeSwitcherRepository</ID>
+    <ID>ImplementationName:TownsModuleImpl.kt:TownsModuleImpl : TownsModule</ID>
+    <ID>ImplementationName:TownsRepositoryImpl.kt:TownsRepositoryImpl : TownsRepository</ID>
+    <ID>ImplementationName:TownyApiImpl.kt:TownyApiImpl : TownyApi</ID>
+    <ID>ImplementationName:UrlStatusRepositoryImpl.kt:UrlStatusRepositoryImpl : UrlStatusRepository</ID>
+    <ID>ImplementationName:UrlStatusStoreFactory.kt:UrlStatusStoreFactory$UrlStatusStoreImpl : UrlStatusStoreStore</ID>
+    <ID>ImplementationName:WearMessageConsumerImpl.kt:WearMessageConsumerImpl : WearMessageConsumer</ID>
+    <ID>ImplementationName:WearMessageProducerImpl.kt:WearMessageProducerImpl : WearMessageProducer</ID>
+    <ID>ImplicitItParameter:AnyStateFlow.kt:AnyStateFlow$it</ID>
+    <ID>ImplicitItParameter:AstraLoading.kt:it</ID>
+    <ID>ImplicitItParameter:CheckStatusWork.kt:CheckStatusWork$it</ID>
+    <ID>ImplicitItParameter:DefaultPagerComponent.kt:DefaultPagerComponent$it</ID>
+    <ID>ImplicitItParameter:DefaultPingComponent.kt:DefaultPingComponent$it</ID>
+    <ID>ImplicitItParameter:DefaultRootScreenComponent.kt:DefaultRootScreenComponent$it</ID>
+    <ID>ImplicitItParameter:DefaultTownsComponent.kt:DefaultTownsComponent$it</ID>
+    <ID>ImplicitItParameter:DefaultUrlStatusComponent.kt:DefaultUrlStatusComponent$it</ID>
+    <ID>ImplicitItParameter:DefaultWearStatusComponent.kt:DefaultWearStatusComponent$it</ID>
+    <ID>ImplicitItParameter:EnumOption.kt:it</ID>
+    <ID>ImplicitItParameter:LastBottomItemRepository.kt:LastBottomItemRepositoryImpl$it</ID>
+    <ID>ImplicitItParameter:LazyListStateExt.kt:it</ID>
+    <ID>ImplicitItParameter:OptionHref.kt:it</ID>
+    <ID>ImplicitItParameter:RatingsFilterCard.kt:it</ID>
+    <ID>ImplicitItParameter:SwipeToDismissBox.kt:it</ID>
+    <ID>ImplicitItParameter:ThemeSwitcherRepositoryImpl.kt:ThemeSwitcherRepositoryImpl$it</ID>
+    <ID>ImplicitItParameter:TownFilterCard.kt:it</ID>
+    <ID>ImplicitItParameter:TownsFeature.kt:TownsFeature$it</ID>
+    <ID>ImplicitItParameter:TownsFilterStorageValue.kt:TownsFilterStorageValue$it</ID>
+    <ID>ImplicitItParameter:VotesScreenComponent.kt:it</ID>
+    <ID>ImplicitItParameter:WearMessageConsumerImpl.kt:WearMessageConsumerImpl$it</ID>
+    <ID>ImplicitItParameter:WearMessageProducerImpl.kt:WearMessageProducerImpl$it</ID>
+    <ID>ImplicitItParameter:WearStatusComponent.kt:WearStatusComponent.Stub$it</ID>
+    <ID>KindNameInPackage:LinkModel.kt:LinkModel</ID>
+    <ID>KindNameInPackage:StatusModel.kt:StatusModel</ID>
+    <ID>KindNameInPackage:StatusesTileService.kt:StatusesTileService : SuspendingTileService</ID>
+    <ID>LambdaSingleIfGuard:AstraWebView.kt:if (isPageLoading) { LoadingContent(Modifier.fillMaxSize()) }</ID>
+    <ID>LambdaSingleIfGuard:LazyListStateExt.kt:if (it) block.invoke()</ID>
+    <ID>LambdaSingleIfGuard:ModalBottomSheetSlot.kt:if (isHidden) { onDismiss() }</ID>
+    <ID>LambdaSingleIfGuard:PagingWidget.kt:PagingWidget$if (isLoading) { loader.invoke() }</ID>
+    <ID>LambdaSingleIfGuard:SearchAppBar.kt:if (!isInspectionMode) { focusRequester.requestFocus() }</ID>
+    <ID>LambdaSingleIfGuard:SlotModalBottomSheet.kt:if (!visible) { onDismiss.invoke() }</ID>
+    <ID>LambdaSingleIfGuard:StatusServiceControllerImpl.kt:StatusServiceControllerImpl$if (isGranted) launchStatusService()</ID>
+    <ID>LambdaSingleIfGuard:SwipeToDismissBox.kt:if (it !in currentKeys) { holder.removeState(it) }</ID>
+    <ID>LambdaSingleIfGuard:build.gradle.kts:if (output is VariantOutputImpl) { val name = requireProjectInfo.name val version = requireProjectInfo.versionString output.outputFileName.set("$name-android-$version-${variant.name}.apk") }</ID>
+    <ID>LambdaSingleIfGuard:build.gradle.kts:if (output is VariantOutputImpl) { val name = requireProjectInfo.name val version = requireProjectInfo.versionString output.outputFileName.set("$name-wearos-$version-${variant.name}.apk") }</ID>
+    <ID>LocalOrInnerClass:UrlStatusStoreFactory.kt:UrlStatusStoreFactory$UrlStatusStoreImpl : UrlStatusStoreStore</ID>
+    <ID>NamespaceObject:InfoScreenLinks.kt:InfoScreenLinks</ID>
+    <ID>NamespaceObject:LocalSortOrderExt.kt:LocalSortOrderExt</ID>
+    <ID>NamespaceObject:PagingWidget.kt:PagingWidget</ID>
+    <ID>NamespaceObject:SettingsExt.kt:SettingsExt</ID>
+    <ID>NamespaceObject:TownPublicTypeExt.kt:TownPublicTypeExt</ID>
+    <ID>OneTypeFamilyPerFile:AnyStateFlow.kt:AnyStateFlow&lt;T : Any> : StateFlow</ID>
+    <ID>OneTypeFamilyPerFile:AnyStateFlow.kt:fun &lt;T : Any> StateFlow&lt;T>.wrapToAny: AnyStateFlow&lt;T></ID>
+    <ID>OneTypeFamilyPerFile:JsonWearMessage.kt:@Suppress("FunctionNaming") inline fun &lt;reified T> JsonWearMessage: WearMessage&lt;T></ID>
+    <ID>OneTypeFamilyPerFile:LastBottomItemRepository.kt:LastBottomItemRepositoryImpl : LastBottomItemRepository</ID>
+    <ID>OneTypeFamilyPerFile:MainTileRenderer.kt:@OptIn(ExperimentalHorologistApi::class) @Preview(device = WearDevices.SMALL_ROUND, name = "Small Round") @Preview(device = WearDevices.LARGE_ROUND, name = "Large Round") internal fun mainTilePreview: TilePreviewData</ID>
+    <ID>OneTypeFamilyPerFile:Material2Theme.kt:internal fun AppTheme.asMaterial2: Material2Theme</ID>
+    <ID>OneTypeFamilyPerFile:Material2Theme.kt:internal fun AstraColors.asMaterial2: Colors</ID>
+    <ID>OneTypeFamilyPerFile:Material3Theme.kt:internal fun AppTheme.asMaterial3: Material3Theme</ID>
+    <ID>OneTypeFamilyPerFile:Material3Theme.kt:internal fun AstraColors.asMaterial3: ColorScheme</ID>
+    <ID>OneTypeFamilyPerFile:ModalBottomSheetSlot.kt:@Composable fun &lt;C : Any, T : Any> ModalBottomSheetSlot</ID>
+    <ID>OneTypeFamilyPerFile:ModalBottomSheetSlot.kt:@Suppress("LambdaParameterInRestartableEffect", "ContentSlotReused") @Composable fun &lt;C : Any> ModalBottomSheetSlot</ID>
+    <ID>OneTypeFamilyPerFile:ModalBottomSheetSlot.kt:private fun &lt;C : Any> getLogicEventFlow: Flow&lt;LogicEvent&lt;C>></ID>
+    <ID>OneTypeFamilyPerFile:ModalBottomSheetSlot.kt:private suspend fun &lt;C : Any> handleLogicEvent</ID>
+    <ID>OneTypeFamilyPerFile:ModalBottomSheetSlot.kt:private suspend fun &lt;T> withRetry: T</ID>
+    <ID>OneTypeFamilyPerFile:PagingWidget.kt:@Preview @Composable private fun PagingWidgetLastPagePreview</ID>
+    <ID>OneTypeFamilyPerFile:PagingWidget.kt:@Preview @Composable private fun PagingWidgetLoadingPreview</ID>
+    <ID>OneTypeFamilyPerFile:PagingWidget.kt:@Preview @Composable private fun PagingWidgetNetworkErrorPreview</ID>
+    <ID>OneTypeFamilyPerFile:PagingWidget.kt:@Preview @Composable private fun PagingWidgetNoPagesPreview</ID>
+    <ID>OneTypeFamilyPerFile:RatingsFilterStorageValue.kt:RatingsFilterStorageValue : StateFlowMutableKrate</ID>
+    <ID>OneTypeFamilyPerFile:StatusComposableScreen.kt:@Preview @Composable private fun StatusComposableScreenEmptyPreview</ID>
+    <ID>OneTypeFamilyPerFile:StatusComposableScreen.kt:@Preview @Composable private fun StatusComposableScreenPreview</ID>
+    <ID>OneTypeFamilyPerFile:StatusComposableScreen.kt:@Suppress("UnstableCollections") @Composable internal fun StatusComposableScreen</ID>
+    <ID>OneTypeFamilyPerFile:SwipeToDismissBox.kt:@Composable fun &lt;C : Any, T : Any> SwipeToDismissBox</ID>
+    <ID>OneTypeFamilyPerFile:SwipeToDismissBox.kt:@Suppress("UnstableCollections") @Composable private fun RetainStates</ID>
+    <ID>OneTypeFamilyPerFile:SwipeToDismissBox.kt:private fun Any.key: String</ID>
+    <ID>OneTypeFamilyPerFile:SwipeToDismissBox.kt:private fun ChildStack&lt;*, *>.getConfigurations: Set&lt;String></ID>
+    <ID>OneTypeFamilyPerFile:ThemeAdapt.kt:@Composable fun AdaptThemeFade</ID>
+    <ID>OneTypeFamilyPerFile:ThemeAdapt.kt:@Composable private fun Material2ThemeAdapt</ID>
+    <ID>OneTypeFamilyPerFile:ThemeAdapt.kt:@Composable private fun Material3ThemeAdapt</ID>
+    <ID>OneTypeFamilyPerFile:TownsFilterStorageValue.kt:TownsFilterStorageValue : CachedMutableKrate</ID>
+    <ID>OperatorBeforeTrailingCall:RatingUserWidget.kt:(model.totalRating + coerse)</ID>
+    <ID>OperatorBeforeTrailingCall:RatingUserWidget.kt:(total / (coerse * 2f))</ID>
+    <ID>RolelessClassName:LinkBrowserFactory.kt:LinkBrowserFactory</ID>
+    <ID>RolelessClassName:RootScreenComponentChildFactory.kt:RootScreenComponentChildFactory</ID>
+    <ID>RolelessClassName:SettingsFactory.kt:SettingsFactory</ID>
+    <ID>RolelessClassName:SettingsFactory.kt:SettingsFactory : Factory</ID>
+    <ID>RolelessClassName:StatusNotificationFactory.kt:StatusNotificationFactory</ID>
+    <ID>RolelessClassName:TownyPageContext.kt:TownyPageContext$Factory : Factory</ID>
+    <ID>RolelessClassName:UrlStatusStoreFactory.kt:UrlStatusStoreFactory</ID>
+    <ID>RootModuleConstruction:RootModule.kt:RootModule.Default$Default( coreModule = coreModule )</ID>
+    <ID>RootModuleConstruction:RootModule.kt:RootModule.Default$Default()</ID>
+    <ID>RootModuleConstruction:RootModule.kt:RootModule.Default$RatingUserModuleImpl( apiEmpireApiModule = apiEmpireApiModule, coreModule = coreModule )</ID>
+    <ID>RootModuleConstruction:RootModule.kt:RootModule.Default$RatingUsersModuleImpl( apiEmpireApiModule = apiEmpireApiModule, coreModule = coreModule )</ID>
+    <ID>RootModuleConstruction:RootModule.kt:RootModule.Default$StatusModuleImpl( coreModule = coreModule )</ID>
+    <ID>RootModuleConstruction:RootModule.kt:RootModule.Default$ThemeSwitcherModuleImpl(coreModule = coreModule)</ID>
+    <ID>RootModuleConstruction:RootModule.kt:RootModule.Default$TownsModuleImpl( apiEmpireApiModule = apiEmpireApiModule, coreModule = coreModule )</ID>
+    <ID>RunBlockingInTest:SplashComponentTest.kt:SplashComponentTest$runBlocking { val expectInitialLaunchValue = false val splashComponent = DefaultSplashComponent(componentContext, buildDependencies(expectInitialLaunchValue)) splashComponent.screenChannelFlow.test { val item = awaitItem() assertTrue(item is SplashComponent.Label.InitialLaunch) assertEquals(expectInitialLaunchValue, item.value) } }</ID>
+    <ID>RunBlockingInTest:SplashComponentTest.kt:SplashComponentTest$runBlocking { val expectInitialLaunchValue = true val splashComponent = DefaultSplashComponent(componentContext, buildDependencies(expectInitialLaunchValue)) splashComponent.screenChannelFlow.test { val item = awaitItem() assertTrue(item is SplashComponent.Label.InitialLaunch) assertEquals(expectInitialLaunchValue, item.value) } }</ID>
+    <ID>RunBlockingInTest:UrlStatusComponentTest.kt:UrlStatusComponentTest$runBlocking { val urlStatusComponent = createUrlStatusComponent { error("Hello world") } urlStatusComponent.model.test { skipItems(1) assertEquals(UrlStatusComponent.LoadingStatus.ERROR, awaitItem().status) } }</ID>
+    <ID>RunBlockingInTest:UrlStatusComponentTest.kt:UrlStatusComponentTest$runBlocking { val urlStatusComponent = createUrlStatusComponent { false } urlStatusComponent.model.test { skipItems(1) assertEquals(UrlStatusComponent.LoadingStatus.ERROR, awaitItem().status) } }</ID>
+    <ID>RunBlockingInTest:UrlStatusComponentTest.kt:UrlStatusComponentTest$runBlocking { val urlStatusComponent = createUrlStatusComponent { true } urlStatusComponent.model.test { assertEquals(UrlStatusComponent.LoadingStatus.LOADING, awaitItem().status) } }</ID>
+    <ID>RunBlockingInTest:UrlStatusComponentTest.kt:UrlStatusComponentTest$runBlocking { val urlStatusComponent = createUrlStatusComponent { true } urlStatusComponent.model.test { skipItems(1) assertEquals(UrlStatusComponent.LoadingStatus.SUCCESS, awaitItem().status) } }</ID>
+    <ID>RunCatchingCancellation:MinecraftStatusRepositoryImpl.kt:MinecraftStatusRepositoryImpl$runCatching&lt;MinecraftStatusRepositoryImpl, MinecraftStatusResponse> { val request = withContext(dispatchers.IO) { httpClient.get("https://api.minetools.eu/ping/play.empireprojekt.ru") } request.body() }</ID>
+    <ID>RunCatchingCancellation:PingListenerService.kt:PingListenerService$runCatching { val wearMessageReceiver = wearMessengerModule.wearMessageConsumer when (messageEvent.path) { PingWearMessage.PATH -> wearMessageReceiver.consume( message = PingWearMessage.Message, byteArray = messageEvent.data ) else -> { Log.d(TAG, "receivePingMessage: can't handle message ${messageEvent.path}") } } }</ID>
+    <ID>RunCatchingCancellation:RatingUserFeature.kt:RatingUserFeature$runCatching { ratingUserRepository.getRatings( userId = userId, page = pagingState.pageContext.page, size = 10 ) }</ID>
+    <ID>RunCatchingCancellation:RatingUsersFeature.kt:RatingUsersFeature$runCatching { ratingUsersRepository.fetchUsers( page = pagingState.pageContext.page, filterModel = filterProvider.filterStateFlow.value ).getOrThrow().data }</ID>
+    <ID>RunCatchingCancellation:RatingUsersRepositoryImpl.kt:RatingUsersRepositoryImpl$runCatching { ratingApi.users( page = page, size = 10, body = filterModel ) }</ID>
+    <ID>RunCatchingCancellation:StatusListenerService.kt:StatusListenerService$runCatching { val wearMessageReceiver = wearMessengerModule.wearMessageConsumer when (messageEvent.path) { StatusModelMessage.PATH -> wearMessageReceiver.consume( message = StatusModelMessage.Message, byteArray = messageEvent.data ) else -> { Log.d(TAG, "receivePingMessage: can't handle message ${messageEvent.path}") } } }</ID>
+    <ID>RunCatchingCancellation:TownsRepositoryImpl.kt:TownsRepositoryImpl$runCatching { townyApi.towns( page = pagingState.pageContext.page, size = 10, filter = pagingState.pageContext.filter ).data }</ID>
+    <ID>RunCatchingCancellation:UrlStatusComponentTest.kt:UrlStatusComponentTest.&lt;no name provided>$runCatching { block.invoke() }</ID>
+    <ID>RunCatchingCancellation:UrlStatusRepositoryImpl.kt:UrlStatusRepositoryImpl$runCatching { val request = withContext(dispatchers.IO) { httpClient.get(url) } request.status == HttpStatusCode.OK }</ID>
+    <ID>RunCatchingCancellation:WearMessageConsumerImpl.kt:WearMessageConsumerImpl$runCatching { val decodedWearMessage = DecodedWearMessage( path = message.path, value = message.decode(byteArray) ) messageChannel.send(decodedWearMessage) }</ID>
+    <ID>RunCatchingCancellation:WearMessageProducerImpl.kt:WearMessageProducerImpl$runCatching { val byteArray = message.encode(value) nodes.map { async { messageClient.sendMessage( it.id, message.path, byteArray ) } }.awaitAll() }</ID>
+    <ID>TestFunctionName:SplashComponentTest.kt:SplashComponentTest$@Test fun TEST_initial_launch_false: Unit</ID>
+    <ID>TestFunctionName:SplashComponentTest.kt:SplashComponentTest$@Test fun TEST_initial_launch_true: Unit</ID>
+    <ID>TestFunctionName:UrlStatusComponentTest.kt:UrlStatusComponentTest$@Test fun testFailureState: Unit</ID>
+    <ID>TestFunctionName:UrlStatusComponentTest.kt:UrlStatusComponentTest$@Test fun testFailureWithExceptionState: Unit</ID>
+    <ID>TestFunctionName:UrlStatusComponentTest.kt:UrlStatusComponentTest$@Test fun testInitialLoadingState: Unit</ID>
+    <ID>TestFunctionName:UrlStatusComponentTest.kt:UrlStatusComponentTest$@Test fun testSuccessState: Unit</ID>
+    <ID>TimeAsPrimitive:PingComponent.kt:PingComponent.Model.NoConnection$val updatedAt: String = "..."</ID>
+    <ID>TimeAsPrimitive:PingComponent.kt:PingComponent.Model.Success$val updatedAt: String = "..."</ID>
+    <ID>TimeAsPrimitive:PingState.kt:PingState.Connected$val timestamp: Long</ID>
+    <ID>TimeAsPrimitive:PingState.kt:PingState.NotConnected$val timestamp: Long</ID>
+    <ID>TimeAsPrimitive:PingWearMessage.kt:PingWearMessage$/** * Delay between each ping */ const val DELAY = 5_000L</ID>
+    <ID>TimeAsPrimitive:RatingUserWidget.kt:time: Long</ID>
+    <ID>TimeAsPrimitive:StatusWidgetContent.kt:private const val FADE_DURATION = 1200</ID>
+    <ID>TimeAsPrimitive:WearStatusComponent.kt:WearStatusComponent.Model$val updatedAt: String = "..."</ID>
+    <ID>TrivialLambdaReference:DefaultRootScreenComponent.kt:DefaultRootScreenComponent${ configuration -> push(configuration) }</ID>
+    <ID>TrivialLambdaReference:DefaultWearStatusComponent.kt:DefaultWearStatusComponent${ statusModels -> toModel(statusModels) }</ID>
+    <ID>TrivialLambdaReference:EnumOption.kt:{ direction -> direction.name }</ID>
+    <ID>TrivialLambdaReference:IconWidget.kt:{ status -> IconWidget(status) }</ID>
+    <ID>TrivialLambdaReference:InfoScreen.kt:{ onRatingsClick.invoke() }</ID>
+    <ID>TrivialLambdaReference:InfoScreen.kt:{ onThemeToggle.invoke() }</ID>
+    <ID>TrivialLambdaReference:InfoScreen.kt:{ onVotesClick.invoke() }</ID>
+    <ID>TrivialLambdaReference:InfoScreen.kt:{ onWikiClick.invoke() }</ID>
+    <ID>TrivialLambdaReference:OptionComposable.kt:{ end.invoke() }</ID>
+    <ID>TrivialLambdaReference:PingWearMessage.kt:PingWearMessage.Message${ byteArray -> byteArray.first() }</ID>
+    <ID>TrivialLambdaReference:PingWearMessage.kt:PingWearMessage.Message${ value -> byteArrayOf(value) }</ID>
+    <ID>TrivialLambdaReference:RootScreenComponentChildFactory.kt:RootScreenComponentChildFactory${ configuration -> instance.push(configuration) }</ID>
+    <ID>TrivialLambdaReference:SlotModalBottomSheet.kt:{ onDismiss.invoke() }</ID>
+    <ID>TrivialLambdaReference:StatusComposableScreen.kt:{ onInfoClick.invoke() }</ID>
+    <ID>TrivialLambdaReference:StatusComposableScreen.kt:{ statusComponent -> StatusWidget(statusComponent) }</ID>
+    <ID>TrivialLambdaReference:StatusWidgetContent.kt:{ animatedStatus -> IconWidget(animatedStatus) }</ID>
+  </CurrentIssues>
+</SmellBaseline>

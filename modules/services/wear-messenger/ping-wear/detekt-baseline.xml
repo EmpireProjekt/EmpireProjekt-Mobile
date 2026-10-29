@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>CalleeBeforeCaller:PingListenerService.kt:PingListenerService$override fun onMessageReceived</ID>
+    <ID>ExpressionBodyOnOneLine:PingListenerService.kt:PingListenerService$private suspend fun receivePingMessage</ID>
+    <ID>ForbiddenImport/time:PingFeature.kt:import java.time.Instant</ID>
+    <ID>FunctionVerb:PingFeature.kt:PingFeature$private fun getMillis: Long</ID>
+    <ID>RunCatchingCancellation:PingListenerService.kt:PingListenerService$runCatching { val wearMessageReceiver = wearMessengerModule.wearMessageConsumer when (messageEvent.path) { PingWearMessage.PATH -> wearMessageReceiver.consume( message = PingWearMessage.Message, byteArray = messageEvent.data ) else -> { Log.d(TAG, "receivePingMessage: can't handle message ${messageEvent.path}") } } }</ID>
+    <ID>TimeAsPrimitive:PingState.kt:PingState.Connected$val timestamp: Long</ID>
+    <ID>TimeAsPrimitive:PingState.kt:PingState.NotConnected$val timestamp: Long</ID>
+    <ID>TimeAsPrimitive:PingWearMessage.kt:PingWearMessage$/** * Delay between each ping */ const val DELAY = 5_000L</ID>
+    <ID>TrivialLambdaReference:PingWearMessage.kt:PingWearMessage.Message${ byteArray -> byteArray.first() }</ID>
+    <ID>TrivialLambdaReference:PingWearMessage.kt:PingWearMessage.Message${ value -> byteArrayOf(value) }</ID>
+  </CurrentIssues>
+</SmellBaseline>

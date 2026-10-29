@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:DefaultRootScreenComponent.Configuration.Votes -> VotesScreenComponent( onPop = rootComponent.rootScreenComponent::pop, onClick = { url -> rootComponent.rootScreenComponent.push(RootRouter.Configuration.WebView(url)) } )</ID>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:is DefaultRootScreenComponent.Configuration.Pager -> PagerScreenComponent( pagerComponent = screen.pagerComponent, menuScreen = { modifier, child -> InfoScreen( onLinkClick = linkBrowser::openInBrowser, onThemeToggle = onThemeToggle, onTownsClick = { rootComponent.rootScreenComponent.push(RootRouter.Configuration.Towns) }, onRatingsClick = { rootComponent.rootScreenComponent.push(RootRouter.Configuration.RatingUsers) }, onVotesClick = { rootComponent.rootScreenComponent.push(RootRouter.Configuration.Votes) }, onWikiClick = { rootComponent.rootScreenComponent.push( RootRouter.Configuration.WebView("https://astra-interactive.github.io/EmpireNetwork/") ) } ) }, mapScreen = { modifier, child -> AndroidMapView() } )</ID>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:is DefaultRootScreenComponent.Configuration.RatingUser -> RatingUserScreenComponent( ratingUserComponent = screen.ratingUserComponent, popComponent = rootComponent.rootScreenComponent )</ID>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:is DefaultRootScreenComponent.Configuration.RatingUsers -> RatingUsersScreenComponent( popComponent = rootComponent.rootScreenComponent, ratingUsersComponent = screen.ratingUsersComponent )</ID>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:is DefaultRootScreenComponent.Configuration.Splash -> SplashScreenComponent( rootRouter = rootComponent.rootScreenComponent, splashComponent = screen.splashComponent )</ID>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:is DefaultRootScreenComponent.Configuration.Towns -> TownsScreenComponent( popComponent = rootComponent.rootScreenComponent, townsComponent = screen.townsComponent )</ID>
+    <ID>ComposableWhenBranch:ApplicationContent.kt:is DefaultRootScreenComponent.Configuration.WebView -> AndroidWebView( webViewDecomposeComponent = screen.webViewDecomposeComponent )</ID>
+  </CurrentIssues>
+</SmellBaseline>

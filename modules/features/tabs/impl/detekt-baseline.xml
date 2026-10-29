@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ConstantOutsideCompanion:LastBottomItemRepository.kt:LastBottomItemRepositoryImpl$@Suppress("VariableNaming") private val KEY = "LAST_BOTTOM"</ID>
+    <ID>ExpressionBodyOnOneLine:PagerModule.kt:PagerModule.Default$override fun createPagerComponent: PagerComponent</ID>
+    <ID>FunctionVerb:PagerComponent.kt:PagerComponent$fun selectMap</ID>
+    <ID>ImplementationName:LastBottomItemRepository.kt:LastBottomItemRepositoryImpl : LastBottomItemRepository</ID>
+    <ID>ImplicitItParameter:DefaultPagerComponent.kt:DefaultPagerComponent$it</ID>
+    <ID>ImplicitItParameter:LastBottomItemRepository.kt:LastBottomItemRepositoryImpl$it</ID>
+    <ID>OneTypeFamilyPerFile:LastBottomItemRepository.kt:LastBottomItemRepositoryImpl : LastBottomItemRepository</ID>
+  </CurrentIssues>
+</SmellBaseline>

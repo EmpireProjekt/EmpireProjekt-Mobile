@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ArgumentPerLine:DefaultWearStatusComponent.kt:DefaultWearStatusComponent$stateIn(coroutineScope, SharingStarted.Eagerly, WearStatusComponent.Model())</ID>
+    <ID>CalleeBeforeCaller:DefaultWearStatusComponent.kt:DefaultWearStatusComponent$private fun toModel: WearStatusComponent.Model</ID>
+    <ID>CalleeBeforeCaller:SwipeToDismissBox.kt:@Composable fun &lt;C : Any, T : Any> SwipeToDismissBox</ID>
+    <ID>CalleeBeforeCaller:SwipeToDismissBox.kt:private fun ChildStack&lt;*, *>.getConfigurations: Set&lt;String></ID>
+    <ID>ComposableFileType:SwipeToDismissBox.kt:Keys</ID>
+    <ID>ComposableWhenBranch:PingComposableScreen.kt:is PingComponent.Model.NoConnection -> { Icon( painter = MR.images.ic_network_check.asPainter(), contentDescription = null, tint = MaterialTheme.colors.error ) Text( text = model.updatedAt, style = MaterialTheme.typography.caption, color = MaterialTheme.colors.onPrimary, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center ) }</ID>
+    <ID>ComposableWhenBranch:PingComposableScreen.kt:is PingComponent.Model.Success -> { Icon( painter = MR.images.ic_network_wifi.asPainter(), contentDescription = null, tint = MaterialTheme.colors.secondaryVariant ) Text( text = model.updatedAt, style = MaterialTheme.typography.caption, color = MaterialTheme.colors.onPrimary, modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.Center ) }</ID>
+    <ID>ComposableWhenBranch:RootScreen.kt:is RootComponent.Child.Main -> MainScreen( themeSwitcherComponent = instance.themeSwitcherComponent, onOpenStatusesClick = rootComponent::openStatuses, onOpenPingClick = rootComponent::openPing )</ID>
+    <ID>ComposableWhenBranch:RootScreen.kt:is RootComponent.Child.Ping -> PingScreen( pingComponent = instance.pingComponent )</ID>
+    <ID>ComposableWhenBranch:RootScreen.kt:is RootComponent.Child.Statuses -> StatusesScreen( wearStatusComponent = instance.wearStatusComponent )</ID>
+    <ID>DataClassDefaultValue:PingComponent.kt:PingComponent.Model.NoConnection$val updatedAt: String = "..."</ID>
+    <ID>DataClassDefaultValue:PingComponent.kt:PingComponent.Model.Success$val updatedAt: String = "..."</ID>
+    <ID>DataClassDefaultValue:WearStatusComponent.kt:WearStatusComponent.Model$val failureCount: Int = 0</ID>
+    <ID>DataClassDefaultValue:WearStatusComponent.kt:WearStatusComponent.Model$val loadingCount: Int = 0</ID>
+    <ID>DataClassDefaultValue:WearStatusComponent.kt:WearStatusComponent.Model$val successCount: Int = 0</ID>
+    <ID>DataClassDefaultValue:WearStatusComponent.kt:WearStatusComponent.Model$val updatedAt: String = "..."</ID>
+    <ID>DeclarationOrder:DefaultPingComponent.kt:DefaultPingComponent$override val model: StateFlow&lt;PingComponent.Model> = pingFeature.model.mapStateFlow { when (it) { is PingState.Connected -> PingComponent.Model.Success( updatedAt = getTimeStamp(it.timestamp) ) is PingState.NotConnected -> PingComponent.Model.NoConnection( updatedAt = getTimeStamp(it.timestamp) ) } }</ID>
+    <ID>ExplicitInvoke:DefaultRootComponent.kt:DefaultRootComponent$childStack( source = navigation, initialConfiguration = Configuration.Main, serializer = wearRootModule.coreModule.jsonConfiguration.serializersModule.serializer(), handleBackButton = true, childFactory = { config, childContext -> when (config) { Configuration.Main -> RootComponent.Child.Main( themeSwitcherComponent = wearRootModule.themeSwitcherModule.themeSwitcherComponent ) Configuration.Ping -> RootComponent.Child.Ping( pingComponent = wearRootModule.pingModule.createPingComponent(childContext) ) Configuration.Statuses -> RootComponent.Child.Statuses( wearStatusComponent = wearRootModule.wearStatusComponent ) } } )</ID>
+    <ID>ExplicitInvoke:SwipeToDismissBox.kt:content(child)</ID>
+    <ID>ExpressionBodyOnOneLine:InstanceKeeperExt.kt:InstanceKeeperExt$fun &lt;T> T.wrapInstanceKeeper</ID>
+    <ID>ExpressionBodyOnOneLine:SwipeToDismissBox.kt:private fun ChildStack&lt;*, *>.getConfigurations: Set&lt;String></ID>
+    <ID>ForbiddenImport/time:DefaultPingComponent.kt:import java.time.Instant</ID>
+    <ID>ForbiddenImport/time:DefaultPingComponent.kt:import java.time.LocalDateTime</ID>
+    <ID>ForbiddenImport/time:DefaultWearStatusComponent.kt:import java.time.LocalDateTime</ID>
+    <ID>FunctionVerb:DefaultPingComponent.kt:DefaultPingComponent$private fun getTimeStamp: String</ID>
+    <ID>FunctionVerb:DefaultWearStatusComponent.kt:DefaultWearStatusComponent$private fun getTimeStamp: String</ID>
+    <ID>FunctionVerb:SwipeToDismissBox.kt:private fun ChildStack&lt;*, *>.getConfigurations: Set&lt;String></ID>
+    <ID>ImplicitItParameter:DefaultPingComponent.kt:DefaultPingComponent$it</ID>
+    <ID>ImplicitItParameter:DefaultWearStatusComponent.kt:DefaultWearStatusComponent$it</ID>
+    <ID>ImplicitItParameter:SwipeToDismissBox.kt:it</ID>
+    <ID>ImplicitItParameter:WearStatusComponent.kt:WearStatusComponent.Stub$it</ID>
+    <ID>KindNameInPackage:StatusesTileService.kt:StatusesTileService : SuspendingTileService</ID>
+    <ID>LambdaSingleIfGuard:SwipeToDismissBox.kt:if (it !in currentKeys) { holder.removeState(it) }</ID>
+    <ID>LambdaSingleIfGuard:build.gradle.kts:if (output is VariantOutputImpl) { val name = requireProjectInfo.name val version = requireProjectInfo.versionString output.outputFileName.set("$name-wearos-$version-${variant.name}.apk") }</ID>
+    <ID>OneTypeFamilyPerFile:MainTileRenderer.kt:@OptIn(ExperimentalHorologistApi::class) @Preview(device = WearDevices.SMALL_ROUND, name = "Small Round") @Preview(device = WearDevices.LARGE_ROUND, name = "Large Round") internal fun mainTilePreview: TilePreviewData</ID>
+    <ID>OneTypeFamilyPerFile:SwipeToDismissBox.kt:@Composable fun &lt;C : Any, T : Any> SwipeToDismissBox</ID>
+    <ID>OneTypeFamilyPerFile:SwipeToDismissBox.kt:@Suppress("UnstableCollections") @Composable private fun RetainStates</ID>
+    <ID>OneTypeFamilyPerFile:SwipeToDismissBox.kt:private fun Any.key: String</ID>
+    <ID>OneTypeFamilyPerFile:SwipeToDismissBox.kt:private fun ChildStack&lt;*, *>.getConfigurations: Set&lt;String></ID>
+    <ID>TimeAsPrimitive:PingComponent.kt:PingComponent.Model.NoConnection$val updatedAt: String = "..."</ID>
+    <ID>TimeAsPrimitive:PingComponent.kt:PingComponent.Model.Success$val updatedAt: String = "..."</ID>
+    <ID>TimeAsPrimitive:WearStatusComponent.kt:WearStatusComponent.Model$val updatedAt: String = "..."</ID>
+    <ID>TrivialLambdaReference:DefaultWearStatusComponent.kt:DefaultWearStatusComponent${ statusModels -> toModel(statusModels) }</ID>
+  </CurrentIssues>
+</SmellBaseline>

@@ -1,0 +1,8 @@
+FieldDependencyConstruction	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/root/DefaultRootComponent.kt	DefaultRootComponent.DefaultRootScreenComponent
+FieldDependencyConstruction	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/root/screen/DefaultRootScreenComponent.kt	DefaultRootScreenComponent.RootScreenComponentChildFactory
+ForbiddenPackageName	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/root/screen/di/factory/RootScreenComponentChildFactory.kt	com.makeevrserg.empireprojekt.mobile.features.root.screen.di.factory
+KindImportDirection	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/root/screen/DefaultRootScreenComponent.kt	com.makeevrserg.empireprojekt.mobile.features.root.di.RootModule
+KindImportDirection	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/root/screen/DefaultRootScreenComponent.kt	com.makeevrserg.empireprojekt.mobile.features.root.screen.di.factory.RootScreenComponentChildFactory
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/root/DefaultRootComponent.kt	DefaultRootComponent
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/root/RootComponent.kt	RootComponent
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/root/screen/di/factory/RootScreenComponentChildFactory.kt	RootScreenComponentChildFactory

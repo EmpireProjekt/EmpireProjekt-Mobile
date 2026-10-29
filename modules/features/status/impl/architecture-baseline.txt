@@ -1,0 +1,16 @@
+ContractPlacement	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/data/UrlStatusRepository.kt	UrlStatusRepository
+FieldDependencyConstruction	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/root/component/DefaultRootStatusComponent.kt	DefaultRootStatusComponent.DefaultUrlStatusComponent
+FieldDependencyConstruction	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/component/DefaultUrlStatusComponent.kt	DefaultUrlStatusComponent.UrlStatusStoreFactory
+FieldDependencyConstruction	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/store/UrlStatusStoreFactory.kt	UrlStatusStoreFactory.UrlStatusBootstrapper
+FieldDependencyConstruction	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/store/UrlStatusStoreFactory.kt	UrlStatusStoreFactory.UrlStatusExecutor
+FieldDependencyConstruction	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/store/UrlStatusStoreFactory.kt	UrlStatusStoreImpl.UrlStatusExecutor
+ForbiddenPackageName	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/data/impl/MinecraftStatusRepositoryImpl.kt	com.makeevrserg.empireprojekt.mobile.features.status.url.data.impl
+KindImportDirection	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/root/component/DefaultRootStatusComponent.kt	com.makeevrserg.empireprojekt.mobile.features.status.di.RootStatusComponentDependencies
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/data/UrlStatusRepository.kt	UrlStatusRepository
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/data/impl/MinecraftStatusRepositoryImpl.kt	MinecraftStatusRepositoryImpl
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/data/impl/UrlStatusRepositoryImpl.kt	UrlStatusRepositoryImpl
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/store/UrlStatusBootstrapper.kt	UrlStatusBootstrapper
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/store/UrlStatusExecutor.kt	UrlStatusExecutor
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/store/UrlStatusReducer.kt	UrlStatusReducer
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/store/UrlStatusStore.kt	UrlStatusStore
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/status/url/store/UrlStatusStoreFactory.kt	UrlStatusStoreFactory

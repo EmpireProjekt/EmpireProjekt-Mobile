@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ArgumentPerLine:StatusNotificationFactory.kt:StatusNotificationFactory$addAction(R.drawable.img_splash, "Stop", intentStop)</ID>
+    <ID>ArgumentPerLine:StatusService.kt:StatusService$onStartCommand(intent, flags, startId)</ID>
+    <ID>CalleeBeforeCaller:CheckStatusWork.kt:CheckStatusWork$override suspend fun doWork: Result</ID>
+    <ID>CalleeBeforeCaller:StatusService.kt:StatusService$override fun onStartCommand: Int</ID>
+    <ID>DeclarationOrder:StatusService.kt:StatusService$private val dispatcher = Executors.newFixedThreadPool(2).asCoroutineDispatcher()</ID>
+    <ID>ExpressionBodyOnOneLine:CheckStatusWork.kt:CheckStatusWork$override suspend fun doWork: Result</ID>
+    <ID>ExpressionBodyOnOneLine:CheckStatusWork.kt:CheckStatusWork$private suspend fun sendStatus</ID>
+    <ID>ExpressionBodyOnOneLine:PingWorker.kt:PingWorker$override suspend fun doWork: Result</ID>
+    <ID>ExpressionBodyOnOneLine:StatusService.kt:StatusService$private fun stopSelfInternal</ID>
+    <ID>ImplementationName:StatusServiceControllerImpl.kt:StatusServiceControllerImpl : StatusServiceController</ID>
+    <ID>ImplicitItParameter:CheckStatusWork.kt:CheckStatusWork$it</ID>
+    <ID>LambdaSingleIfGuard:StatusServiceControllerImpl.kt:StatusServiceControllerImpl$if (isGranted) launchStatusService()</ID>
+    <ID>LambdaSingleIfGuard:build.gradle.kts:if (output is VariantOutputImpl) { val name = requireProjectInfo.name val version = requireProjectInfo.versionString output.outputFileName.set("$name-android-$version-${variant.name}.apk") }</ID>
+    <ID>RolelessClassName:StatusNotificationFactory.kt:StatusNotificationFactory</ID>
+  </CurrentIssues>
+</SmellBaseline>

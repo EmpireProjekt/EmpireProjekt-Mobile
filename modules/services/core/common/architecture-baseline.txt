@@ -1,0 +1,16 @@
+ForbiddenPackageName	src/androidMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/di/factory/LinkBrowserFactory.kt	com.makeevrserg.empireprojekt.mobile.services.core.di.factory
+KindShape	src/androidMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/AndroidLinkBrowser.kt	AndroidLinkBrowser
+KindShape	src/androidMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/di/factory/LinkBrowserFactory.kt	LinkBrowserFactory
+KindShape	src/androidMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/di/factory/SettingsFactory.kt	SettingsFactory
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/AnyStateFlow.kt	AnyStateFlow
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/LinkBrowser.kt	LinkBrowser
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/PopComponent.kt	PopComponent
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/RetainedModule.kt	RetainedModule
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/di/factory/LinkBrowserFactory.kt	LinkBrowserFactory
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/di/factory/SettingsFactory.kt	SettingsFactory
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/settings/SettingsExt.kt	SettingsExt
+KindShape	src/iosMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/di/factory/LinkBrowserFactory.kt	LinkBrowserFactory
+KindShape	src/iosMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/di/factory/SettingsFactory.kt	SettingsFactory
+KindShape	src/jvmMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/di/factory/LinkBrowserFactory.kt	LinkBrowserFactory
+KindShape	src/jvmMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/di/factory/SettingsFactory.kt	SettingsFactory
+UtilShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/services/core/AnyStateFlow.kt	StateFlow.wrapToAny

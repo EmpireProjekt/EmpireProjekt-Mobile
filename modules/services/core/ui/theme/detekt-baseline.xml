@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ActualFileSuffix:TransparentBars.kt:@Composable internal actual fun TransparentBars</ID>
+    <ID>ArgumentPerLine:TransparentBars.kt:LaunchedEffect(view, window, isDarkTheme) { if (window == null) return@LaunchedEffect val controller = WindowInsetsControllerCompat(window, view) controller.isAppearanceLightStatusBars = !isDarkTheme controller.isAppearanceLightNavigationBars = !isDarkTheme }</ID>
+    <ID>ComposableFileType:ThemeAdapt.kt:ComposeTheme</ID>
+    <ID>ComposableWhenBranch:ThemeAdapt.kt:ComposeTheme.DARK -> AppTheme( astraColors = AstraColors.Dark )</ID>
+    <ID>ComposableWhenBranch:ThemeAdapt.kt:ComposeTheme.LIGHT -> AppTheme( astraColors = AstraColors.Light )</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val L: Dp = 32.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val M: Dp = 21.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val S: Dp = 16.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val SXL: Dp = 40.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val XL: Dp = 48.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val XS: Dp = 8.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val XXL: Dp = 64.dp</ID>
+    <ID>DataClassDefaultValue:Dimens.kt:Dimens$val XXS: Dp = 4.dp</ID>
+    <ID>DataClassDefaultValue:Material2Theme.kt:Material2Theme$val shapes: Shapes = Shapes()</ID>
+    <ID>DataClassDefaultValue:Material2Theme.kt:Material2Theme$val typography: Typography = Typography()</ID>
+    <ID>DataClassDefaultValue:Material3Theme.kt:Material3Theme$val shapes: Shapes = Shapes()</ID>
+    <ID>DataClassDefaultValue:Material3Theme.kt:Material3Theme$val typography: Typography = Typography()</ID>
+    <ID>DeclarationOrder:ThemeAdapt.kt:@Suppress("ComposableNaming", "CompositionLocalAllowlist") internal val LocalAppTheme: ProvidableCompositionLocal&lt;AppTheme> = compositionLocalOf { AppTheme() }</ID>
+    <ID>ExpressionBodyOnOneLine:TransparentBars.kt:private tailrec fun Context.findWindow: Window?</ID>
+    <ID>OneTypeFamilyPerFile:Material2Theme.kt:internal fun AppTheme.asMaterial2: Material2Theme</ID>
+    <ID>OneTypeFamilyPerFile:Material2Theme.kt:internal fun AstraColors.asMaterial2: Colors</ID>
+    <ID>OneTypeFamilyPerFile:Material3Theme.kt:internal fun AppTheme.asMaterial3: Material3Theme</ID>
+    <ID>OneTypeFamilyPerFile:Material3Theme.kt:internal fun AstraColors.asMaterial3: ColorScheme</ID>
+    <ID>OneTypeFamilyPerFile:ThemeAdapt.kt:@Composable fun AdaptThemeFade</ID>
+    <ID>OneTypeFamilyPerFile:ThemeAdapt.kt:@Composable private fun Material2ThemeAdapt</ID>
+    <ID>OneTypeFamilyPerFile:ThemeAdapt.kt:@Composable private fun Material3ThemeAdapt</ID>
+  </CurrentIssues>
+</SmellBaseline>

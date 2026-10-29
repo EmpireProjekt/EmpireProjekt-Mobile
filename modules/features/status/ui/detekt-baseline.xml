@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ComposableFileType:StatusComposableScreen.kt:PreviewUrlStatusComponent : UrlStatusComponent</ID>
+    <ID>ComposableWhenBranch:SideColorStatusWidget.kt:status == UrlStatusComponent.LoadingStatus.ERROR -> { Box( modifier = Modifier .fillMaxHeight() .width(AppTheme.dimens.XXS) .background(AppTheme.astraColors.action.colorNegative) ) }</ID>
+    <ID>ComposableWhenBranch:SideColorStatusWidget.kt:status == UrlStatusComponent.LoadingStatus.LOADING || isLoading -> { LinearProgressIndicator( modifier = Modifier .fillMaxHeight() .width(AppTheme.dimens.XXS), color = AppTheme.astraColors.astraLogo.astraOrange, backgroundColor = AppTheme.astraColors.astraLogo.astraYellow ) }</ID>
+    <ID>ComposableWhenBranch:SideColorStatusWidget.kt:status == UrlStatusComponent.LoadingStatus.SUCCESS -> { Box( modifier = Modifier .fillMaxHeight() .width(AppTheme.dimens.XXS) .background(AppTheme.astraColors.action.colorPositive) ) }</ID>
+    <ID>OneTypeFamilyPerFile:StatusComposableScreen.kt:@Preview @Composable private fun StatusComposableScreenEmptyPreview</ID>
+    <ID>OneTypeFamilyPerFile:StatusComposableScreen.kt:@Preview @Composable private fun StatusComposableScreenPreview</ID>
+    <ID>OneTypeFamilyPerFile:StatusComposableScreen.kt:@Suppress("UnstableCollections") @Composable internal fun StatusComposableScreen</ID>
+    <ID>TimeAsPrimitive:StatusWidgetContent.kt:private const val FADE_DURATION = 1200</ID>
+    <ID>TrivialLambdaReference:IconWidget.kt:{ status -> IconWidget(status) }</ID>
+    <ID>TrivialLambdaReference:StatusComposableScreen.kt:{ onInfoClick.invoke() }</ID>
+    <ID>TrivialLambdaReference:StatusComposableScreen.kt:{ statusComponent -> StatusWidget(statusComponent) }</ID>
+    <ID>TrivialLambdaReference:StatusWidgetContent.kt:{ animatedStatus -> IconWidget(animatedStatus) }</ID>
+  </CurrentIssues>
+</SmellBaseline>

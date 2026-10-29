@@ -1,0 +1,4 @@
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/pager/PagerComposableScreen.kt	PagerComposableScreen
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/pager/PagerScreenComponent.kt	PagerScreenComponent
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/pager/components/PagerBottomBar.kt	PagerBottomBar
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/pager/components/PagerBottomBarItemIcon.kt	PagerBottomBarItemIcon

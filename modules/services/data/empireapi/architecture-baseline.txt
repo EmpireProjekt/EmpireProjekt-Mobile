@@ -1,0 +1,9 @@
+FieldDependencyConstruction	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/api/empireapi/impl/RatingApiImpl.kt	RatingApiImpl.UserRatingsRequest
+ForbiddenPackageName	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/api/empireapi/impl/RatingApiImpl.kt	com.makeevrserg.empireprojekt.mobile.api.empireapi.impl
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/api/empireapi/RatingApi.kt	RatingApi
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/api/empireapi/TownyApi.kt	TownyApi
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/api/empireapi/impl/RatingApiImpl.kt	RatingApiImpl
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/api/empireapi/impl/TownyApiImpl.kt	TownyApiImpl
+NestedEnum	src/commonMain/kotlin/ru/astrainteractive/empireapi/models/towny/TownPublicType.kt	TownPublicType
+SealedFamilyFile	src/commonMain/kotlin/ru/astrainteractive/empireapi/models/exception/AuthException.kt	AuthException
+SealedFamilyFile	src/commonMain/kotlin/ru/astrainteractive/empireapi/models/exception/UnhandledException.kt	UnhandledException

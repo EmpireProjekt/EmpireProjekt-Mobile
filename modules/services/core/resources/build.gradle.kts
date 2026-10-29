@@ -9,6 +9,12 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("dev.icerock.mobile.multiplatform-resources")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unitKind.set("library")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.core.resources")
 }
 
 kotlin {

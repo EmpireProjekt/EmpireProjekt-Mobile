@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ExpressionBodyOnOneLine:JsonWearMessage.kt:@Suppress("FunctionNaming") inline fun &lt;reified T> JsonWearMessage: WearMessage&lt;T></ID>
+    <ID>ExpressionBodyOnOneLine:WearMessageProducerImpl.kt:WearMessageProducerImpl$override suspend fun &lt;T> produce: Unit</ID>
+    <ID>ImplementationName:WearMessageConsumerImpl.kt:WearMessageConsumerImpl : WearMessageConsumer</ID>
+    <ID>ImplementationName:WearMessageProducerImpl.kt:WearMessageProducerImpl : WearMessageProducer</ID>
+    <ID>ImplicitItParameter:WearMessageConsumerImpl.kt:WearMessageConsumerImpl$it</ID>
+    <ID>ImplicitItParameter:WearMessageProducerImpl.kt:WearMessageProducerImpl$it</ID>
+    <ID>OneTypeFamilyPerFile:JsonWearMessage.kt:@Suppress("FunctionNaming") inline fun &lt;reified T> JsonWearMessage: WearMessage&lt;T></ID>
+    <ID>RunCatchingCancellation:WearMessageConsumerImpl.kt:WearMessageConsumerImpl$runCatching { val decodedWearMessage = DecodedWearMessage( path = message.path, value = message.decode(byteArray) ) messageChannel.send(decodedWearMessage) }</ID>
+    <ID>RunCatchingCancellation:WearMessageProducerImpl.kt:WearMessageProducerImpl$runCatching { val byteArray = message.encode(value) nodes.map { async { messageClient.sendMessage( it.id, message.path, byteArray ) } }.awaitAll() }</ID>
+  </CurrentIssues>
+</SmellBaseline>

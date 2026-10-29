@@ -1,0 +1,13 @@
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/option/ExpandableOptionComposable.kt	ExpandableOptionComposable
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/option/M3Switch.kt	M3Switch
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/option/OptionComposable.kt	OptionComposable
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/option/OptionDefaults.kt	OptionDefaults
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/option/OptionHref.kt	OptionHref
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/option/OptionInfo.kt	OptionInfo
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/option/OptionRow.kt	OptionRow
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/option/OptionSection.kt	OptionSection
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/option/OptionSeparator.kt	OptionSeparator
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/option/OptionSwitch.kt	OptionSwitch
+TestMirror	src/androidHostTest/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/option/OptionRowTest.kt	OptionRowTest
+TestMirror	src/androidHostTest/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/option/OptionSectionTest.kt	OptionSectionTest
+TestMirror	src/androidHostTest/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/option/OptionSwitchTest.kt	OptionSwitchTest

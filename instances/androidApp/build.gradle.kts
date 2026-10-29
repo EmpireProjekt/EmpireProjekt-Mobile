@@ -23,6 +23,12 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.java")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unitKind.set("entry-point")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile")
 }
 
 val keystoreBase64 = klibsSecretProperty("KEYSTORE_BASE64").stringOrEmpty

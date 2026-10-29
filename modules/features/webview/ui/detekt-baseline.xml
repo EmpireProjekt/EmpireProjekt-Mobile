@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ComposableWhenBranch:AndroidWebView.kt:WebViewDecomposeComponent.Event.BackPressed -> { if (webView?.canGoBack() == false) { val action = WebViewDecomposeComponent.Action.CantGoBack webViewDecomposeComponent.onAction(action) } else { webView?.goBack() } }</ID>
+  </CurrentIssues>
+</SmellBaseline>

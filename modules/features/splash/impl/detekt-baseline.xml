@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>DeclarationOrder:SplashComponentTest.kt:SplashComponentTest$private val componentContext = DefaultComponentContext(LifecycleRegistry())</ID>
+    <ID>ExpressionBodyOnOneLine:SplashComponentTest.kt:SplashComponentTest$@Test fun TEST_initial_launch_false: Unit</ID>
+    <ID>ExpressionBodyOnOneLine:SplashComponentTest.kt:SplashComponentTest$@Test fun TEST_initial_launch_true: Unit</ID>
+    <ID>ExpressionBodyOnOneLine:SplashComponentTest.kt:SplashComponentTest$private fun buildDependencies</ID>
+    <ID>ImplementationName:SplashComponentRepositoryImpl.kt:SplashComponentRepositoryImpl : SplashComponentRepository</ID>
+    <ID>RunBlockingInTest:SplashComponentTest.kt:SplashComponentTest$runBlocking { val expectInitialLaunchValue = false val splashComponent = DefaultSplashComponent(componentContext, buildDependencies(expectInitialLaunchValue)) splashComponent.screenChannelFlow.test { val item = awaitItem() assertTrue(item is SplashComponent.Label.InitialLaunch) assertEquals(expectInitialLaunchValue, item.value) } }</ID>
+    <ID>RunBlockingInTest:SplashComponentTest.kt:SplashComponentTest$runBlocking { val expectInitialLaunchValue = true val splashComponent = DefaultSplashComponent(componentContext, buildDependencies(expectInitialLaunchValue)) splashComponent.screenChannelFlow.test { val item = awaitItem() assertTrue(item is SplashComponent.Label.InitialLaunch) assertEquals(expectInitialLaunchValue, item.value) } }</ID>
+    <ID>TestFunctionName:SplashComponentTest.kt:SplashComponentTest$@Test fun TEST_initial_launch_false: Unit</ID>
+    <ID>TestFunctionName:SplashComponentTest.kt:SplashComponentTest$@Test fun TEST_initial_launch_true: Unit</ID>
+  </CurrentIssues>
+</SmellBaseline>

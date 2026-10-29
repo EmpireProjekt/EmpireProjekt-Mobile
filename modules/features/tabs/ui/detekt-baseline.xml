@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ComposableWhenBranch:PagerComposableScreen.kt:is PagerComponent.Child.Map -> mapScreen.Render( child = instance, modifier = Modifier )</ID>
+    <ID>ComposableWhenBranch:PagerComposableScreen.kt:is PagerComponent.Child.Menu -> menuScreen.Render( child = instance, modifier = Modifier )</ID>
+    <ID>ExpressionBodyOnOneLine:PagerComposableScreen.kt:private fun &lt;T : Any> previewPagerScreen: DecomposeScreen&lt;T></ID>
+  </CurrentIssues>
+</SmellBaseline>

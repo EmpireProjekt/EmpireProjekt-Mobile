@@ -1,0 +1,4 @@
+ContractPlacement	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/splash/data/SplashComponentRepository.kt	SplashComponentRepository
+KindImportDirection	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/splash/component/DefaultSplashComponent.kt	com.makeevrserg.empireprojekt.mobile.features.splash.di.SplashComponentDependencies
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/splash/data/SplashComponentRepository.kt	SplashComponentRepository
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/splash/data/SplashComponentRepositoryImpl.kt	SplashComponentRepositoryImpl

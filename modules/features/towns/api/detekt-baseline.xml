@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>DataClassDefaultValue:TownsComponent.kt:TownsComponent.Model$val isFailure: Boolean = false</ID>
+    <ID>DataClassDefaultValue:TownsComponent.kt:TownsComponent.Model$val isLastPage: Boolean = false</ID>
+    <ID>DataClassDefaultValue:TownsComponent.kt:TownsComponent.Model$val isLoading: Boolean = false</ID>
+    <ID>DataClassDefaultValue:TownsComponent.kt:TownsComponent.Model$val items: List&lt;TownModel> = emptyList()</ID>
+  </CurrentIssues>
+</SmellBaseline>

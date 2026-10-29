@@ -1,0 +1,14 @@
+KindShape	src/androidMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/TransparentBars.kt	TransparentBars
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/AppTheme.kt	AppTheme
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/AstraColors.kt	AstraColors
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/Dimens.kt	Dimens
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/Material2Theme.kt	Material2Theme
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/Material3Theme.kt	Material3Theme
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/ThemeAdapt.kt	ThemeAdapt
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/TransparentBars.kt	TransparentBars
+NestedDataClass	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/Dimens.kt	Dimens
+UtilShape	src/androidMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/TransparentBars.kt	Context.findWindow
+UtilShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/Material2Theme.kt	AppTheme.asMaterial2
+UtilShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/Material2Theme.kt	AstraColors.asMaterial2
+UtilShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/Material3Theme.kt	AppTheme.asMaterial3
+UtilShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/theme/Material3Theme.kt	AstraColors.asMaterial3

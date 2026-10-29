@@ -1,0 +1,10 @@
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/rating/user/RatingUserComposableScreen.kt	RatingUserComposableScreen
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/rating/user/RatingUserScreenComponent.kt	RatingUserScreenComponent
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/rating/user/components/RatingUserWidget.kt	RatingUserWidget
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/rating/users/RatingUsersComposableScreen.kt	RatingUsersComposableScreen
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/rating/users/RatingUsersScreenComponent.kt	RatingUsersScreenComponent
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/rating/users/components/GradientProgressIndicator.kt	GradientProgressIndicator
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/rating/users/components/RatingUserShimmerWidget.kt	RatingUserShimmerWidget
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/rating/users/components/RatingUserWidget.kt	RatingUserWidget
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/rating/users/components/RatingUsersAppBar.kt	RatingUsersAppBar
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/rating/users/components/RatingsFilterCard.kt	RatingsFilterCard

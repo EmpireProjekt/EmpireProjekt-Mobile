@@ -1,0 +1,14 @@
+ContractPlacement	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/data/TownsRepository.kt	TownsRepository
+FieldDependencyConstruction	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/component/DefaultTownsComponent.kt	DefaultTownsComponent.TownsFeature
+FieldDependencyConstruction	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/data/TownsRepositoryImpl.kt	TownsRepositoryImpl.TownsFilterStorageValue
+FieldDependencyConstruction	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/data/TownsRepositoryImpl.kt	TownsRepositoryImpl.TownyPagingCollector
+FieldDependencyConstruction	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/storage/TownsFilterStorageValue.kt	TownsFilterStorageValue.Keys
+KindImportDirection	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/component/DefaultTownsComponent.kt	com.makeevrserg.empireprojekt.mobile.features.towny.towns.di.TownsDependencies
+KindImportDirection	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/component/TownsFeature.kt	com.makeevrserg.empireprojekt.mobile.features.towny.towns.di.TownsDependencies
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/data/TownsRepository.kt	TownsRepository
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/data/TownsRepositoryImpl.kt	TownsRepositoryImpl
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/data/paging/TownyPageContext.kt	TownyPageContext
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/data/paging/TownyPagingCollector.kt	TownyPagingCollector
+KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/storage/TownsFilterStorageValue.kt	TownsFilterStorageValue
+UtilShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/util/LocalSortOrderExt.kt	LocalSortOrderExt
+UtilShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/towny/towns/util/TownPublicTypeExt.kt	TownPublicTypeExt
