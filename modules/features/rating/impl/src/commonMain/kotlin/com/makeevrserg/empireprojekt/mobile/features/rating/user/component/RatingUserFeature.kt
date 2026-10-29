@@ -36,14 +36,14 @@ internal class RatingUserFeature(
             }
         }
     )
-    val model = pagingCollector.state.mapStateFlow {
+    val model = pagingCollector.state.mapStateFlow { pagingState ->
         RatingUserComponent.Model(
-            items = it.items,
+            items = pagingState.items,
             request = UserRatingsRequest(id = userId),
             reviewedUserName = userName,
-            isLoading = it.pageResult.isLoading,
-            isLastPage = it.pageResult.isLastPage,
-            isFailure = it.pageResult.isFailure
+            isLoading = pagingState.pageResult.isLoading,
+            isLastPage = pagingState.pageResult.isLastPage,
+            isFailure = pagingState.pageResult.isFailure
         )
     }
 

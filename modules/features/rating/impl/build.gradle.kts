@@ -13,7 +13,9 @@ plugins {
 }
 
 kotlin {
-    androidLibrary {}
+    androidLibrary {
+        withHostTest {}
+    }
     applyDefaultHierarchyTemplate()
     sourceSets {
         val commonMain by getting {
@@ -34,6 +36,17 @@ kotlin {
                 implementation(projects.modules.features.rating.api)
                 implementation(projects.modules.services.core.common)
                 implementation(projects.modules.services.core.resources)
+                implementation(projects.modules.services.data.empireapi)
+            }
+        }
+        val androidHostTest by getting {
+            dependencies {
+                implementation(kotlin("test-junit"))
+            }
+        }
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
                 implementation(projects.modules.services.data.empireapi)
             }
         }

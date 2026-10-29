@@ -43,11 +43,11 @@ internal class RatingsFilterStorageValue(
             ),
         )
     },
-    saver = {
+    saver = { filter ->
         val keys = Keys(key)
-        settings.putString(keys.queryKey, it.query)
-        settings.putEnumByOrdinal(keys.nameSortKey, it.nameSort)
-        settings.putEnumByOrdinal(keys.lastUpdatedSortKey, it.lastUpdatedSort)
-        settings.putEnumByOrdinal(keys.ratingSortKey, it.ratingSort)
+        settings.putString(keys.queryKey, filter.query)
+        settings.putEnumByOrdinal(keys.nameSortKey, filter.nameSort)
+        settings.putEnumByOrdinal(keys.lastUpdatedSortKey, filter.lastUpdatedSort)
+        settings.putEnumByOrdinal(keys.ratingSortKey, filter.ratingSort)
     }
 ).asStateFlowMutableKrate()

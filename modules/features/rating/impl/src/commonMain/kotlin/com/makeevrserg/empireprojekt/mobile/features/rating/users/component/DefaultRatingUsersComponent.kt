@@ -3,10 +3,13 @@ package com.makeevrserg.empireprojekt.mobile.features.rating.users.component
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.essenty.instancekeeper.getOrCreate
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.component.RatingUsersComponent.Model
+import com.makeevrserg.empireprojekt.mobile.features.rating.users.util.updateNextLastUpdatedSort
+import com.makeevrserg.empireprojekt.mobile.features.rating.users.util.updateNextNameSort
+import com.makeevrserg.empireprojekt.mobile.features.rating.users.util.updateNextRatingSort
+import com.makeevrserg.empireprojekt.mobile.features.rating.users.util.updateQuery
 import kotlinx.coroutines.flow.StateFlow
-import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
+import ru.astrainteractive.empireapi.models.rating.RatingsFilterModel
 import ru.astrainteractive.klibs.mikro.core.util.combineStates
-import ru.astrainteractive.klibs.mikro.core.util.next
 import ru.astrainteractive.klibs.paging.state.isFailure
 import ru.astrainteractive.klibs.paging.state.isLastPage
 import ru.astrainteractive.klibs.paging.state.isLoading
@@ -38,10 +41,6 @@ internal class DefaultRatingUsersComponent(
         }
     )
 
-    private fun LocalSortOrder?.next(): LocalSortOrder {
-        return this?.next(LocalSortOrder.entries.toTypedArray()) ?: LocalSortOrder.entries.first()
-    }
-
     override fun reset() {
         ratingUsersFeature.reset()
     }
@@ -51,19 +50,19 @@ internal class DefaultRatingUsersComponent(
     }
 
     override fun updateQuery(query: String) {
-        filterFeature.updateFilter { it.copy(query = query) }
+        filterFeature.updateFilter { filter -> filter.updateQuery(query) }
     }
 
     override fun nextLastUpdateSort() {
-        filterFeature.updateFilter { it.copy(lastUpdatedSort = it.lastUpdatedSort.next()) }
+        filterFeature.updateFilter(RatingsFilterModel::updateNextLastUpdatedSort)
     }
 
     override fun nextRatingSort() {
-        filterFeature.updateFilter { it.copy(ratingSort = it.ratingSort.next()) }
+        filterFeature.updateFilter(RatingsFilterModel::updateNextRatingSort)
     }
 
     override fun nextNameSort() {
-        filterFeature.updateFilter { it.copy(nameSort = it.nameSort.next()) }
+        filterFeature.updateFilter(RatingsFilterModel::updateNextNameSort)
     }
 
     override fun showUserRatings(id: Long, userName: String) {

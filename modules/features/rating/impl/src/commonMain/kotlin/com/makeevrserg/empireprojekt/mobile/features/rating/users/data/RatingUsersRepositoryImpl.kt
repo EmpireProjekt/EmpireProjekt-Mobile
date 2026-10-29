@@ -23,7 +23,7 @@ internal class RatingUsersRepositoryImpl(
                     size = 10,
                     body = filterModel
                 )
-            }.onFailure { it.printStackTrace() }
+            }.onFailure { error -> error.printStackTrace() }
         }
     }
 }
