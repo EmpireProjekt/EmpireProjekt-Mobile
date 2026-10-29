@@ -1,5 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.root.screen
 
+import com.makeevrserg.empireprojekt.mobile.features.rating.model.RatingUserId
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 import kotlinx.serialization.Serializable
 
@@ -29,6 +30,6 @@ interface RootRouter : PopComponent {
         data class WebView(val url: String) : Configuration
 
         @Serializable
-        class RatingUser(val userId: Long, val userName: String) : Configuration
+        class RatingUser(val userId: RatingUserId, val userName: String) : Configuration
     }
 }

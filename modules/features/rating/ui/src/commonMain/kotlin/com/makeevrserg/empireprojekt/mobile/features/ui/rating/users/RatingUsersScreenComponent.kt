@@ -5,6 +5,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
+import com.makeevrserg.empireprojekt.mobile.features.rating.model.RatingUserId
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.component.RatingUsersComponent
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +27,7 @@ fun RatingUsersScreenComponent(
         onRatingSortClick = ratingUsersComponent::nextRatingSort,
         onUserClick = { ratingUserModel ->
             ratingUsersComponent.showUserRatings(
-                ratingUserModel.id,
+                RatingUserId(ratingUserModel.id),
                 ratingUserModel.minecraftName
             )
         },

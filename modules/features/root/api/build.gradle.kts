@@ -10,13 +10,28 @@ plugins {
 }
 
 kotlin {
-    androidLibrary {}
+    androidLibrary {
+        withHostTest {}
+    }
     applyDefaultHierarchyTemplate()
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation(libs.decompose.core)
+                implementation(projects.modules.features.rating.api)
                 implementation(projects.modules.services.core.common)
+            }
+        }
+        val androidHostTest by getting {
+            dependencies {
+                implementation(kotlin("test-junit"))
+            }
+        }
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(libs.kotlin.serialization.json)
+                implementation(projects.modules.features.rating.api)
             }
         }
     }

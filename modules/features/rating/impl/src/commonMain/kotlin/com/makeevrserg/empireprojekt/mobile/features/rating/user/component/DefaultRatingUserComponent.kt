@@ -2,12 +2,13 @@ package com.makeevrserg.empireprojekt.mobile.features.rating.user.component
 
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.essenty.instancekeeper.getOrCreate
+import com.makeevrserg.empireprojekt.mobile.features.rating.model.RatingUserId
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.data.RatingUserRepository
 import ru.astrainteractive.klibs.mikro.core.dispatchers.KotlinDispatchers
 
 internal class DefaultRatingUserComponent(
     componentContext: ComponentContext,
-    userId: Long,
+    userId: RatingUserId,
     userName: String,
     private val ratingUserRepository: RatingUserRepository,
     private val dispatchers: KotlinDispatchers

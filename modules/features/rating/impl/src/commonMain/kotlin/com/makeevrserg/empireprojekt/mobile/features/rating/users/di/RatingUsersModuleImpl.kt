@@ -2,6 +2,7 @@ package com.makeevrserg.empireprojekt.mobile.features.rating.users.di
 
 import com.arkivanov.decompose.ComponentContext
 import com.makeevrserg.empireprojekt.mobile.api.empireapi.di.ApiEmpireApiModule
+import com.makeevrserg.empireprojekt.mobile.features.rating.model.RatingUserId
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.component.DefaultRatingUsersComponent
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.component.FilterFeature
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.component.RatingUsersComponent
@@ -24,7 +25,7 @@ class RatingUsersModuleImpl(
 
     override fun createRatingUsersComponent(
         componentContext: ComponentContext,
-        onShowUserRatingsClicked: (userId: Long, userName: String) -> Unit
+        onShowUserRatingsClicked: (userId: RatingUserId, userName: String) -> Unit
     ): RatingUsersComponent {
         val dependencies = RatingUsersDependencies.Default(
             ratingUsersRepository = ratingUsersRepository

@@ -1,5 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.rating.user.component
 
+import com.makeevrserg.empireprojekt.mobile.features.rating.model.RatingUserId
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.data.RatingUserRepository
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -18,7 +19,7 @@ import ru.astrainteractive.klibs.paging.util.loadNextPage
 import ru.astrainteractive.klibs.paging.util.resetAndLoadNextPage
 
 internal class RatingUserFeature(
-    private val userId: Long,
+    private val userId: RatingUserId,
     userName: String,
     private val ratingUserRepository: RatingUserRepository,
     private val dispatchers: KotlinDispatchers
@@ -39,7 +40,7 @@ internal class RatingUserFeature(
     val model = pagingCollector.state.mapStateFlow { pagingState ->
         RatingUserComponent.Model(
             items = pagingState.items,
-            request = UserRatingsRequest(id = userId),
+            request = UserRatingsRequest(id = userId.value),
             reviewedUserName = userName,
             isLoading = pagingState.pageResult.isLoading,
             isLastPage = pagingState.pageResult.isLastPage,

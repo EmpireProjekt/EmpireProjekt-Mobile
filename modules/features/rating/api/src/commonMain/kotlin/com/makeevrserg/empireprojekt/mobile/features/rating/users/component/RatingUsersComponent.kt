@@ -1,5 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.rating.users.component
 
+import com.makeevrserg.empireprojekt.mobile.features.rating.model.RatingUserId
 import kotlinx.coroutines.flow.StateFlow
 import ru.astrainteractive.empireapi.models.rating.RatingUserModel
 import ru.astrainteractive.empireapi.models.rating.RatingsFilterModel
@@ -19,7 +20,7 @@ interface RatingUsersComponent {
 
     fun nextNameSort()
 
-    fun showUserRatings(id: Long, userName: String)
+    fun showUserRatings(id: RatingUserId, userName: String)
 
     data class Model(
         val items: List<RatingUserModel> = emptyList(),

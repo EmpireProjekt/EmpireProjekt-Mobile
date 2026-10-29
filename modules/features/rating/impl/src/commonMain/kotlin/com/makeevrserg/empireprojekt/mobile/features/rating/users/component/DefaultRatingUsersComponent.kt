@@ -2,6 +2,7 @@ package com.makeevrserg.empireprojekt.mobile.features.rating.users.component
 
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.essenty.instancekeeper.getOrCreate
+import com.makeevrserg.empireprojekt.mobile.features.rating.model.RatingUserId
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.component.RatingUsersComponent.Model
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.util.updateNextLastUpdatedSort
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.util.updateNextNameSort
@@ -16,7 +17,7 @@ import ru.astrainteractive.klibs.paging.state.isLoading
 
 internal class DefaultRatingUsersComponent(
     componentContext: ComponentContext,
-    private val onShowUserRatingsClicked: (userId: Long, userName: String) -> Unit,
+    private val onShowUserRatingsClicked: (userId: RatingUserId, userName: String) -> Unit,
     private val createRatingUsersFeature: (RatingUsersFeature.FilterProvider) -> RatingUsersFeature,
     private val createFilterFeature: () -> FilterFeature
 ) : RatingUsersComponent,
@@ -65,7 +66,7 @@ internal class DefaultRatingUsersComponent(
         filterFeature.updateFilter(RatingsFilterModel::updateNextNameSort)
     }
 
-    override fun showUserRatings(id: Long, userName: String) {
+    override fun showUserRatings(id: RatingUserId, userName: String) {
         onShowUserRatingsClicked.invoke(id, userName)
     }
 }

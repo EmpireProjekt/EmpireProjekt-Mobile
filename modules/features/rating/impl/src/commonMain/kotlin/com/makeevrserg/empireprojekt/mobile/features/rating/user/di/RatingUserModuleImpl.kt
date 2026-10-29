@@ -2,6 +2,7 @@ package com.makeevrserg.empireprojekt.mobile.features.rating.user.di
 
 import com.arkivanov.decompose.ComponentContext
 import com.makeevrserg.empireprojekt.mobile.api.empireapi.di.ApiEmpireApiModule
+import com.makeevrserg.empireprojekt.mobile.features.rating.model.RatingUserId
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.DefaultRatingUserComponent
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.RatingUserComponent
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.data.RatingUserRepositoryImpl
@@ -20,7 +21,7 @@ class RatingUserModuleImpl(
 
     override fun createRatingUserComponent(
         componentContext: ComponentContext,
-        userId: Long,
+        userId: RatingUserId,
         userName: String
     ): RatingUserComponent {
         return DefaultRatingUserComponent(
