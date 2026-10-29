@@ -8,7 +8,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.arkivanov.decompose.defaultComponentContext
 import com.makeevrserg.empireprojekt.mobile.features.theme.ApplicationTheme
 import com.makeevrserg.empireprojekt.mobile.wear.application.App.Companion.asEmpireApp
-import com.makeevrserg.empireprojekt.mobile.wear.features.root.presentation.DefaultRootComponent
+import com.makeevrserg.empireprojekt.mobile.wear.features.root.component.DefaultRootComponent
 import com.makeevrserg.empireprojekt.mobile.wear.features.root.ui.RootScreen
 
 class MainActivity : ComponentActivity() {

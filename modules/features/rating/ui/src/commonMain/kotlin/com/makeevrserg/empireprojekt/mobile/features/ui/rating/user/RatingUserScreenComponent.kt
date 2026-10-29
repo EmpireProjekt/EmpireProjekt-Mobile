@@ -5,7 +5,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
-import com.makeevrserg.empireprojekt.mobile.features.rating.user.presentation.RatingUserComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.RatingUserComponent
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 
 @Composable

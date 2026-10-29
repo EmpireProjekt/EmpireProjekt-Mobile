@@ -22,7 +22,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.wear.features.components.IconTextChip
-import com.makeevrserg.empireprojekt.mobile.wear.features.status.presentation.WearStatusComponent
+import com.makeevrserg.empireprojekt.mobile.wear.features.status.component.WearStatusComponent
 
 @Composable
 internal fun StatusesComposableScreen(

@@ -13,7 +13,7 @@ import androidx.wear.protolayout.material.ButtonColors
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.tiles.render.SingleTileLayoutRenderer
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.wear.features.status.presentation.WearStatusComponent
+import com.makeevrserg.empireprojekt.mobile.wear.features.status.component.WearStatusComponent
 import java.util.UUID
 
 @OptIn(ExperimentalHorologistApi::class)

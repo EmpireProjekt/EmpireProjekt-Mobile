@@ -2,9 +2,9 @@ package com.makeevrserg.empireprojekt.mobile.features.rating.user.di
 
 import com.arkivanov.decompose.ComponentContext
 import com.makeevrserg.empireprojekt.mobile.api.empireapi.di.ApiEmpireApiModule
+import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.DefaultRatingUserComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.RatingUserComponent
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.data.RatingUserRepositoryImpl
-import com.makeevrserg.empireprojekt.mobile.features.rating.user.presentation.DefaultRatingUserComponent
-import com.makeevrserg.empireprojekt.mobile.features.rating.user.presentation.RatingUserComponent
 import com.makeevrserg.empireprojekt.mobile.services.core.di.CoreModule
 
 class RatingUserModuleImpl(

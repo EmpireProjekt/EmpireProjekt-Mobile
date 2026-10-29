@@ -9,7 +9,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTop
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingLazyColumn
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
-import com.makeevrserg.empireprojekt.mobile.features.rating.user.presentation.RatingUserComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.RatingUserComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.components.RatingUserWidget
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components.RatingUserShimmerWidget
 import ru.astrainteractive.empireapi.models.rating.RatingModel

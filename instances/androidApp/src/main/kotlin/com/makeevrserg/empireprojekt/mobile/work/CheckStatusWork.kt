@@ -5,8 +5,8 @@ import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.makeevrserg.empireprojekt.mobile.application.App.Companion.asEmpireApp
-import com.makeevrserg.empireprojekt.mobile.features.status.root.presentation.RootStatusComponent
-import com.makeevrserg.empireprojekt.mobile.features.status.url.presentation.UrlStatusComponent
+import com.makeevrserg.empireprojekt.mobile.features.status.root.component.RootStatusComponent
+import com.makeevrserg.empireprojekt.mobile.features.status.url.component.UrlStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.message.StatusModelMessage
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.model.StatusModel
 import kotlinx.coroutines.Dispatchers

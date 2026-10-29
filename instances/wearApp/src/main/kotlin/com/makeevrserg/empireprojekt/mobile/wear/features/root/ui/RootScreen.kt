@@ -3,7 +3,7 @@ package com.makeevrserg.empireprojekt.mobile.wear.features.root.ui
 import androidx.compose.runtime.Composable
 import com.makeevrserg.empireprojekt.mobile.wear.features.main.ui.MainScreen
 import com.makeevrserg.empireprojekt.mobile.wear.features.ping.ui.PingScreen
-import com.makeevrserg.empireprojekt.mobile.wear.features.root.presentation.RootComponent
+import com.makeevrserg.empireprojekt.mobile.wear.features.root.component.RootComponent
 import com.makeevrserg.empireprojekt.mobile.wear.features.status.ui.StatusesScreen
 import com.makeevrserg.empireprojekt.mobile.wear.ui.SwipeToDismissBox
 

@@ -1,10 +1,10 @@
 package com.makeevrserg.empireprojekt.mobile.wear.features.ping.di
 
 import com.arkivanov.decompose.ComponentContext
-import com.makeevrserg.empireprojekt.mobile.wear.features.ping.presentation.DefaultPingComponent
-import com.makeevrserg.empireprojekt.mobile.wear.features.ping.presentation.PingComponent
+import com.makeevrserg.empireprojekt.mobile.wear.features.ping.component.DefaultPingComponent
+import com.makeevrserg.empireprojekt.mobile.wear.features.ping.component.PingComponent
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.di.WearMessengerModule
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.presentation.PingFeature
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.component.PingFeature
 
 interface PingModule {
     fun createPingComponent(componentContext: ComponentContext): PingComponent

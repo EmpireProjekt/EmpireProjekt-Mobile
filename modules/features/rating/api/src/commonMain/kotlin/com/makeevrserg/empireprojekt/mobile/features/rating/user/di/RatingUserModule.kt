@@ -1,7 +1,7 @@
 package com.makeevrserg.empireprojekt.mobile.features.rating.user.di
 
 import com.arkivanov.decompose.ComponentContext
-import com.makeevrserg.empireprojekt.mobile.features.rating.user.presentation.RatingUserComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.RatingUserComponent
 
 interface RatingUserModule {
     fun createRatingUserComponent(

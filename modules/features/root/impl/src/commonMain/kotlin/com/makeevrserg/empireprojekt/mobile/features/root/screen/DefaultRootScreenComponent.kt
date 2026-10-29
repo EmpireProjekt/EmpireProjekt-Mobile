@@ -10,13 +10,13 @@ import com.arkivanov.decompose.router.stack.replaceAll
 import com.arkivanov.decompose.router.stack.replaceCurrent
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.decompose.value.operator.map
-import com.makeevrserg.empireprojekt.mobile.features.rating.user.presentation.RatingUserComponent
-import com.makeevrserg.empireprojekt.mobile.features.rating.users.presentation.RatingUsersComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.RatingUserComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.users.component.RatingUsersComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.di.RootModule
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.PagerComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.di.factory.RootScreenComponentChildFactory
-import com.makeevrserg.empireprojekt.mobile.features.splash.presentation.SplashComponent
-import com.makeevrserg.empireprojekt.mobile.features.towny.towns.presentation.TownsComponent
+import com.makeevrserg.empireprojekt.mobile.features.splash.component.SplashComponent
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.component.TownsComponent
 import com.makeevrserg.empireprojekt.mobile.features.webview.WebViewDecomposeComponent
 import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
 import kotlinx.serialization.serializer

@@ -3,8 +3,8 @@ package com.makeevrserg.empireprojekt.mobile.features.ui.status
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.makeevrserg.empireprojekt.mobile.features.root.modal.RootBottomSheetRouter
-import com.makeevrserg.empireprojekt.mobile.features.status.root.presentation.RootStatusComponent
-import com.makeevrserg.empireprojekt.mobile.features.theme.presentation.ThemeSwitcherComponent
+import com.makeevrserg.empireprojekt.mobile.features.status.root.component.RootStatusComponent
+import com.makeevrserg.empireprojekt.mobile.features.theme.component.ThemeSwitcherComponent
 
 @Composable
 fun StatusScreen(

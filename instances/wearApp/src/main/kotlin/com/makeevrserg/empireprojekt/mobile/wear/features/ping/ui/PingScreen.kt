@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.makeevrserg.empireprojekt.mobile.wear.features.ping.presentation.PingComponent
+import com.makeevrserg.empireprojekt.mobile.wear.features.ping.component.PingComponent
 
 @Composable
 fun PingScreen(

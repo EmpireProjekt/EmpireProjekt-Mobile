@@ -1,9 +1,9 @@
 package com.makeevrserg.empireprojekt.mobile.features.splash.di
 
 import com.arkivanov.decompose.ComponentContext
+import com.makeevrserg.empireprojekt.mobile.features.splash.component.DefaultSplashComponent
+import com.makeevrserg.empireprojekt.mobile.features.splash.component.SplashComponent
 import com.makeevrserg.empireprojekt.mobile.features.splash.data.SplashComponentRepositoryImpl
-import com.makeevrserg.empireprojekt.mobile.features.splash.presentation.DefaultSplashComponent
-import com.makeevrserg.empireprojekt.mobile.features.splash.presentation.SplashComponent
 import com.makeevrserg.empireprojekt.mobile.services.core.di.CoreModule
 
 interface SplashComponentModule {

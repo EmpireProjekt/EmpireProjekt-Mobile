@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.features.status.url.presentation.UrlStatusComponent
+import com.makeevrserg.empireprojekt.mobile.features.status.url.component.UrlStatusComponent
 
 @Composable
 internal fun IconWidget(status: UrlStatusComponent.LoadingStatus) {
