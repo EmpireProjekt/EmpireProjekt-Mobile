@@ -24,7 +24,7 @@ kotlin {
     }
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 implementation(libs.decompose.core)
                 implementation(libs.essenty)
@@ -45,12 +45,12 @@ kotlin {
                 implementation(projects.modules.services.data.empireapi)
             }
         }
-        val androidHostTest by getting {
+        getByName("androidHostTest") {
             dependencies {
                 implementation(kotlin("test-junit"))
             }
         }
-        val commonTest by getting {
+        getByName("commonTest") {
             dependencies {
                 implementation(kotlin("test"))
                 implementation(projects.modules.services.data.empireapi)

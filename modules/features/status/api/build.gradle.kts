@@ -19,7 +19,7 @@ kotlin {
     androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 implementation(libs.kotlin.coroutines.core)
                 implementation(libs.moko.resources.core)

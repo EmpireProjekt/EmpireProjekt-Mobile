@@ -18,7 +18,7 @@ kotlin {
     androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 implementation(libs.decompose.core)
                 implementation(libs.klibs.kstorage)

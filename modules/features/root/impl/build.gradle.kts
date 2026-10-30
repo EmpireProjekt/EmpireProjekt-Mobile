@@ -19,7 +19,7 @@ kotlin {
     androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 implementation(libs.decompose.core)
                 implementation(libs.essenty)
@@ -48,7 +48,7 @@ kotlin {
                 implementation(projects.modules.services.data.empireapi)
             }
         }
-        val androidMain by getting {
+        getByName("androidMain") {
             dependencies {
                 implementation(libs.ktor.client.cio)
             }
