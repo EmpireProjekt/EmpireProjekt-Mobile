@@ -1,7 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.core.ui.theme
 
 import android.app.Activity
-import android.content.Context
 import android.content.ContextWrapper
 import android.view.View
 import android.view.Window
@@ -11,24 +10,30 @@ import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.window.DialogWindowProvider
 import androidx.core.view.WindowInsetsControllerCompat
 
-private tailrec fun Context.findWindow(): Window? =
-    when (this) {
-        is Activity -> window
-        is ContextWrapper -> baseContext.findWindow()
-        else -> null
-    }
-
 private fun findWindow(view: View): Window? {
-    return (view.parent as? DialogWindowProvider)
-        ?.window
-        ?: view.context.findWindow()
+    val dialogWindow = (view.parent as? DialogWindowProvider)?.window
+    if (dialogWindow != null) {
+        return dialogWindow
+    }
+    var context = view.context
+    while (context is ContextWrapper) {
+        if (context is Activity) {
+            return context.window
+        }
+        context = context.baseContext
+    }
+    return null
 }
 
 @Composable
 internal actual fun TransparentBars(isDarkTheme: Boolean) {
     val view = LocalView.current
     val window = findWindow(view)
-    LaunchedEffect(view, window, isDarkTheme) {
+    LaunchedEffect(
+        view,
+        window,
+        isDarkTheme
+    ) {
         if (window == null) return@LaunchedEffect
         val controller = WindowInsetsControllerCompat(window, view)
         controller.isAppearanceLightStatusBars = !isDarkTheme

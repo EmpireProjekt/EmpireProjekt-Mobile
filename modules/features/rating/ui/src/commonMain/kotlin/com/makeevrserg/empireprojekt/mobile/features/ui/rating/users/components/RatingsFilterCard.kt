@@ -10,7 +10,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.EnumOption
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.FilterCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.SortFilterHeader
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.util.LocalSortOrderExt.toStringDesc
 import com.makeevrserg.empireprojekt.mobile.rating.RR

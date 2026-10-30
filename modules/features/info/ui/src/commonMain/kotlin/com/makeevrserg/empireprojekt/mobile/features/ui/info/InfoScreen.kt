@@ -33,7 +33,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSwitch
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.IR

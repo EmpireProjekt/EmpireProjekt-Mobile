@@ -11,7 +11,7 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_bedtime
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_sunny
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.model.Theme
 import com.makeevrserg.empireprojekt.mobile.wear.features.components.IconTextChip

@@ -29,7 +29,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.common.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.rating.RR

@@ -17,7 +17,7 @@ import androidx.wear.compose.material.Scaffold
 import com.makeevrserg.empireprojekt.mobile.R
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.model.Theme
 import com.makeevrserg.empireprojekt.mobile.wear.features.main.ui.components.NavChip
 import com.makeevrserg.empireprojekt.mobile.wear.features.main.ui.components.ThemeChip

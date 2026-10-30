@@ -8,7 +8,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingLazyColumn
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.ComposeTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.RatingUserComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.components.RatingUserWidget
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components.RatingUserShimmerWidget

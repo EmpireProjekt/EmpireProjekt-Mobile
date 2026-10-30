@@ -1,5 +1,3 @@
-@file:Suppress("UnusedPrivateMember")
-
 plugins {
     id("com.android.kotlin.multiplatform.library")
     id("org.jetbrains.compose")
@@ -13,13 +11,13 @@ plugins {
 
 linter {
     unitKind.set("library")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.core.ui.theme")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.core.ui")
 }
 kotlin {
     androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 implementation(compose.materialIconsExtended)
                 implementation(libs.composeext.shimmer)
@@ -38,7 +36,7 @@ kotlin {
                 implementation(projects.modules.services.core.resources)
             }
         }
-        val androidMain by getting {
+        getByName("androidMain") {
             dependencies {
                 implementation(libs.androidx.core)
                 implementation(libs.androidx.core.ktx)
