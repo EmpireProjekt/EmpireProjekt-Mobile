@@ -1,3 +1,5 @@
+@file:Suppress("FunctionNaming")
+
 package com.makeevrserg.empireprojekt.mobile.features.status.url.component
 
 import app.cash.turbine.test
@@ -39,7 +41,7 @@ class UrlStatusComponentTest {
     }
 
     @Test
-    fun testInitialLoadingState() {
+    fun GIVEN_reachable_url_WHEN_component_is_created_THEN_status_is_loading() {
         runTest {
             val urlStatusComponent = createUrlStatusComponent { true }
             urlStatusComponent.model.test {
@@ -49,7 +51,7 @@ class UrlStatusComponentTest {
     }
 
     @Test
-    fun testSuccessState() {
+    fun GIVEN_reachable_url_WHEN_check_completes_THEN_status_is_success() {
         runTest {
             val urlStatusComponent = createUrlStatusComponent { true }
             urlStatusComponent.model.test {
@@ -60,7 +62,7 @@ class UrlStatusComponentTest {
     }
 
     @Test
-    fun testFailureState() {
+    fun GIVEN_unreachable_url_WHEN_check_completes_THEN_status_is_error() {
         runTest {
             val urlStatusComponent = createUrlStatusComponent { false }
             urlStatusComponent.model.test {
@@ -71,7 +73,7 @@ class UrlStatusComponentTest {
     }
 
     @Test
-    fun testFailureWithExceptionState() {
+    fun GIVEN_failing_request_WHEN_check_completes_THEN_status_is_error() {
         runTest {
             val urlStatusComponent = createUrlStatusComponent { error("Hello world") }
             urlStatusComponent.model.test {
