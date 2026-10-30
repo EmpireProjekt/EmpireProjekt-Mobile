@@ -24,13 +24,13 @@ private class Keys(key: String) {
 internal class TownsFilterStorageValue(
     settings: Settings,
     key: String,
-    default: TownsFilterModel = TownsFilterModel()
+    default: TownsFilterModel
 ) : CachedMutableKrate<TownsFilterModel> by DefaultMutableKrate(
     factory = { default },
     loader = {
         val keys = Keys(key)
         TownsFilterModel(
-            query = settings.getString(keys.queryKey, default.query),
+            query = settings.getString(key = keys.queryKey, defaultValue = default.query),
             publicType = settings.loadEnumByOrdinal(
                 TownPublicType.entries,
                 keys.publicTypeKey,
@@ -70,7 +70,7 @@ internal class TownsFilterStorageValue(
     },
     saver = {
         val keys = Keys(key)
-        settings.putString(keys.queryKey, it.query)
+        settings.putString(key = keys.queryKey, value = it.query)
         settings.putEnumByOrdinal(keys.publicTypeKey, it.publicType)
         settings.putEnumByOrdinal(keys.nameSortKey, it.nameSort)
         settings.putEnumByOrdinal(keys.tagSortKey, it.tagSort)

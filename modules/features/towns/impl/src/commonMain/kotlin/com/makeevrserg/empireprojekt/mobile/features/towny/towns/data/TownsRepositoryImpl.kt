@@ -17,7 +17,8 @@ internal class TownsRepositoryImpl(
 ) : TownsRepository {
     private val townsFilterStorageValue = TownsFilterStorageValue(
         settings = settings,
-        key = "towns_filter_storage_key"
+        key = "towns_filter_storage_key",
+        default = TownsFilterModel()
     )
 
     override val pagingCollector = TownyPagingCollector(

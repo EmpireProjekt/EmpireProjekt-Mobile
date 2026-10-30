@@ -11,6 +11,7 @@ import com.makeevrserg.empireprojekt.mobile.features.rating.users.data.RatingUse
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.data.RatingUsersRepositoryImpl
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.storage.RatingsFilterStorageValue
 import com.makeevrserg.empireprojekt.mobile.services.core.di.CoreModule
+import ru.astrainteractive.empireapi.models.rating.RatingsFilterModel
 
 class RatingUsersModuleImpl(
     apiEmpireApiModule: ApiEmpireApiModule,
@@ -44,7 +45,8 @@ class RatingUsersModuleImpl(
                 FilterFeature(
                     ratingsFilterStorageValue = RatingsFilterStorageValue(
                         settings = coreModule.settings,
-                        key = "ratings_filter_storage_key"
+                        key = "ratings_filter_storage_key",
+                        default = RatingsFilterModel()
                     )
                 )
             }

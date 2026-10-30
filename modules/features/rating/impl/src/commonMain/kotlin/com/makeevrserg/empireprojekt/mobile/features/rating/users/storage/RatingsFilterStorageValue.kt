@@ -19,13 +19,13 @@ private class Keys(key: String) {
 internal class RatingsFilterStorageValue(
     settings: Settings,
     key: String,
-    default: RatingsFilterModel = RatingsFilterModel()
+    default: RatingsFilterModel
 ) : StateFlowMutableKrate<RatingsFilterModel> by DefaultMutableKrate(
     factory = { default },
     loader = {
         val keys = Keys(key)
         RatingsFilterModel(
-            query = settings.getString(keys.queryKey, default.query),
+            query = settings.getString(key = keys.queryKey, defaultValue = default.query),
             nameSort = settings.loadEnumByOrdinal(
                 LocalSortOrder.entries,
                 keys.nameSortKey,
@@ -45,7 +45,7 @@ internal class RatingsFilterStorageValue(
     },
     saver = { filter ->
         val keys = Keys(key)
-        settings.putString(keys.queryKey, filter.query)
+        settings.putString(key = keys.queryKey, value = filter.query)
         settings.putEnumByOrdinal(keys.nameSortKey, filter.nameSort)
         settings.putEnumByOrdinal(keys.lastUpdatedSortKey, filter.lastUpdatedSort)
         settings.putEnumByOrdinal(keys.ratingSortKey, filter.ratingSort)
