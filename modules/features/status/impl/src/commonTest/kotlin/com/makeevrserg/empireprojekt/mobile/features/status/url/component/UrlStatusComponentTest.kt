@@ -5,8 +5,11 @@ import com.arkivanov.mvikotlin.main.store.DefaultStoreFactory
 import com.makeevrserg.empireprojekt.mobile.features.status.url.data.UrlStatusRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
+import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -27,41 +30,54 @@ class UrlStatusComponentTest {
 
     @BeforeTest
     fun setup() {
-        Dispatchers.setMain(Dispatchers.Default)
+        Dispatchers.setMain(StandardTestDispatcher())
+    }
+
+    @AfterTest
+    fun tearDown() {
+        Dispatchers.resetMain()
     }
 
     @Test
-    fun testInitialLoadingState(): Unit = runBlocking {
-        val urlStatusComponent = createUrlStatusComponent { true }
-        urlStatusComponent.model.test {
-            assertEquals(UrlStatusComponent.LoadingStatus.LOADING, awaitItem().status)
+    fun testInitialLoadingState() {
+        runTest {
+            val urlStatusComponent = createUrlStatusComponent { true }
+            urlStatusComponent.model.test {
+                assertEquals(UrlStatusComponent.LoadingStatus.LOADING, awaitItem().status)
+            }
         }
     }
 
     @Test
-    fun testSuccessState(): Unit = runBlocking {
-        val urlStatusComponent = createUrlStatusComponent { true }
-        urlStatusComponent.model.test {
-            skipItems(1)
-            assertEquals(UrlStatusComponent.LoadingStatus.SUCCESS, awaitItem().status)
+    fun testSuccessState() {
+        runTest {
+            val urlStatusComponent = createUrlStatusComponent { true }
+            urlStatusComponent.model.test {
+                skipItems(1)
+                assertEquals(UrlStatusComponent.LoadingStatus.SUCCESS, awaitItem().status)
+            }
         }
     }
 
     @Test
-    fun testFailureState(): Unit = runBlocking {
-        val urlStatusComponent = createUrlStatusComponent { false }
-        urlStatusComponent.model.test {
-            skipItems(1)
-            assertEquals(UrlStatusComponent.LoadingStatus.ERROR, awaitItem().status)
+    fun testFailureState() {
+        runTest {
+            val urlStatusComponent = createUrlStatusComponent { false }
+            urlStatusComponent.model.test {
+                skipItems(1)
+                assertEquals(UrlStatusComponent.LoadingStatus.ERROR, awaitItem().status)
+            }
         }
     }
 
     @Test
-    fun testFailureWithExceptionState(): Unit = runBlocking {
-        val urlStatusComponent = createUrlStatusComponent { error("Hello world") }
-        urlStatusComponent.model.test {
-            skipItems(1)
-            assertEquals(UrlStatusComponent.LoadingStatus.ERROR, awaitItem().status)
+    fun testFailureWithExceptionState() {
+        runTest {
+            val urlStatusComponent = createUrlStatusComponent { error("Hello world") }
+            urlStatusComponent.model.test {
+                skipItems(1)
+                assertEquals(UrlStatusComponent.LoadingStatus.ERROR, awaitItem().status)
+            }
         }
     }
 }
