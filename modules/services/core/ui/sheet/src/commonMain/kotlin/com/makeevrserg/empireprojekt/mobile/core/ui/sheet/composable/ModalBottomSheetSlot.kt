@@ -1,6 +1,18 @@
 package com.makeevrserg.empireprojekt.mobile.core.ui.sheet.composable
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.only
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
@@ -9,13 +21,23 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.snapshotFlow
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.arkivanov.decompose.router.slot.ChildSlot
 import com.arkivanov.decompose.value.Value
+import com.composables.core.BottomSheetScope
+import com.composables.core.DragIndication
 import com.composables.core.ModalBottomSheet
 import com.composables.core.ModalBottomSheetScope
 import com.composables.core.ModalBottomSheetState
+import com.composables.core.Scrim
+import com.composables.core.Sheet
 import com.composables.core.SheetDetent
 import com.composables.core.rememberModalBottomSheetState
 import com.makeevrserg.empireprojekt.mobile.core.ui.sheet.model.SheetTransition
@@ -30,6 +52,43 @@ import kotlinx.coroutines.flow.retryWhen
 
 private val EmptyContent: @Composable ModalBottomSheetScope.() -> Unit = {
     BModalBottomSheetContent { Box(Modifier) }
+}
+
+@Composable
+private fun ModalBottomSheetScope.BModalBottomSheetContent(
+    modifier: Modifier = Modifier,
+    background: Color = Color(color = 0xFF1E1E1E),
+    horizontalPadding: Dp = 24.dp,
+    content: @Composable BottomSheetScope.() -> Unit
+) {
+    Scrim()
+    Sheet(
+        modifier = modifier
+            .padding(top = 12.dp)
+            .statusBarsPadding()
+            .padding(
+                WindowInsets.navigationBars.only(WindowInsetsSides.Horizontal).asPaddingValues()
+            )
+            .shadow(4.dp, RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp))
+            .clip(RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp))
+            .background(background)
+            .padding(horizontal = horizontalPadding)
+            .fillMaxWidth()
+            .imePadding(),
+    ) {
+        Column {
+            DragIndication()
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 24.dp),
+                contentAlignment = Alignment.Center,
+                content = { BSheetDragIndicator() }
+            )
+            content.invoke(this@Sheet)
+        }
+    }
 }
 
 private suspend fun <T> withRetry(block: suspend () -> T): T {
