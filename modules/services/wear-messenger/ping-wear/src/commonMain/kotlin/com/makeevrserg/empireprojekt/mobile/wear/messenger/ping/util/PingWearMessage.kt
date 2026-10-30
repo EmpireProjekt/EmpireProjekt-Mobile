@@ -1,28 +1,15 @@
 package com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.util
 
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.InlineWearMessage
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.WearMessage
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.model.WearMessage
+import kotlinx.serialization.builtins.serializer
+import kotlin.time.Duration
+import kotlin.time.Duration.Companion.seconds
 
-object PingWearMessage {
-    const val PATH = "/wear/ping"
+val PING_WEAR_MESSAGE: WearMessage<Byte> = WearMessage(
+    path = "/wear/ping",
+    serializer = Byte.serializer()
+)
 
-    /**
-     * Delay between each ping
-     */
-    const val DELAY = 5_000L
+val PING_INTERVAL: Duration = 5.seconds
 
-    /**
-     * Debounce after which device is not connected
-     */
-    const val DEBOUNCE = 20_000L
-
-    object Message : WearMessage<Byte> by InlineWearMessage(
-        path = PATH,
-        encode = { value ->
-            byteArrayOf(value)
-        },
-        decode = { byteArray ->
-            byteArray.first()
-        }
-    )
-}
+val PING_TIMEOUT: Duration = 20.seconds

@@ -31,10 +31,8 @@
     <ID>BooleanOperatorWrapping:ModalBottomSheetSlot.kt:&amp;&amp;</ID>
     <ID>CalleeBeforeCaller:CheckStatusWork.kt:CheckStatusWork$override suspend fun doWork: Result</ID>
     <ID>CalleeBeforeCaller:DefaultWearStatusComponent.kt:DefaultWearStatusComponent$private fun toModel: WearStatusComponent.Model</ID>
-    <ID>CalleeBeforeCaller:PingListenerService.kt:PingListenerService$override fun onMessageReceived</ID>
     <ID>CalleeBeforeCaller:PreviewThemeSwitcherComponent.kt:PreviewThemeSwitcherComponent$override fun selectDarkTheme</ID>
     <ID>CalleeBeforeCaller:PreviewThemeSwitcherComponent.kt:PreviewThemeSwitcherComponent$override fun selectLightTheme</ID>
-    <ID>CalleeBeforeCaller:StatusListenerService.kt:StatusListenerService$override fun onMessageReceived</ID>
     <ID>CalleeBeforeCaller:StatusService.kt:StatusService$override fun onStartCommand: Int</ID>
     <ID>CalleeBeforeCaller:SwipeToDismissBox.kt:@Composable fun &lt;C : Any, T : Any> SwipeToDismissBox</ID>
     <ID>CalleeBeforeCaller:SwipeToDismissBox.kt:private fun ChildStack&lt;*, *>.getConfigurations: Set&lt;String></ID>
@@ -112,7 +110,6 @@
     <ID>DataClassDefaultValue:WearStatusComponent.kt:WearStatusComponent.Model$val loadingCount: Int = 0</ID>
     <ID>DataClassDefaultValue:WearStatusComponent.kt:WearStatusComponent.Model$val successCount: Int = 0</ID>
     <ID>DataClassDefaultValue:WearStatusComponent.kt:WearStatusComponent.Model$val updatedAt: String = "..."</ID>
-    <ID>DeclarationOrder:DefaultPingComponent.kt:DefaultPingComponent$override val model: StateFlow&lt;PingComponent.Model> = pingFeature.model.mapStateFlow { when (it) { is PingState.Connected -> PingComponent.Model.Success( updatedAt = getTimeStamp(it.timestamp) ) is PingState.NotConnected -> PingComponent.Model.NoConnection( updatedAt = getTimeStamp(it.timestamp) ) } }</ID>
     <ID>DeclarationOrder:LoadingWebViewClient.kt:LoadingWebViewClient$override fun onPageFinished</ID>
     <ID>DeclarationOrder:LoadingWebViewClient.kt:LoadingWebViewClient$override fun shouldOverrideUrlLoading: Boolean</ID>
     <ID>DeclarationOrder:OptionHref.kt:internal const val TEXT = "Some text"</ID>
@@ -142,7 +139,6 @@
     <ID>ExpressionBodyOnOneLine:CheckStatusWork.kt:CheckStatusWork$override suspend fun doWork: Result</ID>
     <ID>ExpressionBodyOnOneLine:CheckStatusWork.kt:CheckStatusWork$private suspend fun sendStatus</ID>
     <ID>ExpressionBodyOnOneLine:InstanceKeeperExt.kt:InstanceKeeperExt$fun &lt;T> T.wrapInstanceKeeper</ID>
-    <ID>ExpressionBodyOnOneLine:JsonWearMessage.kt:@Suppress("FunctionNaming") inline fun &lt;reified T> JsonWearMessage: WearMessage&lt;T></ID>
     <ID>ExpressionBodyOnOneLine:LoadingContentTest.kt:LoadingContentTest$@Test fun GIVEN_area_WHEN_loading_is_shown_THEN_it_takes_the_given_area</ID>
     <ID>ExpressionBodyOnOneLine:LocalSortOrderExt.kt:LocalSortOrderExt$fun LocalSortOrder.toStringDesc</ID>
     <ID>ExpressionBodyOnOneLine:OptionRowTest.kt:OptionRowTest$@Test fun GIVEN_clickable_option_WHEN_clicked_THEN_click_is_reported</ID>
@@ -160,7 +156,6 @@
     <ID>ExpressionBodyOnOneLine:PagingLazyColumnTest.kt:PagingLazyColumnTest$@Test fun GIVEN_header_and_items_WHEN_list_is_shown_THEN_both_are_displayed</ID>
     <ID>ExpressionBodyOnOneLine:PagingLazyColumnTest.kt:PagingLazyColumnTest$@Test fun GIVEN_loading_page_WHEN_list_is_shown_THEN_a_page_of_shimmer_placeholders_is_displayed</ID>
     <ID>ExpressionBodyOnOneLine:PagingLazyColumnTest.kt:PagingLazyColumnTest$@Test fun GIVEN_short_list_WHEN_its_end_is_visible_THEN_next_page_is_requested</ID>
-    <ID>ExpressionBodyOnOneLine:PingListenerService.kt:PingListenerService$private suspend fun receivePingMessage</ID>
     <ID>ExpressionBodyOnOneLine:PingWorker.kt:PingWorker$override suspend fun doWork: Result</ID>
     <ID>ExpressionBodyOnOneLine:PlayerAvatarTest.kt:PlayerAvatarTest$@Test fun GIVEN_player_WHEN_avatar_is_shown_THEN_it_has_the_list_avatar_size</ID>
     <ID>ExpressionBodyOnOneLine:PlayerNameRowTest.kt:PlayerNameRowTest$@Test fun GIVEN_custom_spacing_WHEN_row_is_shown_THEN_name_moves_by_that_spacing</ID>
@@ -177,7 +172,6 @@
     <ID>ExpressionBodyOnOneLine:SplashComponentTest.kt:SplashComponentTest$@Test fun TEST_initial_launch_false: Unit</ID>
     <ID>ExpressionBodyOnOneLine:SplashComponentTest.kt:SplashComponentTest$@Test fun TEST_initial_launch_true: Unit</ID>
     <ID>ExpressionBodyOnOneLine:SplashComponentTest.kt:SplashComponentTest$private fun buildDependencies</ID>
-    <ID>ExpressionBodyOnOneLine:StatusListenerService.kt:StatusListenerService$private suspend fun receivePingMessage</ID>
     <ID>ExpressionBodyOnOneLine:StatusService.kt:StatusService$private fun stopSelfInternal</ID>
     <ID>ExpressionBodyOnOneLine:SwipeToDismissBox.kt:private fun ChildStack&lt;*, *>.getConfigurations: Set&lt;String></ID>
     <ID>ExpressionBodyOnOneLine:TownPublicTypeExt.kt:TownPublicTypeExt$fun TownPublicType.toStringDesc</ID>
@@ -190,18 +184,15 @@
     <ID>ExpressionBodyOnOneLine:UrlStatusComponentTest.kt:UrlStatusComponentTest$@Test fun testInitialLoadingState: Unit</ID>
     <ID>ExpressionBodyOnOneLine:UrlStatusComponentTest.kt:UrlStatusComponentTest$@Test fun testSuccessState: Unit</ID>
     <ID>ExpressionBodyOnOneLine:UrlStatusRepositoryImpl.kt:UrlStatusRepositoryImpl$override suspend fun isActive: Result&lt;Boolean></ID>
-    <ID>ExpressionBodyOnOneLine:WearMessageProducerImpl.kt:WearMessageProducerImpl$override suspend fun &lt;T> produce: Unit</ID>
     <ID>ForbiddenImport/time:DefaultPingComponent.kt:import java.time.Instant</ID>
     <ID>ForbiddenImport/time:DefaultPingComponent.kt:import java.time.LocalDateTime</ID>
     <ID>ForbiddenImport/time:DefaultWearStatusComponent.kt:import java.time.LocalDateTime</ID>
-    <ID>ForbiddenImport/time:PingFeature.kt:import java.time.Instant</ID>
     <ID>FunctionVerb:DefaultPingComponent.kt:DefaultPingComponent$private fun getTimeStamp: String</ID>
     <ID>FunctionVerb:DefaultWearStatusComponent.kt:DefaultWearStatusComponent$private fun getTimeStamp: String</ID>
     <ID>FunctionVerb:InfoScreenLinks.kt:InfoScreenLinks$fun get: List&lt;LinkModel></ID>
     <ID>FunctionVerb:ModalBottomSheetSlot.kt:private fun &lt;C : Any> getLogicEventFlow: Flow&lt;LogicEvent&lt;C>></ID>
     <ID>FunctionVerb:ModalBottomSheetSlot.kt:private suspend fun &lt;C : Any> handleLogicEvent</ID>
     <ID>FunctionVerb:PagerComponent.kt:PagerComponent$fun selectMap</ID>
-    <ID>FunctionVerb:PingFeature.kt:PingFeature$private fun getMillis: Long</ID>
     <ID>FunctionVerb:RatingUserRepository.kt:RatingUserRepository$suspend fun getRatings: List&lt;RatingModel></ID>
     <ID>FunctionVerb:SwipeToDismissBox.kt:private fun ChildStack&lt;*, *>.getConfigurations: Set&lt;String></ID>
     <ID>GetOrThrowInMain:RatingUsersFeature.kt:RatingUsersFeature$getOrThrow()</ID>
@@ -220,8 +211,6 @@
     <ID>ImplementationName:TownsRepositoryImpl.kt:TownsRepositoryImpl : TownsRepository</ID>
     <ID>ImplementationName:UrlStatusRepositoryImpl.kt:UrlStatusRepositoryImpl : UrlStatusRepository</ID>
     <ID>ImplementationName:UrlStatusStoreFactory.kt:UrlStatusStoreFactory$UrlStatusStoreImpl : UrlStatusStoreStore</ID>
-    <ID>ImplementationName:WearMessageConsumerImpl.kt:WearMessageConsumerImpl : WearMessageConsumer</ID>
-    <ID>ImplementationName:WearMessageProducerImpl.kt:WearMessageProducerImpl : WearMessageProducer</ID>
     <ID>ImplicitItParameter:AstraLoading.kt:it</ID>
     <ID>ImplicitItParameter:CheckStatusWork.kt:CheckStatusWork$it</ID>
     <ID>ImplicitItParameter:DefaultPagerComponent.kt:DefaultPagerComponent$it</ID>
@@ -241,11 +230,8 @@
     <ID>ImplicitItParameter:TownsFeature.kt:TownsFeature$it</ID>
     <ID>ImplicitItParameter:TownsFilterStorageValue.kt:TownsFilterStorageValue$it</ID>
     <ID>ImplicitItParameter:VotesScreenComponent.kt:it</ID>
-    <ID>ImplicitItParameter:WearMessageConsumerImpl.kt:WearMessageConsumerImpl$it</ID>
-    <ID>ImplicitItParameter:WearMessageProducerImpl.kt:WearMessageProducerImpl$it</ID>
     <ID>ImplicitItParameter:WearStatusComponent.kt:WearStatusComponent.Stub$it</ID>
     <ID>KindNameInPackage:LinkModel.kt:LinkModel</ID>
-    <ID>KindNameInPackage:StatusModel.kt:StatusModel</ID>
     <ID>KindNameInPackage:StatusesTileService.kt:StatusesTileService : SuspendingTileService</ID>
     <ID>LambdaSingleIfGuard:AstraWebView.kt:if (isPageLoading) { LoadingContent(Modifier.fillMaxSize()) }</ID>
     <ID>LambdaSingleIfGuard:LazyListStateExt.kt:if (it) block.invoke()</ID>
@@ -262,7 +248,6 @@
     <ID>NamespaceObject:LocalSortOrderExt.kt:LocalSortOrderExt</ID>
     <ID>NamespaceObject:PagingWidget.kt:PagingWidget</ID>
     <ID>NamespaceObject:TownPublicTypeExt.kt:TownPublicTypeExt</ID>
-    <ID>OneTypeFamilyPerFile:JsonWearMessage.kt:@Suppress("FunctionNaming") inline fun &lt;reified T> JsonWearMessage: WearMessage&lt;T></ID>
     <ID>OneTypeFamilyPerFile:LastBottomItemRepository.kt:LastBottomItemRepositoryImpl : LastBottomItemRepository</ID>
     <ID>OneTypeFamilyPerFile:MainTileRenderer.kt:@OptIn(ExperimentalHorologistApi::class) @Preview(device = WearDevices.SMALL_ROUND, name = "Small Round") @Preview(device = WearDevices.LARGE_ROUND, name = "Large Round") internal fun mainTilePreview: TilePreviewData</ID>
     <ID>OneTypeFamilyPerFile:Material2Theme.kt:internal fun AppTheme.asMaterial2: Material2Theme</ID>
@@ -310,16 +295,12 @@
     <ID>RunBlockingInTest:UrlStatusComponentTest.kt:UrlStatusComponentTest$runBlocking { val urlStatusComponent = createUrlStatusComponent { true } urlStatusComponent.model.test { assertEquals(UrlStatusComponent.LoadingStatus.LOADING, awaitItem().status) } }</ID>
     <ID>RunBlockingInTest:UrlStatusComponentTest.kt:UrlStatusComponentTest$runBlocking { val urlStatusComponent = createUrlStatusComponent { true } urlStatusComponent.model.test { skipItems(1) assertEquals(UrlStatusComponent.LoadingStatus.SUCCESS, awaitItem().status) } }</ID>
     <ID>RunCatchingCancellation:MinecraftStatusRepositoryImpl.kt:MinecraftStatusRepositoryImpl$runCatching&lt;MinecraftStatusRepositoryImpl, MinecraftStatusResponse> { val request = withContext(dispatchers.IO) { httpClient.get("https://api.minetools.eu/ping/play.empireprojekt.ru") } request.body() }</ID>
-    <ID>RunCatchingCancellation:PingListenerService.kt:PingListenerService$runCatching { val wearMessageReceiver = wearMessengerModule.wearMessageConsumer when (messageEvent.path) { PingWearMessage.PATH -> wearMessageReceiver.consume( message = PingWearMessage.Message, byteArray = messageEvent.data ) else -> { Log.d(TAG, "receivePingMessage: can't handle message ${messageEvent.path}") } } }</ID>
     <ID>RunCatchingCancellation:RatingUserFeature.kt:RatingUserFeature$runCatching { ratingUserRepository.getRatings( userId = userId, page = pagingState.pageContext.page, size = 10 ) }</ID>
     <ID>RunCatchingCancellation:RatingUsersFeature.kt:RatingUsersFeature$runCatching { ratingUsersRepository.fetchUsers( page = pagingState.pageContext.page, filterModel = filterProvider.filterStateFlow.value ).getOrThrow().data }</ID>
     <ID>RunCatchingCancellation:RatingUsersRepositoryImpl.kt:RatingUsersRepositoryImpl$runCatching { ratingApi.users( page = page, size = 10, body = filterModel ) }</ID>
-    <ID>RunCatchingCancellation:StatusListenerService.kt:StatusListenerService$runCatching { val wearMessageReceiver = wearMessengerModule.wearMessageConsumer when (messageEvent.path) { StatusModelMessage.PATH -> wearMessageReceiver.consume( message = StatusModelMessage.Message, byteArray = messageEvent.data ) else -> { Log.d(TAG, "receivePingMessage: can't handle message ${messageEvent.path}") } } }</ID>
     <ID>RunCatchingCancellation:TownsRepositoryImpl.kt:TownsRepositoryImpl$runCatching { townyApi.towns( page = pagingState.pageContext.page, size = 10, filter = pagingState.pageContext.filter ).data }</ID>
     <ID>RunCatchingCancellation:UrlStatusComponentTest.kt:UrlStatusComponentTest.&lt;no name provided>$runCatching { block.invoke() }</ID>
     <ID>RunCatchingCancellation:UrlStatusRepositoryImpl.kt:UrlStatusRepositoryImpl$runCatching { val request = withContext(dispatchers.IO) { httpClient.get(url) } request.status == HttpStatusCode.OK }</ID>
-    <ID>RunCatchingCancellation:WearMessageConsumerImpl.kt:WearMessageConsumerImpl$runCatching { val decodedWearMessage = DecodedWearMessage( path = message.path, value = message.decode(byteArray) ) messageChannel.send(decodedWearMessage) }</ID>
-    <ID>RunCatchingCancellation:WearMessageProducerImpl.kt:WearMessageProducerImpl$runCatching { val byteArray = message.encode(value) nodes.map { async { messageClient.sendMessage( it.id, message.path, byteArray ) } }.awaitAll() }</ID>
     <ID>TestFunctionName:SplashComponentTest.kt:SplashComponentTest$@Test fun TEST_initial_launch_false: Unit</ID>
     <ID>TestFunctionName:SplashComponentTest.kt:SplashComponentTest$@Test fun TEST_initial_launch_true: Unit</ID>
     <ID>TestFunctionName:UrlStatusComponentTest.kt:UrlStatusComponentTest$@Test fun testFailureState: Unit</ID>
@@ -328,9 +309,6 @@
     <ID>TestFunctionName:UrlStatusComponentTest.kt:UrlStatusComponentTest$@Test fun testSuccessState: Unit</ID>
     <ID>TimeAsPrimitive:PingComponent.kt:PingComponent.Model.NoConnection$val updatedAt: String = "..."</ID>
     <ID>TimeAsPrimitive:PingComponent.kt:PingComponent.Model.Success$val updatedAt: String = "..."</ID>
-    <ID>TimeAsPrimitive:PingState.kt:PingState.Connected$val timestamp: Long</ID>
-    <ID>TimeAsPrimitive:PingState.kt:PingState.NotConnected$val timestamp: Long</ID>
-    <ID>TimeAsPrimitive:PingWearMessage.kt:PingWearMessage$/** * Delay between each ping */ const val DELAY = 5_000L</ID>
     <ID>TimeAsPrimitive:RatingUserWidget.kt:time: Long</ID>
     <ID>TimeAsPrimitive:StatusWidgetContent.kt:private const val FADE_DURATION = 1200</ID>
     <ID>TimeAsPrimitive:WearStatusComponent.kt:WearStatusComponent.Model$val updatedAt: String = "..."</ID>
@@ -343,8 +321,6 @@
     <ID>TrivialLambdaReference:InfoScreen.kt:{ onVotesClick.invoke() }</ID>
     <ID>TrivialLambdaReference:InfoScreen.kt:{ onWikiClick.invoke() }</ID>
     <ID>TrivialLambdaReference:OptionComposable.kt:{ end.invoke() }</ID>
-    <ID>TrivialLambdaReference:PingWearMessage.kt:PingWearMessage.Message${ byteArray -> byteArray.first() }</ID>
-    <ID>TrivialLambdaReference:PingWearMessage.kt:PingWearMessage.Message${ value -> byteArrayOf(value) }</ID>
     <ID>TrivialLambdaReference:RootScreenComponentChildFactory.kt:RootScreenComponentChildFactory${ configuration -> instance.push(configuration) }</ID>
     <ID>TrivialLambdaReference:SlotModalBottomSheet.kt:{ onDismiss.invoke() }</ID>
     <ID>TrivialLambdaReference:StatusComposableScreen.kt:{ onInfoClick.invoke() }</ID>

@@ -1,10 +1,10 @@
 package com.makeevrserg.empireprojekt.mobile.wear.features.status.component
 
 import com.makeevrserg.empireprojekt.mobile.features.status.url.component.UrlStatusComponent
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.consumer.WearMessageConsumer
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.DecodedWearMessage
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.message.StatusModelMessage
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.model.StatusModel
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.model.Status
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.util.STATUS_WEAR_MESSAGE
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.api.WearMessageConsumer
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.model.DecodedWearMessage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -22,20 +22,20 @@ class DefaultWearStatusComponent(
     override val mergedState: StateFlow<WearStatusComponent.Model> =
         wearMessageConsumer.messagesFlow
             .filterIsInstance<DecodedWearMessage<Nothing>>()
-            .filter { it.path == StatusModelMessage.PATH }
-            .filterIsInstance<DecodedWearMessage<List<StatusModel>>>()
+            .filter { it.path == STATUS_WEAR_MESSAGE.path }
+            .filterIsInstance<DecodedWearMessage<List<Status>>>()
             .map { it.value }
             .map { statusModels ->
                 toModel(statusModels)
             }.stateIn(coroutineScope, SharingStarted.Eagerly, WearStatusComponent.Model())
 
-    private fun toModel(statusModels: List<StatusModel>): WearStatusComponent.Model {
+    private fun toModel(statusModels: List<Status>): WearStatusComponent.Model {
         return WearStatusComponent.Model(
             loadingCount = statusModels.count {
-                it.isLoading || it.status == StatusModel.LoadingStatus.LOADING
+                it.isLoading || it.status == Status.LoadingStatus.LOADING
             },
-            successCount = statusModels.count { it.status == StatusModel.LoadingStatus.SUCCESS },
-            failureCount = statusModels.count { it.status == StatusModel.LoadingStatus.ERROR },
+            successCount = statusModels.count { it.status == Status.LoadingStatus.SUCCESS },
+            failureCount = statusModels.count { it.status == Status.LoadingStatus.ERROR },
             updatedAt = getTimeStamp()
         )
     }

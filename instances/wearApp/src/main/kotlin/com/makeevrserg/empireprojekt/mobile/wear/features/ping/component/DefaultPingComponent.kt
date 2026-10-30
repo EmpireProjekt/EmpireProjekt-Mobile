@@ -15,6 +15,18 @@ class DefaultPingComponent(
     pingFeature: PingFeature,
 ) : ComponentContext by componentContext, PingComponent {
 
+    override val model: StateFlow<PingComponent.Model> = pingFeature.model.mapStateFlow {
+        when (it) {
+            is PingState.Connected -> PingComponent.Model.Success(
+                updatedAt = getTimeStamp(it.timestamp.toEpochMilliseconds())
+            )
+
+            is PingState.NotConnected -> PingComponent.Model.NoConnection(
+                updatedAt = getTimeStamp(it.timestamp.toEpochMilliseconds())
+            )
+        }
+    }
+
     private fun getTimeStamp(millis: Long): String {
         val instant = Instant.ofEpochMilli(millis)
         val lDateTime = LocalDateTime.ofInstant(
@@ -24,17 +36,5 @@ class DefaultPingComponent(
         val formatter = DateTimeFormatter.ofPattern("HH:mm:ss")
         val formatted = lDateTime.format(formatter)
         return formatted ?: "..."
-    }
-
-    override val model: StateFlow<PingComponent.Model> = pingFeature.model.mapStateFlow {
-        when (it) {
-            is PingState.Connected -> PingComponent.Model.Success(
-                updatedAt = getTimeStamp(it.timestamp)
-            )
-
-            is PingState.NotConnected -> PingComponent.Model.NoConnection(
-                updatedAt = getTimeStamp(it.timestamp)
-            )
-        }
     }
 }

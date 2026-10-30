@@ -1,10 +1,9 @@
 package com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.component
 
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.consumer.WearMessageConsumer
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.DecodedWearMessage
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.producer.WearMessageProducer
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.api.WearMessageConsumer
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.model.DecodedWearMessage
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.model.PingState
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.util.PingWearMessage
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.util.PING_TIMEOUT
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -14,33 +13,29 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import java.time.Instant
-import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.Clock
 
-@Suppress("UnusedPrivateMember")
 class PingFeature(
     private val wearMessageConsumer: WearMessageConsumer,
-    private val wearMessageProducer: WearMessageProducer
+    private val clock: Clock
 ) : CoroutineScope {
     override val coroutineContext = SupervisorJob() + Dispatchers.Main.immediate
 
-    private val _model = MutableStateFlow<PingState>(PingState.NotConnected(getMillis()))
+    private val _model = MutableStateFlow<PingState>(PingState.NotConnected(clock.now()))
     val model = _model.asStateFlow()
-
-    private fun getMillis(): Long = Instant.now().toEpochMilli()
 
     private fun launchDebounceJob() {
         _model
-            .debounce(PingWearMessage.DEBOUNCE.milliseconds)
+            .debounce(PING_TIMEOUT)
             .filterIsInstance<PingState.Connected>()
-            .onEach { _model.value = PingState.NotConnected(getMillis()) }
+            .onEach { _model.value = PingState.NotConnected(clock.now()) }
             .launchIn(this)
     }
 
     private fun launchPingJob() {
         wearMessageConsumer.messagesFlow
             .filterIsInstance<DecodedWearMessage<Byte>>()
-            .onEach { _model.value = PingState.Connected(getMillis()) }
+            .onEach { _model.value = PingState.Connected(clock.now()) }
             .launchIn(this)
     }
 

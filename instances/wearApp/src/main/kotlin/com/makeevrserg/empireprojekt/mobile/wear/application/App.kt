@@ -3,8 +3,8 @@ package com.makeevrserg.empireprojekt.mobile.wear.application
 import android.app.Application
 import android.content.Context
 import com.makeevrserg.empireprojekt.mobile.wear.di.WearRootModule
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.application.WearMessengerApplication
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.di.WearMessengerModule
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.api.WearMessageConsumer
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.api.WearMessengerApplication
 import ru.astrainteractive.klibs.mikro.platform.DefaultAndroidPlatformConfiguration
 
 class App : Application(), WearMessengerApplication {
@@ -12,8 +12,8 @@ class App : Application(), WearMessengerApplication {
         WearRootModule.Default()
     }
 
-    override val wearMessengerModule: WearMessengerModule
-        get() = wearRootModule.wearMessengerModule
+    override val wearMessageConsumer: WearMessageConsumer
+        get() = wearRootModule.wearMessengerModule.wearMessageConsumer
 
     override fun onCreate() {
         super.onCreate()

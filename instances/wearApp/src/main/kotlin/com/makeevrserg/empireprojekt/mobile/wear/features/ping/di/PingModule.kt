@@ -3,8 +3,9 @@ package com.makeevrserg.empireprojekt.mobile.wear.features.ping.di
 import com.arkivanov.decompose.ComponentContext
 import com.makeevrserg.empireprojekt.mobile.wear.features.ping.component.DefaultPingComponent
 import com.makeevrserg.empireprojekt.mobile.wear.features.ping.component.PingComponent
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.di.WearMessengerModule
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.di.WearMessengerModule
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.component.PingFeature
+import kotlin.time.Clock
 
 interface PingModule {
     fun createPingComponent(componentContext: ComponentContext): PingComponent
@@ -12,7 +13,7 @@ interface PingModule {
         private val pingFeature: PingFeature by lazy {
             PingFeature(
                 wearMessageConsumer = wearMessengerModule.wearMessageConsumer,
-                wearMessageProducer = wearMessengerModule.wearMessageProducer
+                clock = Clock.System
             )
         }
 

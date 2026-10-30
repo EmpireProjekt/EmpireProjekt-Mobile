@@ -175,5 +175,6 @@ dependencies {
     implementation(projects.modules.services.core.ui.theme)
     implementation(projects.modules.services.wearMessenger.api)
     implementation(projects.modules.services.wearMessenger.common)
+    implementation(projects.modules.services.wearMessenger.datalayer)
     implementation(projects.modules.services.wearMessenger.pingWear)
 }

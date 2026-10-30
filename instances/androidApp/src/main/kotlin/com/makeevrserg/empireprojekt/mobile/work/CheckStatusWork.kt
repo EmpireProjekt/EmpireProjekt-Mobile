@@ -7,8 +7,8 @@ import androidx.work.WorkerParameters
 import com.makeevrserg.empireprojekt.mobile.application.App.Companion.asEmpireApp
 import com.makeevrserg.empireprojekt.mobile.features.status.root.component.RootStatusComponent
 import com.makeevrserg.empireprojekt.mobile.features.status.url.component.UrlStatusComponent
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.message.StatusModelMessage
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.model.StatusModel
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.model.Status
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.util.STATUS_WEAR_MESSAGE
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
@@ -37,18 +37,18 @@ class CheckStatusWork(
         val messages = rootStatusComponent.statusComponents.map {
             launch(Dispatchers.Main) { it.checkStatus() }
             val model = it.model.value
-            StatusModel(
+            Status(
                 title = model.title.toString(applicationContext),
                 isLoading = model.isLoading,
                 status = when (model.status) {
-                    UrlStatusComponent.LoadingStatus.LOADING -> StatusModel.LoadingStatus.LOADING
-                    UrlStatusComponent.LoadingStatus.SUCCESS -> StatusModel.LoadingStatus.SUCCESS
-                    UrlStatusComponent.LoadingStatus.ERROR -> StatusModel.LoadingStatus.ERROR
+                    UrlStatusComponent.LoadingStatus.LOADING -> Status.LoadingStatus.LOADING
+                    UrlStatusComponent.LoadingStatus.SUCCESS -> Status.LoadingStatus.SUCCESS
+                    UrlStatusComponent.LoadingStatus.ERROR -> Status.LoadingStatus.ERROR
                 }
             )
         }
         wearMessengerModule.wearMessageProducer.produce(
-            message = StatusModelMessage.Message,
+            message = STATUS_WEAR_MESSAGE,
             value = messages
         )
     }

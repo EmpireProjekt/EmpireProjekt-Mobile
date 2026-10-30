@@ -1,5 +1,3 @@
-@file:Suppress("UnusedPrivateMember")
-
 plugins {
     id("com.android.kotlin.multiplatform.library")
     id("org.jetbrains.kotlin.multiplatform")
@@ -19,18 +17,13 @@ kotlin {
     androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.google.horologist.datalayer)
-                implementation(libs.klibs.kstorage)
-                implementation(libs.klibs.mikro.core)
-                implementation(libs.klibs.mikro.extensions)
-                implementation(libs.klibs.mikro.platform)
-                implementation(libs.kotlin.coroutines.core)
-                implementation(libs.kotlin.coroutines.playServices)
-                implementation(libs.kotlin.serialization.json)
-                implementation(projects.modules.services.wearMessenger.api)
-            }
+        commonMain.dependencies {
+            implementation(libs.kotlin.coroutines.core)
+            implementation(libs.kotlin.serialization.json)
+            implementation(projects.modules.services.wearMessenger.api)
+        }
+        androidMain.dependencies {
+            implementation(libs.google.horologist.datalayer)
         }
     }
 }

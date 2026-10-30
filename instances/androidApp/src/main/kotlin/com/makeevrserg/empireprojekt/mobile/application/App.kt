@@ -7,7 +7,7 @@ import com.google.android.horologist.data.WearDataLayerRegistry
 import com.google.firebase.Firebase
 import com.google.firebase.initialize
 import com.makeevrserg.empireprojekt.mobile.features.root.di.RootModule
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.di.WearMessengerModule
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.di.WearMessengerModule
 import kotlinx.coroutines.cancel
 import ru.astrainteractive.klibs.mikro.platform.DefaultAndroidPlatformConfiguration
 

@@ -5,7 +5,7 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.makeevrserg.empireprojekt.mobile.application.App
 import com.makeevrserg.empireprojekt.mobile.application.App.Companion.asEmpireApp
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.util.PingWearMessage
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.util.PING_WEAR_MESSAGE
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
@@ -18,7 +18,7 @@ class PingWorker(
 
     private suspend fun sendPing() {
         app.wearMessengerModule.wearMessageProducer.produce(
-            message = PingWearMessage.Message,
+            message = PING_WEAR_MESSAGE,
             value = 0.toByte()
         )
     }

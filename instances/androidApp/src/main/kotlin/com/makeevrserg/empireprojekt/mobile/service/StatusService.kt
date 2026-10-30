@@ -9,7 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.work.ListenableWorker
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.util.PingWearMessage
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.util.PING_INTERVAL
 import com.makeevrserg.empireprojekt.mobile.work.CheckStatusWork
 import com.makeevrserg.empireprojekt.mobile.work.PingWorker
 import kotlinx.coroutines.asCoroutineDispatcher
@@ -32,7 +32,7 @@ class StatusService : LifecycleService() {
     private fun initPingWork() {
         lifecycleScope.launch(dispatcher) {
             while (isActive) {
-                delay(PingWearMessage.DELAY)
+                delay(PING_INTERVAL)
                 startWork(PingWorker::class.java)
             }
         }
