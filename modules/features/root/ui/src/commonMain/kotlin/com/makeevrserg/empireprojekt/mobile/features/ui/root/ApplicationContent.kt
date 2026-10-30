@@ -8,7 +8,9 @@ import com.arkivanov.decompose.extensions.compose.stack.Children
 import com.arkivanov.decompose.extensions.compose.stack.animation.slide
 import com.arkivanov.decompose.extensions.compose.stack.animation.stackAnimation
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
+import com.makeevrserg.empireprojekt.mobile.core.ui.decompose.model.DecomposeScreen
 import com.makeevrserg.empireprojekt.mobile.features.root.RootComponent
+import com.makeevrserg.empireprojekt.mobile.features.root.pager.PagerComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.DefaultRootScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.RootRouter
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.InfoScreen
@@ -22,6 +24,18 @@ import com.makeevrserg.empireprojekt.mobile.features.ui.votes.VotesScreenCompone
 import com.makeevrserg.empireprojekt.mobile.features.webview.map.AndroidWebView
 import com.makeevrserg.empireprojekt.mobile.services.core.link.api.LinkBrowser
 
+@Composable
+private fun RootPagerScreen(
+    pagerComponent: PagerComponent,
+    menuScreen: DecomposeScreen<PagerComponent.Child.Menu>
+) {
+    PagerScreenComponent(
+        pagerComponent = pagerComponent,
+        menuScreen = menuScreen,
+        mapScreen = { _, _ -> AndroidMapView() }
+    )
+}
+
 @Suppress("LongMethod")
 @Composable
 fun ApplicationContent(
@@ -31,6 +45,26 @@ fun ApplicationContent(
     modifier: Modifier = Modifier
 ) {
     val childStack by rootComponent.rootScreenComponent.childStack.subscribeAsState()
+    val menuScreen: DecomposeScreen<PagerComponent.Child.Menu> = { _, _ ->
+        InfoScreen(
+            onLinkClick = linkBrowser::openInBrowser,
+            onThemeToggle = onThemeToggle,
+            onTownsClick = {
+                rootComponent.rootScreenComponent.push(RootRouter.Configuration.Towns)
+            },
+            onRatingsClick = {
+                rootComponent.rootScreenComponent.push(RootRouter.Configuration.RatingUsers)
+            },
+            onVotesClick = {
+                rootComponent.rootScreenComponent.push(RootRouter.Configuration.Votes)
+            },
+            onWikiClick = {
+                rootComponent.rootScreenComponent.push(
+                    RootRouter.Configuration.WebView("https://astra-interactive.github.io/EmpireNetwork/")
+                )
+            }
+        )
+    }
     Children(
         stack = childStack,
         modifier = modifier.fillMaxSize(),
@@ -47,32 +81,7 @@ fun ApplicationContent(
                 popComponent = rootComponent.rootScreenComponent
             )
 
-            is DefaultRootScreenComponent.Configuration.Pager -> PagerScreenComponent(
-                pagerComponent = screen.pagerComponent,
-                menuScreen = { _, _ ->
-                    InfoScreen(
-                        onLinkClick = linkBrowser::openInBrowser,
-                        onThemeToggle = onThemeToggle,
-                        onTownsClick = {
-                            rootComponent.rootScreenComponent.push(RootRouter.Configuration.Towns)
-                        },
-                        onRatingsClick = {
-                            rootComponent.rootScreenComponent.push(RootRouter.Configuration.RatingUsers)
-                        },
-                        onVotesClick = {
-                            rootComponent.rootScreenComponent.push(RootRouter.Configuration.Votes)
-                        },
-                        onWikiClick = {
-                            rootComponent.rootScreenComponent.push(
-                                RootRouter.Configuration.WebView("https://astra-interactive.github.io/EmpireNetwork/")
-                            )
-                        }
-                    )
-                },
-                mapScreen = { _, _ ->
-                    AndroidMapView()
-                }
-            )
+            is DefaultRootScreenComponent.Configuration.Pager -> RootPagerScreen(screen.pagerComponent, menuScreen)
 
             is DefaultRootScreenComponent.Configuration.RatingUsers -> RatingUsersScreenComponent(
                 popComponent = rootComponent.rootScreenComponent,
