@@ -5,7 +5,7 @@ import com.arkivanov.essenty.instancekeeper.getOrCreate
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.di.TownsDependencies
 import kotlinx.coroutines.flow.StateFlow
 import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
-import ru.astrainteractive.empireapi.models.towny.TownPublicType
+import ru.astrainteractive.empireapi.models.towny.TownsFilterModel.TownPublicType
 import ru.astrainteractive.klibs.mikro.core.util.next
 
 @Suppress("TooManyFunctions")

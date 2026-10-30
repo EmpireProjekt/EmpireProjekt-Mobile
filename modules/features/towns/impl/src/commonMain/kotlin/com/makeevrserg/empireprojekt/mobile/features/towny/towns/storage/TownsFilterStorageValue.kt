@@ -4,8 +4,8 @@ import com.makeevrserg.empireprojekt.mobile.services.core.settings.util.loadEnum
 import com.makeevrserg.empireprojekt.mobile.services.core.settings.util.putEnumByOrdinal
 import com.russhwolf.settings.Settings
 import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
-import ru.astrainteractive.empireapi.models.towny.TownPublicType
 import ru.astrainteractive.empireapi.models.towny.TownsFilterModel
+import ru.astrainteractive.empireapi.models.towny.TownsFilterModel.TownPublicType
 import ru.astrainteractive.klibs.kstorage.api.CachedMutableKrate
 import ru.astrainteractive.klibs.kstorage.api.asCachedMutableKrate
 import ru.astrainteractive.klibs.kstorage.api.impl.DefaultMutableKrate

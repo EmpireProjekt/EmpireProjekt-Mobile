@@ -207,7 +207,6 @@
     <ID>GetOrThrowInMain:RatingUsersFeature.kt:RatingUsersFeature$getOrThrow()</ID>
     <ID>ImplementationName:LastBottomItemRepository.kt:LastBottomItemRepositoryImpl : LastBottomItemRepository</ID>
     <ID>ImplementationName:MinecraftStatusRepositoryImpl.kt:MinecraftStatusRepositoryImpl : UrlStatusRepository</ID>
-    <ID>ImplementationName:RatingApiImpl.kt:RatingApiImpl : RatingApi</ID>
     <ID>ImplementationName:RatingUserModuleImpl.kt:RatingUserModuleImpl : RatingUserModule</ID>
     <ID>ImplementationName:RatingUserRepositoryImpl.kt:RatingUserRepositoryImpl : RatingUserRepository</ID>
     <ID>ImplementationName:RatingUsersModuleImpl.kt:RatingUsersModuleImpl : RatingUsersModule</ID>
@@ -219,7 +218,6 @@
     <ID>ImplementationName:ThemeSwitcherRepositoryImpl.kt:ThemeSwitcherRepositoryImpl : ThemeSwitcherRepository</ID>
     <ID>ImplementationName:TownsModuleImpl.kt:TownsModuleImpl : TownsModule</ID>
     <ID>ImplementationName:TownsRepositoryImpl.kt:TownsRepositoryImpl : TownsRepository</ID>
-    <ID>ImplementationName:TownyApiImpl.kt:TownyApiImpl : TownyApi</ID>
     <ID>ImplementationName:UrlStatusRepositoryImpl.kt:UrlStatusRepositoryImpl : UrlStatusRepository</ID>
     <ID>ImplementationName:UrlStatusStoreFactory.kt:UrlStatusStoreFactory$UrlStatusStoreImpl : UrlStatusStoreStore</ID>
     <ID>ImplementationName:WearMessageConsumerImpl.kt:WearMessageConsumerImpl : WearMessageConsumer</ID>

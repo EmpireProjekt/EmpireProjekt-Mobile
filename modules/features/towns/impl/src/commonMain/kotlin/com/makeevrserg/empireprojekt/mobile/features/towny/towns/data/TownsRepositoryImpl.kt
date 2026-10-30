@@ -1,6 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.towny.towns.data
 
-import com.makeevrserg.empireprojekt.mobile.api.empireapi.TownyApi
+import com.makeevrserg.empireprojekt.mobile.api.empireapi.towny.api.TownyApi
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.data.paging.TownyPagingCollector
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.storage.TownsFilterStorageValue
 import com.russhwolf.settings.Settings

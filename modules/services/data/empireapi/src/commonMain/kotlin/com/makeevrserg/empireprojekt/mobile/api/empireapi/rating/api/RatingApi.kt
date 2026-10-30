@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.api.empireapi
+package com.makeevrserg.empireprojekt.mobile.api.empireapi.rating.api
 
 import ru.astrainteractive.empireapi.models.rating.RatingModel
 import ru.astrainteractive.empireapi.models.rating.RatingUserModel

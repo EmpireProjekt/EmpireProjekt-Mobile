@@ -12,4 +12,8 @@ data class TownsFilterModel(
     val nationSort: LocalSortOrder = LocalSortOrder.NONE,
     val dateSort: LocalSortOrder = LocalSortOrder.NONE,
     val residentsSort: LocalSortOrder = LocalSortOrder.NONE
-)
+) {
+    enum class TownPublicType {
+        NONE, PUBLIC, PRIVATE
+    }
+}

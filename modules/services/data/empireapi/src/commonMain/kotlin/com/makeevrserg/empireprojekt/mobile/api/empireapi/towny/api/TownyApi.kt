@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.api.empireapi
+package com.makeevrserg.empireprojekt.mobile.api.empireapi.towny.api
 
 import ru.astrainteractive.empireapi.models.response.GenericPagedModel
 import ru.astrainteractive.empireapi.models.towny.TownModel

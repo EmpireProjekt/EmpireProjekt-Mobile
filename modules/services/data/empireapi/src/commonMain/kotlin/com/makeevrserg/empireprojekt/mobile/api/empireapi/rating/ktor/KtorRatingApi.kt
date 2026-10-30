@@ -1,6 +1,6 @@
-package com.makeevrserg.empireprojekt.mobile.api.empireapi.impl
+package com.makeevrserg.empireprojekt.mobile.api.empireapi.rating.ktor
 
-import com.makeevrserg.empireprojekt.mobile.api.empireapi.RatingApi
+import com.makeevrserg.empireprojekt.mobile.api.empireapi.rating.api.RatingApi
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -16,7 +16,7 @@ import ru.astrainteractive.empireapi.models.rating.RatingsFilterModel
 import ru.astrainteractive.empireapi.models.rating.UserRatingsRequest
 import ru.astrainteractive.empireapi.models.response.GenericPagedModel
 
-internal class RatingApiImpl(
+internal class KtorRatingApi(
     private val httpClient: HttpClient,
     private val baseUrl: String
 ) : RatingApi {

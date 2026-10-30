@@ -3,6 +3,6 @@ package ru.astrainteractive.empireapi.models.rating
 import kotlinx.serialization.Serializable
 
 @Serializable
-class UserRatingsRequest(
+data class UserRatingsRequest(
     val id: Long,
 )

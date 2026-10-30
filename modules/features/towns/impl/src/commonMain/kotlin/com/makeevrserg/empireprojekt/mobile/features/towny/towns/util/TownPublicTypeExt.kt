@@ -4,7 +4,7 @@ import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_public_type_private_label
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_public_type_public_label
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_sort_order_none_label
-import ru.astrainteractive.empireapi.models.towny.TownPublicType
+import ru.astrainteractive.empireapi.models.towny.TownsFilterModel.TownPublicType
 
 object TownPublicTypeExt {
     fun TownPublicType.toStringDesc() = when (this) {

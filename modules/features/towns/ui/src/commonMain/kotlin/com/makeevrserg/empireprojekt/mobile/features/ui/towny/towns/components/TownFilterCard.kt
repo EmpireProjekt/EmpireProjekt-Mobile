@@ -23,8 +23,8 @@ import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_tag_
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.util.LocalSortOrderExt.toStringDesc
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.util.TownPublicTypeExt.toStringDesc
 import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
-import ru.astrainteractive.empireapi.models.towny.TownPublicType
 import ru.astrainteractive.empireapi.models.towny.TownsFilterModel
+import ru.astrainteractive.empireapi.models.towny.TownsFilterModel.TownPublicType
 
 @Composable
 internal fun TownFilterCard(

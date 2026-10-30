@@ -1,9 +1,9 @@
 package com.makeevrserg.empireprojekt.mobile.api.empireapi.di
 
-import com.makeevrserg.empireprojekt.mobile.api.empireapi.RatingApi
-import com.makeevrserg.empireprojekt.mobile.api.empireapi.TownyApi
-import com.makeevrserg.empireprojekt.mobile.api.empireapi.impl.RatingApiImpl
-import com.makeevrserg.empireprojekt.mobile.api.empireapi.impl.TownyApiImpl
+import com.makeevrserg.empireprojekt.mobile.api.empireapi.rating.api.RatingApi
+import com.makeevrserg.empireprojekt.mobile.api.empireapi.rating.ktor.KtorRatingApi
+import com.makeevrserg.empireprojekt.mobile.api.empireapi.towny.api.TownyApi
+import com.makeevrserg.empireprojekt.mobile.api.empireapi.towny.ktor.KtorTownyApi
 import com.makeevrserg.empireprojekt.mobile.buildkonfig.BuildKonfig
 import com.makeevrserg.empireprojekt.mobile.services.core.di.CoreModule
 
@@ -15,11 +15,11 @@ interface ApiEmpireApiModule {
         private val url = BuildKonfig.PROD_URL
 
         override val ratingApi: RatingApi by lazy {
-            RatingApiImpl(httpClient = coreModule.httpClient, baseUrl = url)
+            KtorRatingApi(httpClient = coreModule.httpClient, baseUrl = url)
         }
 
         override val townyApi: TownyApi by lazy {
-            TownyApiImpl(httpClient = coreModule.httpClient, baseUrl = url)
+            KtorTownyApi(httpClient = coreModule.httpClient, baseUrl = url)
         }
     }
 }

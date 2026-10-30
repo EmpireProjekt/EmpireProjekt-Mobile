@@ -1,6 +1,6 @@
-package com.makeevrserg.empireprojekt.mobile.api.empireapi.impl
+package com.makeevrserg.empireprojekt.mobile.api.empireapi.towny.ktor
 
-import com.makeevrserg.empireprojekt.mobile.api.empireapi.TownyApi
+import com.makeevrserg.empireprojekt.mobile.api.empireapi.towny.api.TownyApi
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -14,7 +14,7 @@ import ru.astrainteractive.empireapi.models.response.GenericPagedModel
 import ru.astrainteractive.empireapi.models.towny.TownModel
 import ru.astrainteractive.empireapi.models.towny.TownsFilterModel
 
-internal class TownyApiImpl(
+internal class KtorTownyApi(
     private val httpClient: HttpClient,
     private val baseUrl: String
 ) : TownyApi {

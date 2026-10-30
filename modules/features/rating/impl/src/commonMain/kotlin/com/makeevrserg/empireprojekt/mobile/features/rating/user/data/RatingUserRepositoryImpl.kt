@@ -1,6 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.rating.user.data
 
-import com.makeevrserg.empireprojekt.mobile.api.empireapi.RatingApi
+import com.makeevrserg.empireprojekt.mobile.api.empireapi.rating.api.RatingApi
 import com.makeevrserg.empireprojekt.mobile.features.rating.model.RatingUserId
 import kotlinx.coroutines.withContext
 import ru.astrainteractive.empireapi.models.rating.RatingModel
