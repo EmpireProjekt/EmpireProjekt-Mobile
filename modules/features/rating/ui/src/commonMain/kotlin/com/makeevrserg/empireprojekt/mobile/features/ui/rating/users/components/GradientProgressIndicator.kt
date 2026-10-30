@@ -33,12 +33,12 @@ internal fun GradientProgressIndicator(
             drawRect(
                 color = backgroundColor,
                 topLeft = Offset(x = 0f, y = 0f),
-                size = Size(size.width, size.height)
+                size = Size(width = size.width, height = size.height)
             )
             drawRect(
                 brush = brush,
                 topLeft = Offset(x = 0f, y = 0f),
-                size = Size(progress * size.width, size.height)
+                size = Size(width = progress * size.width, height = size.height)
             )
         }
     }

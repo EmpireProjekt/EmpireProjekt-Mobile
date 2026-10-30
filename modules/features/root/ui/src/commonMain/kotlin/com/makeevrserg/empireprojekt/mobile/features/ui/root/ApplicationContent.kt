@@ -49,7 +49,7 @@ fun ApplicationContent(
 
             is DefaultRootScreenComponent.Configuration.Pager -> PagerScreenComponent(
                 pagerComponent = screen.pagerComponent,
-                menuScreen = { modifier, child ->
+                menuScreen = { _, _ ->
                     InfoScreen(
                         onLinkClick = linkBrowser::openInBrowser,
                         onThemeToggle = onThemeToggle,
@@ -69,7 +69,7 @@ fun ApplicationContent(
                         }
                     )
                 },
-                mapScreen = { modifier, child ->
+                mapScreen = { _, _ ->
                     AndroidMapView()
                 }
             )

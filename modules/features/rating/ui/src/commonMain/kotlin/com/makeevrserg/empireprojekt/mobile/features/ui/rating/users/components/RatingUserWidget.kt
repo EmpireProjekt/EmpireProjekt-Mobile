@@ -114,8 +114,8 @@ internal fun RatingUserWidget(
                 ),
                 progress = let {
                     val coerse = 10L
-                    val total = (model.totalRating + coerse).coerceIn(0, coerse * 2)
-                    (total / (coerse * 2f)).coerceIn(0f, 1f)
+                    val total = (model.totalRating + coerse).coerceIn(minimumValue = 0, maximumValue = coerse * 2)
+                    (total / (coerse * 2f)).coerceIn(minimumValue = 0f, maximumValue = 1f)
                 }
             )
         }
