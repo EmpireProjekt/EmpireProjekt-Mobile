@@ -2,8 +2,8 @@ package com.makeevrserg.empireprojekt.mobile.features.ui.map
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraTopBarScreen
-import com.makeevrserg.empireprojekt.mobile.core.ui.webview.AstraWebView
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraTopBarScreen
+import com.makeevrserg.empireprojekt.mobile.core.ui.webview.composable.AstraWebView
 
 @Composable
 fun AndroidMapView(modifier: Modifier = Modifier) {

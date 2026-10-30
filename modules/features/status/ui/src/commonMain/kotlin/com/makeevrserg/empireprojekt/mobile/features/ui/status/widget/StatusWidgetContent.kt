@@ -20,11 +20,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.makeevrserg.empireprojekt.mobile.core.ui.common.astraCard
-import com.makeevrserg.empireprojekt.mobile.core.ui.text.AstraText
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.astraCard
 import com.makeevrserg.empireprojekt.mobile.features.status.url.component.UrlStatusComponent
 import dev.icerock.moko.resources.desc.Raw
 import dev.icerock.moko.resources.desc.StringDesc
@@ -45,7 +45,10 @@ internal fun StatusWidgetContent(
             .padding(vertical = AppTheme.dimens.S)
             .height(54.dp)
             .fillMaxWidth()
-            .astraCard(RoundedCornerShape(AppTheme.dimens.XS))
+            .astraCard(
+                color = MaterialTheme.colors.primary,
+                shape = RoundedCornerShape(AppTheme.dimens.XS)
+            )
             .clickable(onClick = onClick),
         verticalAlignment = Alignment.CenterVertically
     ) {

@@ -13,7 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.webview.AstraWebView
+import com.makeevrserg.empireprojekt.mobile.core.ui.webview.composable.AstraWebView
 import com.makeevrserg.empireprojekt.mobile.features.webview.WebViewDecomposeComponent
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach

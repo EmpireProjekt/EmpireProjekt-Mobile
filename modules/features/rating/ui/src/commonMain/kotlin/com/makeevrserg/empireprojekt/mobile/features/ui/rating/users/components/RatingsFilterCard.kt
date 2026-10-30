@@ -6,9 +6,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.EnumOption
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.FilterCard
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.SortFilterHeader
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.EnumOption
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.FilterCard
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.SortFilterHeader
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString

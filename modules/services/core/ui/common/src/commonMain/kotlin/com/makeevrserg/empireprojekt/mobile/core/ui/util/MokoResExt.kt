@@ -1,5 +1,3 @@
-@file:Suppress("Filename")
-
 package com.makeevrserg.empireprojekt.mobile.core.ui.util
 
 import androidx.compose.runtime.Composable

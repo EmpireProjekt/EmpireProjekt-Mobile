@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.decompose.DecomposeScreen
+import com.makeevrserg.empireprojekt.mobile.core.ui.decompose.model.DecomposeScreen
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.PagerComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.model.PagerBottomBarItem
@@ -34,15 +34,9 @@ internal fun PagerComposableScreen(
             label = "Crossfade instance composable"
         ) { instance ->
             when (instance) {
-                is PagerComponent.Child.Menu -> menuScreen.Render(
-                    child = instance,
-                    modifier = Modifier
-                )
+                is PagerComponent.Child.Menu -> menuScreen.invoke(Modifier, instance)
 
-                is PagerComponent.Child.Map -> mapScreen.Render(
-                    child = instance,
-                    modifier = Modifier
-                )
+                is PagerComponent.Child.Map -> mapScreen.invoke(Modifier, instance)
             }
         }
         PagerBottomBar(
@@ -54,7 +48,7 @@ internal fun PagerComposableScreen(
 }
 
 private fun <T : Any> previewPagerScreen(label: String): DecomposeScreen<T> =
-    DecomposeScreen { renderModifier, _ ->
+    { renderModifier, _ ->
         Box(
             modifier = renderModifier.fillMaxSize(),
             contentAlignment = Alignment.Center

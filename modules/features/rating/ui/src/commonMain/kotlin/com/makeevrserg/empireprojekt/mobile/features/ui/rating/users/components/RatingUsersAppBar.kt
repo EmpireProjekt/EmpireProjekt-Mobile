@@ -8,10 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.button.AstraIconButton
-import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.SearchAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.SearchBarState
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBar
+import com.makeevrserg.empireprojekt.mobile.core.ui.button.composable.AstraIconButton
+import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.composable.SearchAppBar
+import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.model.SearchBarState
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.rating.RR

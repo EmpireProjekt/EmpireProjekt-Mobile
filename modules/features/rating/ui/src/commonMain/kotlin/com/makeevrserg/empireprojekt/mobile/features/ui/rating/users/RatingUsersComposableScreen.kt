@@ -10,8 +10,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingLazyColumn
-import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.SearchBarState
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingLazyColumn
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.pagingFooter
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.model.PagingContent
+import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.model.SearchBarState
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.users.component.RatingUsersComponent
@@ -53,29 +55,34 @@ internal fun RatingUsersComposableScreen(
         }
     ) { contentPadding ->
         PagingLazyColumn(
-            items = model.items,
-            isLastPage = model.isLastPage,
-            isLoading = model.isLoading,
-            isFailure = model.isFailure,
             onLoadNextPage = onLoadNextPage,
-            onReload = onReset,
-            shimmerItem = { RatingUserShimmerWidget() },
-            contentPadding = contentPadding,
-            header = {
+            contentPadding = contentPadding
+        ) {
+            item {
                 RatingsFilterCard(
                     filter = model.filter,
                     onNameSortClick = onNameSortClick,
                     onLastUpdateSortClick = onLastUpdateSortClick,
                     onRatingSortClick = onRatingSortClick
                 )
-            },
-            itemContent = { ratingUserModel ->
+            }
+            items(model.items) { ratingUserModel ->
                 RatingUserWidget(
                     model = ratingUserModel,
                     onClick = { onUserClick(ratingUserModel) }
                 )
             }
-        )
+            pagingFooter(
+                paging = PagingContent(
+                    isEmpty = model.items.isEmpty(),
+                    isLastPage = model.isLastPage,
+                    isLoading = model.isLoading,
+                    isFailure = model.isFailure
+                ),
+                onReload = onReset,
+                shimmerItem = { RatingUserShimmerWidget() }
+            )
+        }
     }
 }
 

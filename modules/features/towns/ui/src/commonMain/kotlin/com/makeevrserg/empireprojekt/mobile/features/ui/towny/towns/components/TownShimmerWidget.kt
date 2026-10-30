@@ -5,8 +5,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.ShimmerCard
-import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.ShimmerLine
+import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.composable.ShimmerCard
+import com.makeevrserg.empireprojekt.mobile.core.ui.placeholder.composable.ShimmerLine
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 

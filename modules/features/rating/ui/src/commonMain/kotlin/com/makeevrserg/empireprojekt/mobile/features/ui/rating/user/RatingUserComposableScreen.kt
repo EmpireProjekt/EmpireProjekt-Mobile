@@ -5,8 +5,10 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingLazyColumn
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBar
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingLazyColumn
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.pagingFooter
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.model.PagingContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.RatingUserComponent
@@ -35,15 +37,10 @@ internal fun RatingUserComposableScreen(
         }
     ) { contentPadding ->
         PagingLazyColumn(
-            items = model.items,
-            isLastPage = model.isLastPage,
-            isLoading = model.isLoading,
-            isFailure = model.isFailure,
             onLoadNextPage = onLoadNextPage,
-            onReload = onReset,
-            shimmerItem = { RatingUserShimmerWidget() },
-            contentPadding = contentPadding,
-            itemContent = { ratingModel ->
+            contentPadding = contentPadding
+        ) {
+            items(model.items) { ratingModel ->
                 RatingUserWidget(
                     uuid = ratingModel.userCreatedReport?.minecraftUUID,
                     name = ratingModel.userCreatedReport?.minecraftName,
@@ -52,7 +49,17 @@ internal fun RatingUserComposableScreen(
                     time = ratingModel.time
                 )
             }
-        )
+            pagingFooter(
+                paging = PagingContent(
+                    isEmpty = model.items.isEmpty(),
+                    isLastPage = model.isLastPage,
+                    isLoading = model.isLoading,
+                    isFailure = model.isFailure
+                ),
+                onReload = onReset,
+                shimmerItem = { RatingUserShimmerWidget() }
+            )
+        }
     }
 }
 

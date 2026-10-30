@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.makeevrserg.empireprojekt.mobile.core.ui.decompose.DecomposeScreen
+import com.makeevrserg.empireprojekt.mobile.core.ui.decompose.model.DecomposeScreen
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.PagerComponent
 
 @Composable

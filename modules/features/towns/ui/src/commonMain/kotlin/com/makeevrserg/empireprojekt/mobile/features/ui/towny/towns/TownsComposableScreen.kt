@@ -5,8 +5,10 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.AstraCenterAlignedTopAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.PagingLazyColumn
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBar
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingLazyColumn
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.pagingFooter
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.model.PagingContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
@@ -45,15 +47,10 @@ internal fun TownsComposableScreen(
         }
     ) { contentPadding ->
         PagingLazyColumn(
-            items = model.items,
-            isLastPage = model.isLastPage,
-            isLoading = model.isLoading,
-            isFailure = model.isFailure,
             onLoadNextPage = onLoadNextPage,
-            onReload = onReset,
-            shimmerItem = { TownShimmerWidget() },
-            contentPadding = contentPadding,
-            header = {
+            contentPadding = contentPadding
+        ) {
+            item {
                 TownFilterCard(
                     townsFilter = model.filter,
                     onSortByNationClick = onSortByNationClick,
@@ -64,8 +61,8 @@ internal fun TownsComposableScreen(
                     onPublicTypeClick = onPublicTypeClick,
                     onSortByFounderClick = onSortByFounderClick
                 )
-            },
-            itemContent = { townModel ->
+            }
+            items(model.items) { townModel ->
                 TownCard(
                     mayor = townModel.mayor,
                     townName = townModel.name,
@@ -79,7 +76,17 @@ internal fun TownsComposableScreen(
                     isOpen = townModel.open
                 )
             }
-        )
+            pagingFooter(
+                paging = PagingContent(
+                    isEmpty = model.items.isEmpty(),
+                    isLastPage = model.isLastPage,
+                    isLoading = model.isLoading,
+                    isFailure = model.isFailure
+                ),
+                onReload = onReset,
+                shimmerItem = { TownShimmerWidget() }
+            )
+        }
     }
 }
 
