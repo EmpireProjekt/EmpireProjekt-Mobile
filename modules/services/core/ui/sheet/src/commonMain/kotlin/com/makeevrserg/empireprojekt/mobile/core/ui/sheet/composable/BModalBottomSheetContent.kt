@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.core.ui.sheet
+package com.makeevrserg.empireprojekt.mobile.core.ui.sheet.composable
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -28,16 +28,15 @@ import com.composables.core.Scrim
 import com.composables.core.Sheet
 
 @Composable
-// Here modifier is missing is intentional. As it represents itself basic design of BottomSheet
-@Suppress("ModifierMissing")
 fun ModalBottomSheetScope.BModalBottomSheetContent(
-    background: Color = Color(color = 0xFF1E1E1E), // todo
+    modifier: Modifier = Modifier,
+    background: Color = Color(color = 0xFF1E1E1E),
     horizontalPadding: Dp = 24.dp,
     content: @Composable BottomSheetScope.() -> Unit
 ) {
     Scrim()
     Sheet(
-        modifier = Modifier
+        modifier = modifier
             .padding(top = 12.dp)
             .statusBarsPadding()
             .padding(
@@ -45,7 +44,7 @@ fun ModalBottomSheetScope.BModalBottomSheetContent(
             )
             .shadow(4.dp, RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp))
             .clip(RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp))
-            .background(background) // todo
+            .background(background)
             .padding(horizontal = horizontalPadding)
             .fillMaxWidth()
             .imePadding(),

@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.core.ui.sheet
+package com.makeevrserg.empireprojekt.mobile.core.ui.sheet.composable
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

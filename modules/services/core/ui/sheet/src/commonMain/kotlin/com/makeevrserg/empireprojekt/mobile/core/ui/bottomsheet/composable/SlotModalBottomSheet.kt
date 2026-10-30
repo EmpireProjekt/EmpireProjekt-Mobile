@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.core.ui.bottomsheet
+package com.makeevrserg.empireprojekt.mobile.core.ui.bottomsheet.composable
 
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.WindowInsets
@@ -7,6 +7,8 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.snapshotFlow
 import com.arkivanov.decompose.router.slot.ChildSlot
 import com.makeevrserg.empireprojekt.mobile.core.ui.bottomsheet.util.zero
@@ -24,25 +26,23 @@ fun <T : Any, K : Any> SlotModalBottomSheet(
     val child = childSlot.child?.instance
     val sheetState = rememberModalBottomSheetState(
         skipPartiallyExpanded = skipPartiallyExpanded,
-        confirmValueChange = {
-            true
-        }
+        confirmValueChange = { true }
     )
+    val currentOnDismiss by rememberUpdatedState(onDismiss)
 
     LaunchedEffect(sheetState) {
         snapshotFlow { sheetState.isVisible }
             .distinctUntilChanged()
             .drop(1)
             .collect { visible ->
-                if (!visible) {
-                    onDismiss.invoke()
-                }
+                if (visible) return@collect
+                currentOnDismiss.invoke()
             }
     }
 
     if (child != null) {
         ModalBottomSheet(
-            onDismissRequest = { onDismiss.invoke() },
+            onDismissRequest = onDismiss,
             sheetState = sheetState,
             contentWindowInsets = { WindowInsets.zero },
             content = {

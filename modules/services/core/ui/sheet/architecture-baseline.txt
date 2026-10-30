@@ -1,5 +1,0 @@
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/bottomsheet/SlotModalBottomSheet.kt	SlotModalBottomSheet
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/sheet/BModalBottomSheetContent.kt	BModalBottomSheetContent
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/sheet/BSheetDragIndicator.kt	BSheetDragIndicator
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/sheet/ModalBottomSheetSlot.kt	ModalBottomSheetSlot
-UtilShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/core/ui/sheet/BModalBottomSheetContent.kt	ModalBottomSheetScope.BModalBottomSheetContent
