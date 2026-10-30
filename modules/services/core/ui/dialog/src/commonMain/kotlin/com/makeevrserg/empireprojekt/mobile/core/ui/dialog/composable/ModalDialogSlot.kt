@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.core.ui.dialog
+package com.makeevrserg.empireprojekt.mobile.core.ui.dialog.composable
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.Dialog
@@ -13,17 +13,16 @@ fun <C : Any> ModalDialogSlot(
     onDismiss: () -> Unit,
     content: @Composable (C) -> Unit
 ) {
-    instance?.let { instance ->
-        Dialog(
-            onDismissRequest = onDismiss,
-            properties = DialogProperties(
-                usePlatformDefaultWidth = false,
-            ),
-            content = {
-                content.invoke(instance)
-            }
-        )
-    }
+    if (instance == null) return
+    Dialog(
+        onDismissRequest = onDismiss,
+        properties = DialogProperties(
+            usePlatformDefaultWidth = false,
+        ),
+        content = {
+            content.invoke(instance)
+        }
+    )
 }
 
 @Composable
