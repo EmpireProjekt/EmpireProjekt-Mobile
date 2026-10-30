@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -112,18 +111,17 @@ internal fun PagingFooter(
     }
 }
 
-fun LazyListScope.pagingFooter(
+@Composable
+fun PagingListFooter(
     paging: PagingContent,
     onReload: () -> Unit,
     shimmerItem: @Composable () -> Unit
 ) {
-    item {
-        PagingFooter(
-            paging = paging,
-            onReload = onReload,
-            loader = { PagingShimmerLoader(shimmerItem) }
-        )
-    }
+    PagingFooter(
+        paging = paging,
+        onReload = onReload,
+        loader = { PagingShimmerLoader(shimmerItem) }
+    )
 }
 
 @Preview

@@ -55,11 +55,13 @@ class PagingLazyColumnTest {
             setContent {
                 AdaptThemeFade {
                     PagingLazyColumn(onLoadNextPage = {}) {
-                        pagingFooter(
-                            paging = createPaging(isEmpty = true, isLoading = true),
-                            onReload = {},
-                            shimmerItem = { Box(Modifier.testTag(SHIMMER_TAG)) }
-                        )
+                        item {
+                            PagingListFooter(
+                                paging = createPaging(isEmpty = true, isLoading = true),
+                                onReload = {},
+                                shimmerItem = { Box(Modifier.testTag(SHIMMER_TAG)) }
+                            )
+                        }
                     }
                 }
             }

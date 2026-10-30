@@ -74,11 +74,13 @@ private fun PagingLazyColumnPreviewContent(paging: PagingContent) {
     val names = if (paging.isEmpty) emptyList() else PreviewNames
     PagingLazyColumn(onLoadNextPage = {}) {
         items(names) { name -> AstraText(text = name) }
-        pagingFooter(
-            paging = paging,
-            onReload = {},
-            shimmerItem = { ShimmerCard { ShimmerLine(widthFraction = 0.5f) } }
-        )
+        item {
+            PagingListFooter(
+                paging = paging,
+                onReload = {},
+                shimmerItem = { ShimmerCard { ShimmerLine(widthFraction = 0.5f) } }
+            )
+        }
     }
 }
 

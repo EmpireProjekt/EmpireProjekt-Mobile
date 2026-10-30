@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBar
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingLazyColumn
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.pagingFooter
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingListFooter
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.model.PagingContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
@@ -49,16 +49,18 @@ internal fun RatingUserComposableScreen(
                     time = ratingModel.time
                 )
             }
-            pagingFooter(
-                paging = PagingContent(
-                    isEmpty = model.items.isEmpty(),
-                    isLastPage = model.isLastPage,
-                    isLoading = model.isLoading,
-                    isFailure = model.isFailure
-                ),
-                onReload = onReset,
-                shimmerItem = { RatingUserShimmerWidget() }
-            )
+            item {
+                PagingListFooter(
+                    paging = PagingContent(
+                        isEmpty = model.items.isEmpty(),
+                        isLastPage = model.isLastPage,
+                        isLoading = model.isLoading,
+                        isFailure = model.isFailure
+                    ),
+                    onReload = onReset,
+                    shimmerItem = { RatingUserShimmerWidget() }
+                )
+            }
         }
     }
 }
