@@ -1,7 +1,7 @@
 package com.makeevrserg.empireprojekt.mobile.features.towny.towns.storage
 
-import com.makeevrserg.empireprojekt.mobile.services.core.settings.SettingsExt.getEnumByOrdinalOrDefault
-import com.makeevrserg.empireprojekt.mobile.services.core.settings.SettingsExt.putEnumByOrdinal
+import com.makeevrserg.empireprojekt.mobile.services.core.settings.util.loadEnumByOrdinal
+import com.makeevrserg.empireprojekt.mobile.services.core.settings.util.putEnumByOrdinal
 import com.russhwolf.settings.Settings
 import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
 import ru.astrainteractive.empireapi.models.towny.TownPublicType
@@ -31,37 +31,37 @@ internal class TownsFilterStorageValue(
         val keys = Keys(key)
         TownsFilterModel(
             query = settings.getString(keys.queryKey, default.query),
-            publicType = settings.getEnumByOrdinalOrDefault(
+            publicType = settings.loadEnumByOrdinal(
                 TownPublicType.entries,
                 keys.publicTypeKey,
                 TownPublicType.NONE
             ),
-            nameSort = settings.getEnumByOrdinalOrDefault(
+            nameSort = settings.loadEnumByOrdinal(
                 LocalSortOrder.entries,
                 keys.nameSortKey,
                 LocalSortOrder.NONE
             ),
-            tagSort = settings.getEnumByOrdinalOrDefault(
+            tagSort = settings.loadEnumByOrdinal(
                 LocalSortOrder.entries,
                 keys.tagSortKey,
                 LocalSortOrder.NONE
             ),
-            founderSort = settings.getEnumByOrdinalOrDefault(
+            founderSort = settings.loadEnumByOrdinal(
                 LocalSortOrder.entries,
                 keys.founderSortKey,
                 LocalSortOrder.NONE
             ),
-            nationSort = settings.getEnumByOrdinalOrDefault(
+            nationSort = settings.loadEnumByOrdinal(
                 LocalSortOrder.entries,
                 keys.nationSortKey,
                 LocalSortOrder.NONE
             ),
-            dateSort = settings.getEnumByOrdinalOrDefault(
+            dateSort = settings.loadEnumByOrdinal(
                 LocalSortOrder.entries,
                 keys.dateSortKey,
                 LocalSortOrder.NONE
             ),
-            residentsSort = settings.getEnumByOrdinalOrDefault(
+            residentsSort = settings.loadEnumByOrdinal(
                 LocalSortOrder.entries,
                 keys.residentsSortKey,
                 LocalSortOrder.NONE

@@ -1,7 +1,7 @@
 package com.makeevrserg.empireprojekt.mobile.features.rating.users.storage
 
-import com.makeevrserg.empireprojekt.mobile.services.core.settings.SettingsExt.getEnumByOrdinalOrDefault
-import com.makeevrserg.empireprojekt.mobile.services.core.settings.SettingsExt.putEnumByOrdinal
+import com.makeevrserg.empireprojekt.mobile.services.core.settings.util.loadEnumByOrdinal
+import com.makeevrserg.empireprojekt.mobile.services.core.settings.util.putEnumByOrdinal
 import com.russhwolf.settings.Settings
 import ru.astrainteractive.empireapi.models.rating.RatingsFilterModel
 import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
@@ -26,17 +26,17 @@ internal class RatingsFilterStorageValue(
         val keys = Keys(key)
         RatingsFilterModel(
             query = settings.getString(keys.queryKey, default.query),
-            nameSort = settings.getEnumByOrdinalOrDefault(
+            nameSort = settings.loadEnumByOrdinal(
                 LocalSortOrder.entries,
                 keys.nameSortKey,
                 LocalSortOrder.NONE
             ),
-            lastUpdatedSort = settings.getEnumByOrdinalOrDefault(
+            lastUpdatedSort = settings.loadEnumByOrdinal(
                 LocalSortOrder.entries,
                 keys.lastUpdatedSortKey,
                 LocalSortOrder.NONE
             ),
-            ratingSort = settings.getEnumByOrdinalOrDefault(
+            ratingSort = settings.loadEnumByOrdinal(
                 LocalSortOrder.entries,
                 keys.ratingSortKey,
                 LocalSortOrder.NONE

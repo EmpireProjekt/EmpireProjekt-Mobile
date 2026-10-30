@@ -20,7 +20,7 @@ import com.makeevrserg.empireprojekt.mobile.features.ui.splash.SplashScreenCompo
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.TownsScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.votes.VotesScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.webview.map.AndroidWebView
-import com.makeevrserg.empireprojekt.mobile.services.core.LinkBrowser
+import com.makeevrserg.empireprojekt.mobile.services.core.link.api.LinkBrowser
 
 @Suppress("LongMethod")
 @Composable

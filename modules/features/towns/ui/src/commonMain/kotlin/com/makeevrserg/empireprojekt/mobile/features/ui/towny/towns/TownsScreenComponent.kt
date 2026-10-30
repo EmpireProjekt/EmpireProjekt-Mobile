@@ -6,7 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.component.TownsComponent
-import com.makeevrserg.empireprojekt.mobile.services.core.PopComponent
+import com.makeevrserg.empireprojekt.mobile.services.core.navigation.api.PopComponent
 
 @Composable
 fun TownsScreenComponent(

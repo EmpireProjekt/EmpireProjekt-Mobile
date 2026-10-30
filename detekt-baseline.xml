@@ -2,10 +2,7 @@
 <SmellBaseline>
   <ManuallySuppressedIssues/>
   <CurrentIssues>
-    <ID>ActualFileSuffix:LinkBrowserFactory.kt:LinkBrowserFactory</ID>
     <ID>ActualFileSuffix:MokoResExt.kt:@Composable actual fun StringResource.asComposableString: String</ID>
-    <ID>ActualFileSuffix:SettingsFactory.kt:SettingsFactory</ID>
-    <ID>ActualFileSuffix:SettingsFactory.kt:SettingsFactory : Factory</ID>
     <ID>ActualFileSuffix:TransparentBars.kt:@Composable internal actual fun TransparentBars</ID>
     <ID>ActualFileSuffix:WindowInsets.kt:actual fun Modifier.navBarsPadding: Modifier</ID>
     <ID>ArgumentPerLine:AstraLoading.kt:BoxItem(r, 0, AppTheme.astraColors.astraLogo.astraBlue)</ID>
@@ -126,7 +123,6 @@
     <ID>DeclarationOrder:ThemeAdapt.kt:@Suppress("ComposableNaming", "CompositionLocalAllowlist") internal val LocalAppTheme: ProvidableCompositionLocal&lt;AppTheme> = compositionLocalOf { AppTheme() }</ID>
     <ID>DeclarationOrder:TownsComposableScreen.kt:private val previewTownItems: List&lt;TownModel> = listOf( previewTownModel(name = "Rostov", mayor = "RomaRoman", nation = "NCR", residentsCount = 10), previewTownModel(name = "Moscow", mayor = "cinnamonrein", nation = "USSR", residentsCount = 42) )</ID>
     <ID>DeclarationOrder:TownsFeature.kt:TownsFeature$val model = townsRepository.pagingCollector.state.mapStateFlow { TownsComponent.Model( items = it.items, isLoading = it.pageResult.isLoading, isFailure = it.pageResult.isFailure, isLastPage = it.pageResult.isLastPage, filter = it.pageContext.filter ) }</ID>
-    <ID>ExplicitInvoke:AnyStateFlow.kt:AnyStateFlow$onEach(it)</ID>
     <ID>ExplicitInvoke:DefaultRootComponent.kt:DefaultRootComponent$childStack( source = navigation, initialConfiguration = Configuration.Main, serializer = wearRootModule.coreModule.jsonConfiguration.serializersModule.serializer(), handleBackButton = true, childFactory = { config, childContext -> when (config) { Configuration.Main -> RootComponent.Child.Main( themeSwitcherComponent = wearRootModule.themeSwitcherModule.themeSwitcherComponent ) Configuration.Ping -> RootComponent.Child.Ping( pingComponent = wearRootModule.pingModule.createPingComponent(childContext) ) Configuration.Statuses -> RootComponent.Child.Statuses( wearStatusComponent = wearRootModule.wearStatusComponent ) } } )</ID>
     <ID>ExplicitInvoke:DefaultRootScreenComponent.kt:DefaultRootScreenComponent$childStack( source = navigation, initialConfiguration = RootRouter.Configuration.Splash, handleBackButton = true, serializer = rootModule.coreModule.jsonConfiguration.serializersModule.serializer(), childFactory = { config, context -> RootScreenComponentChildFactory( config = config, childContext = context, rootModule = rootModule, instance = this, ratingUsersModule = rootModule.ratingUsersModule, townsModule = rootModule.townsModule, onRootNavigation = { configuration -> push(configuration) }, onPop = { pop() } ).create() } )</ID>
     <ID>ExplicitInvoke:ModalBottomSheetSlot.kt:content(logicEvent.instance)</ID>
@@ -207,7 +203,6 @@
     <ID>FunctionVerb:PagerComponent.kt:PagerComponent$fun selectMap</ID>
     <ID>FunctionVerb:PingFeature.kt:PingFeature$private fun getMillis: Long</ID>
     <ID>FunctionVerb:RatingUserRepository.kt:RatingUserRepository$suspend fun getRatings: List&lt;RatingModel></ID>
-    <ID>FunctionVerb:SettingsExt.kt:SettingsExt$fun &lt;E : Enum&lt;E>> Settings.getEnumByOrdinalOrDefault: E</ID>
     <ID>FunctionVerb:SwipeToDismissBox.kt:private fun ChildStack&lt;*, *>.getConfigurations: Set&lt;String></ID>
     <ID>GetOrThrowInMain:RatingUsersFeature.kt:RatingUsersFeature$getOrThrow()</ID>
     <ID>ImplementationName:LastBottomItemRepository.kt:LastBottomItemRepositoryImpl : LastBottomItemRepository</ID>
@@ -229,7 +224,6 @@
     <ID>ImplementationName:UrlStatusStoreFactory.kt:UrlStatusStoreFactory$UrlStatusStoreImpl : UrlStatusStoreStore</ID>
     <ID>ImplementationName:WearMessageConsumerImpl.kt:WearMessageConsumerImpl : WearMessageConsumer</ID>
     <ID>ImplementationName:WearMessageProducerImpl.kt:WearMessageProducerImpl : WearMessageProducer</ID>
-    <ID>ImplicitItParameter:AnyStateFlow.kt:AnyStateFlow$it</ID>
     <ID>ImplicitItParameter:AstraLoading.kt:it</ID>
     <ID>ImplicitItParameter:CheckStatusWork.kt:CheckStatusWork$it</ID>
     <ID>ImplicitItParameter:DefaultPagerComponent.kt:DefaultPagerComponent$it</ID>
@@ -269,10 +263,7 @@
     <ID>NamespaceObject:InfoScreenLinks.kt:InfoScreenLinks</ID>
     <ID>NamespaceObject:LocalSortOrderExt.kt:LocalSortOrderExt</ID>
     <ID>NamespaceObject:PagingWidget.kt:PagingWidget</ID>
-    <ID>NamespaceObject:SettingsExt.kt:SettingsExt</ID>
     <ID>NamespaceObject:TownPublicTypeExt.kt:TownPublicTypeExt</ID>
-    <ID>OneTypeFamilyPerFile:AnyStateFlow.kt:AnyStateFlow&lt;T : Any> : StateFlow</ID>
-    <ID>OneTypeFamilyPerFile:AnyStateFlow.kt:fun &lt;T : Any> StateFlow&lt;T>.wrapToAny: AnyStateFlow&lt;T></ID>
     <ID>OneTypeFamilyPerFile:JsonWearMessage.kt:@Suppress("FunctionNaming") inline fun &lt;reified T> JsonWearMessage: WearMessage&lt;T></ID>
     <ID>OneTypeFamilyPerFile:LastBottomItemRepository.kt:LastBottomItemRepositoryImpl : LastBottomItemRepository</ID>
     <ID>OneTypeFamilyPerFile:MainTileRenderer.kt:@OptIn(ExperimentalHorologistApi::class) @Preview(device = WearDevices.SMALL_ROUND, name = "Small Round") @Preview(device = WearDevices.LARGE_ROUND, name = "Large Round") internal fun mainTilePreview: TilePreviewData</ID>
@@ -303,10 +294,7 @@
     <ID>OneTypeFamilyPerFile:TownsFilterStorageValue.kt:TownsFilterStorageValue : CachedMutableKrate</ID>
     <ID>OperatorBeforeTrailingCall:RatingUserWidget.kt:(model.totalRating + coerse)</ID>
     <ID>OperatorBeforeTrailingCall:RatingUserWidget.kt:(total / (coerse * 2f))</ID>
-    <ID>RolelessClassName:LinkBrowserFactory.kt:LinkBrowserFactory</ID>
     <ID>RolelessClassName:RootScreenComponentChildFactory.kt:RootScreenComponentChildFactory</ID>
-    <ID>RolelessClassName:SettingsFactory.kt:SettingsFactory</ID>
-    <ID>RolelessClassName:SettingsFactory.kt:SettingsFactory : Factory</ID>
     <ID>RolelessClassName:StatusNotificationFactory.kt:StatusNotificationFactory</ID>
     <ID>RolelessClassName:TownyPageContext.kt:TownyPageContext$Factory : Factory</ID>
     <ID>RolelessClassName:UrlStatusStoreFactory.kt:UrlStatusStoreFactory</ID>

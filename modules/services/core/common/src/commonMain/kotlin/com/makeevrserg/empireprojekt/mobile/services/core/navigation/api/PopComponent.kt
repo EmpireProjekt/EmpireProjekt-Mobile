@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.services.core
+package com.makeevrserg.empireprojekt.mobile.services.core.navigation.api
 
 import com.arkivanov.decompose.value.Value
 
