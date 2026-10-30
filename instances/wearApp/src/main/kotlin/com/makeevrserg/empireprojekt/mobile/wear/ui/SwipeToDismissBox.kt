@@ -15,16 +15,6 @@ import com.arkivanov.decompose.value.Value
 
 // Copy from https://github.com/joreilly/Confetti
 
-/**
- * Displays the [ChildStack] in [SwipeToDismissBox][androidx.wear.compose.material.SwipeToDismissBox].
- *
- * @param stack a [ChildStack] to be displayed.
- * @param onDismissed called when the swipe to dismiss gesture has completed, allows popping the stack.
- * See [StackNavigator#pop][com.arkivanov.decompose.router.stack.pop].
- * @param modifier a [Modifier] to be applied to the underlying
- * [SwipeToDismissBox][androidx.wear.compose.material.SwipeToDismissBox].
- * @param content a Composable slot displaying a [Child][Child.Created].
- */
 @Composable
 fun <C : Any, T : Any> SwipeToDismissBox(
     stack: Value<ChildStack<C, T>>,

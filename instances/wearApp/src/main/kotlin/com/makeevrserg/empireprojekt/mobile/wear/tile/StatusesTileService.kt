@@ -22,9 +22,6 @@ import kotlinx.coroutines.launch
 
 private const val RESOURCES_VERSION = "1"
 
-/**
- * Skeleton for a tile with no images.
- */
 @OptIn(ExperimentalHorologistApi::class)
 class StatusesTileService : SuspendingTileService() {
 
