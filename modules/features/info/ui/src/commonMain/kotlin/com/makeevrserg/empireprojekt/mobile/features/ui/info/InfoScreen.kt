@@ -23,12 +23,13 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.ic_people
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_theme
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_vote
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraTopBarScreen
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionDefaults
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionHref
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSection
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSeparator
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSwitch
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionHref
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionInfo
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionSeparator
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionSwitch
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.layout.OptionSection
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.model.OptionSectionContent
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.theme.OptionSpacing
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
@@ -79,7 +80,7 @@ fun InfoScreen(
                                 onRatingsClick.invoke()
                             },
                             icon = MR.images.ic_people.asPainter(),
-                            contentPadding = OptionDefaults.ContentPadding,
+                            contentPadding = OptionSpacing.ContentPadding,
                         )
                         OptionSeparator(Modifier.fillMaxWidth())
                         OptionHref(
@@ -88,7 +89,7 @@ fun InfoScreen(
                                 onVotesClick.invoke()
                             },
                             icon = MR.images.ic_vote.asPainter(),
-                            contentPadding = OptionDefaults.ContentPadding,
+                            contentPadding = OptionSpacing.ContentPadding,
                         )
                         OptionSeparator(Modifier.fillMaxWidth())
                         OptionHref(
@@ -97,7 +98,7 @@ fun InfoScreen(
                                 onWikiClick.invoke()
                             },
                             icon = MR.images.ic_knowledge.asPainter(),
-                            contentPadding = OptionDefaults.ContentPadding,
+                            contentPadding = OptionSpacing.ContentPadding,
                         )
                         OptionSeparator(Modifier.fillMaxWidth())
                         OptionSwitch(
@@ -107,7 +108,7 @@ fun InfoScreen(
                             },
                             checked = AppTheme.astraColors.isDark,
                             icon = MR.images.ic_theme.asPainter(),
-                            contentPadding = OptionDefaults.ContentPadding,
+                            contentPadding = OptionSpacing.ContentPadding,
                         )
                     }
                 }
@@ -131,7 +132,7 @@ fun InfoScreen(
             }
 
             item {
-                OptionSection(items = models) { linkModel ->
+                OptionSection(section = OptionSectionContent(models)) { linkModel ->
                     LinkWidget(
                         linkModel = linkModel,
                         onClick = { onLinkClick.invoke(linkModel.url) }
@@ -145,7 +146,7 @@ fun InfoScreen(
                         icon = rememberVectorPainter(Icons.Filled.Bolt),
                         text = "Version",
                         endText = "${BuildKonfig.VERSION_CODE} (${BuildKonfig.VERSION_NAME})",
-                        contentPadding = OptionDefaults.ContentPadding,
+                        contentPadding = OptionSpacing.ContentPadding,
                     )
                 }
             }

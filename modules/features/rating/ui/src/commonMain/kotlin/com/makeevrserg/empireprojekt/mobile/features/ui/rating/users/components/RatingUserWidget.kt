@@ -24,7 +24,7 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_raised_hand
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_thumb_up_down
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionInfo
 import com.makeevrserg.empireprojekt.mobile.core.ui.player.composable.PlayerNameRow
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme

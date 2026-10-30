@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.core.ui.option
+package com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material3.Switch
@@ -29,17 +29,8 @@ fun M3Switch(
             checkedThumbColor = AppTheme.astraColors.surface.onSecondaryVariant,
             checkedBorderColor = Color.Transparent,
             checkedTrackColor = AppTheme.astraColors.surface.secondaryVariant,
-            // todo no color for disabled in design system yet
-            // checkedIconColor = TODO(),
-            // disabledCheckedIconColor = TODO(),
-            // disabledUncheckedIconColor = TODO(),
-            // uncheckedIconColor = TODO(),
             disabledCheckedBorderColor = Color.Transparent,
-//            disabledCheckedThumbColor = LocalCorruptedPallet.current.transparent.whiteInvert.tertiary,
-//            disabledCheckedTrackColor = LocalCorruptedPallet.current.accent.device.primary,
             disabledUncheckedBorderColor = Color.Transparent,
-//            disabledUncheckedThumbColor = LocalCorruptedPallet.current.transparent.whiteInvert.tertiary,
-//            disabledUncheckedTrackColor = LocalCorruptedPallet.current.transparent.whiteInvert.tertiary,
         )
     )
 }
@@ -48,7 +39,11 @@ fun M3Switch(
 @Composable
 private fun M3SwitchCheckedPreview() {
     AdaptThemeFade {
-        M3Switch(checked = true, onCheckedChange = {}, enabled = true)
+        M3Switch(
+            checked = true,
+            onCheckedChange = {},
+            enabled = true
+        )
     }
 }
 
@@ -56,7 +51,11 @@ private fun M3SwitchCheckedPreview() {
 @Composable
 private fun M3SwitchUncheckedPreview() {
     AdaptThemeFade {
-        M3Switch(checked = false, onCheckedChange = {}, enabled = true)
+        M3Switch(
+            checked = false,
+            onCheckedChange = {},
+            enabled = true
+        )
     }
 }
 
@@ -64,6 +63,10 @@ private fun M3SwitchUncheckedPreview() {
 @Composable
 private fun M3SwitchDisabledPreview() {
     AdaptThemeFade {
-        M3Switch(checked = true, onCheckedChange = {}, enabled = false)
+        M3Switch(
+            checked = true,
+            onCheckedChange = {},
+            enabled = false
+        )
     }
 }

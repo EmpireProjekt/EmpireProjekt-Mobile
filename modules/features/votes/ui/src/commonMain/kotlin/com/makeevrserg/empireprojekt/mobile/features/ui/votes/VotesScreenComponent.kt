@@ -18,9 +18,10 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_hotmc
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_minecraftrating
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionDefaults
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionHref
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSection
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionHref
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.layout.OptionSection
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.model.OptionSectionContent
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.theme.OptionSpacing
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
@@ -134,7 +135,7 @@ fun VotesScreenComponent(
                         )
                         Spacer(Modifier.height(AppTheme.dimens.XS))
                     }
-                    OptionSection(items = voteUrls) { voteUrl ->
+                    OptionSection(section = OptionSectionContent(voteUrls)) { voteUrl ->
                         OptionHref(
                             text = voteUrl.name,
                             onClick = {
@@ -142,7 +143,7 @@ fun VotesScreenComponent(
                             },
                             icon = voteUrl.image.asPainter(),
                             iconTint = Color.Unspecified,
-                            contentPadding = OptionDefaults.ContentPadding,
+                            contentPadding = OptionSpacing.ContentPadding,
                         )
                     }
                 }

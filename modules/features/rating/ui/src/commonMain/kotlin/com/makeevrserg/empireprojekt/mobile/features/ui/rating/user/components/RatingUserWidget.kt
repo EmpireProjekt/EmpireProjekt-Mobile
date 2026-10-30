@@ -23,8 +23,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_history_edu
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionInfo
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.OptionSeparator
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionInfo
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionSeparator
 import com.makeevrserg.empireprojekt.mobile.core.ui.player.composable.PlayerNameRow
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade

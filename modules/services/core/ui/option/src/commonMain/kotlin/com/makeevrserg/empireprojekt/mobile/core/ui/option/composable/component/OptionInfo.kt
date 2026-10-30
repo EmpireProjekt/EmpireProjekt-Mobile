@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.core.ui.option
+package com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -20,8 +20,6 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
-private val END_TEXT_FONT_SIZE = 18.sp
-
 @Composable
 fun OptionInfo(
     text: String,
@@ -42,7 +40,7 @@ fun OptionInfo(
         end = {
             AstraText(
                 text = endText,
-                fontSize = END_TEXT_FONT_SIZE,
+                fontSize = 18.sp,
                 textAlign = TextAlign.End,
                 color = MaterialTheme.colors.onPrimary
             )
@@ -50,60 +48,48 @@ fun OptionInfo(
     )
 }
 
+private const val PREVIEW_TEXT = "Some text"
+private val PreviewLongText = List(size = 10) { PREVIEW_TEXT }.joinToString(separator = " ")
+
 @Composable
-@Preview
-private fun OptionInfoPreview() {
+private fun OptionInfoPreviewSheet(text: String, infoText: String?) {
     AdaptThemeFade {
-        val modifier = Modifier.padding(
-            horizontal = 8.dp,
-            vertical = 4.dp
-        )
         Column {
             OptionInfo(
                 icon = rememberVectorPainter(Icons.Filled.Image),
-                text = TEXT,
-                endText = TEXT,
-                modifier = modifier
+                text = text,
+                infoText = infoText,
+                endText = PREVIEW_TEXT,
+                modifier = Modifier.padding(
+                    horizontal = 8.dp,
+                    vertical = 4.dp
+                )
             )
             OptionSeparator(Modifier.fillMaxWidth())
-            OptionInfo(
-                icon = rememberVectorPainter(Icons.Filled.Image),
-                text = LONG_TEXT,
-                endText = TEXT,
-                modifier = modifier
-            )
-            OptionSeparator(Modifier.fillMaxWidth())
-            OptionInfo(
-                icon = rememberVectorPainter(Icons.Filled.Image),
-                text = TEXT,
-                infoText = TEXT,
-                endText = TEXT,
-                modifier = modifier
-            )
-            OptionSeparator(Modifier.fillMaxWidth())
-            OptionInfo(
-                icon = rememberVectorPainter(Icons.Filled.Image),
-                text = LONG_TEXT,
-                infoText = TEXT,
-                endText = TEXT,
-                modifier = modifier
-            )
-            OptionSeparator(Modifier.fillMaxWidth())
-            OptionInfo(
-                icon = rememberVectorPainter(Icons.Filled.Image),
-                text = LONG_TEXT,
-                infoText = LONG_TEXT,
-                endText = TEXT,
-                modifier = modifier
-            )
-            OptionSeparator(Modifier.fillMaxWidth())
-            OptionInfo(
-                icon = rememberVectorPainter(Icons.Filled.Image),
-                text = TEXT,
-                infoText = LONG_TEXT,
-                endText = TEXT,
-                modifier = modifier
-            )
         }
     }
+}
+
+@Preview
+@Composable
+private fun OptionInfoShortPreview() {
+    OptionInfoPreviewSheet(text = PREVIEW_TEXT, infoText = null)
+}
+
+@Preview
+@Composable
+private fun OptionInfoLongPreview() {
+    OptionInfoPreviewSheet(text = PreviewLongText, infoText = null)
+}
+
+@Preview
+@Composable
+private fun OptionInfoWithInfoPreview() {
+    OptionInfoPreviewSheet(text = PREVIEW_TEXT, infoText = PREVIEW_TEXT)
+}
+
+@Preview
+@Composable
+private fun OptionInfoLongWithLongInfoPreview() {
+    OptionInfoPreviewSheet(text = PreviewLongText, infoText = PreviewLongText)
 }

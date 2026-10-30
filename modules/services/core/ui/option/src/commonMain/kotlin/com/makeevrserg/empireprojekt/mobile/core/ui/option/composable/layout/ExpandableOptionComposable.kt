@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.core.ui.option
+package com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.layout
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionHref
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 
 @Composable
@@ -33,10 +34,10 @@ fun ExpandableOptionComposable(
 ) {
     Box(
         modifier = modifier
-            .animateContentSize( // Animation
+            .animateContentSize(
                 animationSpec = tween(
-                    durationMillis = 70, // Animation Speed
-                    easing = LinearOutSlowInEasing // Animation Type
+                    durationMillis = 70,
+                    easing = LinearOutSlowInEasing
                 )
             ),
     ) {
@@ -63,6 +64,8 @@ fun ExpandableOptionComposable(
     }
 }
 
+private const val PREVIEW_TEXT = "Some text"
+
 @Composable
 private fun ExpandableOptionComposablePreviewContent(isExpanded: Boolean) {
     ExpandableOptionComposable(
@@ -75,7 +78,7 @@ private fun ExpandableOptionComposablePreviewContent(isExpanded: Boolean) {
                 repeat(times = 4) {
                     OptionHref(
                         icon = rememberVectorPainter(Icons.Filled.Image),
-                        text = TEXT,
+                        text = PREVIEW_TEXT,
                         onClick = {},
                     )
                 }

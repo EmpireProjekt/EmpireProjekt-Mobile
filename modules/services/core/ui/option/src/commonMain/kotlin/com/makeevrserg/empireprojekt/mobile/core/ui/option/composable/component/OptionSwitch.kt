@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.core.ui.option
+package com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.clickable
@@ -19,8 +19,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-
-private val INFO_SPACING = 6.dp
 
 @Composable
 fun OptionSwitch(
@@ -48,7 +46,7 @@ fun OptionSwitch(
         textColor = textColor,
         icon = icon,
         infoText = infoText,
-        infoSpacing = INFO_SPACING,
+        infoSpacing = 6.dp,
         verticalAlignment = verticalAlignment,
         end = {
             M3Switch(
@@ -60,66 +58,75 @@ fun OptionSwitch(
     )
 }
 
+private const val PREVIEW_TEXT = "Some text"
+private val PreviewLongText = List(size = 10) { PREVIEW_TEXT }.joinToString(separator = " ")
+
 @Composable
-@Preview
-@Suppress("LongMethod")
-private fun OptionSwitchPreview() {
+private fun OptionSwitchPreviewSheet(
+    text: String,
+    infoText: String?,
+    checked: Boolean,
+    isEnabled: Boolean
+) {
     AdaptThemeFade {
-        val modifier = Modifier.padding(
-            horizontal = 8.dp,
-            vertical = 4.dp
-        )
         Column {
             OptionSwitch(
                 icon = rememberVectorPainter(Icons.Filled.Image),
-                text = TEXT,
+                text = text,
+                infoText = infoText,
+                checked = checked,
+                isEnabled = isEnabled,
                 onCheckChange = {},
-                modifier = modifier
+                modifier = Modifier.padding(
+                    horizontal = 8.dp,
+                    vertical = 4.dp
+                )
             )
             OptionSeparator(Modifier.fillMaxWidth())
-            OptionSwitch(
-                icon = rememberVectorPainter(Icons.Filled.Image),
-                text = LONG_TEXT,
-                checked = false,
-                onCheckChange = {},
-                modifier = modifier
-            )
-            OptionSeparator(Modifier.fillMaxWidth())
-            OptionSwitch(
-                icon = rememberVectorPainter(Icons.Filled.Image),
-                text = TEXT,
-                infoText = TEXT,
-                checked = true,
-                isEnabled = false,
-                onCheckChange = {},
-                modifier = modifier
-            )
-            OptionSeparator(Modifier.fillMaxWidth())
-            OptionSwitch(
-                icon = rememberVectorPainter(Icons.Filled.Image),
-                text = LONG_TEXT,
-                infoText = TEXT,
-                checked = false,
-                isEnabled = true,
-                onCheckChange = {},
-                modifier = modifier
-            )
-            OptionSeparator(Modifier.fillMaxWidth())
-            OptionSwitch(
-                icon = rememberVectorPainter(Icons.Filled.Image),
-                text = LONG_TEXT,
-                infoText = LONG_TEXT,
-                onCheckChange = {},
-                modifier = modifier
-            )
-            OptionSeparator(Modifier.fillMaxWidth())
-            OptionSwitch(
-                icon = rememberVectorPainter(Icons.Filled.Image),
-                text = TEXT,
-                infoText = LONG_TEXT,
-                onCheckChange = {},
-                modifier = modifier
-            )
         }
     }
+}
+
+@Preview
+@Composable
+private fun OptionSwitchCheckedPreview() {
+    OptionSwitchPreviewSheet(
+        text = PREVIEW_TEXT,
+        infoText = null,
+        checked = true,
+        isEnabled = true
+    )
+}
+
+@Preview
+@Composable
+private fun OptionSwitchUncheckedPreview() {
+    OptionSwitchPreviewSheet(
+        text = PreviewLongText,
+        infoText = null,
+        checked = false,
+        isEnabled = true
+    )
+}
+
+@Preview
+@Composable
+private fun OptionSwitchDisabledPreview() {
+    OptionSwitchPreviewSheet(
+        text = PREVIEW_TEXT,
+        infoText = PREVIEW_TEXT,
+        checked = true,
+        isEnabled = false
+    )
+}
+
+@Preview
+@Composable
+private fun OptionSwitchLongInfoPreview() {
+    OptionSwitchPreviewSheet(
+        text = PreviewLongText,
+        infoText = PreviewLongText,
+        checked = false,
+        isEnabled = true
+    )
 }

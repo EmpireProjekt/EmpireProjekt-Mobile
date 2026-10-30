@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.core.ui.option
+package com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -26,9 +26,6 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
-private val ICON_SIZE = 24.dp
-private val TITLE_FONT_SIZE = 18.sp
-
 @Composable
 internal fun OptionRow(
     text: String,
@@ -46,12 +43,12 @@ internal fun OptionRow(
         horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS, Alignment.CenterHorizontally),
         verticalAlignment = verticalAlignment
     ) {
-        icon?.let { painter ->
+        if (icon != null) {
             Icon(
-                painter = painter,
+                painter = icon,
                 contentDescription = null,
                 tint = iconTint,
-                modifier = Modifier.size(ICON_SIZE)
+                modifier = Modifier.size(24.dp)
             )
         }
         Column(
@@ -63,14 +60,14 @@ internal fun OptionRow(
                 text = text,
                 color = textColor,
                 textAlign = TextAlign.Start,
-                fontSize = TITLE_FONT_SIZE
+                fontSize = 18.sp
             )
-            infoText?.let { info ->
+            if (infoText != null) {
                 if (infoSpacing > 0.dp) {
                     Spacer(Modifier.height(infoSpacing))
                 }
                 AstraText(
-                    text = info,
+                    text = infoText,
                     color = AppTheme.astraColors.surface.onSecondary,
                     style = MaterialTheme.typography.body1,
                     textAlign = TextAlign.Start
@@ -81,12 +78,15 @@ internal fun OptionRow(
     }
 }
 
+private const val PREVIEW_TEXT = "Some text"
+private val PreviewLongText = List(size = 10) { PREVIEW_TEXT }.joinToString(separator = " ")
+
 @Preview
 @Composable
 private fun OptionRowPreview() {
     AdaptThemeFade {
         OptionRow(
-            text = TEXT,
+            text = PREVIEW_TEXT,
             icon = rememberVectorPainter(Icons.Filled.Image),
             end = { AstraText(text = "20m") }
         )
@@ -98,9 +98,9 @@ private fun OptionRowPreview() {
 private fun OptionRowWithInfoPreview() {
     AdaptThemeFade {
         OptionRow(
-            text = TEXT,
+            text = PREVIEW_TEXT,
             icon = rememberVectorPainter(Icons.Filled.Image),
-            infoText = LONG_TEXT,
+            infoText = PreviewLongText,
             end = { AstraText(text = "20m") }
         )
     }
