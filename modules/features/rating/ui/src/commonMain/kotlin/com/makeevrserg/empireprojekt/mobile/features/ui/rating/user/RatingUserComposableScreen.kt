@@ -12,8 +12,8 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.paging.model.PagingContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.RatingUserComponent
-import com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.components.RatingUserWidget
-import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.components.RatingUserShimmerWidget
+import com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.composable.component.RatingUserWidget
+import com.makeevrserg.empireprojekt.mobile.features.ui.rating.userlist.composable.component.RatingUserShimmerWidget
 import ru.astrainteractive.empireapi.models.rating.RatingModel
 import ru.astrainteractive.empireapi.models.rating.RatingUserModel
 import ru.astrainteractive.empireapi.models.rating.UserRatingsRequest

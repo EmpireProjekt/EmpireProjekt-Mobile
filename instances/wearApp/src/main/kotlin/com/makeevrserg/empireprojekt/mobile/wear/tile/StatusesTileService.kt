@@ -14,8 +14,8 @@ import com.google.android.horologist.tiles.SuspendingTileService
 import com.makeevrserg.empireprojekt.mobile.modules.services.core.resources.R
 import com.makeevrserg.empireprojekt.mobile.wear.application.App.Companion.asEmpireApp
 import com.makeevrserg.empireprojekt.mobile.wear.di.WearRootModule
-import com.makeevrserg.empireprojekt.mobile.wear.features.status.component.DefaultWearStatusComponent
-import com.makeevrserg.empireprojekt.mobile.wear.tile.components.MainTileRenderer
+import com.makeevrserg.empireprojekt.mobile.wear.feature.status.component.DefaultWearStatusComponent
+import com.makeevrserg.empireprojekt.mobile.wear.tile.renderer.MainTileRenderer
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch

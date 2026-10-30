@@ -15,9 +15,9 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_list_title
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.component.TownsComponent
-import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownCard
-import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownFilterCard
-import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.components.TownShimmerWidget
+import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.composable.component.TownCard
+import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.composable.component.TownFilterCard
+import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.composable.component.TownShimmerWidget
 import ru.astrainteractive.empireapi.models.towny.TownModel
 import ru.astrainteractive.empireapi.models.towny.TownsFilterModel
 

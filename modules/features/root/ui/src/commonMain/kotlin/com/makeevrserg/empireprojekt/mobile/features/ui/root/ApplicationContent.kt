@@ -15,7 +15,7 @@ import com.makeevrserg.empireprojekt.mobile.features.ui.info.InfoScreen
 import com.makeevrserg.empireprojekt.mobile.features.ui.map.AndroidMapView
 import com.makeevrserg.empireprojekt.mobile.features.ui.pager.PagerScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.RatingUserScreenComponent
-import com.makeevrserg.empireprojekt.mobile.features.ui.rating.users.RatingUsersScreenComponent
+import com.makeevrserg.empireprojekt.mobile.features.ui.rating.userlist.RatingUsersScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.splash.SplashScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.TownsScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.votes.VotesScreenComponent

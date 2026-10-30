@@ -3,8 +3,8 @@ package com.makeevrserg.empireprojekt.mobile.features.root.di
 import com.makeevrserg.empireprojekt.mobile.api.empireapi.di.ApiEmpireApiModule
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.di.RatingUserModule
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.di.RatingUserModuleImpl
-import com.makeevrserg.empireprojekt.mobile.features.rating.users.di.RatingUsersModule
-import com.makeevrserg.empireprojekt.mobile.features.rating.users.di.RatingUsersModuleImpl
+import com.makeevrserg.empireprojekt.mobile.features.rating.userlist.di.RatingUsersModule
+import com.makeevrserg.empireprojekt.mobile.features.rating.userlist.di.RatingUsersModuleImpl
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.di.PagerModule
 import com.makeevrserg.empireprojekt.mobile.features.splash.di.SplashComponentModule
 import com.makeevrserg.empireprojekt.mobile.features.status.di.StatusModule

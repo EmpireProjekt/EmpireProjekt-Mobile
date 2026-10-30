@@ -3,9 +3,9 @@ package com.makeevrserg.empireprojekt.mobile.wear.di
 import com.makeevrserg.empireprojekt.mobile.features.theme.di.ThemeSwitcherModule
 import com.makeevrserg.empireprojekt.mobile.features.theme.di.ThemeSwitcherModuleImpl
 import com.makeevrserg.empireprojekt.mobile.services.core.di.CoreModule
-import com.makeevrserg.empireprojekt.mobile.wear.features.ping.di.PingModule
-import com.makeevrserg.empireprojekt.mobile.wear.features.status.component.DefaultWearStatusComponent
-import com.makeevrserg.empireprojekt.mobile.wear.features.status.component.WearStatusComponent
+import com.makeevrserg.empireprojekt.mobile.wear.feature.ping.di.PingModule
+import com.makeevrserg.empireprojekt.mobile.wear.feature.status.component.DefaultWearStatusComponent
+import com.makeevrserg.empireprojekt.mobile.wear.feature.status.component.WearStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.di.WearMessengerModule
 
 interface WearRootModule {

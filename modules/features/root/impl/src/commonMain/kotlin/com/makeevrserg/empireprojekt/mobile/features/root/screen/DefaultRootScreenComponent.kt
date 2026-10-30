@@ -11,7 +11,7 @@ import com.arkivanov.decompose.router.stack.replaceCurrent
 import com.arkivanov.decompose.value.Value
 import com.arkivanov.decompose.value.operator.map
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.RatingUserComponent
-import com.makeevrserg.empireprojekt.mobile.features.rating.users.component.RatingUsersComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.userlist.component.RatingUsersComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.di.RootModule
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.PagerComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.di.factory.RootScreenComponentChildFactory

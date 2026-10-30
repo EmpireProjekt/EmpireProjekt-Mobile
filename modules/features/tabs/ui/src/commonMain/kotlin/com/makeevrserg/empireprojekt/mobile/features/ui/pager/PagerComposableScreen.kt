@@ -14,7 +14,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.decompose.model.DecomposeScr
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.PagerComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.model.PagerBottomBarItem
-import com.makeevrserg.empireprojekt.mobile.features.ui.pager.components.PagerBottomBar
+import com.makeevrserg.empireprojekt.mobile.features.ui.pager.composable.component.PagerBottomBar
 
 @Composable
 internal fun PagerComposableScreen(

@@ -1,7 +1,7 @@
 package com.makeevrserg.empireprojekt.mobile.features.root.screen.di.factory
 
 import com.arkivanov.decompose.ComponentContext
-import com.makeevrserg.empireprojekt.mobile.features.rating.users.di.RatingUsersModule
+import com.makeevrserg.empireprojekt.mobile.features.rating.userlist.di.RatingUsersModule
 import com.makeevrserg.empireprojekt.mobile.features.root.di.RootModule
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.DefaultRootScreenComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.screen.RootRouter
