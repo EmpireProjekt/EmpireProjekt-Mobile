@@ -12,13 +12,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.model.FilterCardScope
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 @Composable
-fun <E : Enum<E>> FilterCardScope.EnumOption(
+fun <E : Enum<E>> EnumOption(
     text: String,
     selected: E?,
     toString: @Composable (E) -> String,

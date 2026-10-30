@@ -5,12 +5,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.common_filter_multiple_sort_desc
 import com.makeevrserg.empireprojekt.mobile.core.resources.common_filter_title
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.model.FilterCardScope
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 
 @Composable
-fun FilterCardScope.SortFilterHeader() {
+fun SortFilterHeader() {
     TitleOption(text = MR.strings.common_filter_title.asComposableString())
     TextOption(text = MR.strings.common_filter_multiple_sort_desc.asComposableString())
 }
