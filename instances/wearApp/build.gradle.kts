@@ -65,7 +65,7 @@ tasks.withType<ValidateSigningTask>().configureEach {
 }
 
 android {
-    namespace = requireProjectInfo.group
+    namespace = "${requireProjectInfo.group}.wear"
 
     if (gServicesBase64.isNotBlank() || file("google-services.json").length() > 0L) {
         apply(plugin = "com.google.gms.google-services")

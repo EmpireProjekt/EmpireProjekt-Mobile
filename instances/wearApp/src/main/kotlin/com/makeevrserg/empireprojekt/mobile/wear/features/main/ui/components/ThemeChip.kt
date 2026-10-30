@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.R
+import com.makeevrserg.empireprojekt.mobile.wear.R
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_bedtime
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_sunny
