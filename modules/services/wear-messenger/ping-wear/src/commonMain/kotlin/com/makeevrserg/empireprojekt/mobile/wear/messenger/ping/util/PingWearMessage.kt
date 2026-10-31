@@ -1,6 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.util
 
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.model.WearMessage
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.model.WearMessage
 import kotlinx.serialization.builtins.serializer
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds

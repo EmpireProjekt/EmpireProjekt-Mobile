@@ -3,7 +3,7 @@ package com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.service
 import android.util.Log
 import com.google.android.gms.wearable.MessageEvent
 import com.google.android.gms.wearable.WearableListenerService
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.api.WearMessengerApplication
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearMessengerApplication
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.util.PING_WEAR_MESSAGE
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

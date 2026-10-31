@@ -1,7 +1,7 @@
 package com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.component
 
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.api.WearMessageConsumer
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.model.DecodedWearMessage
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearMessageConsumer
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.model.DecodedWearMessage
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.model.PingState
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.ping.util.PING_TIMEOUT
 import kotlinx.coroutines.CoroutineScope
