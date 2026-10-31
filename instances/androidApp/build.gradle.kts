@@ -113,11 +113,10 @@ android {
 configure<ApplicationAndroidComponentsExtension> {
     onVariants { variant ->
         variant.outputs.onEach { output ->
-            if (output is VariantOutputImpl) {
-                val name = requireProjectInfo.name
-                val version = requireProjectInfo.versionString
-                output.outputFileName.set("$name-android-$version-${variant.name}.apk")
-            }
+            if (output !is VariantOutputImpl) return@onEach
+            val name = requireProjectInfo.name
+            val version = requireProjectInfo.versionString
+            output.outputFileName.set("$name-android-$version-${variant.name}.apk")
         }
     }
 }
@@ -150,17 +149,27 @@ dependencies {
     implementation(libs.kotlin.coroutines.core)
     implementation(libs.kotlin.coroutines.playServices)
     implementation(libs.kotlin.serialization.json)
+    implementation(kotlin("stdlib"))
     implementation(libs.moko.resources.core)
     implementation(platform(libs.google.firebase.bom))
+    implementation(projects.modules.features.rating.api)
+    implementation(projects.modules.features.rating.impl)
     implementation(projects.modules.features.root.api)
     implementation(projects.modules.features.root.impl)
     implementation(projects.modules.features.root.ui)
+    implementation(projects.modules.features.splash.impl)
     implementation(projects.modules.features.status.api)
     implementation(projects.modules.features.status.impl)
+    implementation(projects.modules.features.tabs.impl)
     implementation(projects.modules.features.theme.api)
     implementation(projects.modules.features.theme.impl)
     implementation(projects.modules.features.theme.ui)
+    implementation(projects.modules.features.towns.api)
+    implementation(projects.modules.features.towns.impl)
+    implementation(projects.modules.features.webview.api)
+    implementation(projects.modules.features.webview.impl)
     implementation(projects.modules.services.core.common)
+    implementation(projects.modules.services.data.empireapi)
     implementation(projects.modules.services.core.resources)
     implementation(projects.modules.services.core.ui.common)
     implementation(projects.modules.services.core.ui.dialog)

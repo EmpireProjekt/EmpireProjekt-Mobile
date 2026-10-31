@@ -1,35 +1,23 @@
-package com.makeevrserg.empireprojekt.mobile.application
+package com.makeevrserg.empireprojekt.mobile
 
 import android.app.Application
 import android.content.Context
-import com.google.android.horologist.annotations.ExperimentalHorologistApi
-import com.google.android.horologist.data.WearDataLayerRegistry
 import com.google.firebase.Firebase
 import com.google.firebase.initialize
-import com.makeevrserg.empireprojekt.mobile.features.root.impl.di.RootModule
+import com.makeevrserg.empireprojekt.mobile.di.RootModule
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.di.WearMessengerModule
 import kotlinx.coroutines.cancel
 import ru.astrainteractive.klibs.mikro.platform.DefaultAndroidPlatformConfiguration
 
-@OptIn(ExperimentalHorologistApi::class)
 class App : Application() {
-    val rootModule by lazy {
-        RootModule.Default()
+    internal val rootModule by lazy {
+        RootModule()
     }
     val wearMessengerModule by lazy {
         WearMessengerModule.Default(
             context = rootModule.coreModule.platformConfiguration.applicationContext,
             coroutineScope = rootModule.coreModule.mainScope,
         )
-    }
-    private val wearDataLayerRegistry by lazy {
-        WearDataLayerRegistry.fromContext(
-            application = applicationContext,
-            coroutineScope = rootModule.coreModule.mainScope
-        )
-    }
-    private val messageClient by lazy {
-        wearDataLayerRegistry.messageClient
     }
 
     override fun onTerminate() {
