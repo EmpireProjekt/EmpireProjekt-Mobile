@@ -8,4 +8,8 @@
     <string name="common_paging_empty">Тут ничего нет</string>
     <string name="common_paging_network_error">Ошибка соединения</string>
     <string name="common_action_reload">Перезагрузить</string>
+    <!--    Wear    -->
+    <string name="wear_main_switch_theme_action">Switch theme</string>
+    <string name="wear_main_statuses_action">Statuses</string>
+    <string name="wear_main_ping_action">Ping</string>
 </resources>
