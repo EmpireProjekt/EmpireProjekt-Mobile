@@ -1,46 +1,56 @@
 package com.makeevrserg.empireprojekt.mobile.wear.di
 
 import com.makeevrserg.empireprojekt.mobile.features.theme.api.di.ThemeSwitcherModule
-import com.makeevrserg.empireprojekt.mobile.features.theme.impl.di.ThemeSwitcherModuleImpl
+import com.makeevrserg.empireprojekt.mobile.features.theme.impl.di.DefaultThemeSwitcherModule
 import com.makeevrserg.empireprojekt.mobile.services.core.di.CoreModule
-import com.makeevrserg.empireprojekt.mobile.wear.feature.ping.di.PingModule
-import com.makeevrserg.empireprojekt.mobile.wear.feature.status.component.DefaultWearStatusComponent
-import com.makeevrserg.empireprojekt.mobile.wear.feature.status.component.WearStatusComponent
+import com.makeevrserg.empireprojekt.mobile.wear.MainActivity
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.ping.di.PingModule
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.root.di.WearRootComponentModule
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.ping.di.DefaultPingModule
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.root.di.DefaultWearRootComponentModule
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.status.di.DefaultWearStatusModule
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.di.WearMessengerModule
+import kotlin.time.Clock
 
-interface WearRootModule {
-    val coreModule: CoreModule
-    val themeSwitcherModule: ThemeSwitcherModule
-    val wearStatusComponent: WearStatusComponent
-    val wearMessengerModule: WearMessengerModule
-    val pingModule: PingModule
+internal class WearRootModule {
+    val coreModule: CoreModule.Default by lazy {
+        CoreModule.Default()
+    }
 
-    class Default : WearRootModule {
-        override val coreModule: CoreModule.Default by lazy {
-            CoreModule.Default()
-        }
-        override val themeSwitcherModule: ThemeSwitcherModule by lazy {
-            ThemeSwitcherModuleImpl(coreModule = coreModule)
-        }
+    val themeSwitcherModule: ThemeSwitcherModule by lazy {
+        DefaultThemeSwitcherModule(coreModule = coreModule)
+    }
 
-        override val wearMessengerModule: WearMessengerModule by lazy {
-            WearMessengerModule.Default(
-                context = coreModule.platformConfiguration.applicationContext,
-                coroutineScope = coreModule.mainScope,
-            )
-        }
+    val wearMessengerModule: WearMessengerModule by lazy {
+        WearMessengerModule.Default(
+            context = coreModule.platformConfiguration.applicationContext,
+            coroutineScope = coreModule.mainScope
+        )
+    }
 
-        override val wearStatusComponent by lazy {
-            DefaultWearStatusComponent(
-                wearMessageConsumer = wearMessengerModule.wearMessageConsumer,
-                coroutineScope = coreModule.mainScope
-            )
-        }
+    val wearStatusModule: DefaultWearStatusModule by lazy {
+        DefaultWearStatusModule(
+            wearMessageConsumer = wearMessengerModule.wearMessageConsumer,
+            coroutineScope = coreModule.mainScope,
+            clock = Clock.System,
+            context = coreModule.platformConfiguration.applicationContext,
+            activityClassName = MainActivity::class.java.name
+        )
+    }
 
-        override val pingModule: PingModule by lazy {
-            PingModule.Default(
-                wearMessengerModule = wearMessengerModule
-            )
-        }
+    private val pingModule: PingModule by lazy {
+        DefaultPingModule(
+            wearMessageConsumer = wearMessengerModule.wearMessageConsumer,
+            clock = Clock.System
+        )
+    }
+
+    val wearRootComponentModule: WearRootComponentModule by lazy {
+        DefaultWearRootComponentModule(
+            serializersModule = coreModule.jsonConfiguration.serializersModule,
+            themeSwitcherModule = themeSwitcherModule,
+            wearStatusModule = wearStatusModule,
+            pingModule = pingModule
+        )
     }
 }

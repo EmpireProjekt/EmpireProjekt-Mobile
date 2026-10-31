@@ -1,9 +1,6 @@
-package com.makeevrserg.empireprojekt.mobile.wear.tile
+package com.makeevrserg.empireprojekt.mobile.wear
 
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import androidx.lifecycle.lifecycleScope
-import androidx.wear.protolayout.ColorBuilders.ColorProp
 import androidx.wear.protolayout.LayoutElementBuilders
 import androidx.wear.protolayout.ResourceBuilders
 import androidx.wear.protolayout.TimelineBuilders
@@ -12,10 +9,9 @@ import androidx.wear.tiles.TileBuilders
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.tiles.SuspendingTileService
 import com.makeevrserg.empireprojekt.mobile.modules.services.core.resources.R
-import com.makeevrserg.empireprojekt.mobile.wear.application.App.Companion.asEmpireApp
+import com.makeevrserg.empireprojekt.mobile.wear.App.Companion.asEmpireApp
 import com.makeevrserg.empireprojekt.mobile.wear.di.WearRootModule
-import com.makeevrserg.empireprojekt.mobile.wear.feature.status.component.DefaultWearStatusComponent
-import com.makeevrserg.empireprojekt.mobile.wear.tile.renderer.MainTileRenderer
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.component.WearStatusComponent
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -25,13 +21,10 @@ private const val RESOURCES_VERSION = "1"
 @OptIn(ExperimentalHorologistApi::class)
 class StatusesTileService : SuspendingTileService() {
 
-    private val wearRootModule: WearRootModule.Default
+    private val wearRootModule: WearRootModule
         get() = application.asEmpireApp().wearRootModule
-    private val wearStatusComponent: DefaultWearStatusComponent
-        get() = wearRootModule.wearStatusComponent
-    private val mainTileRenderer by lazy {
-        MainTileRenderer(applicationContext)
-    }
+    private val wearStatusComponent: WearStatusComponent
+        get() = wearRootModule.wearStatusModule.wearStatusComponent
 
     override fun onCreate() {
         super.onCreate()
@@ -50,7 +43,7 @@ class StatusesTileService : SuspendingTileService() {
         return ResourceBuilders.Resources.Builder()
             .setVersion(RESOURCES_VERSION)
             .addIdToImageMapping(
-                R.drawable.ic_esmptelegram::class.simpleName!!,
+                requireNotNull(R.drawable.ic_esmptelegram::class.simpleName),
                 ResourceBuilders.ImageResource.Builder()
                     .setAndroidResourceByResId(
                         ResourceBuilders.AndroidImageResourceByResId.Builder()
@@ -67,7 +60,12 @@ class StatusesTileService : SuspendingTileService() {
     ): TileBuilders.Tile {
         val state = wearStatusComponent.mergedState.value
         val layout = LayoutElementBuilders.Layout.Builder()
-            .setRoot(mainTileRenderer.renderTile(state, requestParams.deviceConfiguration))
+            .setRoot(
+                wearRootModule.wearStatusModule.mainTileRenderer.renderTile(
+                    state,
+                    requestParams.deviceConfiguration
+                )
+            )
             .build()
         val entry = TimelineBuilders.TimelineEntry.Builder()
             .setLayout(layout)
@@ -82,13 +80,3 @@ class StatusesTileService : SuspendingTileService() {
             .build()
     }
 }
-
-val Color.colorProp: ColorProp
-    get() = ColorProp.Builder()
-        .setArgb(this.toArgb())
-        .build()
-
-val Int.asColorProp: ColorProp
-    get() = ColorProp.Builder()
-        .setArgb(this)
-        .build()

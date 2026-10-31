@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.wear.application
+package com.makeevrserg.empireprojekt.mobile.wear
 
 import android.app.Application
 import android.content.Context
@@ -8,8 +8,8 @@ import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearM
 import ru.astrainteractive.klibs.mikro.platform.DefaultAndroidPlatformConfiguration
 
 class App : Application(), WearMessengerApplication {
-    val wearRootModule by lazy {
-        WearRootModule.Default()
+    internal val wearRootModule by lazy {
+        WearRootModule()
     }
 
     override val wearMessageConsumer: WearMessageConsumer

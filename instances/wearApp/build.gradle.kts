@@ -116,11 +116,10 @@ android {
 configure<ApplicationAndroidComponentsExtension> {
     onVariants { variant ->
         variant.outputs.onEach { output ->
-            if (output is VariantOutputImpl) {
-                val name = requireProjectInfo.name
-                val version = requireProjectInfo.versionString
-                output.outputFileName.set("$name-wearos-$version-${variant.name}.apk")
-            }
+            if (output !is VariantOutputImpl) return@onEach
+            val name = requireProjectInfo.name
+            val version = requireProjectInfo.versionString
+            output.outputFileName.set("$name-wearos-$version-${variant.name}.apk")
         }
     }
 }
@@ -152,6 +151,7 @@ dependencies {
     implementation(libs.kotlin.coroutines.core)
     implementation(libs.kotlin.serialization.json)
     implementation(libs.moko.resources.core)
+    implementation(kotlin("stdlib"))
     implementation(libs.mppsettings)
     implementation(libs.wear.complications.datasource.ktx)
     implementation(libs.wear.glance.tiles)
