@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.wear.compose.material.Scaffold
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.model.Theme
@@ -61,7 +61,7 @@ internal fun MainComposableScreen(
 @Preview(device = "id:wearos_large_round")
 @Composable
 private fun MainComposableScreenDarkPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         MainComposableScreen(
             theme = Theme.DARK,
             onThemeClick = {},
@@ -74,7 +74,7 @@ private fun MainComposableScreenDarkPreview() {
 @Preview(device = "id:wearos_large_round")
 @Composable
 private fun MainComposableScreenLightPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.LIGHT) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.LIGHT) {
         MainComposableScreen(
             theme = Theme.LIGHT,
             onThemeClick = {},

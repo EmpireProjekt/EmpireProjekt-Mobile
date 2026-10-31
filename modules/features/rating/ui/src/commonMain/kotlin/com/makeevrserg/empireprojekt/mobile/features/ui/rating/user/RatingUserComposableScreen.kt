@@ -5,11 +5,11 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingLazyColumn
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingListFooter
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBarComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingLazyColumnComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingListFooterComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.model.PagingContent
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.RatingUserComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.composable.component.RatingUserWidget
@@ -30,13 +30,13 @@ internal fun RatingUserComposableScreen(
     Scaffold(
         modifier = modifier,
         topBar = {
-            AstraCenterAlignedTopAppBar(
+            AstraCenterAlignedTopAppBarComposable(
                 title = model.reviewedUserName,
                 onBackClick = onBack
             )
         }
     ) { contentPadding ->
-        PagingLazyColumn(
+        PagingLazyColumnComposable(
             onLoadNextPage = onLoadNextPage,
             contentPadding = contentPadding
         ) {
@@ -50,7 +50,7 @@ internal fun RatingUserComposableScreen(
                 )
             }
             item {
-                PagingListFooter(
+                PagingListFooterComposable(
                     paging = PagingContent(
                         isEmpty = model.items.isEmpty(),
                         isLastPage = model.isLastPage,
@@ -122,7 +122,7 @@ private fun ratingUserPreviewItems(): List<RatingModel> {
 @Preview
 @Composable
 private fun RatingUserComposableScreenLoadedPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUserComposableScreen(
             model = ratingUserPreviewModel(
                 reviewedUserName = "RomaRoman",
@@ -141,7 +141,7 @@ private fun RatingUserComposableScreenLoadedPreview() {
 @Preview
 @Composable
 private fun RatingUserComposableScreenLoadingPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUserComposableScreen(
             model = ratingUserPreviewModel(
                 reviewedUserName = "RomaRoman",
@@ -160,7 +160,7 @@ private fun RatingUserComposableScreenLoadingPreview() {
 @Preview
 @Composable
 private fun RatingUserComposableScreenEmptyPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUserComposableScreen(
             model = ratingUserPreviewModel(
                 reviewedUserName = "RomaRoman",
@@ -179,7 +179,7 @@ private fun RatingUserComposableScreenEmptyPreview() {
 @Preview
 @Composable
 private fun RatingUserComposableScreenFailurePreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUserComposableScreen(
             model = ratingUserPreviewModel(
                 reviewedUserName = "RomaRoman",

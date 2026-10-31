@@ -14,7 +14,7 @@ import androidx.compose.ui.test.assertWidthIsEqualTo
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.runComposeUiTest
 import androidx.compose.ui.unit.dp
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -25,9 +25,9 @@ class ShimmerCardTest {
     fun GIVEN_width_fraction_WHEN_line_is_shown_THEN_it_takes_that_share_of_the_width() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
+                AdaptThemeFadeComposable {
                     Box(Modifier.width(200.dp)) {
-                        ShimmerLine(widthFraction = 0.4f, modifier = Modifier.testTag(LINE_TAG))
+                        ShimmerLineComposable(widthFraction = 0.4f, modifier = Modifier.testTag(LINE_TAG))
                     }
                 }
             }
@@ -42,11 +42,11 @@ class ShimmerCardTest {
     fun GIVEN_card_WHEN_lines_are_placed_inside_THEN_they_are_inset_and_spaced() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
+                AdaptThemeFadeComposable {
                     Box(Modifier.width(200.dp)) {
-                        ShimmerCard {
-                            ShimmerLine(widthFraction = 1f, modifier = Modifier.testTag(FIRST_LINE_TAG))
-                            ShimmerLine(widthFraction = 1f, modifier = Modifier.testTag(SECOND_LINE_TAG))
+                        ShimmerCardComposable {
+                            ShimmerLineComposable(widthFraction = 1f, modifier = Modifier.testTag(FIRST_LINE_TAG))
+                            ShimmerLineComposable(widthFraction = 1f, modifier = Modifier.testTag(SECOND_LINE_TAG))
                         }
                     }
                 }

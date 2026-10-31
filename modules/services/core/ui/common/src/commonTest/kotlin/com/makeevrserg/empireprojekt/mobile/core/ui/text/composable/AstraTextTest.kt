@@ -14,7 +14,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.jetbrainsmono_wght
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asFontFamily
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -29,10 +29,10 @@ class AstraTextTest {
             var expectedFontFamily: FontFamily? = null
             var expectedFontSize = TextUnit.Unspecified
             setContent {
-                AdaptThemeFade {
+                AdaptThemeFadeComposable {
                     expectedFontFamily = MR.fonts.jetbrainsmono_wght.asFontFamily()
                     expectedFontSize = MaterialTheme.typography.h6.fontSize
-                    AstraText(
+                    AstraTextComposable(
                         text = "Empire",
                         style = MaterialTheme.typography.h6,
                         textAlign = TextAlign.End

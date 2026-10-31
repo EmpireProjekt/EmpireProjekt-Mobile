@@ -17,20 +17,20 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
-import com.makeevrserg.empireprojekt.mobile.core.ui.button.composable.AstraBackButton
-import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.button.composable.AstraBackButtonComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextComposable
 import com.makeevrserg.empireprojekt.mobile.services.core.navigation.component.PopComponent
 
 @Composable
-fun AstraCenterAlignedTopAppBar(
+fun AstraCenterAlignedTopAppBarComposable(
     popComponent: PopComponent,
     modifier: Modifier = Modifier,
     title: String = "",
     actions: @Composable RowScope.() -> Unit = {}
 ) {
     val popModel by popComponent.popModel.subscribeAsState()
-    AstraCenterAlignedTopAppBar(
+    AstraCenterAlignedTopAppBarComposable(
         title = title,
         onBackClick = popModel.popActionOrNull,
         modifier = modifier,
@@ -39,18 +39,18 @@ fun AstraCenterAlignedTopAppBar(
 }
 
 @Composable
-fun AstraCenterAlignedTopAppBar(
+fun AstraCenterAlignedTopAppBarComposable(
     modifier: Modifier = Modifier,
     title: String = "",
     onBackClick: (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {}
 ) {
-    AstraCenterAlignedTopAppBar(
+    AstraCenterAlignedTopAppBarComposable(
         onBackClick = onBackClick,
         modifier = modifier,
         actions = actions,
         title = {
-            AstraText(
+            AstraTextComposable(
                 text = title,
                 style = MaterialTheme.typography.body1,
                 color = MaterialTheme.colors.onPrimary,
@@ -64,7 +64,7 @@ fun AstraCenterAlignedTopAppBar(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AstraCenterAlignedTopAppBar(
+fun AstraCenterAlignedTopAppBarComposable(
     title: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     onBackClick: (() -> Unit)? = null,
@@ -79,7 +79,7 @@ fun AstraCenterAlignedTopAppBar(
         title = title,
         navigationIcon = {
             onBackClick?.let { backClick ->
-                AstraBackButton(onClick = backClick)
+                AstraBackButtonComposable(onClick = backClick)
             }
         }
     )
@@ -88,8 +88,8 @@ fun AstraCenterAlignedTopAppBar(
 @Preview
 @Composable
 private fun AstraCenterAlignedTopAppBarWithBackPreview() {
-    AdaptThemeFade {
-        AstraCenterAlignedTopAppBar(
+    AdaptThemeFadeComposable {
+        AstraCenterAlignedTopAppBarComposable(
             title = "Hello World",
             onBackClick = {},
             actions = {
@@ -102,7 +102,7 @@ private fun AstraCenterAlignedTopAppBarWithBackPreview() {
 @Preview
 @Composable
 private fun AstraCenterAlignedTopAppBarTitleOnlyPreview() {
-    AdaptThemeFade {
-        AstraCenterAlignedTopAppBar(title = "Hello World")
+    AdaptThemeFadeComposable {
+        AstraCenterAlignedTopAppBarComposable(title = "Hello World")
     }
 }

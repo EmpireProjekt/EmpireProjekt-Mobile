@@ -8,7 +8,7 @@ import androidx.compose.ui.test.assertLeftPositionInRootIsEqualTo
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.runComposeUiTest
 import androidx.compose.ui.unit.dp
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -19,8 +19,8 @@ class PlayerNameRowTest {
     fun GIVEN_player_WHEN_row_is_shown_THEN_name_follows_the_avatar_after_default_spacing() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
-                    PlayerNameRow(uuid = "uuid", name = "RomaRoman")
+                AdaptThemeFadeComposable {
+                    PlayerNameRowComposable(uuid = "uuid", name = "RomaRoman")
                 }
             }
 
@@ -34,8 +34,8 @@ class PlayerNameRowTest {
     fun GIVEN_custom_spacing_WHEN_row_is_shown_THEN_name_moves_by_that_spacing() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
-                    PlayerNameRow(
+                AdaptThemeFadeComposable {
+                    PlayerNameRowComposable(
                         uuid = "uuid",
                         name = "RomaRoman",
                         spacing = 16.dp

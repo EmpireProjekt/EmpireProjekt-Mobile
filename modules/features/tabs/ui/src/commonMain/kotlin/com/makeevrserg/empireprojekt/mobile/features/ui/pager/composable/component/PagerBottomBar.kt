@@ -27,7 +27,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.model.PagerBottomBarItem
 import com.makeevrserg.empireprojekt.mobile.features.ui.pager.util.icon
@@ -117,7 +117,7 @@ internal fun PagerBottomBar(
 @Preview
 @Composable
 private fun PagerBottomBarMenuSelectedPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         Scaffold(
             bottomBar = {
                 PagerBottomBar(
@@ -135,7 +135,7 @@ private fun PagerBottomBarMenuSelectedPreview() {
 @Preview
 @Composable
 private fun PagerBottomBarMapSelectedPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         Scaffold(
             bottomBar = {
                 PagerBottomBar(

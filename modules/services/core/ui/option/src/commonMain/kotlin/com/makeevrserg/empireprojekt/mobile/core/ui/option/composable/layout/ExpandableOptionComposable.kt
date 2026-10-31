@@ -22,8 +22,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionHref
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionHrefComposable
 
 @Composable
 fun ExpandableOptionComposable(
@@ -76,7 +76,7 @@ private fun ExpandableOptionComposablePreviewContent(isExpanded: Boolean) {
         content = {
             Column {
                 repeat(times = 4) {
-                    OptionHref(
+                    OptionHrefComposable(
                         icon = rememberVectorPainter(Icons.Filled.Image),
                         text = PREVIEW_TEXT,
                         onClick = {},
@@ -93,7 +93,7 @@ private fun ExpandableOptionComposablePreviewContent(isExpanded: Boolean) {
 @Preview
 @Composable
 private fun ExpandableOptionComposableCollapsedPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         ExpandableOptionComposablePreviewContent(isExpanded = false)
     }
 }
@@ -101,7 +101,7 @@ private fun ExpandableOptionComposableCollapsedPreview() {
 @Preview
 @Composable
 private fun ExpandableOptionComposableExpandedPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         ExpandableOptionComposablePreviewContent(isExpanded = true)
     }
 }

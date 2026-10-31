@@ -14,7 +14,7 @@ import androidx.compose.ui.test.captureToImage
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.runComposeUiTest
 import androidx.compose.ui.unit.dp
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotEquals
 import org.junit.Test
@@ -30,7 +30,7 @@ class ModifierExtTest {
         runComposeUiTest {
             var primary = Color.Unspecified
             setContent {
-                AdaptThemeFade {
+                AdaptThemeFadeComposable {
                     primary = MaterialTheme.colors.primary
                     Box(Modifier.testTag(CARD_TAG).size(64.dp).astraCard(color = primary))
                 }

@@ -5,7 +5,7 @@ package com.makeevrserg.empireprojekt.mobile.core.ui.webview.composable
 import android.webkit.WebView
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.runComposeUiTest
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -20,8 +20,8 @@ class AstraWebViewTest {
         runComposeUiTest {
             val createdWebViews = mutableListOf<WebView>()
             setContent {
-                AdaptThemeFade {
-                    AstraWebView(
+                AdaptThemeFadeComposable {
+                    AstraWebViewComposable(
                         url = PAGE_URL,
                         onWebViewCreate = { webView -> createdWebViews += webView }
                     )

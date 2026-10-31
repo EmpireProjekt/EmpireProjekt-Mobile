@@ -16,8 +16,8 @@ import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.runComposeUiTest
 import androidx.compose.ui.unit.dp
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.model.OptionSectionContent
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -28,8 +28,8 @@ class OptionSectionTest {
     fun GIVEN_several_items_WHEN_section_is_shown_THEN_rows_are_divided_by_one_pixel_separators() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
-                    OptionSection(
+                AdaptThemeFadeComposable {
+                    OptionSectionComposable(
                         section = OptionSectionContent(
                             items = listOf(
                                 "first",
@@ -55,8 +55,8 @@ class OptionSectionTest {
     fun GIVEN_single_item_WHEN_section_is_shown_THEN_no_separator_is_added() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
-                    OptionSection(
+                AdaptThemeFadeComposable {
+                    OptionSectionComposable(
                         section = OptionSectionContent(items = listOf("only")),
                         modifier = Modifier.testTag(SECTION_TAG)
                     ) { title ->

@@ -7,8 +7,8 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.getBoundsInRoot
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.runComposeUiTest
-import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextComposable
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,9 +20,9 @@ class AstraTopBarScreenTest {
     fun GIVEN_screen_WHEN_shown_THEN_content_is_placed_below_the_titled_bar() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
-                    AstraTopBarScreen(title = "Menu") {
-                        AstraText(text = "Links")
+                AdaptThemeFadeComposable {
+                    AstraTopBarScreenComposable(title = "Menu") {
+                        AstraTextComposable(text = "Links")
                     }
                 }
             }

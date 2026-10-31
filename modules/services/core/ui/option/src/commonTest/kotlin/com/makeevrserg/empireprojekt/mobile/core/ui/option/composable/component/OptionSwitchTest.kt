@@ -6,7 +6,7 @@ import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.runComposeUiTest
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -19,8 +19,8 @@ class OptionSwitchTest {
         runComposeUiTest {
             val requestedStates = mutableListOf<Boolean>()
             setContent {
-                AdaptThemeFade {
-                    OptionSwitch(
+                AdaptThemeFadeComposable {
+                    OptionSwitchComposable(
                         text = SWITCH_TEXT,
                         checked = false,
                         onCheckChange = { isChecked -> requestedStates += isChecked }
@@ -39,8 +39,8 @@ class OptionSwitchTest {
         runComposeUiTest {
             val requestedStates = mutableListOf<Boolean>()
             setContent {
-                AdaptThemeFade {
-                    OptionSwitch(
+                AdaptThemeFadeComposable {
+                    OptionSwitchComposable(
                         text = SWITCH_TEXT,
                         checked = true,
                         onCheckChange = { isChecked -> requestedStates += isChecked }
@@ -59,8 +59,8 @@ class OptionSwitchTest {
         runComposeUiTest {
             val requestedStates = mutableListOf<Boolean>()
             setContent {
-                AdaptThemeFade {
-                    OptionSwitch(
+                AdaptThemeFadeComposable {
+                    OptionSwitchComposable(
                         text = SWITCH_TEXT,
                         checked = true,
                         isEnabled = false,

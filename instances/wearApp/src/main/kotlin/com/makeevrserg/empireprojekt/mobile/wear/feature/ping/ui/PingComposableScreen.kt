@@ -20,7 +20,7 @@ import androidx.wear.compose.material.Text
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_network_check
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_network_wifi
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.wear.feature.ping.component.PingComponent
 
@@ -88,7 +88,7 @@ internal fun PingComposableScreen(
 @Composable
 @Preview(device = "id:wearos_large_round")
 private fun PingScreenContentSuccessPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         PingScreenContent(
             model = PingComponent.Model.Success(updatedAt = "20:44:00")
         )
@@ -98,7 +98,7 @@ private fun PingScreenContentSuccessPreview() {
 @Composable
 @Preview(device = "id:wearos_large_round")
 private fun PingScreenContentNoConnectionPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         PingScreenContent(
             model = PingComponent.Model.NoConnection(updatedAt = "20:44:00")
         )
@@ -108,7 +108,7 @@ private fun PingScreenContentNoConnectionPreview() {
 @Composable
 @Preview(device = "id:wearos_large_round")
 private fun PingComposableScreenSuccessPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         PingComposableScreen(
             model = PingComponent.Model.Success(updatedAt = "20:44:00")
         )
@@ -118,7 +118,7 @@ private fun PingComposableScreenSuccessPreview() {
 @Composable
 @Preview(device = "id:wearos_large_round")
 private fun PingComposableScreenNoConnectionPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         PingComposableScreen(
             model = PingComponent.Model.NoConnection(updatedAt = "20:44:00")
         )

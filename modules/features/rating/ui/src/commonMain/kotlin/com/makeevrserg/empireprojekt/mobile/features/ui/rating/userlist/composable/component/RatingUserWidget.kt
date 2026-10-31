@@ -24,9 +24,9 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_raised_hand
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_thumb_up_down
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionInfo
-import com.makeevrserg.empireprojekt.mobile.core.ui.player.composable.PlayerNameRow
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionInfoComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.player.composable.PlayerNameRowComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
@@ -65,7 +65,7 @@ internal fun RatingUserWidget(
             ) {
                 Column(verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        PlayerNameRow(uuid = model.minecraftUUID, name = model.minecraftName)
+                        PlayerNameRowComposable(uuid = model.minecraftUUID, name = model.minecraftName)
                         Spacer(Modifier.weight(1f))
                         Icon(
                             imageVector = Icons.Filled.ChevronRight,
@@ -74,19 +74,19 @@ internal fun RatingUserWidget(
                             modifier = Modifier.size(AppTheme.dimens.M)
                         )
                     }
-                    OptionInfo(
+                    OptionInfoComposable(
                         text = RR.strings.rating_users_total_rating_label.asComposableString(),
                         endText = "${model.totalRating}",
                         modifier = Modifier.fillMaxWidth(),
                         icon = MR.images.ic_thumb_up_down.asPainter(),
                     )
-                    OptionInfo(
+                    OptionInfoComposable(
                         text = RR.strings.rating_users_votes_count_label.asComposableString(),
                         endText = "${model.ratingVotes}",
                         modifier = Modifier.fillMaxWidth(),
                         icon = MR.images.ic_raised_hand.asPainter(),
                     )
-                    OptionInfo(
+                    OptionInfoComposable(
                         icon = MR.images.ic_calendar_today.asPainter(),
                         text = RR.strings.rating_last_updated_label.asComposableString(),
                         endText = remember {
@@ -125,7 +125,7 @@ internal fun RatingUserWidget(
 @Composable
 @Preview
 private fun RatingUserWidgetPositivePreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUserWidget(
             model = RatingUserModel(
                 id = 1,
@@ -143,7 +143,7 @@ private fun RatingUserWidgetPositivePreview() {
 @Composable
 @Preview
 private fun RatingUserWidgetNegativePreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUserWidget(
             model = RatingUserModel(
                 id = 2,

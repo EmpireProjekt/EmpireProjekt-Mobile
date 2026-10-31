@@ -22,16 +22,16 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.ic_knowledge
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_people
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_theme
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_vote
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraTopBarScreen
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionHref
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionInfo
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionSeparator
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionSwitch
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.layout.OptionSection
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraTopBarScreenComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionHrefComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionInfoComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionSeparatorComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionSwitchComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.layout.OptionSectionComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.model.OptionSectionContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.theme.OptionSpacing
-import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
@@ -54,15 +54,15 @@ fun InfoScreen(
     modifier: Modifier = Modifier
 ) {
     val models = remember { InfoScreenLinks.get() }
-    AstraTopBarScreen(title = "МЕНЮ", modifier = modifier) {
+    AstraTopBarScreenComposable(title = "МЕНЮ", modifier = modifier) {
         LazyColumn(
             modifier = Modifier.padding(horizontal = AppTheme.dimens.XS),
             verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS, Alignment.Top)
         ) {
             item {
-                OptionSection(modifier = Modifier) {
+                OptionSectionComposable(modifier = Modifier) {
                     Column {
-//                        OptionHref(
+//                        OptionHrefComposable(
 //                            text = "Towns",
 //                            onClick = {
 //                                onTownsClick.invoke()
@@ -73,8 +73,8 @@ fun InfoScreen(
 //                                vertical = AppTheme.dimens.XS
 //                            ),
 //                        )
-                        OptionSeparator(Modifier.fillMaxWidth())
-                        OptionHref(
+                        OptionSeparatorComposable(Modifier.fillMaxWidth())
+                        OptionHrefComposable(
                             text = "Ratings",
                             onClick = {
                                 onRatingsClick.invoke()
@@ -82,8 +82,8 @@ fun InfoScreen(
                             icon = MR.images.ic_people.asPainter(),
                             contentPadding = OptionSpacing.ContentPadding,
                         )
-                        OptionSeparator(Modifier.fillMaxWidth())
-                        OptionHref(
+                        OptionSeparatorComposable(Modifier.fillMaxWidth())
+                        OptionHrefComposable(
                             text = "Votes",
                             onClick = {
                                 onVotesClick.invoke()
@@ -91,8 +91,8 @@ fun InfoScreen(
                             icon = MR.images.ic_vote.asPainter(),
                             contentPadding = OptionSpacing.ContentPadding,
                         )
-                        OptionSeparator(Modifier.fillMaxWidth())
-                        OptionHref(
+                        OptionSeparatorComposable(Modifier.fillMaxWidth())
+                        OptionHrefComposable(
                             text = "WIKI",
                             onClick = {
                                 onWikiClick.invoke()
@@ -100,8 +100,8 @@ fun InfoScreen(
                             icon = MR.images.ic_knowledge.asPainter(),
                             contentPadding = OptionSpacing.ContentPadding,
                         )
-                        OptionSeparator(Modifier.fillMaxWidth())
-                        OptionSwitch(
+                        OptionSeparatorComposable(Modifier.fillMaxWidth())
+                        OptionSwitchComposable(
                             text = "Темная тема",
                             onCheckChange = {
                                 onThemeToggle.invoke()
@@ -116,12 +116,12 @@ fun InfoScreen(
 
             item {
                 Column {
-                    AstraText(
+                    AstraTextComposable(
                         text = IR.strings.info_links_title.asComposableString(),
                         style = MaterialTheme.typography.h5,
                         color = MaterialTheme.colors.onPrimary
                     )
-                    AstraText(
+                    AstraTextComposable(
                         text = "All this links associated with EmpireProjekt and AstraInteractive. " +
                             "This text specially displayed for google play " +
                             "support which considering this links as advertisement.",
@@ -132,7 +132,7 @@ fun InfoScreen(
             }
 
             item {
-                OptionSection(section = OptionSectionContent(models)) { linkModel ->
+                OptionSectionComposable(section = OptionSectionContent(models)) { linkModel ->
                     LinkWidget(
                         linkModel = linkModel,
                         onClick = { onLinkClick.invoke(linkModel.url) }
@@ -140,8 +140,8 @@ fun InfoScreen(
                 }
             }
             item {
-                OptionSection(modifier = Modifier) {
-                    OptionInfo(
+                OptionSectionComposable(modifier = Modifier) {
+                    OptionInfoComposable(
                         modifier = Modifier.padding(vertical = AppTheme.dimens.XS),
                         icon = rememberVectorPainter(Icons.Filled.Bolt),
                         text = "Version",
@@ -163,7 +163,7 @@ fun InfoScreen(
 @Composable
 @Preview
 private fun InfoScreenDarkPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         InfoScreen(
             onLinkClick = {},
             onRatingsClick = {},
@@ -178,7 +178,7 @@ private fun InfoScreenDarkPreview() {
 @Composable
 @Preview
 private fun InfoScreenLightPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.LIGHT) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.LIGHT) {
         InfoScreen(
             onLinkClick = {},
             onRatingsClick = {},

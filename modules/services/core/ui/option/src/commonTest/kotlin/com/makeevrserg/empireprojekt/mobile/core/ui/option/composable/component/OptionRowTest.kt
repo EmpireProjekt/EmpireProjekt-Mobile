@@ -10,7 +10,7 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.runComposeUiTest
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -22,8 +22,8 @@ class OptionRowTest {
     fun GIVEN_info_row_WHEN_shown_THEN_title_info_and_value_are_displayed() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
-                    OptionInfo(
+                AdaptThemeFadeComposable {
+                    OptionInfoComposable(
                         text = "Version",
                         infoText = "Build number",
                         endText = "42",
@@ -42,8 +42,8 @@ class OptionRowTest {
     fun GIVEN_row_without_info_WHEN_shown_THEN_only_the_title_is_displayed() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
-                    OptionRow(text = "Ratings", end = {})
+                AdaptThemeFadeComposable {
+                    OptionRowComposable(text = "Ratings", end = {})
                 }
             }
 
@@ -57,8 +57,8 @@ class OptionRowTest {
         runComposeUiTest {
             var clicks = 0
             setContent {
-                AdaptThemeFade {
-                    OptionHref(
+                AdaptThemeFadeComposable {
+                    OptionHrefComposable(
                         text = "Votes",
                         endText = "20m",
                         onClick = { clicks++ }
@@ -78,7 +78,7 @@ class OptionRowTest {
         runComposeUiTest {
             var clicks = 0
             setContent {
-                AdaptThemeFade {
+                AdaptThemeFadeComposable {
                     OptionComposable(
                         text = "Theme",
                         end = {},

@@ -9,7 +9,7 @@ import androidx.compose.ui.test.runComposeUiTest
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.common_filter_multiple_sort_desc
 import com.makeevrserg.empireprojekt.mobile.core.resources.common_filter_title
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -22,9 +22,9 @@ class SortFilterHeaderTest {
         runComposeUiTest {
             val context = RuntimeEnvironment.getApplication()
             setContent {
-                AdaptThemeFade {
-                    FilterCard {
-                        SortFilterHeader()
+                AdaptThemeFadeComposable {
+                    FilterCardComposable {
+                        SortFilterHeaderComposable()
                     }
                 }
             }

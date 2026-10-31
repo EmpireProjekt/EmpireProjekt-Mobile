@@ -9,7 +9,7 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_error
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_off
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.status.url.component.UrlStatusComponent
@@ -53,7 +53,7 @@ internal fun StatusWidget(component: UrlStatusComponent) {
 @Preview
 @Composable
 private fun StatusWidgetContentLoadingPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         StatusWidgetContent(status = UrlStatusComponent.LoadingStatus.LOADING, onClick = {})
     }
 }
@@ -61,7 +61,7 @@ private fun StatusWidgetContentLoadingPreview() {
 @Preview
 @Composable
 private fun StatusWidgetContentSuccessPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         StatusWidgetContent(status = UrlStatusComponent.LoadingStatus.SUCCESS, onClick = {})
     }
 }
@@ -69,7 +69,7 @@ private fun StatusWidgetContentSuccessPreview() {
 @Preview
 @Composable
 private fun StatusWidgetContentErrorPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         StatusWidgetContent(status = UrlStatusComponent.LoadingStatus.ERROR, onClick = {})
     }
 }

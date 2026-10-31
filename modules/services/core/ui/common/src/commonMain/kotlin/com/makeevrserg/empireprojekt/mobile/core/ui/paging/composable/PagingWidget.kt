@@ -22,9 +22,9 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_empty
 import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_last_page_desc
 import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_network_error
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_splash
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.model.PagingContent
-import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
@@ -32,7 +32,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 private const val SHIMMER_ITEMS_COUNT = 8
 
 @Composable
-private fun PagingMessage(text: String) {
+private fun PagingMessageComposable(text: String) {
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -42,7 +42,7 @@ private fun PagingMessage(text: String) {
             modifier = Modifier.size(96.dp),
             contentDescription = null
         )
-        AstraText(
+        AstraTextComposable(
             text = text,
             style = MaterialTheme.typography.h6,
             color = MaterialTheme.colors.onPrimary,
@@ -52,22 +52,25 @@ private fun PagingMessage(text: String) {
 }
 
 @Composable
-internal fun PagingLastPage() {
-    PagingMessage(MR.strings.common_paging_last_page_desc.asComposableString())
+internal fun PagingLastPageComposable() {
+    PagingMessageComposable(MR.strings.common_paging_last_page_desc.asComposableString())
 }
 
 @Composable
-internal fun PagingNoPages() {
-    PagingMessage(MR.strings.common_paging_empty.asComposableString())
+internal fun PagingNoPagesComposable() {
+    PagingMessageComposable(MR.strings.common_paging_empty.asComposableString())
 }
 
 @Composable
-internal fun PagingNetworkError(onReload: () -> Unit) {
+internal fun PagingNetworkErrorComposable(onReload: () -> Unit) {
     Column {
-        PagingMessage(MR.strings.common_paging_network_error.asComposableString())
-        Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+        PagingMessageComposable(MR.strings.common_paging_network_error.asComposableString())
+        Box(
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ) {
             Button(onClick = onReload) {
-                AstraText(
+                AstraTextComposable(
                     text = MR.strings.common_action_reload.asComposableString(),
                     modifier = Modifier.clickable(onClick = onReload),
                     style = MaterialTheme.typography.h6,
@@ -80,7 +83,7 @@ internal fun PagingNetworkError(onReload: () -> Unit) {
 }
 
 @Composable
-internal fun PagingShimmerLoader(item: @Composable () -> Unit) {
+internal fun PagingShimmerLoaderComposable(item: @Composable () -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)) {
         repeat(times = SHIMMER_ITEMS_COUNT) {
             item.invoke()
@@ -89,7 +92,7 @@ internal fun PagingShimmerLoader(item: @Composable () -> Unit) {
 }
 
 @Composable
-internal fun PagingFooter(
+internal fun PagingFooterComposable(
     paging: PagingContent,
     onReload: () -> Unit,
     loader: @Composable () -> Unit
@@ -105,45 +108,45 @@ internal fun PagingFooter(
     val isLastNonEmptyPage = paging.isLastPage && !paging.isEmpty
     val isLastEmptyPage = paging.isLastPage && paging.isEmpty
     when {
-        isLastNonEmptyPage -> PagingLastPage()
-        isLastEmptyPage -> PagingNoPages()
-        paging.isFailure -> PagingNetworkError(onReload)
+        isLastNonEmptyPage -> PagingLastPageComposable()
+        isLastEmptyPage -> PagingNoPagesComposable()
+        paging.isFailure -> PagingNetworkErrorComposable(onReload)
     }
 }
 
 @Composable
-fun PagingListFooter(
+fun PagingListFooterComposable(
     paging: PagingContent,
     onReload: () -> Unit,
     shimmerItem: @Composable () -> Unit
 ) {
-    PagingFooter(
+    PagingFooterComposable(
         paging = paging,
         onReload = onReload,
-        loader = { PagingShimmerLoader(shimmerItem) }
+        loader = { PagingShimmerLoaderComposable(shimmerItem) }
     )
 }
 
 @Preview
 @Composable
 private fun PagingLastPagePreview() {
-    AdaptThemeFade {
-        PagingLastPage()
+    AdaptThemeFadeComposable {
+        PagingLastPageComposable()
     }
 }
 
 @Preview
 @Composable
 private fun PagingNoPagesPreview() {
-    AdaptThemeFade {
-        PagingNoPages()
+    AdaptThemeFadeComposable {
+        PagingNoPagesComposable()
     }
 }
 
 @Preview
 @Composable
 private fun PagingNetworkErrorPreview() {
-    AdaptThemeFade {
-        PagingNetworkError(onReload = {})
+    AdaptThemeFadeComposable {
+        PagingNetworkErrorComposable(onReload = {})
     }
 }

@@ -23,11 +23,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_history_edu
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionInfo
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionSeparator
-import com.makeevrserg.empireprojekt.mobile.core.ui.player.composable.PlayerNameRow
-import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionInfoComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionSeparatorComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.player.composable.PlayerNameRowComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
@@ -63,7 +63,7 @@ internal fun RatingUserWidget(
                 horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.S),
                 modifier = Modifier.padding(horizontal = AppTheme.dimens.S)
             ) {
-                PlayerNameRow(
+                PlayerNameRowComposable(
                     uuid = uuid.orEmpty(),
                     name = name ?: "-",
                     style = MaterialTheme.typography.subtitle2,
@@ -91,9 +91,9 @@ internal fun RatingUserWidget(
                 }
             }
             Spacer(Modifier.height(AppTheme.dimens.XS))
-            OptionSeparator(Modifier.fillMaxWidth())
+            OptionSeparatorComposable(Modifier.fillMaxWidth())
             Spacer(Modifier.height(AppTheme.dimens.XS))
-            OptionInfo(
+            OptionInfoComposable(
                 text = RR.strings.rating_last_updated_label.asComposableString(),
                 endText = remember {
                     timeFormatter.format(
@@ -106,7 +106,7 @@ internal fun RatingUserWidget(
                     .padding(horizontal = AppTheme.dimens.S),
                 icon = MR.images.ic_calendar_today.asPainter()
             )
-            OptionInfo(
+            OptionInfoComposable(
                 text = RR.strings.rating_user_message_label.asComposableString(),
                 endText = "",
                 modifier = Modifier
@@ -114,7 +114,7 @@ internal fun RatingUserWidget(
                     .padding(horizontal = AppTheme.dimens.S),
                 icon = MR.images.ic_history_edu.asPainter()
             )
-            AstraText(
+            AstraTextComposable(
                 text = message.trim(),
                 style = MaterialTheme.typography.subtitle2,
                 color = MaterialTheme.colors.onPrimary,
@@ -128,7 +128,7 @@ internal fun RatingUserWidget(
 @Preview
 @Composable
 private fun RatingUserWidgetPositivePreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         RatingUserWidget(
             uuid = UUID.randomUUID().toString(),
             name = "RomaRoman",
@@ -142,7 +142,7 @@ private fun RatingUserWidgetPositivePreview() {
 @Preview
 @Composable
 private fun RatingUserWidgetNegativePreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         RatingUserWidget(
             uuid = null,
             name = null,

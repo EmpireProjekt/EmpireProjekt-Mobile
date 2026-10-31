@@ -12,7 +12,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.features.status.url.component.UrlStatusComponent
 
@@ -55,7 +55,7 @@ internal fun SideColorStatusWidget(
 @Preview
 @Composable
 private fun SideColorStatusWidgetPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         Row(
             modifier = Modifier
                 .background(MaterialTheme.colors.primary)

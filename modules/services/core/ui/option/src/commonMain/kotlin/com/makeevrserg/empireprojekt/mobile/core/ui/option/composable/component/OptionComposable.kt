@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 @Composable
@@ -28,7 +28,7 @@ fun OptionComposable(
     infoText: String? = null,
     onClick: (() -> Unit)? = null,
 ) {
-    OptionRow(
+    OptionRowComposable(
         text = text,
         modifier = Modifier
             .then(if (onClick != null) Modifier.clickable(onClick = onClick) else Modifier)
@@ -45,7 +45,7 @@ private val PreviewLongText = List(size = 10) { PREVIEW_TEXT }.joinToString(sepa
 
 @Composable
 private fun OptionComposablePreviewSheet(text: String, infoText: String?) {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         Column {
             OptionComposable(
                 icon = rememberVectorPainter(Icons.Filled.Image),
@@ -58,7 +58,7 @@ private fun OptionComposablePreviewSheet(text: String, infoText: String?) {
                 ),
                 end = { Text("Hello!") }
             )
-            OptionSeparator(Modifier.fillMaxWidth())
+            OptionSeparatorComposable(Modifier.fillMaxWidth())
         }
     }
 }

@@ -17,9 +17,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBarComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.features.status.url.component.UrlStatusComponent
@@ -43,7 +43,7 @@ internal fun StatusComposableScreen(
     Scaffold(
         modifier = modifier,
         topBar = {
-            AstraCenterAlignedTopAppBar(title = SR.strings.status_network_title.asComposableString()) {
+            AstraCenterAlignedTopAppBarComposable(title = SR.strings.status_network_title.asComposableString()) {
                 Icon(
                     imageVector = Icons.Filled.WbSunny,
                     contentDescription = null,
@@ -78,7 +78,7 @@ internal fun StatusComposableScreen(
             contentPadding = contentPadding,
         ) {
             item {
-                AstraText(
+                AstraTextComposable(
                     text = SR.strings.status_network_desc.asComposableString(),
                     style = MaterialTheme.typography.body1,
                     color = MaterialTheme.colors.onPrimary.copy(alpha = .5f)
@@ -109,7 +109,7 @@ private class PreviewUrlStatusComponent(
 @Preview
 @Composable
 private fun StatusComposableScreenPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         StatusComposableScreen(
             statusComponents = listOf(
                 PreviewUrlStatusComponent(
@@ -134,7 +134,7 @@ private fun StatusComposableScreenPreview() {
 @Preview
 @Composable
 private fun StatusComposableScreenEmptyPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         StatusComposableScreen(
             statusComponents = emptyList(),
             onThemeClick = {},

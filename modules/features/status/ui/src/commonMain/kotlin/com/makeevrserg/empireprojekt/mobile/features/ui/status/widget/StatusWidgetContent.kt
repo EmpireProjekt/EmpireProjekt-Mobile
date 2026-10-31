@@ -20,8 +20,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.astraCard
@@ -79,7 +79,7 @@ internal fun StatusWidgetContent(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            AstraText(
+            AstraTextComposable(
                 text = title.asComposableString(),
                 style = MaterialTheme.typography.h6,
                 color = MaterialTheme.colors.onPrimary
@@ -91,7 +91,7 @@ internal fun StatusWidgetContent(
 @Preview
 @Composable
 private fun StatusWidgetContentSuccessPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         StatusWidgetContent(
             status = UrlStatusComponent.LoadingStatus.SUCCESS,
             isLoading = false,
@@ -104,7 +104,7 @@ private fun StatusWidgetContentSuccessPreview() {
 @Preview
 @Composable
 private fun StatusWidgetContentErrorPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         StatusWidgetContent(
             status = UrlStatusComponent.LoadingStatus.ERROR,
             isLoading = false,
@@ -117,7 +117,7 @@ private fun StatusWidgetContentErrorPreview() {
 @Preview
 @Composable
 private fun StatusWidgetContentLoadingPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         StatusWidgetContent(
             status = UrlStatusComponent.LoadingStatus.LOADING,
             isLoading = true,

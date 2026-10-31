@@ -22,8 +22,8 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.common_action_reload
 import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_empty
 import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_last_page_desc
 import com.makeevrserg.empireprojekt.mobile.core.resources.common_paging_network_error
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.model.PagingContent
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import dev.icerock.moko.resources.StringResource
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -54,8 +54,8 @@ class PagingWidgetTest {
     fun GIVEN_item_WHEN_shimmer_loader_is_shown_THEN_a_full_page_of_spaced_placeholders_is_displayed() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
-                    PagingShimmerLoader {
+                AdaptThemeFadeComposable {
+                    PagingShimmerLoaderComposable {
                         Box(Modifier.testTag(ITEM_TAG).fillMaxWidth().height(10.dp))
                     }
                 }
@@ -70,8 +70,8 @@ class PagingWidgetTest {
     fun GIVEN_last_page_with_items_WHEN_footer_is_shown_THEN_end_of_list_is_displayed() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
-                    PagingFooter(
+                AdaptThemeFadeComposable {
+                    PagingFooterComposable(
                         paging = createPaging(
                             isEmpty = false,
                             isLastPage = true,
@@ -91,8 +91,8 @@ class PagingWidgetTest {
     fun GIVEN_last_page_without_items_WHEN_footer_is_shown_THEN_empty_list_is_displayed() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
-                    PagingFooter(
+                AdaptThemeFadeComposable {
+                    PagingFooterComposable(
                         paging = createPaging(
                             isEmpty = true,
                             isLastPage = true,
@@ -113,8 +113,8 @@ class PagingWidgetTest {
         runComposeUiTest {
             var reloads = 0
             setContent {
-                AdaptThemeFade {
-                    PagingFooter(
+                AdaptThemeFadeComposable {
+                    PagingFooterComposable(
                         paging = createPaging(
                             isEmpty = false,
                             isLastPage = false,
@@ -136,8 +136,8 @@ class PagingWidgetTest {
     fun GIVEN_loading_page_WHEN_footer_is_shown_THEN_loader_is_displayed() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
-                    PagingFooter(
+                AdaptThemeFadeComposable {
+                    PagingFooterComposable(
                         paging = PagingContent(
                             isEmpty = true,
                             isLastPage = false,

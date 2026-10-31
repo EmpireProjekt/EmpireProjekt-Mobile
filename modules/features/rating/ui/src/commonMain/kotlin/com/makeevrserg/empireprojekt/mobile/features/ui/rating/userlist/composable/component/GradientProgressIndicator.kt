@@ -14,7 +14,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 
 @Composable
@@ -47,7 +47,7 @@ internal fun GradientProgressIndicator(
 @Preview
 @Composable
 private fun GradientProgressIndicatorPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         Box(
             modifier = Modifier
                 .background(MaterialTheme.colors.primaryVariant)

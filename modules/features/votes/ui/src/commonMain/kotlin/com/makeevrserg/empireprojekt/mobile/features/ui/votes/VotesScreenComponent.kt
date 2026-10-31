@@ -17,13 +17,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_hotmc
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_minecraftrating
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionHref
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.layout.OptionSection
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBarComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionHrefComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.layout.OptionSectionComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.model.OptionSectionContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.theme.OptionSpacing
-import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.navBarsPadding
@@ -98,21 +98,21 @@ fun VotesScreenComponent(
             .background(MaterialTheme.colors.primaryVariant)
             .padding(horizontal = AppTheme.dimens.S),
         topBar = {
-            AstraCenterAlignedTopAppBar(
+            AstraCenterAlignedTopAppBarComposable(
                 title = "ГОЛОСОВАНИЕ",
                 onBackClick = onPop
             )
         }
     ) { scaffoldPadding ->
         Column(modifier = Modifier.padding(scaffoldPadding)) {
-            AstraText(
+            AstraTextComposable(
                 text = "Помогите серверу собственноручно!".uppercase(),
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.secondaryVariant,
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
             )
-            AstraText(
+            AstraTextComposable(
                 text = "На этой странице вы можете помочь серверу " +
                     "привлечь новых игроков проголосовав за него на других мониторингах\n" +
                     "Просто нажмите на один вариант, а лучше на все.\n",
@@ -126,7 +126,7 @@ fun VotesScreenComponent(
                 .forEach { (hasPrize, voteUrls) ->
                     if (hasPrize) {
                         Spacer(Modifier.height(AppTheme.dimens.XS))
-                        AstraText(
+                        AstraTextComposable(
                             text = "При голосовании за эти сервера вы получите награду!",
                             style = MaterialTheme.typography.body1,
                             color = MaterialTheme.colors.onSecondary,
@@ -135,8 +135,8 @@ fun VotesScreenComponent(
                         )
                         Spacer(Modifier.height(AppTheme.dimens.XS))
                     }
-                    OptionSection(section = OptionSectionContent(voteUrls)) { voteUrl ->
-                        OptionHref(
+                    OptionSectionComposable(section = OptionSectionContent(voteUrls)) { voteUrl ->
+                        OptionHrefComposable(
                             text = voteUrl.name,
                             onClick = {
                                 onClick.invoke(voteUrl.url)
@@ -155,7 +155,7 @@ fun VotesScreenComponent(
 @Composable
 @Preview
 private fun VotesScreenComponentPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         VotesScreenComponent(
             onPop = {},
             onClick = {}

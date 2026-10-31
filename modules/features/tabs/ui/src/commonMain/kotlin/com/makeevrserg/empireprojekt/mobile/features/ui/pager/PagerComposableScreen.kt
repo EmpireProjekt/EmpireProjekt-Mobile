@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.decompose.model.DecomposeScreen
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.PagerComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.pager.model.PagerBottomBarItem
 import com.makeevrserg.empireprojekt.mobile.features.ui.pager.composable.component.PagerBottomBar
@@ -64,7 +64,7 @@ private fun <T : Any> previewPagerScreen(label: String): DecomposeScreen<T> =
 @Preview
 @Composable
 private fun PagerComposableScreenMenuPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         PagerComposableScreen(
             selectedChild = PagerComponent.Child.Menu,
             selectedBottomBarItem = PagerBottomBarItem.Menu,
@@ -78,7 +78,7 @@ private fun PagerComposableScreenMenuPreview() {
 @Preview
 @Composable
 private fun PagerComposableScreenMapPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         PagerComposableScreen(
             selectedChild = PagerComponent.Child.Map,
             selectedBottomBarItem = PagerBottomBarItem.Map,

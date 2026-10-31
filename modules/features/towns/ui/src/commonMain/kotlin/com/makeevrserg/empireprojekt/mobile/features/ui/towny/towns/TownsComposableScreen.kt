@@ -5,11 +5,11 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingLazyColumn
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingListFooter
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBarComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingLazyColumnComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingListFooterComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.model.PagingContent
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
@@ -40,13 +40,13 @@ internal fun TownsComposableScreen(
     Scaffold(
         modifier = modifier,
         topBar = {
-            AstraCenterAlignedTopAppBar(
+            AstraCenterAlignedTopAppBarComposable(
                 title = TR.strings.towns_list_title.asComposableString(),
                 onBackClick = onBack
             )
         }
     ) { contentPadding ->
-        PagingLazyColumn(
+        PagingLazyColumnComposable(
             onLoadNextPage = onLoadNextPage,
             contentPadding = contentPadding
         ) {
@@ -77,7 +77,7 @@ internal fun TownsComposableScreen(
                 )
             }
             item {
-                PagingListFooter(
+                PagingListFooterComposable(
                     paging = PagingContent(
                         isEmpty = model.items.isEmpty(),
                         isLastPage = model.isLastPage,
@@ -122,7 +122,7 @@ private val previewTownItems: List<TownModel> = listOf(
 @Preview
 @Composable
 private fun TownsComposableScreenLoadedPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         TownsComposableScreen(
             model = TownsComponent.Model(
                 items = previewTownItems,
@@ -145,7 +145,7 @@ private fun TownsComposableScreenLoadedPreview() {
 @Preview
 @Composable
 private fun TownsComposableScreenLoadingPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         TownsComposableScreen(
             model = TownsComponent.Model(
                 items = emptyList(),
@@ -169,7 +169,7 @@ private fun TownsComposableScreenLoadingPreview() {
 @Preview
 @Composable
 private fun TownsComposableScreenEmptyPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         TownsComposableScreen(
             model = TownsComponent.Model(
                 items = emptyList(),
@@ -193,7 +193,7 @@ private fun TownsComposableScreenEmptyPreview() {
 @Preview
 @Composable
 private fun TownsComposableScreenFailurePreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         TownsComposableScreen(
             model = TownsComponent.Model(
                 items = previewTownItems,

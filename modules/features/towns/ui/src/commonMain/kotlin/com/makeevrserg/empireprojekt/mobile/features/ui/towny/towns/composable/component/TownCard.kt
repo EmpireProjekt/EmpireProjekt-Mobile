@@ -16,10 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionInfo
-import com.makeevrserg.empireprojekt.mobile.core.ui.player.composable.PlayerNameRow
-import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionInfoComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.player.composable.PlayerNameRowComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
@@ -68,8 +68,8 @@ internal fun TownCard(
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxWidth()
         ) {
-            PlayerNameRow(uuid = mayor, name = mayor)
-            AstraText(
+            PlayerNameRowComposable(uuid = mayor, name = mayor)
+            AstraTextComposable(
                 text = residentsCount.toString(),
                 style = MaterialTheme.typography.subtitle2,
                 color = MaterialTheme.colors.primary,
@@ -81,45 +81,45 @@ internal fun TownCard(
                     .padding(vertical = AppTheme.dimens.XXS)
             )
         }
-        AstraText(
+        AstraTextComposable(
             text = townName,
             style = MaterialTheme.typography.h5,
             color = MaterialTheme.colors.onPrimary,
             textAlign = TextAlign.Center
         )
         if (board.isNotBlank()) {
-            AstraText(
+            AstraTextComposable(
                 text = board,
                 style = MaterialTheme.typography.subtitle1,
                 color = MaterialTheme.colors.onPrimary
             )
         }
-        OptionInfo(
+        OptionInfoComposable(
             text = TR.strings.towns_details_tag_label.asComposableString(),
             endText = tag,
             modifier = Modifier.fillMaxWidth()
         )
-        OptionInfo(
+        OptionInfoComposable(
             text = TR.strings.towns_details_founder_label.asComposableString(),
             endText = founder,
             modifier = Modifier.fillMaxWidth()
         )
         if (nation.isNotBlank()) {
-            OptionInfo(
+            OptionInfoComposable(
                 text = TR.strings.towns_details_nation_label.asComposableString(),
                 endText = nation,
                 modifier = Modifier.fillMaxWidth()
             )
         }
         if (outlawsAmount > 0) {
-            OptionInfo(
+            OptionInfoComposable(
                 text = TR.strings.towns_details_outlaws_count_label.asComposableString(),
                 endText = outlawsAmount.toString(),
                 modifier = Modifier.fillMaxWidth()
             )
         }
 
-        OptionInfo(
+        OptionInfoComposable(
             text = TR.strings.towns_details_created_label.asComposableString(),
             endText = remember {
                 timeFormatter.format(
@@ -129,7 +129,7 @@ internal fun TownCard(
             },
             modifier = Modifier.fillMaxWidth()
         )
-        OptionInfo(
+        OptionInfoComposable(
             text = TR.strings.towns_details_entrance_label.asComposableString(),
             endText = when (isOpen) {
                 true -> TR.strings.towns_details_entrance_open_label.asComposableString()
@@ -147,7 +147,7 @@ internal fun TownCard(
 @Preview
 @Composable
 private fun TownCardOpenPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             TownCard(
                 mayor = "RomaRoman",
@@ -168,7 +168,7 @@ private fun TownCardOpenPreview() {
 @Preview
 @Composable
 private fun TownCardClosedPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             TownCard(
                 mayor = "cinnamonrein",

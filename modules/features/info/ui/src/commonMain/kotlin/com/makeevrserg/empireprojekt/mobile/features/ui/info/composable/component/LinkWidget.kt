@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_github
-import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionHref
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionHrefComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.theme.OptionSpacing
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.model.LinkModel
 
@@ -15,7 +15,7 @@ internal fun LinkWidget(
     linkModel: LinkModel,
     onClick: () -> Unit
 ) {
-    OptionHref(
+    OptionHrefComposable(
         icon = linkModel.res.asPainter(),
         text = linkModel.title,
         iconTint = linkModel.tint.invoke(),
@@ -27,7 +27,7 @@ internal fun LinkWidget(
 @Preview
 @Composable
 private fun LinkWidgetPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         LinkWidget(
             linkModel = LinkModel(
                 res = MR.images.ic_github,

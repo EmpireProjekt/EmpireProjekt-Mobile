@@ -10,11 +10,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingLazyColumn
-import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingListFooter
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingLazyColumnComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingListFooterComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.model.PagingContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.model.SearchBarState
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.userlist.component.RatingUsersComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.userlist.composable.component.RatingUserShimmerWidget
@@ -54,7 +54,7 @@ internal fun RatingUsersComposableScreen(
             )
         }
     ) { contentPadding ->
-        PagingLazyColumn(
+        PagingLazyColumnComposable(
             onLoadNextPage = onLoadNextPage,
             contentPadding = contentPadding
         ) {
@@ -73,7 +73,7 @@ internal fun RatingUsersComposableScreen(
                 )
             }
             item {
-                PagingListFooter(
+                PagingListFooterComposable(
                     paging = PagingContent(
                         isEmpty = model.items.isEmpty(),
                         isLastPage = model.isLastPage,
@@ -111,7 +111,7 @@ private fun ratingUsersPreviewItems(): List<RatingUserModel> = listOf(
 @Preview
 @Composable
 private fun RatingUsersComposableScreenLoadedPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUsersComposableScreen(
             model = RatingUsersComponent.Model(
                 items = ratingUsersPreviewItems(),
@@ -132,7 +132,7 @@ private fun RatingUsersComposableScreenLoadedPreview() {
 @Preview
 @Composable
 private fun RatingUsersComposableScreenLoadingPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUsersComposableScreen(
             model = RatingUsersComponent.Model(
                 items = emptyList(),
@@ -154,7 +154,7 @@ private fun RatingUsersComposableScreenLoadingPreview() {
 @Preview
 @Composable
 private fun RatingUsersComposableScreenEmptyPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUsersComposableScreen(
             model = RatingUsersComponent.Model(
                 items = emptyList(),
@@ -176,7 +176,7 @@ private fun RatingUsersComposableScreenEmptyPreview() {
 @Preview
 @Composable
 private fun RatingUsersComposableScreenFailurePreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUsersComposableScreen(
             model = RatingUsersComponent.Model(
                 items = ratingUsersPreviewItems(),

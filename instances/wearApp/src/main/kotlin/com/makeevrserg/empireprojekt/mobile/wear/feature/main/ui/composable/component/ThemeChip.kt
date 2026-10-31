@@ -9,7 +9,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_bedtime
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_sunny
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.features.theme.data.model.Theme
@@ -38,7 +38,7 @@ fun ThemeChip(
 @Preview
 @Composable
 private fun ThemeChipDarkPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         ThemeChip(theme = Theme.DARK, onClick = {})
     }
 }
@@ -46,7 +46,7 @@ private fun ThemeChipDarkPreview() {
 @Preview
 @Composable
 private fun ThemeChipLightPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.LIGHT) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.LIGHT) {
         ThemeChip(theme = Theme.LIGHT, onClick = {})
     }
 }

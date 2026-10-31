@@ -8,11 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBar
-import com.makeevrserg.empireprojekt.mobile.core.ui.button.composable.AstraIconButton
-import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.composable.SearchAppBar
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBarComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.button.composable.AstraIconButtonComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.composable.SearchAppBarComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.model.SearchBarState
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.rating.RR
 import com.makeevrserg.empireprojekt.mobile.rating.rating_users_title
@@ -28,7 +28,7 @@ fun RatingUsersAppBar(
 ) {
     Crossfade(modifier = modifier, targetState = searchBarState) { state ->
         if (state == SearchBarState.Open) {
-            SearchAppBar(
+            SearchAppBarComposable(
                 query = query,
                 onTextChange = onUpdateQuery,
                 onCloseClick = {
@@ -37,11 +37,11 @@ fun RatingUsersAppBar(
                 }
             )
         } else {
-            AstraCenterAlignedTopAppBar(
+            AstraCenterAlignedTopAppBarComposable(
                 title = RR.strings.rating_users_title.asComposableString(),
                 onBackClick = onBack,
                 actions = {
-                    AstraIconButton(
+                    AstraIconButtonComposable(
                         imageVector = Icons.Filled.Search,
                         onClick = { onSearchBarStateChange.invoke(SearchBarState.Open) },
                         modifier = Modifier.alpha(ContentAlpha.medium)
@@ -55,7 +55,7 @@ fun RatingUsersAppBar(
 @Preview
 @Composable
 private fun RatingUsersAppBarClosedPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         RatingUsersAppBar(
             query = "",
             searchBarState = SearchBarState.Closed,
@@ -69,7 +69,7 @@ private fun RatingUsersAppBarClosedPreview() {
 @Preview
 @Composable
 private fun RatingUsersAppBarSearchEmptyPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         RatingUsersAppBar(
             query = "",
             searchBarState = SearchBarState.Open,
@@ -83,7 +83,7 @@ private fun RatingUsersAppBarSearchEmptyPreview() {
 @Preview
 @Composable
 private fun RatingUsersAppBarSearchPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         RatingUsersAppBar(
             query = "RomaRoman",
             searchBarState = SearchBarState.Open,

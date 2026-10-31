@@ -6,10 +6,10 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.EnumOption
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.FilterCard
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.SortFilterHeader
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.EnumOptionComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.FilterCardComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.SortFilterHeaderComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
@@ -37,45 +37,45 @@ internal fun TownFilterCard(
     onSortByDateClick: () -> Unit,
     onSortByResidentsClick: () -> Unit,
 ) {
-    FilterCard {
-        SortFilterHeader()
-        EnumOption(
+    FilterCardComposable {
+        SortFilterHeaderComposable()
+        EnumOptionComposable(
             text = TR.strings.towns_filter_public_type_label.asComposableString(),
             selected = townsFilter.publicType,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onPublicTypeClick
         )
-        EnumOption(
+        EnumOptionComposable(
             text = TR.strings.towns_filter_sort_name_label.asComposableString(),
             selected = townsFilter.nameSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onSortByNameClick
         )
-        EnumOption(
+        EnumOptionComposable(
             text = TR.strings.towns_filter_sort_tag_label.asComposableString(),
             selected = townsFilter.tagSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onSortByTagClick
         )
-        EnumOption(
+        EnumOptionComposable(
             text = TR.strings.towns_filter_sort_founder_label.asComposableString(),
             selected = townsFilter.founderSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onSortByFounderClick
         )
-        EnumOption(
+        EnumOptionComposable(
             text = TR.strings.towns_filter_sort_nation_label.asComposableString(),
             selected = townsFilter.nationSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onSortByNationClick
         )
-        EnumOption(
+        EnumOptionComposable(
             text = TR.strings.towns_filter_sort_created_label.asComposableString(),
             selected = townsFilter.dateSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onSortByDateClick
         )
-        EnumOption(
+        EnumOptionComposable(
             text = TR.strings.towns_filter_sort_residents_label.asComposableString(),
             selected = townsFilter.residentsSort,
             toString = { it.toStringDesc().asComposableString() },
@@ -87,7 +87,7 @@ internal fun TownFilterCard(
 @Preview
 @Composable
 private fun TownFilterCardEmptyPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             TownFilterCard(
                 townsFilter = TownsFilterModel(),
@@ -106,7 +106,7 @@ private fun TownFilterCardEmptyPreview() {
 @Preview
 @Composable
 private fun TownFilterCardSelectedPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             TownFilterCard(
                 townsFilter = TownsFilterModel(

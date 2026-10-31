@@ -11,7 +11,7 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.runComposeUiTest
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -24,8 +24,8 @@ class AstraIconButtonTest {
         runComposeUiTest {
             var clicks = 0
             setContent {
-                AdaptThemeFade {
-                    AstraIconButton(
+                AdaptThemeFadeComposable {
+                    AstraIconButtonComposable(
                         imageVector = Icons.Filled.Search,
                         contentDescription = SEARCH_DESCRIPTION,
                         onClick = { clicks++ }
@@ -44,8 +44,8 @@ class AstraIconButtonTest {
         runComposeUiTest {
             var backPresses = 0
             setContent {
-                AdaptThemeFade {
-                    AstraBackButton(onClick = { backPresses++ }, modifier = Modifier.testTag(BACK_TAG))
+                AdaptThemeFadeComposable {
+                    AstraBackButtonComposable(onClick = { backPresses++ }, modifier = Modifier.testTag(BACK_TAG))
                 }
             }
 

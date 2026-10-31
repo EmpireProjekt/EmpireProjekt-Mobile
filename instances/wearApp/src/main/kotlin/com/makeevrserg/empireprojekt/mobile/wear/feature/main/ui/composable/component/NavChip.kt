@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.modules.services.core.resources.R
 import com.makeevrserg.empireprojekt.mobile.wear.feature.composable.component.IconTextChip
 
@@ -26,7 +26,7 @@ fun NavChip(
 @Preview
 @Composable
 private fun NavChipPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         NavChip(text = "Statuses", onClick = {})
     }
 }

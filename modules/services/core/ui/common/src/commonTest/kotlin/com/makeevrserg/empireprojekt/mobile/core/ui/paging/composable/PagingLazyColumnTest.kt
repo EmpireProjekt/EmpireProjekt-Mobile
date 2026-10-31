@@ -12,9 +12,9 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.runComposeUiTest
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.model.PagingContent
-import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextComposable
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -35,10 +35,10 @@ class PagingLazyColumnTest {
     fun GIVEN_header_and_items_WHEN_list_is_shown_THEN_both_are_displayed() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
-                    PagingLazyColumn(onLoadNextPage = {}) {
-                        item { AstraText(text = "Filter") }
-                        items(listOf("RomaRoman", "cinnamonrein")) { name -> AstraText(text = name) }
+                AdaptThemeFadeComposable {
+                    PagingLazyColumnComposable(onLoadNextPage = {}) {
+                        item { AstraTextComposable(text = "Filter") }
+                        items(listOf("RomaRoman", "cinnamonrein")) { name -> AstraTextComposable(text = name) }
                     }
                 }
             }
@@ -53,10 +53,10 @@ class PagingLazyColumnTest {
     fun GIVEN_loading_page_WHEN_list_is_shown_THEN_a_page_of_shimmer_placeholders_is_displayed() {
         runComposeUiTest {
             setContent {
-                AdaptThemeFade {
-                    PagingLazyColumn(onLoadNextPage = {}) {
+                AdaptThemeFadeComposable {
+                    PagingLazyColumnComposable(onLoadNextPage = {}) {
                         item {
-                            PagingListFooter(
+                            PagingListFooterComposable(
                                 paging = createPaging(isEmpty = true, isLoading = true),
                                 onReload = {},
                                 shimmerItem = { Box(Modifier.testTag(SHIMMER_TAG)) }
@@ -75,9 +75,9 @@ class PagingLazyColumnTest {
         runComposeUiTest {
             var requestedPages = 0
             setContent {
-                AdaptThemeFade {
-                    PagingLazyColumn(onLoadNextPage = { requestedPages++ }) {
-                        item { AstraText(text = "RomaRoman") }
+                AdaptThemeFadeComposable {
+                    PagingLazyColumnComposable(onLoadNextPage = { requestedPages++ }) {
+                        item { AstraTextComposable(text = "RomaRoman") }
                     }
                 }
             }

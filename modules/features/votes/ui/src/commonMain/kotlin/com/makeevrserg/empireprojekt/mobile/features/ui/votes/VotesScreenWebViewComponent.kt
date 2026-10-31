@@ -7,9 +7,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBar
+import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBarComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.webview.composable.AstraWebView
+import com.makeevrserg.empireprojekt.mobile.core.ui.webview.composable.AstraWebViewComposable
 
 @Suppress("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -24,10 +24,10 @@ fun VotesScreenWebViewComponent(
             .background(MaterialTheme.colors.primaryVariant)
             .padding(horizontal = AppTheme.dimens.XS),
         topBar = {
-            AstraCenterAlignedTopAppBar(onBackClick = onPop)
+            AstraCenterAlignedTopAppBarComposable(onBackClick = onPop)
         }
     ) { _ ->
-        AstraWebView(
+        AstraWebViewComposable(
             url = url,
             modifier = Modifier.fillMaxSize()
         )

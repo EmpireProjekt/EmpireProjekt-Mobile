@@ -18,7 +18,7 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_error
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_off
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.wear.feature.composable.component.IconTextChip
@@ -83,7 +83,7 @@ internal fun StatusesComposableScreen(
 @Preview(device = "id:wearos_large_round")
 @Composable
 private fun StatusesComposableScreenEmptyPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         StatusesComposableScreen(model = WearStatusComponent.Model())
     }
 }
@@ -91,7 +91,7 @@ private fun StatusesComposableScreenEmptyPreview() {
 @Preview(device = "id:wearos_large_round")
 @Composable
 private fun StatusesComposableScreenFilledPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         StatusesComposableScreen(
             model = WearStatusComponent.Model(
                 loadingCount = 1,

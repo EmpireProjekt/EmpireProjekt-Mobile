@@ -18,7 +18,7 @@ import androidx.wear.compose.material.Icon
 import androidx.wear.compose.material.Text
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_splash
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 
 @Composable
@@ -85,7 +85,7 @@ fun IconTextChip(
 @Preview
 @Composable
 private fun AstraChipPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         AstraChip(
             label = { Text(text = "EmpireProjekt") },
             onClick = {}
@@ -96,7 +96,7 @@ private fun AstraChipPreview() {
 @Preview
 @Composable
 private fun IconTextChipPreview() {
-    AdaptThemeFade {
+    AdaptThemeFadeComposable {
         IconTextChip(
             text = "EmpireProjekt",
             painter = MR.images.img_splash.asPainter()

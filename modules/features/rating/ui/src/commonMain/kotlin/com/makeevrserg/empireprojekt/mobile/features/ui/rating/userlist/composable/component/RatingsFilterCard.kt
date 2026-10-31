@@ -6,10 +6,10 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.EnumOption
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.FilterCard
-import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.SortFilterHeader
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.EnumOptionComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.FilterCardComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.SortFilterHeaderComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.features.rating.userlist.util.LocalSortOrderExt.toStringDesc
@@ -27,21 +27,21 @@ internal fun RatingsFilterCard(
     onLastUpdateSortClick: () -> Unit,
     onRatingSortClick: () -> Unit,
 ) {
-    FilterCard {
-        SortFilterHeader()
-        EnumOption(
+    FilterCardComposable {
+        SortFilterHeaderComposable()
+        EnumOptionComposable(
             text = RR.strings.rating_filter_sort_name_label.asComposableString(),
             selected = filter.nameSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onNameSortClick
         )
-        EnumOption(
+        EnumOptionComposable(
             text = RR.strings.rating_filter_sort_last_update_label.asComposableString(),
             selected = filter.lastUpdatedSort,
             toString = { it.toStringDesc().asComposableString() },
             onClick = onLastUpdateSortClick
         )
-        EnumOption(
+        EnumOptionComposable(
             text = RR.strings.rating_filter_sort_rating_label.asComposableString(),
             selected = filter.ratingSort,
             toString = { it.toStringDesc().asComposableString() },
@@ -53,7 +53,7 @@ internal fun RatingsFilterCard(
 @Preview
 @Composable
 private fun RatingsFilterCardEmptyPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             RatingsFilterCard(
                 filter = RatingsFilterModel(),
@@ -68,7 +68,7 @@ private fun RatingsFilterCardEmptyPreview() {
 @Preview
 @Composable
 private fun RatingsFilterCardSelectedPreview() {
-    AdaptThemeFade(composeTheme = ComposeTheme.DARK) {
+    AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             RatingsFilterCard(
                 filter = RatingsFilterModel(
