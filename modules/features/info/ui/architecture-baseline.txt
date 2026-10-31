@@ -1,3 +1,0 @@
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/info/InfoScreen.kt	InfoScreen
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/info/composable/component/LinkWidget.kt	LinkWidget
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/info/data/InfoScreenLinks.kt	InfoScreenLinks

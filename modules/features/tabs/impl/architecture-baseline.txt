@@ -1,4 +1,0 @@
-ContractPlacement	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/root/pager/data/LastBottomItemRepository.kt	LastBottomItemRepository
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/root/pager/DefaultPagerComponent.kt	DefaultPagerComponent
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/root/pager/PagerComponent.kt	PagerComponent
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/root/pager/data/LastBottomItemRepository.kt	LastBottomItemRepository

@@ -1,2 +1,0 @@
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/splash/SplashComposableScreen.kt	SplashComposableScreen
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/splash/SplashScreen.kt	SplashScreen

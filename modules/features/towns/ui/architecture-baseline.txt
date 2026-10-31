@@ -1,5 +1,0 @@
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/towny/towns/TownsComposableScreen.kt	TownsComposableScreen
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/towny/towns/TownsScreenComponent.kt	TownsScreenComponent
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/towny/towns/composable/component/TownCard.kt	TownCard
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/towny/towns/composable/component/TownFilterCard.kt	TownFilterCard
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/towny/towns/composable/component/TownShimmerWidget.kt	TownShimmerWidget

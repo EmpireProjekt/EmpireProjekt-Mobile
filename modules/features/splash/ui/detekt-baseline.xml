@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<SmellBaseline>
-  <ManuallySuppressedIssues/>
-  <CurrentIssues>
-    <ID>ComposableWhenBranch:SplashScreen.kt:is SplashComponent.Label.InitialLaunch -> { rootRouter.replaceCurrent(RootRouter.Configuration.Pager) }</ID>
-  </CurrentIssues>
-</SmellBaseline>

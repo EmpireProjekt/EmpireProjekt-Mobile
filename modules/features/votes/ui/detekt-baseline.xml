@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<SmellBaseline>
-  <ManuallySuppressedIssues/>
-  <CurrentIssues>
-    <ID>ImplicitItParameter:VotesScreenComponent.kt:it</ID>
-  </CurrentIssues>
-</SmellBaseline>

@@ -1,1 +1,0 @@
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/map/AndroidMapView.kt	AndroidMapView

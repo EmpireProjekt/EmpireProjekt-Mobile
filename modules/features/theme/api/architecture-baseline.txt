@@ -1,3 +1,0 @@
-ComposeKindWithoutCompose	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/theme/component/ThemeSwitcherComponent.kt	com.makeevrserg.empireprojekt.mobile.features.theme.component
-ComposeKindWithoutCompose	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/theme/data/model/Theme.kt	com.makeevrserg.empireprojekt.mobile.features.theme.data.model
-ComposeKindWithoutCompose	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/theme/di/ThemeSwitcherModule.kt	com.makeevrserg.empireprojekt.mobile.features.theme.di

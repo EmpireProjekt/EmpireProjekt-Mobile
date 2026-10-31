@@ -1,6 +1,0 @@
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/status/StatusComposableScreen.kt	StatusComposableScreen
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/status/StatusScreen.kt	StatusScreen
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/status/widget/IconWidget.kt	IconWidget
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/status/widget/SideColorStatusWidget.kt	SideColorStatusWidget
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/status/widget/StatusWidget.kt	StatusWidget
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/status/widget/StatusWidgetContent.kt	StatusWidgetContent

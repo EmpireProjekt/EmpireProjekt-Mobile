@@ -1,2 +1,0 @@
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/votes/VotesScreenComponent.kt	VotesScreenComponent
-KindShape	src/commonMain/kotlin/com/makeevrserg/empireprojekt/mobile/features/ui/votes/VotesScreenWebViewComponent.kt	VotesScreenWebViewComponent
