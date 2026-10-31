@@ -33,7 +33,6 @@ kotlin {
                 implementation(libs.jetbrains.compose.ui)
                 implementation(libs.moko.resources.core)
                 implementation(projects.modules.features.webview.api)
-                implementation(projects.modules.features.webview.impl)
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.ui.common)
                 implementation(projects.modules.services.core.ui.dialog)

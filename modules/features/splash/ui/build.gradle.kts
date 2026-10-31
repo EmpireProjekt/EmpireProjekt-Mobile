@@ -32,7 +32,6 @@ kotlin {
                 implementation(libs.jetbrains.compose.ui)
                 implementation(libs.moko.resources.core)
                 implementation(projects.modules.features.root.api)
-                implementation(projects.modules.features.splash.impl)
                 implementation(projects.modules.services.core.common)
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.ui.common)

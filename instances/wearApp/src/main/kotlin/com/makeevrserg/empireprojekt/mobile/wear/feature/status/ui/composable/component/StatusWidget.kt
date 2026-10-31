@@ -16,7 +16,7 @@ import com.makeevrserg.empireprojekt.mobile.features.status.api.url.component.Ur
 import com.makeevrserg.empireprojekt.mobile.wear.feature.composable.component.IconTextChip
 
 @Composable
-internal fun StatusWidgetContent(
+internal fun StatusWidgetContentComposable(
     status: UrlStatusComponent.LoadingStatus,
     onClick: () -> Unit
 ) {
@@ -42,9 +42,9 @@ internal fun StatusWidgetContent(
 }
 
 @Composable
-internal fun StatusWidget(component: UrlStatusComponent) {
+internal fun StatusWidgetComposable(component: UrlStatusComponent) {
     val model by component.model.collectAsState()
-    StatusWidgetContent(
+    StatusWidgetContentComposable(
         status = model.status,
         onClick = component::checkStatus
     )
@@ -54,7 +54,7 @@ internal fun StatusWidget(component: UrlStatusComponent) {
 @Composable
 private fun StatusWidgetContentLoadingPreview() {
     AdaptThemeFadeComposable {
-        StatusWidgetContent(status = UrlStatusComponent.LoadingStatus.LOADING, onClick = {})
+        StatusWidgetContentComposable(status = UrlStatusComponent.LoadingStatus.LOADING, onClick = {})
     }
 }
 
@@ -62,7 +62,7 @@ private fun StatusWidgetContentLoadingPreview() {
 @Composable
 private fun StatusWidgetContentSuccessPreview() {
     AdaptThemeFadeComposable {
-        StatusWidgetContent(status = UrlStatusComponent.LoadingStatus.SUCCESS, onClick = {})
+        StatusWidgetContentComposable(status = UrlStatusComponent.LoadingStatus.SUCCESS, onClick = {})
     }
 }
 
@@ -70,6 +70,6 @@ private fun StatusWidgetContentSuccessPreview() {
 @Composable
 private fun StatusWidgetContentErrorPreview() {
     AdaptThemeFadeComposable {
-        StatusWidgetContent(status = UrlStatusComponent.LoadingStatus.ERROR, onClick = {})
+        StatusWidgetContentComposable(status = UrlStatusComponent.LoadingStatus.ERROR, onClick = {})
     }
 }

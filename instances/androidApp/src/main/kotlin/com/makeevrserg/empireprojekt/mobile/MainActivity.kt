@@ -10,8 +10,8 @@ import com.arkivanov.decompose.defaultComponentContext
 import com.makeevrserg.empireprojekt.mobile.application.App.Companion.asEmpireApp
 import com.makeevrserg.empireprojekt.mobile.features.root.impl.DefaultRootComponent
 import com.makeevrserg.empireprojekt.mobile.features.root.impl.di.RootModule
-import com.makeevrserg.empireprojekt.mobile.features.theme.ApplicationTheme
-import com.makeevrserg.empireprojekt.mobile.features.ui.root.ApplicationContent
+import com.makeevrserg.empireprojekt.mobile.features.theme.theme.ApplicationTheme
+import com.makeevrserg.empireprojekt.mobile.features.ui.root.composable.screen.ApplicationContentComposable
 import com.makeevrserg.empireprojekt.mobile.service.controller.StatusServiceController
 import com.makeevrserg.empireprojekt.mobile.service.controller.StatusServiceControllerImpl
 
@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
         val rootComponent = DefaultRootComponent(componentContext, rootModule)
         setContent {
             ApplicationTheme(rootModule.themeSwitcherModule.themeSwitcherComponent) {
-                ApplicationContent(
+                ApplicationContentComposable(
                     rootComponent = rootComponent,
                     modifier = Modifier,
                     linkBrowser = rootModule.coreModule.linkBrowser,

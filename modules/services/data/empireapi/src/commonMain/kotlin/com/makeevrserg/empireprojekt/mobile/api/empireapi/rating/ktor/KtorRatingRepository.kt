@@ -5,7 +5,7 @@ import com.makeevrserg.empireprojekt.mobile.features.rating.api.api.RatingReposi
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.Rating
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingUser
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingsFilter
-import com.makeevrserg.empireprojekt.mobile.services.core.model.GenericPagedModel
+import com.makeevrserg.empireprojekt.mobile.services.core.model.PagedData
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -21,7 +21,7 @@ internal class KtorRatingRepository(
     private val baseUrl: String
 ) : RatingRepository {
 
-    override suspend fun users(page: Int, size: Int, body: RatingsFilter): GenericPagedModel<RatingUser> {
+    override suspend fun users(page: Int, size: Int, body: RatingsFilter): PagedData<RatingUser> {
         return httpClient.post {
             url("$baseUrl/rating/users")
             parameter("page", page)
@@ -39,7 +39,7 @@ internal class KtorRatingRepository(
         }.body()
     }
 
-    override suspend fun ratings(page: Int, size: Int, userId: Long): GenericPagedModel<Rating> {
+    override suspend fun ratings(page: Int, size: Int, userId: Long): PagedData<Rating> {
         return httpClient.post {
             url("$baseUrl/rating/user/votes")
             parameter("page", page)

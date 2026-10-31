@@ -34,7 +34,6 @@ kotlin {
                 implementation(projects.modules.features.rating.api)
                 implementation(projects.modules.features.root.api)
                 implementation(projects.modules.features.status.api)
-                implementation(projects.modules.features.tabs.impl)
                 implementation(projects.modules.features.theme.api)
                 implementation(projects.modules.features.towns.api)
                 implementation(projects.modules.services.core.common)

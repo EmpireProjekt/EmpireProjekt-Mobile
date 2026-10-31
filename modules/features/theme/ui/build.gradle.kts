@@ -31,7 +31,6 @@ kotlin {
                 implementation(libs.jetbrains.compose.tooling)
                 implementation(libs.jetbrains.compose.ui)
                 implementation(projects.modules.features.theme.api)
-                implementation(projects.modules.features.theme.impl)
                 implementation(projects.modules.services.core.ui.common)
                 implementation(projects.modules.services.core.ui.dialog)
                 implementation(projects.modules.services.core.ui.sheet)

@@ -3,7 +3,7 @@ package com.makeevrserg.empireprojekt.mobile.api.empireapi.towny.ktor
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.api.TownRepository
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.Town
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsFilter
-import com.makeevrserg.empireprojekt.mobile.services.core.model.GenericPagedModel
+import com.makeevrserg.empireprojekt.mobile.services.core.model.PagedData
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -19,7 +19,7 @@ internal class KtorTownRepository(
     private val baseUrl: String
 ) : TownRepository {
 
-    override suspend fun towns(page: Int, size: Int, filter: TownsFilter): GenericPagedModel<Town> {
+    override suspend fun towns(page: Int, size: Int, filter: TownsFilter): PagedData<Town> {
         return httpClient.post {
             url("$baseUrl/towny/towns")
             parameter("page", page)

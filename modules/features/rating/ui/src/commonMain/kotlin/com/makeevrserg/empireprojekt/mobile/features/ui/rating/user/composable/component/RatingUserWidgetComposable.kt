@@ -1,0 +1,159 @@
+package com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.composable.component
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ThumbDown
+import androidx.compose.material.icons.filled.ThumbUp
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import com.makeevrserg.empireprojekt.mobile.core.resources.MR
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_calendar_today
+import com.makeevrserg.empireprojekt.mobile.core.resources.ic_history_edu
+import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionInfoComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionSeparatorComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.player.composable.PlayerNameRowComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
+import com.makeevrserg.empireprojekt.mobile.core.ui.util.astraCard
+import com.makeevrserg.empireprojekt.mobile.rating.RR
+import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated_label
+import com.makeevrserg.empireprojekt.mobile.rating.rating_user_message_label
+import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
+import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
+import java.util.UUID
+import kotlin.time.Clock
+import kotlin.time.Instant
+
+@Composable
+private fun RatingPositiveIconComposable() {
+    Icon(
+        imageVector = Icons.Filled.ThumbUp,
+        contentDescription = null,
+        tint = AppTheme.astraColors.action.colorPositive,
+        modifier = Modifier.size(AppTheme.dimens.M)
+    )
+}
+
+@Composable
+private fun RatingNegativeIconComposable() {
+    Icon(
+        imageVector = Icons.Filled.ThumbDown,
+        contentDescription = null,
+        tint = AppTheme.astraColors.action.colorNegative,
+        modifier = Modifier.size(AppTheme.dimens.M)
+    )
+}
+
+@Suppress("LongMethod")
+@Composable
+internal fun RatingUserWidgetComposable(
+    uuid: String?,
+    name: String?,
+    rating: Int,
+    message: String,
+    time: Instant
+) {
+    val timeFormatter: TimeFormatter = JvmTimeFormatter()
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .astraCard(color = MaterialTheme.colors.primary)
+            .padding(vertical = AppTheme.dimens.XS)
+    ) {
+        Column {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.S),
+                modifier = Modifier.padding(horizontal = AppTheme.dimens.S)
+            ) {
+                PlayerNameRowComposable(
+                    uuid = uuid.orEmpty(),
+                    name = name ?: "-",
+                    style = MaterialTheme.typography.subtitle2,
+                    spacing = AppTheme.dimens.S
+                )
+                Spacer(Modifier.weight(1f))
+                when {
+                    rating > 0 -> RatingPositiveIconComposable()
+                    else -> RatingNegativeIconComposable()
+                }
+            }
+            Spacer(Modifier.height(AppTheme.dimens.XS))
+            OptionSeparatorComposable(Modifier.fillMaxWidth())
+            Spacer(Modifier.height(AppTheme.dimens.XS))
+            OptionInfoComposable(
+                text = RR.strings.rating_last_updated_label.asComposableString(),
+                endText = remember {
+                    timeFormatter.format(
+                        instant = time,
+                        format = "dd.MM.yyyy HH:mm"
+                    )
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = AppTheme.dimens.S),
+                icon = MR.images.ic_calendar_today.asPainter()
+            )
+            OptionInfoComposable(
+                text = RR.strings.rating_user_message_label.asComposableString(),
+                endText = "",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = AppTheme.dimens.S),
+                icon = MR.images.ic_history_edu.asPainter()
+            )
+            AstraTextComposable(
+                text = message.trim(),
+                style = MaterialTheme.typography.subtitle2,
+                color = MaterialTheme.colors.onPrimary,
+                textAlign = TextAlign.Start,
+                modifier = Modifier.padding(horizontal = AppTheme.dimens.S)
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun RatingUserWidgetPositivePreview() {
+    AdaptThemeFadeComposable {
+        RatingUserWidgetComposable(
+            uuid = UUID.randomUUID().toString(),
+            name = "RomaRoman",
+            rating = 10,
+            message = "Hello world",
+            time = Clock.System.now()
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun RatingUserWidgetNegativePreview() {
+    AdaptThemeFadeComposable {
+        RatingUserWidgetComposable(
+            uuid = null,
+            name = null,
+            rating = -1,
+            message = "Griefed my base.",
+            time = Clock.System.now()
+        )
+    }
+}
