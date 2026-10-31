@@ -5,8 +5,8 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.wearable.MessageClient
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.data.WearDataLayerRegistry
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.api.WearMessageProducer
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.model.WearMessage
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearMessageProducer
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.model.WearMessage
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope

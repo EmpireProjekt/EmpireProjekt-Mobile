@@ -3,8 +3,8 @@ package com.makeevrserg.empireprojekt.mobile.wear.application
 import android.app.Application
 import android.content.Context
 import com.makeevrserg.empireprojekt.mobile.wear.di.WearRootModule
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.api.WearMessageConsumer
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.api.WearMessengerApplication
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearMessageConsumer
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearMessengerApplication
 import ru.astrainteractive.klibs.mikro.platform.DefaultAndroidPlatformConfiguration
 
 class App : Application(), WearMessengerApplication {

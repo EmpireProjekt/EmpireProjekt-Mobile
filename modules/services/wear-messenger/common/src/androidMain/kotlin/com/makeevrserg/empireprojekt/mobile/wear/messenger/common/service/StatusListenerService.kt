@@ -3,8 +3,8 @@ package com.makeevrserg.empireprojekt.mobile.wear.messenger.common.service
 import android.util.Log
 import com.google.android.gms.wearable.MessageEvent
 import com.google.android.gms.wearable.WearableListenerService
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearMessengerApplication
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.util.STATUS_WEAR_MESSAGE
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.api.WearMessengerApplication
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob

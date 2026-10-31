@@ -3,11 +3,11 @@ package com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.di
 import android.content.Context
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.data.WearDataLayerRegistry
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearMessageConsumer
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearMessageProducer
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.message.DataLayerWearMessageConsumer
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.message.DataLayerWearMessageProducer
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.message.WearMessageCodec
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.api.WearMessageConsumer
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.api.WearMessageProducer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.serialization.json.Json
 

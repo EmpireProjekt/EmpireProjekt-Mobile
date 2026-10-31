@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.wear.messenger.message.model
+package com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.model
 
 import kotlinx.serialization.KSerializer
 

@@ -1,9 +1,9 @@
 package com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.message
 
 import android.util.Log
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.api.WearMessageConsumer
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.model.DecodedWearMessage
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.model.WearMessage
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearMessageConsumer
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.model.DecodedWearMessage
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.model.WearMessage
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow

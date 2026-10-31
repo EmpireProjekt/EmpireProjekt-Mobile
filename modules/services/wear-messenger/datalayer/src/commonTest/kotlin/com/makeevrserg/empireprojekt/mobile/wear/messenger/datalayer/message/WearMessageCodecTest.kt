@@ -1,8 +1,8 @@
 package com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.message
 
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.model.DecodedWearMessage
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.model.WearMessage
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.message.model.WearMessageDecodeError
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.model.DecodedWearMessage
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.message.model.WearMessage
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.Json

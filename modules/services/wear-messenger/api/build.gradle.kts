@@ -9,7 +9,7 @@ plugins {
 
 linter {
     unitKind.set("api")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.wear.messenger")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.wear.messenger.api")
 }
 
 kotlin {
