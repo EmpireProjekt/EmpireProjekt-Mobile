@@ -1,12 +1,12 @@
-package com.makeevrserg.empireprojekt.mobile.wear.feature.root.component
+package com.makeevrserg.empireprojekt.mobile.wear.messenger.api.root.component
 
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.value.Value
 import com.makeevrserg.empireprojekt.mobile.features.theme.api.component.ThemeSwitcherComponent
-import com.makeevrserg.empireprojekt.mobile.wear.feature.ping.component.PingComponent
-import com.makeevrserg.empireprojekt.mobile.wear.feature.status.component.WearStatusComponent
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.ping.component.PingComponent
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.component.WearStatusComponent
 
-interface RootComponent {
+interface WearRootComponent {
     val childStack: Value<ChildStack<*, Child>>
 
     fun openStatuses()
