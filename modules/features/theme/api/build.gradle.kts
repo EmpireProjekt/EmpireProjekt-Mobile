@@ -21,6 +21,7 @@ kotlin {
     sourceSets {
         getByName("commonMain") {
             dependencies {
+                implementation(libs.klibs.mikro.core)
                 implementation(libs.kotlin.coroutines.core)
             }
         }
