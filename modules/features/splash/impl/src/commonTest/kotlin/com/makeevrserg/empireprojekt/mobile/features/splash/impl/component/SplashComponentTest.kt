@@ -3,49 +3,56 @@ package com.makeevrserg.empireprojekt.mobile.features.splash.impl.component
 import app.cash.turbine.test
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import com.makeevrserg.empireprojekt.mobile.features.splash.impl.data.SplashComponentRepository
-import com.makeevrserg.empireprojekt.mobile.features.splash.impl.di.SplashComponentDependencies
-import kotlinx.coroutines.CoroutineScope
+import com.makeevrserg.empireprojekt.mobile.features.root.api.splash.component.SplashComponent
+import com.makeevrserg.empireprojekt.mobile.features.splash.impl.api.SplashComponentRepository
 import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.TestResult
+import kotlinx.coroutines.test.runTest
 import ru.astrainteractive.klibs.mikro.core.dispatchers.DefaultKotlinDispatchers
-import ru.astrainteractive.klibs.mikro.core.dispatchers.KotlinDispatchers
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class SplashComponentTest {
-    private fun buildDependencies(isInitialLaunch: Boolean) = object : SplashComponentDependencies {
-        override val mainScope: CoroutineScope = MainScope()
-        override val dispatchers: KotlinDispatchers = DefaultKotlinDispatchers
-        override val repository: SplashComponentRepository = object : SplashComponentRepository {
-            override fun isInitialLaunch(): Boolean = isInitialLaunch
-        }
-    }
-
     private val componentContext = DefaultComponentContext(LifecycleRegistry())
 
+    private fun createSplashComponent(isInitialLaunch: Boolean): DefaultSplashComponent {
+        val repository = object : SplashComponentRepository {
+            override fun isInitialLaunch(): Boolean {
+                return isInitialLaunch
+            }
+        }
+        return DefaultSplashComponent(
+            context = componentContext,
+            mainScope = MainScope(),
+            dispatchers = DefaultKotlinDispatchers,
+            repository = repository
+        )
+    }
+
     @Test
-    fun TEST_initial_launch_true(): Unit = runBlocking {
-        val expectInitialLaunchValue = true
-        val splashComponent =
-            DefaultSplashComponent(componentContext, buildDependencies(expectInitialLaunchValue))
-        splashComponent.screenChannelFlow.test {
-            val item = awaitItem()
-            assertTrue(item is SplashComponent.Label.InitialLaunch)
-            assertEquals(expectInitialLaunchValue, item.value)
+    fun GIVEN_initial_launch_WHEN_component_is_created_THEN_label_says_initial_launch(): TestResult {
+        return runTest {
+            val splashComponent = createSplashComponent(isInitialLaunch = true)
+
+            splashComponent.screenChannelFlow.test {
+                val item = awaitItem()
+                assertTrue(item is SplashComponent.Label.InitialLaunch)
+                assertEquals(true, item.value)
+            }
         }
     }
 
     @Test
-    fun TEST_initial_launch_false(): Unit = runBlocking {
-        val expectInitialLaunchValue = false
-        val splashComponent =
-            DefaultSplashComponent(componentContext, buildDependencies(expectInitialLaunchValue))
-        splashComponent.screenChannelFlow.test {
-            val item = awaitItem()
-            assertTrue(item is SplashComponent.Label.InitialLaunch)
-            assertEquals(expectInitialLaunchValue, item.value)
+    fun GIVEN_not_initial_launch_WHEN_component_is_created_THEN_label_says_not_initial_launch(): TestResult {
+        return runTest {
+            val splashComponent = createSplashComponent(isInitialLaunch = false)
+
+            splashComponent.screenChannelFlow.test {
+                val item = awaitItem()
+                assertTrue(item is SplashComponent.Label.InitialLaunch)
+                assertEquals(false, item.value)
+            }
         }
     }
 }

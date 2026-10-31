@@ -1,16 +1,20 @@
 package com.makeevrserg.empireprojekt.mobile.features.splash.impl.component
 
 import com.arkivanov.decompose.ComponentContext
-import com.makeevrserg.empireprojekt.mobile.features.splash.impl.di.SplashComponentDependencies
+import com.makeevrserg.empireprojekt.mobile.features.root.api.splash.component.SplashComponent
+import com.makeevrserg.empireprojekt.mobile.features.splash.impl.api.SplashComponentRepository
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
+import ru.astrainteractive.klibs.mikro.core.dispatchers.KotlinDispatchers
 
 internal class DefaultSplashComponent(
     context: ComponentContext,
-    dependencies: SplashComponentDependencies
+    mainScope: CoroutineScope,
+    dispatchers: KotlinDispatchers,
+    repository: SplashComponentRepository
 ) : SplashComponent,
-    SplashComponentDependencies by dependencies,
     ComponentContext by context {
     private val _screenChannel = Channel<SplashComponent.Label>()
     override val screenChannelFlow = _screenChannel.consumeAsFlow()

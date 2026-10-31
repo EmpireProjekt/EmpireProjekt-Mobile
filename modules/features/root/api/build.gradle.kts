@@ -24,7 +24,12 @@ kotlin {
         getByName("commonMain") {
             dependencies {
                 implementation(libs.decompose.core)
+                implementation(libs.essenty)
+                implementation(libs.kotlin.coroutines.core)
+                implementation(libs.kotlin.serialization.json)
                 implementation(projects.modules.features.rating.api)
+                implementation(projects.modules.features.towns.api)
+                implementation(projects.modules.features.webview.api)
                 implementation(projects.modules.services.core.common)
             }
         }

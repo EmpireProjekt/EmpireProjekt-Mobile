@@ -24,6 +24,7 @@ kotlin {
                 implementation(libs.klibs.mikro.core)
                 implementation(libs.klibs.mikro.platform)
                 implementation(libs.kotlin.coroutines.core)
+                implementation(projects.modules.features.root.api)
                 implementation(projects.modules.services.core.common)
             }
         }
