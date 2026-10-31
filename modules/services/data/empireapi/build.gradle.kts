@@ -21,6 +21,8 @@ kotlin {
             implementation(libs.kotlin.coroutines.core)
             implementation(libs.kotlin.serialization.json)
             implementation(libs.ktor.client.core)
+            implementation(projects.modules.features.rating.api)
+            implementation(projects.modules.features.towns.api)
             implementation(projects.modules.services.core.buildKonfig)
             implementation(projects.modules.services.core.common)
         }

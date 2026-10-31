@@ -1,7 +1,7 @@
 package com.makeevrserg.empireprojekt.mobile.wear.di
 
-import com.makeevrserg.empireprojekt.mobile.features.theme.di.ThemeSwitcherModule
-import com.makeevrserg.empireprojekt.mobile.features.theme.di.ThemeSwitcherModuleImpl
+import com.makeevrserg.empireprojekt.mobile.features.theme.api.di.ThemeSwitcherModule
+import com.makeevrserg.empireprojekt.mobile.features.theme.impl.di.ThemeSwitcherModuleImpl
 import com.makeevrserg.empireprojekt.mobile.services.core.di.CoreModule
 import com.makeevrserg.empireprojekt.mobile.wear.feature.ping.di.PingModule
 import com.makeevrserg.empireprojekt.mobile.wear.feature.status.component.DefaultWearStatusComponent

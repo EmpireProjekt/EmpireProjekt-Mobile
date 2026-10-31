@@ -1,6 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.wear.feature.status.component
 
-import com.makeevrserg.empireprojekt.mobile.features.status.url.component.UrlStatusComponent
+import com.makeevrserg.empireprojekt.mobile.features.status.api.url.component.UrlStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearMessageConsumer
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.model.DecodedWearMessage
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.model.Status

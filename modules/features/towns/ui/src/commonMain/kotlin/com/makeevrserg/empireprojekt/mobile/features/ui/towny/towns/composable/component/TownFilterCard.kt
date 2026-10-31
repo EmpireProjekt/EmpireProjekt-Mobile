@@ -20,15 +20,15 @@ import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_name
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_nation_label
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_residents_label
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_tag_label
-import com.makeevrserg.empireprojekt.mobile.features.towny.towns.util.LocalSortOrderExt.toStringDesc
-import com.makeevrserg.empireprojekt.mobile.features.towny.towns.util.TownPublicTypeExt.toStringDesc
-import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
-import ru.astrainteractive.empireapi.models.towny.TownsFilterModel
-import ru.astrainteractive.empireapi.models.towny.TownsFilterModel.TownPublicType
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsFilter
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsFilter.TownPublicType
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.impl.util.LocalSortOrderExt.toStringDesc
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.impl.util.TownPublicTypeExt.toStringDesc
+import com.makeevrserg.empireprojekt.mobile.services.core.model.LocalSortOrder
 
 @Composable
 internal fun TownFilterCard(
-    townsFilter: TownsFilterModel,
+    townsFilter: TownsFilter,
     onPublicTypeClick: () -> Unit,
     onSortByNameClick: () -> Unit,
     onSortByTagClick: () -> Unit,
@@ -90,7 +90,7 @@ private fun TownFilterCardEmptyPreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             TownFilterCard(
-                townsFilter = TownsFilterModel(),
+                townsFilter = TownsFilter(),
                 onSortByNationClick = {},
                 onSortByDateClick = {},
                 onSortByNameClick = {},
@@ -109,7 +109,7 @@ private fun TownFilterCardSelectedPreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             TownFilterCard(
-                townsFilter = TownsFilterModel(
+                townsFilter = TownsFilter(
                     publicType = TownPublicType.PUBLIC,
                     tagSort = LocalSortOrder.ASC,
                     nationSort = LocalSortOrder.DESC

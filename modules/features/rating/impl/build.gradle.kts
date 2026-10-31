@@ -14,8 +14,7 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.rating")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.rating.impl")
 }
 
 kotlin {
@@ -42,7 +41,6 @@ kotlin {
                 implementation(projects.modules.features.rating.api)
                 implementation(projects.modules.services.core.common)
                 implementation(projects.modules.services.core.resources)
-                implementation(projects.modules.services.data.empireapi)
             }
         }
         getByName("androidHostTest") {
@@ -53,7 +51,6 @@ kotlin {
         getByName("commonTest") {
             dependencies {
                 implementation(kotlin("test"))
-                implementation(projects.modules.services.data.empireapi)
             }
         }
     }

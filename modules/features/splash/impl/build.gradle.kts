@@ -10,8 +10,7 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.splash")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.splash.impl")
 }
 
 kotlin {

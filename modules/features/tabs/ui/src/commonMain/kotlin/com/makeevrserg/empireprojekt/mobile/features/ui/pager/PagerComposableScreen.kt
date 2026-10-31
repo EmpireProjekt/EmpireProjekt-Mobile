@@ -12,8 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.decompose.model.DecomposeScreen
-import com.makeevrserg.empireprojekt.mobile.features.root.pager.PagerComponent
-import com.makeevrserg.empireprojekt.mobile.features.root.pager.model.PagerBottomBarItem
+import com.makeevrserg.empireprojekt.mobile.features.root.pager.impl.PagerComponent
+import com.makeevrserg.empireprojekt.mobile.features.root.pager.impl.model.PagerBottomBarItem
 import com.makeevrserg.empireprojekt.mobile.features.ui.pager.composable.component.PagerBottomBar
 
 @Composable

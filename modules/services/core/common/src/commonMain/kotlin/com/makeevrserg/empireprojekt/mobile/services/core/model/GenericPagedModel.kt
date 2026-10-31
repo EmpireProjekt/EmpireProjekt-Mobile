@@ -1,0 +1,10 @@
+package com.makeevrserg.empireprojekt.mobile.services.core.model
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+class GenericPagedModel<T>(
+    override val data: List<T>,
+    override val total: Long,
+    override val page: Int
+) : PagedModel<T>

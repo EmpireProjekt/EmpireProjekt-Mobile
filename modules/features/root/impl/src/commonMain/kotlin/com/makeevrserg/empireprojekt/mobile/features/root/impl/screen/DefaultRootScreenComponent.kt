@@ -1,0 +1,102 @@
+package com.makeevrserg.empireprojekt.mobile.features.root.impl.screen
+
+import com.arkivanov.decompose.ComponentContext
+import com.arkivanov.decompose.router.stack.ChildStack
+import com.arkivanov.decompose.router.stack.StackNavigation
+import com.arkivanov.decompose.router.stack.childStack
+import com.arkivanov.decompose.router.stack.pop
+import com.arkivanov.decompose.router.stack.pushNew
+import com.arkivanov.decompose.router.stack.replaceAll
+import com.arkivanov.decompose.router.stack.replaceCurrent
+import com.arkivanov.decompose.value.Value
+import com.arkivanov.decompose.value.operator.map
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.user.component.RatingUserComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.userlist.component.RatingUsersComponent
+import com.makeevrserg.empireprojekt.mobile.features.root.api.screen.RootRouter
+import com.makeevrserg.empireprojekt.mobile.features.root.impl.di.RootModule
+import com.makeevrserg.empireprojekt.mobile.features.root.impl.screen.di.factory.RootScreenComponentChildFactory
+import com.makeevrserg.empireprojekt.mobile.features.root.pager.impl.PagerComponent
+import com.makeevrserg.empireprojekt.mobile.features.splash.impl.component.SplashComponent
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.component.TownsComponent
+import com.makeevrserg.empireprojekt.mobile.features.webview.impl.WebViewDecomposeComponent
+import com.makeevrserg.empireprojekt.mobile.services.core.navigation.component.PopComponent
+import kotlinx.serialization.serializer
+
+class DefaultRootScreenComponent(
+    componentContext: ComponentContext,
+    rootModule: RootModule,
+) : RootScreenComponent, ComponentContext by componentContext {
+
+    private val navigation = StackNavigation<RootRouter.Configuration>()
+
+    override val childStack: Value<ChildStack<*, Configuration>> = childStack(
+        source = navigation,
+        initialConfiguration = RootRouter.Configuration.Splash,
+        handleBackButton = true,
+        serializer = rootModule.coreModule.jsonConfiguration.serializersModule.serializer(),
+        childFactory = { config, context ->
+            RootScreenComponentChildFactory(
+                config = config,
+                childContext = context,
+                rootModule = rootModule,
+                instance = this,
+                ratingUsersModule = rootModule.ratingUsersModule,
+                townsModule = rootModule.townsModule,
+                onRootNavigation = { configuration ->
+                    push(configuration)
+                },
+                onPop = { pop() }
+            ).create()
+        }
+    )
+
+    override val popModel: Value<PopComponent.Model> = childStack.map {
+        PopComponent.Model(
+            canPop = it.backStack.isNotEmpty(),
+            popAction = { pop() }
+        )
+    }
+
+    override fun push(configuration: RootRouter.Configuration) {
+        navigation.pushNew(configuration)
+    }
+
+    override fun replaceCurrent(configuration: RootRouter.Configuration) {
+        navigation.replaceCurrent(configuration)
+    }
+
+    override fun replaceAll(configuration: RootRouter.Configuration) {
+        navigation.replaceAll(configuration)
+    }
+
+    override fun pop() {
+        navigation.pop()
+    }
+
+    sealed interface Configuration {
+        class Splash(
+            val splashComponent: SplashComponent
+        ) : Configuration
+
+        class RatingUser(
+            val ratingUserComponent: RatingUserComponent
+        ) : Configuration
+
+        class RatingUsers(
+            val ratingUsersComponent: RatingUsersComponent
+        ) : Configuration
+
+        class Towns(
+            val townsComponent: TownsComponent
+        ) : Configuration
+
+        class Pager(
+            val pagerComponent: PagerComponent
+        ) : Configuration
+
+        data object Votes : Configuration
+        data class WebView(
+            val webViewDecomposeComponent: WebViewDecomposeComponent
+        ) : Configuration
+    }
+}

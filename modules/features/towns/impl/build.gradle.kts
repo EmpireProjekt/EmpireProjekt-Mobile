@@ -14,8 +14,7 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.towny.towns")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.towny.towns.impl")
 }
 
 kotlin {

@@ -5,18 +5,18 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.makeevrserg.empireprojekt.mobile.api.empireapi.rating.model.UserRatingsRequest
 import com.makeevrserg.empireprojekt.mobile.core.ui.appbar.composable.AstraCenterAlignedTopAppBarComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingLazyColumnComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingListFooterComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.model.PagingContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
-import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.RatingUserComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.Rating
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingUser
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.user.component.RatingUserComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.user.composable.component.RatingUserWidget
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.userlist.composable.component.RatingUserShimmerWidget
-import ru.astrainteractive.empireapi.models.rating.RatingModel
-import ru.astrainteractive.empireapi.models.rating.RatingUserModel
-import ru.astrainteractive.empireapi.models.rating.UserRatingsRequest
 
 @Suppress("LongMethod")
 @Composable
@@ -68,7 +68,7 @@ internal fun RatingUserComposableScreen(
 @Suppress("MagicNumber")
 private fun ratingUserPreviewModel(
     reviewedUserName: String,
-    items: List<RatingModel>,
+    items: List<Rating>,
     isLoading: Boolean,
     isFailure: Boolean,
     isLastPage: Boolean
@@ -82,8 +82,8 @@ private fun ratingUserPreviewModel(
 )
 
 @Suppress("MagicNumber")
-private fun ratingUserPreviewItems(): List<RatingModel> {
-    val reviewer = RatingUserModel(
+private fun ratingUserPreviewItems(): List<Rating> {
+    val reviewer = RatingUser(
         id = 2,
         minecraftUUID = "uuid-2",
         minecraftName = "cinnamonrein",
@@ -91,7 +91,7 @@ private fun ratingUserPreviewItems(): List<RatingModel> {
         totalRating = 4,
         ratingVotes = 3
     )
-    val reviewed = RatingUserModel(
+    val reviewed = RatingUser(
         id = 1,
         minecraftUUID = "uuid-1",
         minecraftName = "RomaRoman",
@@ -100,7 +100,7 @@ private fun ratingUserPreviewItems(): List<RatingModel> {
         ratingVotes = 8
     )
     return listOf(
-        RatingModel(
+        Rating(
             userCreatedReport = reviewer,
             reportedUser = reviewed,
             rating = 1,
@@ -108,7 +108,7 @@ private fun ratingUserPreviewItems(): List<RatingModel> {
             message = "Great player, very helpful!",
             time = 1706549308031
         ),
-        RatingModel(
+        Rating(
             userCreatedReport = reviewer,
             reportedUser = reviewed,
             rating = -1,

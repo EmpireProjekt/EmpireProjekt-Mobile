@@ -11,8 +11,7 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.theme")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.theme.impl")
 }
 
 kotlin {

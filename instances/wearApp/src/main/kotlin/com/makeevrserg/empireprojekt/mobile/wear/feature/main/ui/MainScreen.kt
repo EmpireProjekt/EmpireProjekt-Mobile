@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.makeevrserg.empireprojekt.mobile.features.theme.component.ThemeSwitcherComponent
+import com.makeevrserg.empireprojekt.mobile.features.theme.api.component.ThemeSwitcherComponent
 
 @Composable
 fun MainScreen(

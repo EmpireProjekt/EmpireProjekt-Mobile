@@ -25,7 +25,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextCom
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.astraCard
-import com.makeevrserg.empireprojekt.mobile.features.status.url.component.UrlStatusComponent
+import com.makeevrserg.empireprojekt.mobile.features.status.api.url.component.UrlStatusComponent
 import dev.icerock.moko.resources.desc.Raw
 import dev.icerock.moko.resources.desc.StringDesc
 

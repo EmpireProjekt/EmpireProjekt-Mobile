@@ -9,10 +9,10 @@ import com.arkivanov.decompose.extensions.compose.stack.animation.slide
 import com.arkivanov.decompose.extensions.compose.stack.animation.stackAnimation
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.makeevrserg.empireprojekt.mobile.core.ui.decompose.model.DecomposeScreen
-import com.makeevrserg.empireprojekt.mobile.features.root.RootComponent
-import com.makeevrserg.empireprojekt.mobile.features.root.pager.PagerComponent
-import com.makeevrserg.empireprojekt.mobile.features.root.screen.DefaultRootScreenComponent
-import com.makeevrserg.empireprojekt.mobile.features.root.screen.RootRouter
+import com.makeevrserg.empireprojekt.mobile.features.root.api.screen.RootRouter
+import com.makeevrserg.empireprojekt.mobile.features.root.impl.RootComponent
+import com.makeevrserg.empireprojekt.mobile.features.root.impl.screen.DefaultRootScreenComponent
+import com.makeevrserg.empireprojekt.mobile.features.root.pager.impl.PagerComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.info.InfoScreen
 import com.makeevrserg.empireprojekt.mobile.features.ui.map.AndroidMapView
 import com.makeevrserg.empireprojekt.mobile.features.ui.pager.PagerScreenComponent

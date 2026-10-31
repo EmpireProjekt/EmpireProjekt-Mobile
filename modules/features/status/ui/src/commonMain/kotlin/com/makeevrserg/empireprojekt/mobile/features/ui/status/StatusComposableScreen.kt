@@ -22,7 +22,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeCom
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.features.status.url.component.UrlStatusComponent
+import com.makeevrserg.empireprojekt.mobile.features.status.api.url.component.UrlStatusComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.status.widget.StatusWidget
 import com.makeevrserg.empireprojekt.mobile.status.SR
 import com.makeevrserg.empireprojekt.mobile.status.status_network_desc

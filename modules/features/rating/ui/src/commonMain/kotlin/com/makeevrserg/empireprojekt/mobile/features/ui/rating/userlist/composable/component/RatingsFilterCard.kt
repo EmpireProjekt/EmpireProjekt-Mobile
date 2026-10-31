@@ -12,17 +12,17 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.Filter
 import com.makeevrserg.empireprojekt.mobile.core.ui.filtercard.composable.SortFilterHeaderComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
-import com.makeevrserg.empireprojekt.mobile.features.rating.userlist.util.LocalSortOrderExt.toStringDesc
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingsFilter
+import com.makeevrserg.empireprojekt.mobile.features.rating.impl.userlist.util.toStringDesc
 import com.makeevrserg.empireprojekt.mobile.rating.RR
 import com.makeevrserg.empireprojekt.mobile.rating.rating_filter_sort_last_update_label
 import com.makeevrserg.empireprojekt.mobile.rating.rating_filter_sort_name_label
 import com.makeevrserg.empireprojekt.mobile.rating.rating_filter_sort_rating_label
-import ru.astrainteractive.empireapi.models.rating.RatingsFilterModel
-import ru.astrainteractive.empireapi.models.towny.LocalSortOrder
+import com.makeevrserg.empireprojekt.mobile.services.core.model.LocalSortOrder
 
 @Composable
 internal fun RatingsFilterCard(
-    filter: RatingsFilterModel,
+    filter: RatingsFilter,
     onNameSortClick: () -> Unit,
     onLastUpdateSortClick: () -> Unit,
     onRatingSortClick: () -> Unit,
@@ -56,7 +56,7 @@ private fun RatingsFilterCardEmptyPreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             RatingsFilterCard(
-                filter = RatingsFilterModel(),
+                filter = RatingsFilter(),
                 onLastUpdateSortClick = {},
                 onNameSortClick = {},
                 onRatingSortClick = {},
@@ -71,7 +71,7 @@ private fun RatingsFilterCardSelectedPreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         Box(modifier = Modifier.background(MaterialTheme.colors.primaryVariant)) {
             RatingsFilterCard(
-                filter = RatingsFilterModel(
+                filter = RatingsFilter(
                     nameSort = LocalSortOrder.ASC,
                     lastUpdatedSort = LocalSortOrder.DESC
                 ),

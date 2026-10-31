@@ -14,7 +14,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.webview.composable.AstraWebViewComposable
-import com.makeevrserg.empireprojekt.mobile.features.webview.WebViewDecomposeComponent
+import com.makeevrserg.empireprojekt.mobile.features.webview.impl.WebViewDecomposeComponent
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 

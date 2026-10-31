@@ -12,7 +12,7 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_off
 import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
-import com.makeevrserg.empireprojekt.mobile.features.status.url.component.UrlStatusComponent
+import com.makeevrserg.empireprojekt.mobile.features.status.api.url.component.UrlStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.feature.composable.component.IconTextChip
 
 @Composable

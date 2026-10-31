@@ -2,7 +2,7 @@ package com.makeevrserg.empireprojekt.mobile.wear.feature.root.component
 
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.value.Value
-import com.makeevrserg.empireprojekt.mobile.features.theme.component.ThemeSwitcherComponent
+import com.makeevrserg.empireprojekt.mobile.features.theme.api.component.ThemeSwitcherComponent
 import com.makeevrserg.empireprojekt.mobile.wear.feature.ping.component.PingComponent
 import com.makeevrserg.empireprojekt.mobile.wear.feature.status.component.WearStatusComponent
 

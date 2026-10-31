@@ -1,0 +1,37 @@
+package com.makeevrserg.empireprojekt.mobile.features.theme.impl.component
+
+import com.makeevrserg.empireprojekt.mobile.features.theme.api.component.ThemeSwitcherComponent
+import com.makeevrserg.empireprojekt.mobile.features.theme.api.data.model.Theme
+import com.makeevrserg.empireprojekt.mobile.features.theme.impl.data.ThemeSwitcherRepository
+import kotlinx.coroutines.flow.StateFlow
+import ru.astrainteractive.klibs.mikro.core.util.next
+
+internal class DefaultThemeSwitcherComponent(
+    themeSwitcherRepository: ThemeSwitcherRepository
+) : ThemeSwitcherComponent {
+    private val themeFlowStorageValue = themeSwitcherRepository.themeFlowStorageValue
+
+    override val theme: StateFlow<Theme> = themeFlowStorageValue.cachedStateFlow
+
+    override fun selectDarkTheme() {
+        themeFlowStorageValue.save(Theme.DARK)
+    }
+
+    override fun selectLightTheme() {
+        themeFlowStorageValue.save(Theme.LIGHT)
+    }
+
+    override fun selectTheme(theme: Theme) {
+        themeFlowStorageValue.save(theme)
+    }
+
+    override fun next() {
+        val entries = Theme.entries.toTypedArray()
+        val nextTheme = theme.value.next(entries)
+        selectTheme(nextTheme)
+    }
+
+    init {
+        themeFlowStorageValue.getValue()
+    }
+}

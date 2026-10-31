@@ -14,12 +14,12 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_list_title
-import com.makeevrserg.empireprojekt.mobile.features.towny.towns.component.TownsComponent
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.component.TownsComponent
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.Town
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsFilter
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.composable.component.TownCard
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.composable.component.TownFilterCard
 import com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns.composable.component.TownShimmerWidget
-import ru.astrainteractive.empireapi.models.towny.TownModel
-import ru.astrainteractive.empireapi.models.towny.TownsFilterModel
 
 @Suppress("LongMethod", "LongParameterList")
 @Composable
@@ -98,7 +98,7 @@ private fun previewTownModel(
     mayor: String,
     nation: String,
     residentsCount: Long
-): TownModel = TownModel(
+): Town = Town(
     name = name,
     mayor = mayor,
     nation = nation,
@@ -114,7 +114,7 @@ private fun previewTownModel(
     residentsCount = residentsCount
 )
 
-private val previewTownItems: List<TownModel> = listOf(
+private val previewTownItems: List<Town> = listOf(
     previewTownModel(name = "Rostov", mayor = "RomaRoman", nation = "NCR", residentsCount = 10),
     previewTownModel(name = "Moscow", mayor = "cinnamonrein", nation = "USSR", residentsCount = 42)
 )
@@ -126,7 +126,7 @@ private fun TownsComposableScreenLoadedPreview() {
         TownsComposableScreen(
             model = TownsComponent.Model(
                 items = previewTownItems,
-                filter = TownsFilterModel()
+                filter = TownsFilter()
             ),
             onBack = {},
             onLoadNextPage = {},
@@ -149,7 +149,7 @@ private fun TownsComposableScreenLoadingPreview() {
         TownsComposableScreen(
             model = TownsComponent.Model(
                 items = emptyList(),
-                filter = TownsFilterModel(),
+                filter = TownsFilter(),
                 isLoading = true
             ),
             onBack = {},
@@ -173,7 +173,7 @@ private fun TownsComposableScreenEmptyPreview() {
         TownsComposableScreen(
             model = TownsComponent.Model(
                 items = emptyList(),
-                filter = TownsFilterModel(),
+                filter = TownsFilter(),
                 isLastPage = true
             ),
             onBack = {},
@@ -197,7 +197,7 @@ private fun TownsComposableScreenFailurePreview() {
         TownsComposableScreen(
             model = TownsComponent.Model(
                 items = previewTownItems,
-                filter = TownsFilterModel(),
+                filter = TownsFilter(),
                 isFailure = true
             ),
             onBack = {},

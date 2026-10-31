@@ -32,11 +32,11 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.astraCard
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingUser
 import com.makeevrserg.empireprojekt.mobile.rating.RR
 import com.makeevrserg.empireprojekt.mobile.rating.rating_last_updated_label
 import com.makeevrserg.empireprojekt.mobile.rating.rating_users_total_rating_label
 import com.makeevrserg.empireprojekt.mobile.rating.rating_users_votes_count_label
-import ru.astrainteractive.empireapi.models.rating.RatingUserModel
 import ru.astrainteractive.klibs.mikro.extensions.JvmTimeFormatter
 import ru.astrainteractive.klibs.mikro.extensions.TimeFormatter
 import kotlin.time.Instant
@@ -44,7 +44,7 @@ import kotlin.time.Instant
 @Suppress("LongMethod", "MagicNumber")
 @Composable
 internal fun RatingUserWidget(
-    model: RatingUserModel,
+    model: RatingUser,
     onClick: () -> Unit
 ) {
     val timeFormatter: TimeFormatter = JvmTimeFormatter()
@@ -127,7 +127,7 @@ internal fun RatingUserWidget(
 private fun RatingUserWidgetPositivePreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUserWidget(
-            model = RatingUserModel(
+            model = RatingUser(
                 id = 1,
                 minecraftUUID = "uuid",
                 minecraftName = "name",
@@ -145,7 +145,7 @@ private fun RatingUserWidgetPositivePreview() {
 private fun RatingUserWidgetNegativePreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUserWidget(
-            model = RatingUserModel(
+            model = RatingUser(
                 id = 2,
                 minecraftUUID = "uuid",
                 minecraftName = "name",

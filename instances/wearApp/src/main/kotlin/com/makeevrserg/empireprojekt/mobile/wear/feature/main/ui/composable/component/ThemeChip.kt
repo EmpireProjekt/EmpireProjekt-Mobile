@@ -12,7 +12,7 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.ic_sunny
 import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
-import com.makeevrserg.empireprojekt.mobile.features.theme.data.model.Theme
+import com.makeevrserg.empireprojekt.mobile.features.theme.api.data.model.Theme
 import com.makeevrserg.empireprojekt.mobile.wear.R
 import com.makeevrserg.empireprojekt.mobile.wear.feature.composable.component.IconTextChip
 

@@ -11,8 +11,7 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.webview")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.webview.impl")
 }
 
 kotlin {

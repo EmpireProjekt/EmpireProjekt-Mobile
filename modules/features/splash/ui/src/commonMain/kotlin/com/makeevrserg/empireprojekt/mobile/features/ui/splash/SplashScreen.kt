@@ -3,8 +3,8 @@ package com.makeevrserg.empireprojekt.mobile.features.ui.splash
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import com.makeevrserg.empireprojekt.mobile.features.root.screen.RootRouter
-import com.makeevrserg.empireprojekt.mobile.features.splash.component.SplashComponent
+import com.makeevrserg.empireprojekt.mobile.features.root.api.screen.RootRouter
+import com.makeevrserg.empireprojekt.mobile.features.splash.impl.component.SplashComponent
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable

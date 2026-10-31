@@ -12,7 +12,7 @@ plugins {
 
 linter {
     unitKind.set("api")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.rating")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.rating.api")
 }
 
 kotlin {
@@ -24,7 +24,7 @@ kotlin {
                 implementation(libs.decompose.core)
                 implementation(libs.kotlin.coroutines.core)
                 implementation(libs.kotlin.serialization.json)
-                implementation(projects.modules.services.data.empireapi)
+                implementation(projects.modules.services.core.common)
             }
         }
     }

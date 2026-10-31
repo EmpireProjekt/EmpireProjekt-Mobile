@@ -10,8 +10,7 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.root.pager")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.root.pager.impl")
 }
 
 kotlin {

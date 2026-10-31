@@ -16,13 +16,13 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.paging.composable.PagingList
 import com.makeevrserg.empireprojekt.mobile.core.ui.paging.model.PagingContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.searchbar.model.SearchBarState
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
-import com.makeevrserg.empireprojekt.mobile.features.rating.userlist.component.RatingUsersComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingUser
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingsFilter
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.userlist.component.RatingUsersComponent
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.userlist.composable.component.RatingUserShimmerWidget
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.userlist.composable.component.RatingUserWidget
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.userlist.composable.component.RatingUsersAppBar
 import com.makeevrserg.empireprojekt.mobile.features.ui.rating.userlist.composable.component.RatingsFilterCard
-import ru.astrainteractive.empireapi.models.rating.RatingUserModel
-import ru.astrainteractive.empireapi.models.rating.RatingsFilterModel
 
 @Suppress("LongMethod", "LongParameterList")
 @Composable
@@ -33,7 +33,7 @@ internal fun RatingUsersComposableScreen(
     onNameSortClick: () -> Unit,
     onLastUpdateSortClick: () -> Unit,
     onRatingSortClick: () -> Unit,
-    onUserClick: (RatingUserModel) -> Unit,
+    onUserClick: (RatingUser) -> Unit,
     onLoadNextPage: () -> Unit,
     onReset: () -> Unit,
     modifier: Modifier = Modifier
@@ -89,8 +89,8 @@ internal fun RatingUsersComposableScreen(
 }
 
 @Suppress("MagicNumber")
-private fun ratingUsersPreviewItems(): List<RatingUserModel> = listOf(
-    RatingUserModel(
+private fun ratingUsersPreviewItems(): List<RatingUser> = listOf(
+    RatingUser(
         id = 1,
         minecraftUUID = "uuid-1",
         minecraftName = "RomaRoman",
@@ -98,7 +98,7 @@ private fun ratingUsersPreviewItems(): List<RatingUserModel> = listOf(
         totalRating = 12,
         ratingVotes = 8
     ),
-    RatingUserModel(
+    RatingUser(
         id = 2,
         minecraftUUID = "uuid-2",
         minecraftName = "cinnamonrein",
@@ -115,7 +115,7 @@ private fun RatingUsersComposableScreenLoadedPreview() {
         RatingUsersComposableScreen(
             model = RatingUsersComponent.Model(
                 items = ratingUsersPreviewItems(),
-                filter = RatingsFilterModel()
+                filter = RatingsFilter()
             ),
             onBack = {},
             onUpdateQuery = {},
@@ -136,7 +136,7 @@ private fun RatingUsersComposableScreenLoadingPreview() {
         RatingUsersComposableScreen(
             model = RatingUsersComponent.Model(
                 items = emptyList(),
-                filter = RatingsFilterModel(),
+                filter = RatingsFilter(),
                 isLoading = true
             ),
             onBack = {},
@@ -158,7 +158,7 @@ private fun RatingUsersComposableScreenEmptyPreview() {
         RatingUsersComposableScreen(
             model = RatingUsersComponent.Model(
                 items = emptyList(),
-                filter = RatingsFilterModel(),
+                filter = RatingsFilter(),
                 isLastPage = true
             ),
             onBack = {},
@@ -180,7 +180,7 @@ private fun RatingUsersComposableScreenFailurePreview() {
         RatingUsersComposableScreen(
             model = RatingUsersComponent.Model(
                 items = ratingUsersPreviewItems(),
-                filter = RatingsFilterModel(),
+                filter = RatingsFilter(),
                 isFailure = true
             ),
             onBack = {},

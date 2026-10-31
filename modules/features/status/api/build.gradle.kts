@@ -12,7 +12,7 @@ plugins {
 
 linter {
     unitKind.set("api")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.status")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.status.api")
 }
 
 kotlin {

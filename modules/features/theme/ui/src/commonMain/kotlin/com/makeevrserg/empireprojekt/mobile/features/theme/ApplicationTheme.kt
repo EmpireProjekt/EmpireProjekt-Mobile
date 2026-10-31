@@ -5,9 +5,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
-import com.makeevrserg.empireprojekt.mobile.features.theme.component.PreviewThemeSwitcherComponent
-import com.makeevrserg.empireprojekt.mobile.features.theme.component.ThemeSwitcherComponent
-import com.makeevrserg.empireprojekt.mobile.features.theme.data.model.Theme
+import com.makeevrserg.empireprojekt.mobile.features.theme.api.component.ThemeSwitcherComponent
+import com.makeevrserg.empireprojekt.mobile.features.theme.api.data.model.Theme
+import com.makeevrserg.empireprojekt.mobile.features.theme.impl.component.PreviewThemeSwitcherComponent
 
 @Composable
 fun ApplicationTheme(

@@ -12,7 +12,7 @@ plugins {
 
 linter {
     unitKind.set("api")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.towny.towns")
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.towny.towns.api")
 }
 
 kotlin {
@@ -23,7 +23,8 @@ kotlin {
             dependencies {
                 implementation(libs.decompose.core)
                 implementation(libs.kotlin.coroutines.core)
-                implementation(projects.modules.services.data.empireapi)
+                implementation(libs.kotlin.serialization.json)
+                implementation(projects.modules.services.core.common)
             }
         }
     }
