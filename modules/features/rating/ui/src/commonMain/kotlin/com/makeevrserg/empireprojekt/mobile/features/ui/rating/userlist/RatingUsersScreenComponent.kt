@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.makeevrserg.empireprojekt.mobile.features.rating.model.RatingUserId
 import com.makeevrserg.empireprojekt.mobile.features.rating.userlist.component.RatingUsersComponent
-import com.makeevrserg.empireprojekt.mobile.services.core.navigation.api.PopComponent
+import com.makeevrserg.empireprojekt.mobile.services.core.navigation.component.PopComponent
 import kotlinx.coroutines.Dispatchers
 
 @Composable

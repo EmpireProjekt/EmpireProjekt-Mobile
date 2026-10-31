@@ -6,7 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.makeevrserg.empireprojekt.mobile.features.rating.user.component.RatingUserComponent
-import com.makeevrserg.empireprojekt.mobile.services.core.navigation.api.PopComponent
+import com.makeevrserg.empireprojekt.mobile.services.core.navigation.component.PopComponent
 
 @Composable
 fun RatingUserScreenComponent(

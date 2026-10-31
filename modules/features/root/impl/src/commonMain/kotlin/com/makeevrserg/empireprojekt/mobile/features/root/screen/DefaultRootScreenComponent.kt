@@ -18,7 +18,7 @@ import com.makeevrserg.empireprojekt.mobile.features.root.screen.di.factory.Root
 import com.makeevrserg.empireprojekt.mobile.features.splash.component.SplashComponent
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.component.TownsComponent
 import com.makeevrserg.empireprojekt.mobile.features.webview.WebViewDecomposeComponent
-import com.makeevrserg.empireprojekt.mobile.services.core.navigation.api.PopComponent
+import com.makeevrserg.empireprojekt.mobile.services.core.navigation.component.PopComponent
 import kotlinx.serialization.serializer
 
 class DefaultRootScreenComponent(

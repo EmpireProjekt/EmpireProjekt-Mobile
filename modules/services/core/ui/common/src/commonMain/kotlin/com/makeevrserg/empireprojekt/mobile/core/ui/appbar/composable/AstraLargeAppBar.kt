@@ -20,7 +20,7 @@ import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.makeevrserg.empireprojekt.mobile.core.ui.button.composable.AstraBackButton
 import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraText
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AdaptThemeFade
-import com.makeevrserg.empireprojekt.mobile.services.core.navigation.api.PopComponent
+import com.makeevrserg.empireprojekt.mobile.services.core.navigation.component.PopComponent
 
 @Composable
 fun AstraCenterAlignedTopAppBar(

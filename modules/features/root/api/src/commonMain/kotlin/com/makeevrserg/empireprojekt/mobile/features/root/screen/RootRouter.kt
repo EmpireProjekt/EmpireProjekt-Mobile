@@ -1,7 +1,7 @@
 package com.makeevrserg.empireprojekt.mobile.features.root.screen
 
 import com.makeevrserg.empireprojekt.mobile.features.rating.model.RatingUserId
-import com.makeevrserg.empireprojekt.mobile.services.core.navigation.api.PopComponent
+import com.makeevrserg.empireprojekt.mobile.services.core.navigation.component.PopComponent
 import kotlinx.serialization.Serializable
 
 interface RootRouter : PopComponent {
