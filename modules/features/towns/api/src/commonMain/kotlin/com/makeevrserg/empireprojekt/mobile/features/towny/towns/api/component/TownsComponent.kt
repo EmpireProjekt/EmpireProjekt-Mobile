@@ -28,10 +28,10 @@ interface TownsComponent {
     fun nextResidentsSort()
 
     data class Model(
-        val items: List<Town> = emptyList(),
+        val items: List<Town>,
         val filter: TownsFilter,
-        val isLoading: Boolean = false,
-        val isFailure: Boolean = false,
-        val isLastPage: Boolean = false
+        val isLoading: Boolean,
+        val isFailure: Boolean,
+        val isLastPage: Boolean
     )
 }

@@ -5,8 +5,5 @@ import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.Towns
 import com.makeevrserg.empireprojekt.mobile.services.core.model.GenericPagedModel
 
 interface TownRepository {
-    /**
-     * Fetch all towns
-     */
     suspend fun towns(page: Int, size: Int, filter: TownsFilter): GenericPagedModel<Town>
 }

@@ -39,7 +39,6 @@ kotlin {
                 implementation(projects.modules.features.towns.api)
                 implementation(projects.modules.services.core.common)
                 implementation(projects.modules.services.core.resources)
-                implementation(projects.modules.services.data.empireapi)
             }
         }
     }

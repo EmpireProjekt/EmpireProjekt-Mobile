@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.features.towny.towns.impl.storage
+package com.makeevrserg.empireprojekt.mobile.features.towny.towns.impl.krate
 
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsFilter
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsFilter.TownPublicType
@@ -10,17 +10,6 @@ import ru.astrainteractive.klibs.kstorage.api.CachedMutableKrate
 import ru.astrainteractive.klibs.kstorage.api.asCachedMutableKrate
 import ru.astrainteractive.klibs.kstorage.api.impl.DefaultMutableKrate
 
-private class Keys(key: String) {
-    val queryKey: String = "${key}queryKey"
-    val publicTypeKey: String = "${key}publicTypeKey"
-    val nameSortKey: String = "${key}nameSortKey"
-    val tagSortKey: String = "${key}tagSortKey"
-    val founderSortKey: String = "${key}founderSortKey"
-    val nationSortKey: String = "${key}nationSortKey"
-    val dateSortKey: String = "${key}dateSortKey"
-    val residentsSortKey: String = "${key}residentsSortKey"
-}
-
 internal class TownsFilterStorageValue(
     settings: Settings,
     key: String,
@@ -28,7 +17,7 @@ internal class TownsFilterStorageValue(
 ) : CachedMutableKrate<TownsFilter> by DefaultMutableKrate(
     factory = { default },
     loader = {
-        val keys = Keys(key)
+        val keys = TownsFilterKeys(key)
         TownsFilter(
             query = settings.getString(key = keys.queryKey, defaultValue = default.query),
             publicType = settings.loadEnumByOrdinal(
@@ -68,15 +57,15 @@ internal class TownsFilterStorageValue(
             ),
         )
     },
-    saver = {
-        val keys = Keys(key)
-        settings.putString(key = keys.queryKey, value = it.query)
-        settings.putEnumByOrdinal(keys.publicTypeKey, it.publicType)
-        settings.putEnumByOrdinal(keys.nameSortKey, it.nameSort)
-        settings.putEnumByOrdinal(keys.tagSortKey, it.tagSort)
-        settings.putEnumByOrdinal(keys.founderSortKey, it.founderSort)
-        settings.putEnumByOrdinal(keys.nationSortKey, it.nationSort)
-        settings.putEnumByOrdinal(keys.dateSortKey, it.dateSort)
-        settings.putEnumByOrdinal(keys.residentsSortKey, it.residentsSort)
+    saver = { filter ->
+        val keys = TownsFilterKeys(key)
+        settings.putString(key = keys.queryKey, value = filter.query)
+        settings.putEnumByOrdinal(keys.publicTypeKey, filter.publicType)
+        settings.putEnumByOrdinal(keys.nameSortKey, filter.nameSort)
+        settings.putEnumByOrdinal(keys.tagSortKey, filter.tagSort)
+        settings.putEnumByOrdinal(keys.founderSortKey, filter.founderSort)
+        settings.putEnumByOrdinal(keys.nationSortKey, filter.nationSort)
+        settings.putEnumByOrdinal(keys.dateSortKey, filter.dateSort)
+        settings.putEnumByOrdinal(keys.residentsSortKey, filter.residentsSort)
     }
 ).asCachedMutableKrate()

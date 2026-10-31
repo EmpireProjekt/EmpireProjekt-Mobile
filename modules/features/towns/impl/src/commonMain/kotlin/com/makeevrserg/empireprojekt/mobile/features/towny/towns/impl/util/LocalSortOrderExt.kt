@@ -5,9 +5,10 @@ import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_sort_order_ascen
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_sort_order_descending_label
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_sort_order_none_label
 import com.makeevrserg.empireprojekt.mobile.services.core.model.LocalSortOrder
+import dev.icerock.moko.resources.StringResource
 
-object LocalSortOrderExt {
-    fun LocalSortOrder.toStringDesc() = when (this) {
+fun LocalSortOrder.toStringDesc(): StringResource {
+    return when (this) {
         LocalSortOrder.NONE -> TR.strings.towns_sort_order_none_label
         LocalSortOrder.ASC -> TR.strings.towns_sort_order_ascending_label
         LocalSortOrder.DESC -> TR.strings.towns_sort_order_descending_label

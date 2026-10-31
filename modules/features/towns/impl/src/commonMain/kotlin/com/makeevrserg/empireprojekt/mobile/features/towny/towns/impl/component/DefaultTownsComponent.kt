@@ -4,7 +4,6 @@ import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.essenty.instancekeeper.getOrCreate
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.component.TownsComponent
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsFilter.TownPublicType
-import com.makeevrserg.empireprojekt.mobile.features.towny.towns.impl.di.TownsDependencies
 import com.makeevrserg.empireprojekt.mobile.services.core.model.LocalSortOrder
 import kotlinx.coroutines.flow.StateFlow
 import ru.astrainteractive.klibs.mikro.core.util.next
@@ -12,13 +11,21 @@ import ru.astrainteractive.klibs.mikro.core.util.next
 @Suppress("TooManyFunctions")
 internal class DefaultTownsComponent(
     componentContext: ComponentContext,
-    dependencies: TownsDependencies
+    createTownsFeature: () -> TownsFeature
 ) : TownsComponent, ComponentContext by componentContext {
     private val townsFeature = instanceKeeper.getOrCreate {
-        TownsFeature(dependencies)
+        createTownsFeature.invoke()
     }
     override val model: StateFlow<TownsComponent.Model>
         get() = townsFeature.model
+
+    private fun LocalSortOrder?.next(): LocalSortOrder {
+        return this?.next(LocalSortOrder.entries.toTypedArray()) ?: LocalSortOrder.entries.first()
+    }
+
+    private fun TownPublicType?.next(): TownPublicType {
+        return this?.next(TownPublicType.entries.toTypedArray()) ?: TownPublicType.entries.first()
+    }
 
     override fun reset() {
         townsFeature.reset()
@@ -29,41 +36,34 @@ internal class DefaultTownsComponent(
     }
 
     override fun updateQuery(query: String) {
-        townsFeature.updateFilter { it.copy(query = query) }
-    }
-
-    private fun LocalSortOrder?.next(): LocalSortOrder {
-        return this?.next(LocalSortOrder.entries.toTypedArray()) ?: LocalSortOrder.entries.first()
-    }
-    private fun TownPublicType?.next(): TownPublicType {
-        return this?.next(TownPublicType.entries.toTypedArray()) ?: TownPublicType.entries.first()
+        townsFeature.updateFilter { filter -> filter.copy(query = query) }
     }
 
     override fun nextPublicType() {
-        townsFeature.updateFilter { it.copy(publicType = it.publicType.next()) }
+        townsFeature.updateFilter { filter -> filter.copy(publicType = filter.publicType.next()) }
     }
 
     override fun nextNameSort() {
-        townsFeature.updateFilter { it.copy(nameSort = it.nameSort.next()) }
+        townsFeature.updateFilter { filter -> filter.copy(nameSort = filter.nameSort.next()) }
     }
 
     override fun nextTagSort() {
-        townsFeature.updateFilter { it.copy(tagSort = it.tagSort.next()) }
+        townsFeature.updateFilter { filter -> filter.copy(tagSort = filter.tagSort.next()) }
     }
 
     override fun nextFounderSort() {
-        townsFeature.updateFilter { it.copy(founderSort = it.founderSort.next()) }
+        townsFeature.updateFilter { filter -> filter.copy(founderSort = filter.founderSort.next()) }
     }
 
     override fun nextNationSort() {
-        townsFeature.updateFilter { it.copy(nationSort = it.nationSort.next()) }
+        townsFeature.updateFilter { filter -> filter.copy(nationSort = filter.nationSort.next()) }
     }
 
     override fun nextDateSort() {
-        townsFeature.updateFilter { it.copy(dateSort = it.dateSort.next()) }
+        townsFeature.updateFilter { filter -> filter.copy(dateSort = filter.dateSort.next()) }
     }
 
     override fun nextResidentsSort() {
-        townsFeature.updateFilter { it.copy(residentsSort = it.residentsSort.next()) }
+        townsFeature.updateFilter { filter -> filter.copy(residentsSort = filter.residentsSort.next()) }
     }
 }

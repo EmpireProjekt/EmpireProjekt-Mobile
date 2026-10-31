@@ -22,8 +22,7 @@ import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_resi
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_tag_label
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsFilter
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsFilter.TownPublicType
-import com.makeevrserg.empireprojekt.mobile.features.towny.towns.impl.util.LocalSortOrderExt.toStringDesc
-import com.makeevrserg.empireprojekt.mobile.features.towny.towns.impl.util.TownPublicTypeExt.toStringDesc
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.impl.util.toStringDesc
 import com.makeevrserg.empireprojekt.mobile.services.core.model.LocalSortOrder
 
 @Composable
