@@ -176,7 +176,13 @@ dependencies {
     implementation(projects.modules.services.core.ui.sheet)
     implementation(projects.modules.services.core.ui.theme)
     implementation(projects.modules.services.wearMessenger.api)
-    implementation(projects.modules.services.wearMessenger.common)
+    implementation(projects.modules.services.wearMessenger.common) {
+        exclude(group = "androidx.wear.compose")
+        exclude(group = "androidx.wear.protolayout")
+        exclude(group = "androidx.wear.tiles")
+        exclude(group = "androidx.wear.watchface")
+        exclude(group = "com.google.android.horologist", module = "horologist-tiles")
+    }
     implementation(projects.modules.services.wearMessenger.datalayer)
     implementation(projects.modules.services.wearMessenger.pingWear)
 }
