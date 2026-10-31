@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.features.status.impl.url.data.model
+package com.makeevrserg.empireprojekt.mobile.features.status.impl.url.model
 
 import kotlinx.serialization.Serializable
 

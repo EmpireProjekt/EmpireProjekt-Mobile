@@ -1,11 +1,8 @@
 package com.makeevrserg.empireprojekt.mobile.features.status.impl.url.component
 
-import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.arkivanov.mvikotlin.extensions.coroutines.stateFlow
 import com.makeevrserg.empireprojekt.mobile.features.status.api.url.component.UrlStatusComponent
-import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.data.UrlStatusRepository
-import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.store.UrlStatusStore
-import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.store.UrlStatusStoreFactory
+import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.api.UrlStatusStore
 import dev.icerock.moko.resources.desc.Raw
 import dev.icerock.moko.resources.desc.StringDesc
 import kotlinx.coroutines.flow.StateFlow
@@ -13,13 +10,11 @@ import ru.astrainteractive.klibs.mikro.core.util.mapStateFlow
 
 internal class DefaultUrlStatusComponent(
     title: String,
-    storeFactory: StoreFactory,
-    urlStatusRepository: UrlStatusRepository
+    private val urlStatusStore: UrlStatusStore
 ) : UrlStatusComponent {
-    private val store = UrlStatusStoreFactory(storeFactory, urlStatusRepository).create()
 
-    override val model: StateFlow<UrlStatusComponent.Model> = store.stateFlow.mapStateFlow {
-        val status = when (it) {
+    override val model: StateFlow<UrlStatusComponent.Model> = urlStatusStore.stateFlow.mapStateFlow { state ->
+        val status = when (state) {
             UrlStatusStore.State.LOADING -> UrlStatusComponent.LoadingStatus.LOADING
             UrlStatusStore.State.SUCCESS -> UrlStatusComponent.LoadingStatus.SUCCESS
             UrlStatusStore.State.ERROR -> UrlStatusComponent.LoadingStatus.ERROR
@@ -32,6 +27,6 @@ internal class DefaultUrlStatusComponent(
     }
 
     override fun checkStatus() {
-        UrlStatusStore.Intent.CheckOnce(true).run(store::accept)
+        UrlStatusStore.Intent.CheckOnce(true).run(urlStatusStore::accept)
     }
 }

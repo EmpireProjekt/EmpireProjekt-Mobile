@@ -1,8 +1,8 @@
-package com.makeevrserg.empireprojekt.mobile.features.status.impl.url.store
+package com.makeevrserg.empireprojekt.mobile.features.status.impl.url.mvikotlin
 
 import com.arkivanov.mvikotlin.core.store.Reducer
-import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.store.UrlStatusStore.Message
-import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.store.UrlStatusStore.State
+import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.api.UrlStatusStore.Message
+import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.api.UrlStatusStore.State
 
 internal object UrlStatusReducer : Reducer<State, Message> {
     override fun State.reduce(msg: Message): State {

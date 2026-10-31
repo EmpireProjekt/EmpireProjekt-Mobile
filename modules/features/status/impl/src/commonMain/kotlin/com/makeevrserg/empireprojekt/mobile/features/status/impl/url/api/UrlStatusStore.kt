@@ -1,11 +1,8 @@
-package com.makeevrserg.empireprojekt.mobile.features.status.impl.url.store
+package com.makeevrserg.empireprojekt.mobile.features.status.impl.url.api
 
 import com.arkivanov.mvikotlin.core.store.Store
-import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.store.UrlStatusStore.Intent
-import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.store.UrlStatusStore.Label
-import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.store.UrlStatusStore.State
 
-internal interface UrlStatusStore : Store<Intent, State, Label> {
+internal interface UrlStatusStore : Store<UrlStatusStore.Intent, UrlStatusStore.State, UrlStatusStore.Label> {
     enum class State {
         LOADING, SUCCESS, ERROR
     }
