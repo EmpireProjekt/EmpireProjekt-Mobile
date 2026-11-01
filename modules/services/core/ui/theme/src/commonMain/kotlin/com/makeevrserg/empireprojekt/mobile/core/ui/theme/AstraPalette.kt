@@ -3,7 +3,7 @@ package com.makeevrserg.empireprojekt.mobile.core.ui.theme
 import androidx.compose.ui.graphics.Color
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.AstraColors
 
-internal object AstraPalette {
+object AstraPalette {
     private val LogoColors = AstraColors.AstraLogo(
         astraRed = Color(color = 0xFFBC2551),
         astraBlue = Color(color = 0xFF304D7B),
