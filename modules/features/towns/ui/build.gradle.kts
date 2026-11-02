@@ -8,13 +8,19 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.namespace")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.ImplUi())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.towns.ui")
 }
 
 kotlin {
     androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 implementation(compose.materialIconsExtended)
                 implementation(libs.decompose.compose)
@@ -38,7 +44,6 @@ kotlin {
                 implementation(projects.modules.services.core.ui.option)
                 implementation(projects.modules.services.core.ui.sheet)
                 implementation(projects.modules.services.core.ui.theme)
-                implementation(projects.modules.services.data.empireapi)
             }
         }
     }

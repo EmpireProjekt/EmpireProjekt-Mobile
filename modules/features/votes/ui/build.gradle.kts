@@ -11,13 +11,19 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("dev.icerock.mobile.multiplatform-resources")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.ImplUi())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.votes.ui")
 }
 
 kotlin {
     androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 implementation(compose.materialIconsExtended)
                 implementation(libs.jetbrains.compose.foundation)

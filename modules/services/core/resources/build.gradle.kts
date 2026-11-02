@@ -1,5 +1,3 @@
-@file:Suppress("UnusedPrivateMember")
-
 import ru.astrainteractive.gradleplugin.property.util.requireProjectInfo
 
 plugins {
@@ -9,22 +7,24 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("dev.icerock.mobile.multiplatform-resources")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Core())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.core.resources")
 }
 
 kotlin {
     androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(libs.moko.resources.core)
-            }
+        commonMain.dependencies {
+            implementation(libs.moko.resources.core)
         }
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.android.material)
-                implementation(libs.androidx.splash)
-            }
+        androidMain.dependencies {
+            implementation(libs.android.material)
+            implementation(libs.androidx.splash)
         }
     }
 }

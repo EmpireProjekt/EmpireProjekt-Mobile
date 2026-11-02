@@ -11,6 +11,12 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.namespace")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.CoreApi())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.buildkonfig")
 }
 
 buildConfig {

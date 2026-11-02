@@ -6,14 +6,14 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name=".wear.application.App"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppTemplate.Splash">
         <service
-            android:name=".wear.tile.StatusesTileService"
+            android:name=".StatusesTileService"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:label="Statuses"
@@ -41,7 +41,7 @@
             android:value="true" />
 
         <activity
-            android:name=".wear.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:launchMode="singleInstance"

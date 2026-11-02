@@ -26,6 +26,12 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.java")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.EntryPoint())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.wear")
 }
 
 val keystoreBase64 = klibsSecretProperty("KEYSTORE_BASE64").stringOrEmpty
@@ -59,7 +65,7 @@ tasks.withType<ValidateSigningTask>().configureEach {
 }
 
 android {
-    namespace = requireProjectInfo.group
+    namespace = "${requireProjectInfo.group}.wear"
 
     if (gServicesBase64.isNotBlank() || file("google-services.json").length() > 0L) {
         apply(plugin = "com.google.gms.google-services")
@@ -110,11 +116,10 @@ android {
 configure<ApplicationAndroidComponentsExtension> {
     onVariants { variant ->
         variant.outputs.onEach { output ->
-            if (output is VariantOutputImpl) {
-                val name = requireProjectInfo.name
-                val version = requireProjectInfo.versionString
-                output.outputFileName.set("$name-wearos-$version-${variant.name}.apk")
-            }
+            if (output !is VariantOutputImpl) return@onEach
+            val name = requireProjectInfo.name
+            val version = requireProjectInfo.versionString
+            output.outputFileName.set("$name-wearos-$version-${variant.name}.apk")
         }
     }
 }
@@ -146,6 +151,7 @@ dependencies {
     implementation(libs.kotlin.coroutines.core)
     implementation(libs.kotlin.serialization.json)
     implementation(libs.moko.resources.core)
+    implementation(kotlin("stdlib"))
     implementation(libs.mppsettings)
     implementation(libs.wear.complications.datasource.ktx)
     implementation(libs.wear.glance.tiles)
@@ -169,5 +175,6 @@ dependencies {
     implementation(projects.modules.services.core.ui.theme)
     implementation(projects.modules.services.wearMessenger.api)
     implementation(projects.modules.services.wearMessenger.common)
+    implementation(projects.modules.services.wearMessenger.datalayer)
     implementation(projects.modules.services.wearMessenger.pingWear)
 }

@@ -1,8 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.services.core.di
 
-import com.makeevrserg.empireprojekt.mobile.services.core.LinkBrowser
-import com.makeevrserg.empireprojekt.mobile.services.core.di.factory.LinkBrowserFactory
-import com.makeevrserg.empireprojekt.mobile.services.core.di.factory.SettingsFactory
+import com.makeevrserg.empireprojekt.mobile.services.core.link.api.LinkBrowser
 import com.russhwolf.settings.Settings
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -40,25 +38,26 @@ interface CoreModule {
             }
         }
 
-        override val httpClient by lazy {
-            HttpClient {
-                install(ContentNegotiation) {
-                    json(jsonConfiguration)
-                }
-                install(Logging) {
-                    logger = Logger.DEFAULT
-                    level = LogLevel.HEADERS
-                }
+        override val httpClient: HttpClient = HttpClient {
+            install(ContentNegotiation) {
+                json(jsonConfiguration)
+            }
+            install(Logging) {
+                logger = Logger.DEFAULT
+                level = LogLevel.HEADERS
             }
         }
 
+        private val platformModule by lazy {
+            PlatformModule(platformConfiguration)
+        }
+
         override val linkBrowser by lazy {
-            LinkBrowserFactory(platformConfiguration).create()
+            platformModule.linkBrowser
         }
 
         override val settings by lazy {
-            val configuration = platformConfiguration
-            SettingsFactory(configuration).create()
+            platformModule.settings
         }
 
         override val dispatchers by lazy {

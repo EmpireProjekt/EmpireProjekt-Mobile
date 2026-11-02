@@ -8,13 +8,19 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.namespace")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.ImplUi())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.splash.ui")
 }
 
 kotlin {
     androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 implementation(compose.materialIconsExtended)
                 implementation(libs.jetbrains.compose.foundation)
@@ -26,7 +32,6 @@ kotlin {
                 implementation(libs.jetbrains.compose.ui)
                 implementation(libs.moko.resources.core)
                 implementation(projects.modules.features.root.api)
-                implementation(projects.modules.features.splash.impl)
                 implementation(projects.modules.services.core.common)
                 implementation(projects.modules.services.core.resources)
                 implementation(projects.modules.services.core.ui.common)

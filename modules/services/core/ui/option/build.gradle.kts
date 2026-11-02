@@ -1,5 +1,3 @@
-@file:Suppress("UnusedPrivateMember")
-
 plugins {
     id("com.android.kotlin.multiplatform.library")
     id("org.jetbrains.compose")
@@ -8,6 +6,12 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.namespace")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.CoreUi())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.core.ui.option")
 }
 kotlin {
     androidLibrary {
@@ -17,7 +21,7 @@ kotlin {
     }
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 implementation(compose.materialIconsExtended)
                 implementation(libs.composeext.shimmer)
@@ -38,7 +42,7 @@ kotlin {
                 implementation(projects.modules.services.core.ui.theme)
             }
         }
-        val androidHostTest by getting {
+        getByName("androidHostTest") {
             dependencies {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))

@@ -1,0 +1,16 @@
+package com.makeevrserg.empireprojekt.mobile.features.towny.towns.impl.util
+
+import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_sort_order_ascending_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_sort_order_descending_label
+import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_sort_order_none_label
+import com.makeevrserg.empireprojekt.mobile.services.core.model.LocalSortOrder
+import dev.icerock.moko.resources.StringResource
+
+fun LocalSortOrder.toStringDesc(): StringResource {
+    return when (this) {
+        LocalSortOrder.NONE -> TR.strings.towns_sort_order_none_label
+        LocalSortOrder.ASC -> TR.strings.towns_sort_order_ascending_label
+        LocalSortOrder.DESC -> TR.strings.towns_sort_order_descending_label
+    }
+}

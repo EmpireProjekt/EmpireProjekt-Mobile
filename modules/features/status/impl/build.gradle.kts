@@ -10,13 +10,19 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("dev.icerock.mobile.multiplatform-resources")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Impl())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.status.impl")
 }
 
 kotlin {
     androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 implementation(libs.decompose.core)
                 implementation(libs.klibs.mikro.core)
@@ -32,7 +38,7 @@ kotlin {
             }
         }
 
-        val commonTest by getting {
+        getByName("commonTest") {
             dependencies {
                 implementation(kotlin("test"))
                 implementation(libs.kotlin.coroutines.test)

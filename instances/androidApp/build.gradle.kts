@@ -23,6 +23,12 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.java")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.EntryPoint())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile")
 }
 
 val keystoreBase64 = klibsSecretProperty("KEYSTORE_BASE64").stringOrEmpty
@@ -107,11 +113,10 @@ android {
 configure<ApplicationAndroidComponentsExtension> {
     onVariants { variant ->
         variant.outputs.onEach { output ->
-            if (output is VariantOutputImpl) {
-                val name = requireProjectInfo.name
-                val version = requireProjectInfo.versionString
-                output.outputFileName.set("$name-android-$version-${variant.name}.apk")
-            }
+            if (output !is VariantOutputImpl) return@onEach
+            val name = requireProjectInfo.name
+            val version = requireProjectInfo.versionString
+            output.outputFileName.set("$name-android-$version-${variant.name}.apk")
         }
     }
 }
@@ -144,23 +149,40 @@ dependencies {
     implementation(libs.kotlin.coroutines.core)
     implementation(libs.kotlin.coroutines.playServices)
     implementation(libs.kotlin.serialization.json)
+    implementation(kotlin("stdlib"))
     implementation(libs.moko.resources.core)
     implementation(platform(libs.google.firebase.bom))
+    implementation(projects.modules.features.rating.api)
+    implementation(projects.modules.features.rating.impl)
     implementation(projects.modules.features.root.api)
     implementation(projects.modules.features.root.impl)
     implementation(projects.modules.features.root.ui)
+    implementation(projects.modules.features.splash.impl)
     implementation(projects.modules.features.status.api)
     implementation(projects.modules.features.status.impl)
+    implementation(projects.modules.features.tabs.impl)
     implementation(projects.modules.features.theme.api)
     implementation(projects.modules.features.theme.impl)
     implementation(projects.modules.features.theme.ui)
+    implementation(projects.modules.features.towns.api)
+    implementation(projects.modules.features.towns.impl)
+    implementation(projects.modules.features.webview.api)
+    implementation(projects.modules.features.webview.impl)
     implementation(projects.modules.services.core.common)
+    implementation(projects.modules.services.data.empireapi)
     implementation(projects.modules.services.core.resources)
     implementation(projects.modules.services.core.ui.common)
     implementation(projects.modules.services.core.ui.dialog)
     implementation(projects.modules.services.core.ui.sheet)
     implementation(projects.modules.services.core.ui.theme)
     implementation(projects.modules.services.wearMessenger.api)
-    implementation(projects.modules.services.wearMessenger.common)
+    implementation(projects.modules.services.wearMessenger.common) {
+        exclude(group = "androidx.wear.compose")
+        exclude(group = "androidx.wear.protolayout")
+        exclude(group = "androidx.wear.tiles")
+        exclude(group = "androidx.wear.watchface")
+        exclude(group = "com.google.android.horologist", module = "horologist-tiles")
+    }
+    implementation(projects.modules.services.wearMessenger.datalayer)
     implementation(projects.modules.services.wearMessenger.pingWear)
 }

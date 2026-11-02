@@ -7,17 +7,24 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.namespace")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Api())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.rating.api")
 }
 
 kotlin {
     androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 implementation(libs.decompose.core)
                 implementation(libs.kotlin.coroutines.core)
-                implementation(projects.modules.services.data.empireapi)
+                implementation(libs.kotlin.serialization.json)
+                implementation(projects.modules.services.core.common)
             }
         }
     }

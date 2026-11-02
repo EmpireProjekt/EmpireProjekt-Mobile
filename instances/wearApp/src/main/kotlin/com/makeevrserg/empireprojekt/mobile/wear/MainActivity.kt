@@ -6,10 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.arkivanov.decompose.defaultComponentContext
-import com.makeevrserg.empireprojekt.mobile.features.theme.ApplicationTheme
-import com.makeevrserg.empireprojekt.mobile.wear.application.App.Companion.asEmpireApp
-import com.makeevrserg.empireprojekt.mobile.wear.features.root.presentation.DefaultRootComponent
-import com.makeevrserg.empireprojekt.mobile.wear.features.root.ui.RootScreen
+import com.makeevrserg.empireprojekt.mobile.features.theme.ui.theme.ApplicationTheme
+import com.makeevrserg.empireprojekt.mobile.wear.App.Companion.asEmpireApp
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.root.composable.screen.WearRootScreenComposable
 
 class MainActivity : ComponentActivity() {
     private val wearRootModule get() = application.asEmpireApp().wearRootModule
@@ -18,13 +17,12 @@ class MainActivity : ComponentActivity() {
         val splashScreen = installSplashScreen()
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        val rootComponent = DefaultRootComponent(
-            componentContext = defaultComponentContext(),
-            wearRootModule = wearRootModule
+        val rootComponent = wearRootModule.wearRootComponentModule.createRootComponent(
+            componentContext = defaultComponentContext()
         )
         setContent {
             ApplicationTheme(wearRootModule.themeSwitcherModule.themeSwitcherComponent) {
-                RootScreen(rootComponent = rootComponent)
+                WearRootScreenComposable(rootComponent = rootComponent)
             }
         }
         splashScreen.setKeepOnScreenCondition { false }

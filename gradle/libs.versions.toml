@@ -18,6 +18,7 @@ google-services = "4.5.0"
 gradle-buildconfig = "6.1.0"
 horologist = "0.7.15"
 klibs-gradleplugin = "2.8.0"
+klibs-rules = "0.23.0"
 klibs-kstorage = "5.3.1"
 klibs-mikro = "1.28.1"
 klibs-paging = "2.11.1"
@@ -133,6 +134,7 @@ klibs-gradle-android-sdk = { id = "ru.astrainteractive.gradleplugin.android.sdk"
 klibs-gradle-detekt = { id = "ru.astrainteractive.gradleplugin.detekt", version.ref = "klibs-gradleplugin" }
 klibs-gradle-dokka = { id = "ru.astrainteractive.gradleplugin.dokka", version.ref = "klibs-gradleplugin" }
 klibs-gradle-java-version = { id = "ru.astrainteractive.gradleplugin.java.version", version.ref = "klibs-gradleplugin" }
+klibs-rules = { id = "ru.astrainteractive.klibs.rules.gradle.linter", version.ref = "klibs-rules" }
 klibs-gradle-rootinfo = { id = "ru.astrainteractive.gradleplugin.rootinfo", version.ref = "klibs-gradleplugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-version" }
 kotlin-compose = { id = "org.jetbrains.compose", version.ref = "kotlin-compose" }

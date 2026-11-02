@@ -7,14 +7,21 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.namespace")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Api())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.theme.api")
 }
 
 kotlin {
     androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
+                implementation(libs.klibs.mikro.core)
                 implementation(libs.kotlin.coroutines.core)
             }
         }

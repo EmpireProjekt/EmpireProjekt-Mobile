@@ -10,13 +10,21 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
     id("dev.icerock.mobile.multiplatform-resources")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Impl())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.rating.impl")
 }
 
 kotlin {
-    androidLibrary {}
+    androidLibrary {
+        withHostTest {}
+    }
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 implementation(libs.decompose.core)
                 implementation(libs.essenty)
@@ -34,7 +42,16 @@ kotlin {
                 implementation(projects.modules.features.rating.api)
                 implementation(projects.modules.services.core.common)
                 implementation(projects.modules.services.core.resources)
-                implementation(projects.modules.services.data.empireapi)
+            }
+        }
+        getByName("androidHostTest") {
+            dependencies {
+                implementation(kotlin("test-junit"))
+            }
+        }
+        getByName("commonTest") {
+            dependencies {
+                implementation(kotlin("test"))
             }
         }
     }

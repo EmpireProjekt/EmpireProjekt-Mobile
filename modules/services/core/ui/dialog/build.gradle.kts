@@ -1,5 +1,3 @@
-@file:Suppress("UnusedPrivateMember")
-
 plugins {
     id("com.android.kotlin.multiplatform.library")
     id("org.jetbrains.compose")
@@ -8,13 +6,19 @@ plugins {
     id("ru.astrainteractive.gradleplugin.android.namespace")
     id("ru.astrainteractive.gradleplugin.android.sdk")
     id("ru.astrainteractive.gradleplugin.java.version")
+    alias(libs.plugins.klibs.rules)
+}
+
+linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.CoreUi())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.core.ui.dialog")
 }
 
 kotlin {
     androidLibrary {}
     applyDefaultHierarchyTemplate()
     sourceSets {
-        val commonMain by getting {
+        getByName("commonMain") {
             dependencies {
                 implementation(compose.materialIconsExtended)
                 implementation(libs.decompose.compose)
