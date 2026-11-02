@@ -1,9 +1,9 @@
-name: "Run Detekt Static Analysis"
+name: "Validate Kotlin and architecture"
 on:
   workflow_call:
 jobs:
   run_detekt:
-    name: "Analyse Kotlin Sources With Detekt"
+    name: "Validate Kotlin and architecture"
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout Repository"
@@ -19,5 +19,5 @@ jobs:
           cache-provider: basic
       - name: "Make gradlew Executable"
         run: chmod +x gradlew
-      - name: "Run Detekt"
-        run: ./gradlew detekt
+      - name: "Validate Kotlin and architecture"
+        run: ./gradlew architectureLint --continue --stacktrace
