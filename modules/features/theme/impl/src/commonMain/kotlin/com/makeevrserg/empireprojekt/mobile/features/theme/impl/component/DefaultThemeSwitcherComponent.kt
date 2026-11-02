@@ -1,7 +1,7 @@
 package com.makeevrserg.empireprojekt.mobile.features.theme.impl.component
 
 import com.makeevrserg.empireprojekt.mobile.features.theme.api.component.ThemeSwitcherComponent
-import com.makeevrserg.empireprojekt.mobile.features.theme.api.data.model.Theme
+import com.makeevrserg.empireprojekt.mobile.features.theme.api.model.Theme
 import com.makeevrserg.empireprojekt.mobile.features.theme.impl.api.ThemeSwitcherRepository
 import kotlinx.coroutines.flow.StateFlow
 import ru.astrainteractive.klibs.mikro.core.util.next

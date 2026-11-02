@@ -12,8 +12,8 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.wear_main_switch_them
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.model.ComposeTheme
-import com.makeevrserg.empireprojekt.mobile.features.theme.api.data.model.Theme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
+import com.makeevrserg.empireprojekt.mobile.features.theme.api.model.Theme
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.composable.component.IconTextChipComposable
 
 @Composable

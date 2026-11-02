@@ -1,11 +1,10 @@
 package com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.component
 
-import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.Town
-import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsFilter
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsState
 import kotlinx.coroutines.flow.StateFlow
 
 interface TownsComponent {
-    val model: StateFlow<Model>
+    val model: StateFlow<TownsState>
 
     fun reset()
 
@@ -26,12 +25,4 @@ interface TownsComponent {
     fun nextDateSort()
 
     fun nextResidentsSort()
-
-    data class Model(
-        val items: List<Town>,
-        val filter: TownsFilter,
-        val isLoading: Boolean,
-        val isFailure: Boolean,
-        val isLastPage: Boolean
-    )
 }

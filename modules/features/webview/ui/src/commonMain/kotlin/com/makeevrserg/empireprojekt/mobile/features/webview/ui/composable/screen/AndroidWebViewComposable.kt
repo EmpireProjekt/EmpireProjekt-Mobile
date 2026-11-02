@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.features.webview.ui.map.composable
+package com.makeevrserg.empireprojekt.mobile.features.webview.ui.composable.screen
 
 import android.webkit.WebView
 import androidx.compose.foundation.background

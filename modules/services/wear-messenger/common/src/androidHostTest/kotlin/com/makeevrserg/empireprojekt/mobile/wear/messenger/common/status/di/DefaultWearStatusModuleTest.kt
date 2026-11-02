@@ -16,7 +16,7 @@ import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearMessageConsumer
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.model.DecodedWearMessage
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.model.WearMessage
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.component.WearStatusComponent
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.model.WearStatusState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.emptyFlow
@@ -45,7 +45,7 @@ class DefaultWearStatusModuleTest {
             clock = Clock.System,
             context = context
         )
-        val state = WearStatusComponent.Model(
+        val state = WearStatusState(
             loadingCount = 2,
             successCount = 3,
             failureCount = 1,

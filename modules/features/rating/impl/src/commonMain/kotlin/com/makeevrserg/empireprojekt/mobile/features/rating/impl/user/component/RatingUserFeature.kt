@@ -2,7 +2,7 @@ package com.makeevrserg.empireprojekt.mobile.features.rating.impl.user.component
 
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.api.RatingRepository
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingUserId
-import com.makeevrserg.empireprojekt.mobile.features.rating.api.user.component.RatingUserComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.user.model.RatingUserState
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import ru.astrainteractive.klibs.mikro.core.coroutines.CoroutineFeature
@@ -39,7 +39,7 @@ internal class RatingUserFeature(
         }
     )
     val model = pagingCollector.state.mapStateFlow { pagingState ->
-        RatingUserComponent.Model(
+        RatingUserState(
             items = pagingState.items,
             reviewedUserName = userName,
             isLoading = pagingState.pageResult.isLoading,

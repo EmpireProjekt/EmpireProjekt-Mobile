@@ -25,7 +25,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.common.util.asComposableStri
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.util.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.features.status.api.url.component.UrlStatusComponent
+import com.makeevrserg.empireprojekt.mobile.features.status.api.url.model.UrlStatusState
 import com.makeevrserg.empireprojekt.mobile.features.status.ui.model.StatusWidgetState
 import dev.icerock.moko.resources.desc.Raw
 import dev.icerock.moko.resources.desc.StringDesc
@@ -36,7 +36,7 @@ private val FadeDuration = 1200.milliseconds
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 internal fun StatusWidgetContentComposable(
-    status: UrlStatusComponent.LoadingStatus,
+    status: UrlStatusState.LoadingStatus,
     isLoading: Boolean,
     title: StringDesc,
     onClick: () -> Unit,
@@ -97,7 +97,7 @@ internal fun StatusWidgetContentComposable(
 private fun StatusWidgetContentSuccessPreview() {
     AdaptThemeFadeComposable {
         StatusWidgetContentComposable(
-            status = UrlStatusComponent.LoadingStatus.SUCCESS,
+            status = UrlStatusState.LoadingStatus.SUCCESS,
             isLoading = false,
             title = StringDesc.Raw("Empire Survival"),
             onClick = {}
@@ -110,7 +110,7 @@ private fun StatusWidgetContentSuccessPreview() {
 private fun StatusWidgetContentErrorPreview() {
     AdaptThemeFadeComposable {
         StatusWidgetContentComposable(
-            status = UrlStatusComponent.LoadingStatus.ERROR,
+            status = UrlStatusState.LoadingStatus.ERROR,
             isLoading = false,
             title = StringDesc.Raw("Empire Survival"),
             onClick = {}
@@ -123,7 +123,7 @@ private fun StatusWidgetContentErrorPreview() {
 private fun StatusWidgetContentLoadingPreview() {
     AdaptThemeFadeComposable {
         StatusWidgetContentComposable(
-            status = UrlStatusComponent.LoadingStatus.LOADING,
+            status = UrlStatusState.LoadingStatus.LOADING,
             isLoading = true,
             title = StringDesc.Raw("Empire Survival"),
             onClick = {}

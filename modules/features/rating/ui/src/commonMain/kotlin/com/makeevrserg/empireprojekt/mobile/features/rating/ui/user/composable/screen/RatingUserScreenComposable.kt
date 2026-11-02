@@ -10,10 +10,10 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.common.paging.composable.Pag
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.paging.composable.PagingListFooterComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.paging.model.PagingContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.model.ComposeTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.Rating
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingUser
-import com.makeevrserg.empireprojekt.mobile.features.rating.api.user.component.RatingUserComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.user.model.RatingUserState
 import com.makeevrserg.empireprojekt.mobile.features.rating.ui.user.composable.component.RatingUserWidgetComposable
 import com.makeevrserg.empireprojekt.mobile.features.rating.ui.userlist.composable.component.RatingUserShimmerWidgetComposable
 import kotlin.time.Instant
@@ -21,7 +21,7 @@ import kotlin.time.Instant
 @Suppress("LongMethod")
 @Composable
 internal fun RatingUserScreenComposable(
-    model: RatingUserComponent.Model,
+    model: RatingUserState,
     onBack: (() -> Unit)?,
     onLoadNextPage: () -> Unit,
     onReset: () -> Unit,
@@ -72,8 +72,8 @@ private fun ratingUserPreviewModel(
     isLoading: Boolean,
     isFailure: Boolean,
     isLastPage: Boolean
-): RatingUserComponent.Model {
-    return RatingUserComponent.Model(
+): RatingUserState {
+    return RatingUserState(
         items = items,
         reviewedUserName = reviewedUserName,
         isLoading = isLoading,

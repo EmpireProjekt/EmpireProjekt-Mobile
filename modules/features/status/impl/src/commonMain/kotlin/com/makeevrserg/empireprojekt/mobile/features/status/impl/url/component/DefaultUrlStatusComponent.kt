@@ -2,6 +2,7 @@ package com.makeevrserg.empireprojekt.mobile.features.status.impl.url.component
 
 import com.arkivanov.mvikotlin.extensions.coroutines.stateFlow
 import com.makeevrserg.empireprojekt.mobile.features.status.api.url.component.UrlStatusComponent
+import com.makeevrserg.empireprojekt.mobile.features.status.api.url.model.UrlStatusState
 import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.api.UrlStatusStore
 import dev.icerock.moko.resources.desc.Raw
 import dev.icerock.moko.resources.desc.StringDesc
@@ -13,15 +14,15 @@ internal class DefaultUrlStatusComponent(
     private val urlStatusStore: UrlStatusStore
 ) : UrlStatusComponent {
 
-    override val model: StateFlow<UrlStatusComponent.Model> = urlStatusStore.stateFlow.mapStateFlow { state ->
+    override val model: StateFlow<UrlStatusState> = urlStatusStore.stateFlow.mapStateFlow { state ->
         val status = when (state) {
-            UrlStatusStore.State.LOADING -> UrlStatusComponent.LoadingStatus.LOADING
-            UrlStatusStore.State.SUCCESS -> UrlStatusComponent.LoadingStatus.SUCCESS
-            UrlStatusStore.State.ERROR -> UrlStatusComponent.LoadingStatus.ERROR
+            UrlStatusStore.State.LOADING -> UrlStatusState.LoadingStatus.LOADING
+            UrlStatusStore.State.SUCCESS -> UrlStatusState.LoadingStatus.SUCCESS
+            UrlStatusStore.State.ERROR -> UrlStatusState.LoadingStatus.ERROR
         }
-        UrlStatusComponent.Model(
+        UrlStatusState(
             title = StringDesc.Raw(title),
-            isLoading = status == UrlStatusComponent.LoadingStatus.LOADING,
+            isLoading = status == UrlStatusState.LoadingStatus.LOADING,
             status = status
         )
     }

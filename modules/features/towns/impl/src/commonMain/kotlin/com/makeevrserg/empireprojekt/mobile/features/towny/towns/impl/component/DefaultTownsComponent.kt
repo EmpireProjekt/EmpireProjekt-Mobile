@@ -4,6 +4,7 @@ import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.essenty.instancekeeper.getOrCreate
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.component.TownsComponent
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsFilter.TownPublicType
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsState
 import com.makeevrserg.empireprojekt.mobile.services.core.model.LocalSortOrder
 import kotlinx.coroutines.flow.StateFlow
 import ru.astrainteractive.klibs.mikro.core.util.next
@@ -16,7 +17,7 @@ internal class DefaultTownsComponent(
     private val townsFeature = instanceKeeper.getOrCreate {
         createTownsFeature.invoke()
     }
-    override val model: StateFlow<TownsComponent.Model>
+    override val model: StateFlow<TownsState>
         get() = townsFeature.model
 
     private fun LocalSortOrder?.next(): LocalSortOrder {

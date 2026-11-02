@@ -1,6 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.theme.api.component
 
-import com.makeevrserg.empireprojekt.mobile.features.theme.api.data.model.Theme
+import com.makeevrserg.empireprojekt.mobile.features.theme.api.model.Theme
 import kotlinx.coroutines.flow.StateFlow
 
 interface ThemeSwitcherComponent {

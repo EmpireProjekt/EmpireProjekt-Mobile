@@ -4,7 +4,7 @@ package com.makeevrserg.empireprojekt.mobile.features.status.impl.url.component
 
 import app.cash.turbine.test
 import com.arkivanov.mvikotlin.main.store.DefaultStoreFactory
-import com.makeevrserg.empireprojekt.mobile.features.status.api.url.component.UrlStatusComponent
+import com.makeevrserg.empireprojekt.mobile.features.status.api.url.model.UrlStatusState
 import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.api.UrlStatusRepository
 import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.mvikotlin.createUrlStatusStore
 import kotlinx.coroutines.Dispatchers
@@ -52,7 +52,7 @@ class UrlStatusComponentTest {
         return runTest {
             val urlStatusComponent = createUrlStatusComponent { true }
             urlStatusComponent.model.test {
-                assertEquals(UrlStatusComponent.LoadingStatus.LOADING, awaitItem().status)
+                assertEquals(UrlStatusState.LoadingStatus.LOADING, awaitItem().status)
             }
         }
     }
@@ -63,7 +63,7 @@ class UrlStatusComponentTest {
             val urlStatusComponent = createUrlStatusComponent { true }
             urlStatusComponent.model.test {
                 skipItems(1)
-                assertEquals(UrlStatusComponent.LoadingStatus.SUCCESS, awaitItem().status)
+                assertEquals(UrlStatusState.LoadingStatus.SUCCESS, awaitItem().status)
             }
         }
     }
@@ -74,7 +74,7 @@ class UrlStatusComponentTest {
             val urlStatusComponent = createUrlStatusComponent { false }
             urlStatusComponent.model.test {
                 skipItems(1)
-                assertEquals(UrlStatusComponent.LoadingStatus.ERROR, awaitItem().status)
+                assertEquals(UrlStatusState.LoadingStatus.ERROR, awaitItem().status)
             }
         }
     }
@@ -85,7 +85,7 @@ class UrlStatusComponentTest {
             val urlStatusComponent = createUrlStatusComponent { error("Hello world") }
             urlStatusComponent.model.test {
                 skipItems(1)
-                assertEquals(UrlStatusComponent.LoadingStatus.ERROR, awaitItem().status)
+                assertEquals(UrlStatusState.LoadingStatus.ERROR, awaitItem().status)
             }
         }
     }

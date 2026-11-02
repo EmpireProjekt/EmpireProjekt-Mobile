@@ -13,13 +13,13 @@ import androidx.wear.protolayout.material.ButtonColors
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.tiles.render.SingleTileLayoutRenderer
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.component.WearStatusComponent
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.model.WearStatusState
 import java.util.UUID
 
 @OptIn(ExperimentalHorologistApi::class)
 internal class StatusesRowRenderer(
     context: Context
-) : SingleTileLayoutRenderer<WearStatusComponent.Model, WearStatusComponent.Model>(context) {
+) : SingleTileLayoutRenderer<WearStatusState, WearStatusState>(context) {
 
     private fun statusButton(
         amount: Int,
@@ -41,7 +41,7 @@ internal class StatusesRowRenderer(
 
     @Suppress("MagicNumber")
     override fun renderTile(
-        state: WearStatusComponent.Model,
+        state: WearStatusState,
         deviceParameters: DeviceParametersBuilders.DeviceParameters
     ): LayoutElementBuilders.LayoutElement {
         return LayoutElementBuilders.Row.Builder()

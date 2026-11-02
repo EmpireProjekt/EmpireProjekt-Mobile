@@ -6,7 +6,7 @@ import androidx.wear.tiles.tooling.preview.TilePreviewData
 import androidx.wear.tiles.tooling.preview.TilePreviewHelper
 import androidx.wear.tooling.preview.devices.WearDevices
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.component.WearStatusComponent
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.model.WearStatusState
 
 @OptIn(ExperimentalHorologistApi::class)
 @Preview(device = WearDevices.SMALL_ROUND, name = "Small Round")
@@ -17,7 +17,7 @@ internal fun mainTilePreview(context: Context): TilePreviewData {
         statusesRowRenderer = StatusesRowRenderer(context = context),
         launchAction = null
     )
-    val state = WearStatusComponent.Model(
+    val state = WearStatusState(
         loadingCount = 0,
         successCount = 0,
         failureCount = 0,

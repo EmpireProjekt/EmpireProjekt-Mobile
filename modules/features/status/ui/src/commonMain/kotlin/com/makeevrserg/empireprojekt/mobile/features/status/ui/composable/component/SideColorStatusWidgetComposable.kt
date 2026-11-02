@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.features.status.api.url.component.UrlStatusComponent
+import com.makeevrserg.empireprojekt.mobile.features.status.api.url.model.UrlStatusState
 
 @Composable
 private fun SideLoadingBarComposable() {
@@ -40,15 +40,15 @@ private fun SideColorBarComposable(color: Color) {
 
 @Composable
 internal fun SideColorStatusWidgetComposable(
-    status: UrlStatusComponent.LoadingStatus,
+    status: UrlStatusState.LoadingStatus,
     isLoading: Boolean
 ) {
     val positiveColor = AppTheme.astraColors.action.colorPositive
     val negativeColor = AppTheme.astraColors.action.colorNegative
     when {
-        status == UrlStatusComponent.LoadingStatus.LOADING || isLoading -> SideLoadingBarComposable()
-        status == UrlStatusComponent.LoadingStatus.SUCCESS -> SideColorBarComposable(positiveColor)
-        status == UrlStatusComponent.LoadingStatus.ERROR -> SideColorBarComposable(negativeColor)
+        status == UrlStatusState.LoadingStatus.LOADING || isLoading -> SideLoadingBarComposable()
+        status == UrlStatusState.LoadingStatus.SUCCESS -> SideColorBarComposable(positiveColor)
+        status == UrlStatusState.LoadingStatus.ERROR -> SideColorBarComposable(negativeColor)
     }
 }
 
@@ -62,7 +62,7 @@ private fun SideColorStatusWidgetPreview() {
                 .height(AppTheme.dimens.XL),
             horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.S)
         ) {
-            UrlStatusComponent.LoadingStatus.entries.forEach { status ->
+            UrlStatusState.LoadingStatus.entries.forEach { status ->
                 SideColorStatusWidgetComposable(status = status, isLoading = false)
             }
         }

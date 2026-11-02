@@ -21,14 +21,14 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_off
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.util.asPainter
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.component.WearStatusComponent
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.model.WearStatusState
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.composable.component.IconTextChipComposable
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.util.formatClockTime
 import kotlin.time.Instant
 
 @Composable
 internal fun StatusesScreenComposable(
-    model: WearStatusComponent.Model,
+    model: WearStatusState,
     modifier: Modifier = Modifier
 ) {
     val listState = rememberScalingLazyListState()
@@ -87,7 +87,7 @@ private val PreviewUpdatedAt = Instant.fromEpochMilliseconds(1_700_000_000_000)
 private fun StatusesScreenEmptyPreview() {
     AdaptThemeFadeComposable {
         StatusesScreenComposable(
-            model = WearStatusComponent.Model(
+            model = WearStatusState(
                 loadingCount = 0,
                 successCount = 0,
                 failureCount = 0,
@@ -102,7 +102,7 @@ private fun StatusesScreenEmptyPreview() {
 private fun StatusesScreenFilledPreview() {
     AdaptThemeFadeComposable {
         StatusesScreenComposable(
-            model = WearStatusComponent.Model(
+            model = WearStatusState(
                 loadingCount = 1,
                 successCount = 3,
                 failureCount = 2,

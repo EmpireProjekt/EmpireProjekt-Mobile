@@ -1,19 +1,9 @@
 package com.makeevrserg.empireprojekt.mobile.features.status.api.url.component
 
-import dev.icerock.moko.resources.desc.StringDesc
+import com.makeevrserg.empireprojekt.mobile.features.status.api.url.model.UrlStatusState
 import kotlinx.coroutines.flow.StateFlow
 
 interface UrlStatusComponent {
-    data class Model(
-        val title: StringDesc,
-        val isLoading: Boolean,
-        val status: LoadingStatus
-    )
-
-    enum class LoadingStatus {
-        LOADING, SUCCESS, ERROR
-    }
-
-    val model: StateFlow<Model>
+    val model: StateFlow<UrlStatusState>
     fun checkStatus()
 }

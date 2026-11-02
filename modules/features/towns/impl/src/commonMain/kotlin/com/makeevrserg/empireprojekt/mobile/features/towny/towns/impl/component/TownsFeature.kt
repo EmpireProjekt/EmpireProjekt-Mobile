@@ -1,8 +1,8 @@
 package com.makeevrserg.empireprojekt.mobile.features.towny.towns.impl.component
 
-import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.component.TownsComponent
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.Town
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsFilter
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsState
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.impl.model.TownyPageContext
 import kotlinx.coroutines.launch
 import ru.astrainteractive.klibs.kstorage.api.CachedMutableKrate
@@ -23,7 +23,7 @@ internal class TownsFeature(
 ) : EssentyCoroutineFeature by CoroutineFeature.Main.asEssentyCoroutineFeature() {
 
     val model = pagingCollector.state.mapStateFlow { pagingState ->
-        TownsComponent.Model(
+        TownsState(
             items = pagingState.items,
             isLoading = pagingState.pageResult.isLoading,
             isFailure = pagingState.pageResult.isFailure,

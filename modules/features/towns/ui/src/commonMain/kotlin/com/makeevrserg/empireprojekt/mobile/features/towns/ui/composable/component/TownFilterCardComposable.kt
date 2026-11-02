@@ -11,7 +11,7 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.common.filtercard.composable
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.filtercard.composable.SortFilterHeaderComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.model.ComposeTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_public_type_label
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_filter_sort_created_label

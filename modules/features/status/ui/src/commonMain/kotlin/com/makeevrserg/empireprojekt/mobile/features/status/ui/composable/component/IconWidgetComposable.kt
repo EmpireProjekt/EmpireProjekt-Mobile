@@ -15,19 +15,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.features.status.api.url.component.UrlStatusComponent
+import com.makeevrserg.empireprojekt.mobile.features.status.api.url.model.UrlStatusState
 
 @Composable
-internal fun IconWidgetComposable(status: UrlStatusComponent.LoadingStatus) {
+internal fun IconWidgetComposable(status: UrlStatusState.LoadingStatus) {
     val icon = when (status) {
-        UrlStatusComponent.LoadingStatus.LOADING -> Icons.Filled.Token
-        UrlStatusComponent.LoadingStatus.SUCCESS -> Icons.Filled.Bolt
-        UrlStatusComponent.LoadingStatus.ERROR -> Icons.Filled.Error
+        UrlStatusState.LoadingStatus.LOADING -> Icons.Filled.Token
+        UrlStatusState.LoadingStatus.SUCCESS -> Icons.Filled.Bolt
+        UrlStatusState.LoadingStatus.ERROR -> Icons.Filled.Error
     }
     val tint = when (status) {
-        UrlStatusComponent.LoadingStatus.LOADING -> AppTheme.astraColors.astraLogo.astraYellow
-        UrlStatusComponent.LoadingStatus.SUCCESS -> AppTheme.astraColors.action.colorPositive
-        UrlStatusComponent.LoadingStatus.ERROR -> AppTheme.astraColors.action.colorNegative
+        UrlStatusState.LoadingStatus.LOADING -> AppTheme.astraColors.astraLogo.astraYellow
+        UrlStatusState.LoadingStatus.SUCCESS -> AppTheme.astraColors.action.colorPositive
+        UrlStatusState.LoadingStatus.ERROR -> AppTheme.astraColors.action.colorNegative
     }
     Icon(
         imageVector = icon,
@@ -45,7 +45,7 @@ private fun IconWidgetPreview() {
             modifier = Modifier.background(MaterialTheme.colors.primary),
             horizontalArrangement = Arrangement.spacedBy(AppTheme.dimens.XS)
         ) {
-            UrlStatusComponent.LoadingStatus.entries.forEach { status ->
+            UrlStatusState.LoadingStatus.entries.forEach { status ->
                 IconWidgetComposable(status = status)
             }
         }

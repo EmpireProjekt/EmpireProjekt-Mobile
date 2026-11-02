@@ -11,20 +11,20 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.common.paging.composable.Pag
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.paging.model.PagingContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.util.asComposableString
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.model.ComposeTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_list_title
 import com.makeevrserg.empireprojekt.mobile.features.towns.ui.composable.component.TownCardComposable
 import com.makeevrserg.empireprojekt.mobile.features.towns.ui.composable.component.TownFilterCardComposable
 import com.makeevrserg.empireprojekt.mobile.features.towns.ui.composable.component.TownShimmerWidgetComposable
-import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.component.TownsComponent
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.Town
 import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsFilter
+import com.makeevrserg.empireprojekt.mobile.features.towny.towns.api.model.TownsState
 
 @Suppress("LongMethod", "LongParameterList")
 @Composable
 internal fun TownsScreenComposable(
-    model: TownsComponent.Model,
+    model: TownsState,
     onBack: (() -> Unit)?,
     onLoadNextPage: () -> Unit,
     onReset: () -> Unit,
@@ -136,7 +136,7 @@ private val PreviewTownItems: List<Town> = listOf(
 private fun TownsComposableScreenLoadedPreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         TownsScreenComposable(
-            model = TownsComponent.Model(
+            model = TownsState(
                 items = PreviewTownItems,
                 filter = TownsFilter(),
                 isLoading = false,
@@ -162,7 +162,7 @@ private fun TownsComposableScreenLoadedPreview() {
 private fun TownsComposableScreenLoadingPreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         TownsScreenComposable(
-            model = TownsComponent.Model(
+            model = TownsState(
                 items = emptyList(),
                 filter = TownsFilter(),
                 isLoading = true,
@@ -188,7 +188,7 @@ private fun TownsComposableScreenLoadingPreview() {
 private fun TownsComposableScreenEmptyPreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         TownsScreenComposable(
-            model = TownsComponent.Model(
+            model = TownsState(
                 items = emptyList(),
                 filter = TownsFilter(),
                 isLoading = false,
@@ -214,7 +214,7 @@ private fun TownsComposableScreenEmptyPreview() {
 private fun TownsComposableScreenFailurePreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         TownsScreenComposable(
-            model = TownsComponent.Model(
+            model = TownsState(
                 items = PreviewTownItems,
                 filter = TownsFilter(),
                 isLoading = false,

@@ -2,6 +2,8 @@ package com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.message
 
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.model.DecodedWearMessage
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.model.WearMessage
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.model.Status
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.util.STATUS_WEAR_MESSAGE
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer.message.model.WearMessageDecodeError
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.builtins.serializer
@@ -24,6 +26,48 @@ class WearMessageCodecTest {
         assertEquals(
             expected = DecodedWearMessage(path = "/wear/names", value = names),
             actual = decoded.getOrThrow()
+        )
+    }
+
+    @Test
+    fun GIVEN_legacy_status_payload_WHEN_decoded_and_encoded_THEN_wire_contract_is_preserved() {
+        val legacyPayload = """
+            [
+              {"title":"Minecraft","isLoading":true,"status":"LOADING"},
+              {"title":"Website","isLoading":false,"status":"SUCCESS"},
+              {"title":"Map","isLoading":false,"status":"ERROR"}
+            ]
+        """.trimIndent()
+
+        val decoded = codec.decode(STATUS_WEAR_MESSAGE, legacyPayload.encodeToByteArray()).getOrThrow()
+
+        assertEquals("/wear/statuses", decoded.path)
+        assertEquals(
+            expected = listOf(
+                Status(
+                    title = "Minecraft",
+                    isLoading = true,
+                    status = Status.LoadingStatus.LOADING
+                ),
+                Status(
+                    title = "Website",
+                    isLoading = false,
+                    status = Status.LoadingStatus.SUCCESS
+                ),
+                Status(
+                    title = "Map",
+                    isLoading = false,
+                    status = Status.LoadingStatus.ERROR
+                )
+            ),
+            actual = decoded.value
+        )
+
+        val encoded = codec.encode(STATUS_WEAR_MESSAGE, decoded.value).decodeToString()
+
+        assertEquals(
+            expected = Json.parseToJsonElement(legacyPayload),
+            actual = Json.parseToJsonElement(encoded)
         )
     }
 

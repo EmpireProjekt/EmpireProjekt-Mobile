@@ -28,7 +28,7 @@ import com.makeevrserg.empireprojekt.mobile.features.splash.ui.composable.screen
 import com.makeevrserg.empireprojekt.mobile.features.tabs.ui.composable.screen.PagerScreenHostComposable
 import com.makeevrserg.empireprojekt.mobile.features.towns.ui.composable.screen.TownsScreenHostComposable
 import com.makeevrserg.empireprojekt.mobile.features.votes.ui.composable.screen.VotesScreenComposable
-import com.makeevrserg.empireprojekt.mobile.features.webview.ui.map.composable.AndroidWebViewComposable
+import com.makeevrserg.empireprojekt.mobile.features.webview.ui.composable.screen.AndroidWebViewComposable
 import com.makeevrserg.empireprojekt.mobile.services.core.link.api.LinkBrowser
 
 @Composable

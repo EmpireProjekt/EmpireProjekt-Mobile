@@ -35,8 +35,8 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.layout.Opt
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.model.OptionSectionContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.theme.OptionSpacing
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.IR
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.composable.component.LinkWidgetComposable
 import com.makeevrserg.empireprojekt.mobile.features.info.ui.info_links_title

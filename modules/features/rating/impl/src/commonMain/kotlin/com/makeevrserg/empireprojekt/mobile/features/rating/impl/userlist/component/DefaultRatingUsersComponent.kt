@@ -5,7 +5,7 @@ import com.arkivanov.essenty.instancekeeper.getOrCreate
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingUserId
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingsFilter
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.userlist.component.RatingUsersComponent
-import com.makeevrserg.empireprojekt.mobile.features.rating.api.userlist.component.RatingUsersComponent.Model
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.userlist.model.RatingUsersState
 import com.makeevrserg.empireprojekt.mobile.features.rating.impl.userlist.util.updateNextLastUpdatedSort
 import com.makeevrserg.empireprojekt.mobile.features.rating.impl.userlist.util.updateNextNameSort
 import com.makeevrserg.empireprojekt.mobile.features.rating.impl.userlist.util.updateNextRatingSort
@@ -29,11 +29,11 @@ internal class DefaultRatingUsersComponent(
     private val ratingUsersFeature = instanceKeeper.getOrCreate {
         createRatingUsersFeature.invoke(filterFeature)
     }
-    override val model: StateFlow<Model> = combineStates(
+    override val model: StateFlow<RatingUsersState> = combineStates(
         flow1 = filterFeature.filterStateFlow,
         flow2 = ratingUsersFeature.state,
         transform = { filter, pagingState ->
-            Model(
+            RatingUsersState(
                 items = pagingState.items,
                 filter = filter,
                 isLoading = pagingState.pageResult.isLoading,

@@ -1,6 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.theme.impl.krate
 
-import com.makeevrserg.empireprojekt.mobile.features.theme.api.data.model.Theme
+import com.makeevrserg.empireprojekt.mobile.features.theme.api.model.Theme
 import com.makeevrserg.empireprojekt.mobile.features.theme.impl.api.ThemeSwitcherRepository
 import com.russhwolf.settings.Settings
 import ru.astrainteractive.klibs.kstorage.api.asStateFlowMutableKrate

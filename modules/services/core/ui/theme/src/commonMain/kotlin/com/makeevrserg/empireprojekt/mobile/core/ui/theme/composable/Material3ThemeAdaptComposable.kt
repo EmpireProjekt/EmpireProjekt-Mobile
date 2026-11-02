@@ -4,7 +4,7 @@ import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.model.AstraColors
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.AstraColors
 
 @Composable
 internal fun Material3ThemeAdaptComposable(colors: AstraColors, content: @Composable () -> Unit) {

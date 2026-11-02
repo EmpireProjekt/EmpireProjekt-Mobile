@@ -7,6 +7,7 @@ import com.google.android.horologist.tiles.render.SingleTileLayoutRenderer
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearMessageConsumer
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.component.WearStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.di.WearStatusModule
+import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.model.WearStatusState
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.status.component.DefaultWearStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.status.tile.MainTileRenderer
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.status.tile.StatusesRowRenderer
@@ -28,7 +29,7 @@ class DefaultWearStatusModule(
     }
 
     @OptIn(ExperimentalHorologistApi::class)
-    val mainTileRenderer: SingleTileLayoutRenderer<WearStatusComponent.Model, WearStatusComponent.Model> by lazy {
+    val mainTileRenderer: SingleTileLayoutRenderer<WearStatusState, WearStatusState> by lazy {
         val launchAction = context.packageManager.getLaunchIntentForPackage(context.packageName)
             ?.component
             ?.let(ActionBuilders::launchAction)

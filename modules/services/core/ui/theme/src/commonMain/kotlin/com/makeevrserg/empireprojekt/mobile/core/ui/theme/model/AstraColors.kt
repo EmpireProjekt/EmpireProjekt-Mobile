@@ -1,4 +1,4 @@
-package com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.model
+package com.makeevrserg.empireprojekt.mobile.core.ui.theme.model
 
 import androidx.compose.ui.graphics.Color
 

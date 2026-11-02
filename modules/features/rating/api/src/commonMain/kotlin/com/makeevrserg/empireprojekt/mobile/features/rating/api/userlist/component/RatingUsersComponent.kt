@@ -1,12 +1,11 @@
 package com.makeevrserg.empireprojekt.mobile.features.rating.api.userlist.component
 
-import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingUser
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingUserId
-import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingsFilter
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.userlist.model.RatingUsersState
 import kotlinx.coroutines.flow.StateFlow
 
 interface RatingUsersComponent {
-    val model: StateFlow<Model>
+    val model: StateFlow<RatingUsersState>
 
     fun reset()
 
@@ -25,12 +24,4 @@ interface RatingUsersComponent {
     fun interface OnShowUserRatingsCallback {
         operator fun invoke(userId: RatingUserId, userName: String)
     }
-
-    data class Model(
-        val items: List<RatingUser>,
-        val filter: RatingsFilter,
-        val isLoading: Boolean,
-        val isFailure: Boolean,
-        val isLastPage: Boolean,
-    )
 }

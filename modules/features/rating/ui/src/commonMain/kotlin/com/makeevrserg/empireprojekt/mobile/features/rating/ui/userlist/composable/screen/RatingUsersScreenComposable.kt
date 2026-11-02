@@ -15,10 +15,10 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.common.paging.composable.Pag
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.paging.model.PagingContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.searchbar.model.SearchBarState
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.model.ComposeTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingUser
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingsFilter
-import com.makeevrserg.empireprojekt.mobile.features.rating.api.userlist.component.RatingUsersComponent
+import com.makeevrserg.empireprojekt.mobile.features.rating.api.userlist.model.RatingUsersState
 import com.makeevrserg.empireprojekt.mobile.features.rating.ui.userlist.composable.component.RatingUserShimmerWidgetComposable
 import com.makeevrserg.empireprojekt.mobile.features.rating.ui.userlist.composable.component.RatingUserWidgetComposable
 import com.makeevrserg.empireprojekt.mobile.features.rating.ui.userlist.composable.component.RatingUsersAppBarComposable
@@ -27,7 +27,7 @@ import com.makeevrserg.empireprojekt.mobile.features.rating.ui.userlist.composab
 @Suppress("LongMethod", "LongParameterList")
 @Composable
 internal fun RatingUsersScreenComposable(
-    model: RatingUsersComponent.Model,
+    model: RatingUsersState,
     onBack: (() -> Unit)?,
     onUpdateQuery: (String) -> Unit,
     onNameSortClick: () -> Unit,
@@ -115,7 +115,7 @@ private fun ratingUsersPreviewItems(): List<RatingUser> {
 private fun RatingUsersComposableScreenLoadedPreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUsersScreenComposable(
-            model = RatingUsersComponent.Model(
+            model = RatingUsersState(
                 items = ratingUsersPreviewItems(),
                 filter = RatingsFilter(),
                 isLoading = false,
@@ -139,7 +139,7 @@ private fun RatingUsersComposableScreenLoadedPreview() {
 private fun RatingUsersComposableScreenLoadingPreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUsersScreenComposable(
-            model = RatingUsersComponent.Model(
+            model = RatingUsersState(
                 items = emptyList(),
                 filter = RatingsFilter(),
                 isLoading = true,
@@ -163,7 +163,7 @@ private fun RatingUsersComposableScreenLoadingPreview() {
 private fun RatingUsersComposableScreenEmptyPreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUsersScreenComposable(
-            model = RatingUsersComponent.Model(
+            model = RatingUsersState(
                 items = emptyList(),
                 filter = RatingsFilter(),
                 isLoading = false,
@@ -187,7 +187,7 @@ private fun RatingUsersComposableScreenEmptyPreview() {
 private fun RatingUsersComposableScreenFailurePreview() {
     AdaptThemeFadeComposable(composeTheme = ComposeTheme.DARK) {
         RatingUsersScreenComposable(
-            model = RatingUsersComponent.Model(
+            model = RatingUsersState(
                 items = ratingUsersPreviewItems(),
                 filter = RatingsFilter(),
                 isLoading = false,

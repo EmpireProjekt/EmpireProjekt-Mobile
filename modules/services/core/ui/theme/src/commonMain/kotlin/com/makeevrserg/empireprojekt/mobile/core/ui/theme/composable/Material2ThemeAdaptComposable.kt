@@ -3,7 +3,7 @@ package com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable
 import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.model.AstraColors
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.AstraColors
 
 @Composable
 internal fun Material2ThemeAdaptComposable(colors: AstraColors, content: @Composable () -> Unit) {

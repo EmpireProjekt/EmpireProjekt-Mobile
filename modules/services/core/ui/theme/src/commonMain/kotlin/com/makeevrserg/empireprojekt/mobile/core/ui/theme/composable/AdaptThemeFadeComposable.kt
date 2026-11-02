@@ -3,10 +3,10 @@ package com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable
 import androidx.compose.animation.Crossfade
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AstraPalette
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.LocalAppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.model.ComposeTheme
 
 @Composable
 fun AdaptThemeFadeComposable(

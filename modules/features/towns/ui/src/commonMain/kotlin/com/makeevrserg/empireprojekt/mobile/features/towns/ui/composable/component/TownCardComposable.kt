@@ -22,8 +22,8 @@ import com.makeevrserg.empireprojekt.mobile.core.ui.common.util.asComposableStri
 import com.makeevrserg.empireprojekt.mobile.core.ui.common.util.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionInfoComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.feature.towns.TR
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_created_label
 import com.makeevrserg.empireprojekt.mobile.feature.towns.towns_details_entrance_closed_label

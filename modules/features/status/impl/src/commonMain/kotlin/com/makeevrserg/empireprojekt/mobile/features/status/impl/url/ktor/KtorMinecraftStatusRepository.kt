@@ -1,7 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.status.impl.url.ktor
 
 import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.api.UrlStatusRepository
-import com.makeevrserg.empireprojekt.mobile.features.status.impl.url.model.MinecraftStatusResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
