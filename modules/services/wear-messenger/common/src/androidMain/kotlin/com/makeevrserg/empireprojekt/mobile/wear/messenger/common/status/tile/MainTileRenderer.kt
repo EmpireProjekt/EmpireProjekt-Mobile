@@ -19,10 +19,10 @@ import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.util.asColorPr
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.util.formatClockTime
 
 @OptIn(ExperimentalHorologistApi::class)
-class MainTileRenderer(
+internal class MainTileRenderer(
     context: Context,
     private val statusesRowRenderer: StatusesRowRenderer,
-    private val activityClassName: String
+    private val launchAction: ActionBuilders.LaunchAction?
 ) : SingleTileLayoutRenderer<WearStatusComponent.Model, WearStatusComponent.Model>(context) {
     @Suppress("LongMethod", "MagicNumber")
     private fun tileLayout(
@@ -69,23 +69,6 @@ class MainTileRenderer(
                     ).build()
             )
             .build()
-        val compactChip = CompactChip.Builder(
-            context,
-            "More",
-            ModifiersBuilders.Clickable.Builder()
-                .setId("openmain")
-                .setOnClick(
-                    ActionBuilders.LaunchAction.Builder()
-                        .setAndroidActivity(
-                            ActionBuilders.AndroidActivity.Builder()
-                                .setClassName(activityClassName)
-                                .setPackageName(context.packageName)
-                                .build()
-                        ).build()
-                ).build(),
-            deviceParameters
-        ).setChipColors(ChipColors(theme.surface, theme.onSurface)).build()
-
         val statuses = statusesRowRenderer.renderTile(state, deviceParameters)
 
         val column = LayoutElementBuilders.Column.Builder()
@@ -97,10 +80,20 @@ class MainTileRenderer(
             .addContent(statuses)
             .build()
 
-        return PrimaryLayout.Builder(deviceParameters)
-            .setContent(column)
-            .setPrimaryChipContent(compactChip)
-            .build()
+        val layout = PrimaryLayout.Builder(deviceParameters).setContent(column)
+        if (launchAction != null) {
+            val compactChip = CompactChip.Builder(
+                context,
+                "More",
+                ModifiersBuilders.Clickable.Builder()
+                    .setId("openmain")
+                    .setOnClick(launchAction)
+                    .build(),
+                deviceParameters
+            ).setChipColors(ChipColors(theme.surface, theme.onSurface)).build()
+            layout.setPrimaryChipContent(compactChip)
+        }
+        return layout.build()
     }
 
     override fun renderTile(

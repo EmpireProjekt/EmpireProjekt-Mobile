@@ -15,7 +15,7 @@ internal fun mainTilePreview(context: Context): TilePreviewData {
     val renderer = MainTileRenderer(
         context = context,
         statusesRowRenderer = StatusesRowRenderer(context = context),
-        activityClassName = "MainActivity"
+        launchAction = null
     )
     val state = WearStatusComponent.Model(
         loadingCount = 0,

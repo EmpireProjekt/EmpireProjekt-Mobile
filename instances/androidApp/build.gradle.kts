@@ -27,7 +27,7 @@ plugins {
 }
 
 linter {
-    unitKind.set("entry-point")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.EntryPoint())
     rootPackage.set("com.makeevrserg.empireprojekt.mobile")
 }
 

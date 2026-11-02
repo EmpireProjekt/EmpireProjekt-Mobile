@@ -7,8 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AppTheme
 
 @Composable
 fun M3SwitchComposable(

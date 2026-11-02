@@ -12,8 +12,8 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.ui.towny.towns")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.ImplUi())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.towns.ui")
 }
 
 kotlin {

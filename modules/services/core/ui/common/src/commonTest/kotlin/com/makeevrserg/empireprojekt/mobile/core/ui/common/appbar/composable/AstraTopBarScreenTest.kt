@@ -1,0 +1,36 @@
+@file:OptIn(ExperimentalTestApi::class)
+
+package com.makeevrserg.empireprojekt.mobile.core.ui.common.appbar.composable
+
+import androidx.compose.ui.test.ExperimentalTestApi
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.getBoundsInRoot
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.runComposeUiTest
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.text.composable.AstraTextComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
+import org.junit.Assert.assertTrue
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+
+@RunWith(RobolectricTestRunner::class)
+class AstraTopBarScreenTest {
+    @Test
+    fun GIVEN_screen_WHEN_shown_THEN_content_is_placed_below_the_titled_bar() {
+        runComposeUiTest {
+            setContent {
+                AdaptThemeFadeComposable {
+                    AstraTopBarScreenComposable(title = "Menu") {
+                        AstraTextComposable(text = "Links")
+                    }
+                }
+            }
+
+            onNodeWithText("Menu").assertIsDisplayed()
+            val titleBottom = onNodeWithText("Menu").getBoundsInRoot().bottom
+            val contentTop = onNodeWithText("Links").getBoundsInRoot().top
+            assertTrue(contentTop >= titleBottom)
+        }
+    }
+}

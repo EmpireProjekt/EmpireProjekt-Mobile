@@ -22,9 +22,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
-import com.makeevrserg.empireprojekt.mobile.core.ui.text.composable.AstraTextComposable
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.text.composable.AstraTextComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AppTheme
 
 @Composable
 internal fun OptionRowComposable(

@@ -10,6 +10,7 @@ plugins {
 }
 
 linter {
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Impl())
     rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.splash.impl")
 }
 

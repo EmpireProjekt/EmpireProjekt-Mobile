@@ -9,7 +9,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.wear.compose.material.Chip
 import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.Text
-import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
 
 @Composable
 internal fun AstraChipComposable(

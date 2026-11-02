@@ -8,7 +8,7 @@ plugins {
 }
 
 linter {
-    unitKind.set("technology")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Platform())
     rootPackage.set("com.makeevrserg.empireprojekt.mobile.wear.messenger.datalayer")
 }
 

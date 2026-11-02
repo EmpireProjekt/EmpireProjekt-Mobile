@@ -9,7 +9,7 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Core())
     rootPackage.set("com.makeevrserg.empireprojekt.mobile.services.core")
 }
 

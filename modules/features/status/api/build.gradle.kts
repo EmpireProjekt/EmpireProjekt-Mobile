@@ -11,7 +11,7 @@ plugins {
 }
 
 linter {
-    unitKind.set("api")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Api())
     rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.status.api")
 }
 

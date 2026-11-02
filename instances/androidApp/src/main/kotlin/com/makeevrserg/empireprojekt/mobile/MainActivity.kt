@@ -15,8 +15,8 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.arkivanov.decompose.defaultComponentContext
 import com.makeevrserg.empireprojekt.mobile.App.Companion.asEmpireApp
 import com.makeevrserg.empireprojekt.mobile.di.RootModule
-import com.makeevrserg.empireprojekt.mobile.features.theme.theme.ApplicationTheme
-import com.makeevrserg.empireprojekt.mobile.features.ui.root.composable.screen.ApplicationContentComposable
+import com.makeevrserg.empireprojekt.mobile.features.root.ui.composable.screen.ApplicationContentComposable
+import com.makeevrserg.empireprojekt.mobile.features.theme.ui.theme.ApplicationTheme
 
 class MainActivity : ComponentActivity() {
     private val requestPermissionLauncher = registerForActivityResult(

@@ -3,7 +3,6 @@ package com.makeevrserg.empireprojekt.mobile.wear.di
 import com.makeevrserg.empireprojekt.mobile.features.theme.api.di.ThemeSwitcherModule
 import com.makeevrserg.empireprojekt.mobile.features.theme.impl.di.DefaultThemeSwitcherModule
 import com.makeevrserg.empireprojekt.mobile.services.core.di.CoreModule
-import com.makeevrserg.empireprojekt.mobile.wear.MainActivity
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.ping.di.PingModule
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.root.di.WearRootComponentModule
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.ping.di.DefaultPingModule
@@ -33,8 +32,7 @@ internal class WearRootModule {
             wearMessageConsumer = wearMessengerModule.wearMessageConsumer,
             coroutineScope = coreModule.mainScope,
             clock = Clock.System,
-            context = coreModule.platformConfiguration.applicationContext,
-            activityClassName = MainActivity::class.java.name
+            context = coreModule.platformConfiguration.applicationContext
         )
     }
 

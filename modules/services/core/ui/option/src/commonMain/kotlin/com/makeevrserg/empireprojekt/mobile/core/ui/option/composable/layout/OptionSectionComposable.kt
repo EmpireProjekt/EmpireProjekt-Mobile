@@ -12,12 +12,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.tooling.preview.Preview
-import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.util.astraCard
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionHrefComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.composable.component.OptionSeparatorComposable
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.model.OptionSectionContent
 import com.makeevrserg.empireprojekt.mobile.core.ui.option.theme.OptionSpacing
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.astraCard
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
 
 @Composable
 fun OptionSectionComposable(

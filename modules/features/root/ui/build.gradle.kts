@@ -12,8 +12,12 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.ui.root")
+    unit(
+        ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.ImplUi(
+            composition = ru.astrainteractive.klibs.rules.core.unit.model.UiComposition.HOST
+        )
+    )
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.features.root.ui")
 }
 
 kotlin {

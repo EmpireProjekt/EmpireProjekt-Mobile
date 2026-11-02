@@ -26,3 +26,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.moko.resources) apply false
 }
+
+linter {
+    productKind(ru.astrainteractive.klibs.rules.core.unit.model.ProductKind.APP)
+}

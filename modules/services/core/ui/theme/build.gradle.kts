@@ -10,8 +10,8 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
-    rootPackage.set("com.makeevrserg.empireprojekt.mobile.core.ui")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.CoreUi())
+    rootPackage.set("com.makeevrserg.empireprojekt.mobile.core.ui.theme")
 }
 kotlin {
     androidLibrary {}

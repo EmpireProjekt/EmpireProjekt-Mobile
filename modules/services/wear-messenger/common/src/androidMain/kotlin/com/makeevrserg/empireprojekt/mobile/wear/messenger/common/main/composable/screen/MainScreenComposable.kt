@@ -16,10 +16,10 @@ import androidx.wear.compose.material.Scaffold
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.wear_main_ping_action
 import com.makeevrserg.empireprojekt.mobile.core.resources.wear_main_statuses_action
-import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.model.ComposeTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.util.asComposableString
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.model.ComposeTheme
 import com.makeevrserg.empireprojekt.mobile.features.theme.api.data.model.Theme
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.main.composable.component.NavChipComposable
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.main.composable.component.ThemeChipComposable

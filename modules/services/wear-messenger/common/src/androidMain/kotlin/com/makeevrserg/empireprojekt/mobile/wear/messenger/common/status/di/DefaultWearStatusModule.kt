@@ -1,6 +1,9 @@
 package com.makeevrserg.empireprojekt.mobile.wear.messenger.common.status.di
 
 import android.content.Context
+import androidx.wear.protolayout.ActionBuilders
+import com.google.android.horologist.annotations.ExperimentalHorologistApi
+import com.google.android.horologist.tiles.render.SingleTileLayoutRenderer
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.message.api.WearMessageConsumer
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.component.WearStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.di.WearStatusModule
@@ -14,8 +17,7 @@ class DefaultWearStatusModule(
     wearMessageConsumer: WearMessageConsumer,
     coroutineScope: CoroutineScope,
     clock: Clock,
-    context: Context,
-    activityClassName: String
+    context: Context
 ) : WearStatusModule {
     override val wearStatusComponent: WearStatusComponent by lazy {
         DefaultWearStatusComponent(
@@ -25,11 +27,15 @@ class DefaultWearStatusModule(
         )
     }
 
-    val mainTileRenderer: MainTileRenderer by lazy {
+    @OptIn(ExperimentalHorologistApi::class)
+    val mainTileRenderer: SingleTileLayoutRenderer<WearStatusComponent.Model, WearStatusComponent.Model> by lazy {
+        val launchAction = context.packageManager.getLaunchIntentForPackage(context.packageName)
+            ?.component
+            ?.let(ActionBuilders::launchAction)
         MainTileRenderer(
             context = context,
             statusesRowRenderer = StatusesRowRenderer(context = context),
-            activityClassName = activityClassName
+            launchAction = launchAction
         )
     }
 }

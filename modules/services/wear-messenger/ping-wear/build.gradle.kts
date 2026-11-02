@@ -8,7 +8,7 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.Impl())
     rootPackage.set("com.makeevrserg.empireprojekt.mobile.wear.messenger.ping")
 }
 

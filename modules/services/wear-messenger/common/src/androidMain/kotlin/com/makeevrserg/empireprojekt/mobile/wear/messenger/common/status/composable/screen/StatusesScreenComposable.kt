@@ -18,9 +18,9 @@ import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_error
 import com.makeevrserg.empireprojekt.mobile.core.resources.ic_wifi_tethering_off
-import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.util.asPainter
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.component.WearStatusComponent
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.composable.component.IconTextChipComposable
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.util.formatClockTime

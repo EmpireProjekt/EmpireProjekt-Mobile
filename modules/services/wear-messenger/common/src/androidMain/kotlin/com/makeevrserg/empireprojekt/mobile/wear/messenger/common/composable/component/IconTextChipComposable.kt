@@ -15,8 +15,8 @@ import androidx.wear.compose.material.Icon
 import androidx.wear.compose.material.Text
 import com.makeevrserg.empireprojekt.mobile.core.resources.MR
 import com.makeevrserg.empireprojekt.mobile.core.resources.img_splash
-import com.makeevrserg.empireprojekt.mobile.core.ui.composable.AdaptThemeFadeComposable
-import com.makeevrserg.empireprojekt.mobile.core.ui.util.asPainter
+import com.makeevrserg.empireprojekt.mobile.core.ui.common.util.asPainter
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.composable.AdaptThemeFadeComposable
 
 @Composable
 internal fun IconTextChipComposable(

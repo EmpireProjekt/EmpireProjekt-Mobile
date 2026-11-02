@@ -11,13 +11,17 @@ plugins {
 }
 
 linter {
-    unitKind.set("library")
+    unit(ru.astrainteractive.klibs.rules.core.unit.model.UnitRole.ImplUi())
     rootPackage.set("com.makeevrserg.empireprojekt.mobile.wear.messenger.common")
     technologyWords.add("tile")
 }
 
 kotlin {
-    androidLibrary {}
+    androidLibrary {
+        withHostTest {
+            isIncludeAndroidResources = true
+        }
+    }
     applyDefaultHierarchyTemplate()
     sourceSets {
         commonMain.dependencies {
@@ -49,5 +53,19 @@ kotlin {
             implementation(projects.modules.services.core.ui.theme)
             implementation(projects.modules.services.wearMessenger.pingWear)
         }
+        getByName("androidHostTest") {
+            dependencies {
+                implementation(kotlin("test"))
+                implementation(kotlin("test-junit"))
+                implementation(libs.tests.robolectric)
+            }
+        }
     }
+}
+
+tasks.withType<Test>().configureEach {
+    jvmArgs(
+        "--add-exports=java.base/jdk.internal.access=ALL-UNNAMED",
+        "--add-opens=java.base/java.io=ALL-UNNAMED"
+    )
 }

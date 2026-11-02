@@ -12,12 +12,12 @@ import androidx.wear.protolayout.material.Button
 import androidx.wear.protolayout.material.ButtonColors
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.tiles.render.SingleTileLayoutRenderer
-import com.makeevrserg.empireprojekt.mobile.core.ui.theme.AppTheme
+import com.makeevrserg.empireprojekt.mobile.core.ui.theme.theme.AppTheme
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.api.status.component.WearStatusComponent
 import java.util.UUID
 
 @OptIn(ExperimentalHorologistApi::class)
-class StatusesRowRenderer(
+internal class StatusesRowRenderer(
     context: Context
 ) : SingleTileLayoutRenderer<WearStatusComponent.Model, WearStatusComponent.Model>(context) {
 

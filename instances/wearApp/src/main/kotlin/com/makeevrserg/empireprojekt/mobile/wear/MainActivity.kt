@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.arkivanov.decompose.defaultComponentContext
-import com.makeevrserg.empireprojekt.mobile.features.theme.theme.ApplicationTheme
+import com.makeevrserg.empireprojekt.mobile.features.theme.ui.theme.ApplicationTheme
 import com.makeevrserg.empireprojekt.mobile.wear.App.Companion.asEmpireApp
 import com.makeevrserg.empireprojekt.mobile.wear.messenger.common.root.composable.screen.WearRootScreenComposable
 
