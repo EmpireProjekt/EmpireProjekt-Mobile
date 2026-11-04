@@ -20,4 +20,4 @@ jobs:
       - name: "Make gradlew Executable"
         run: chmod +x gradlew
       - name: "Validate Kotlin and architecture"
-        run: ./gradlew architectureLint --continue --stacktrace
+        run: ./gradlew architectureLint --no-configure-on-demand --continue --stacktrace
