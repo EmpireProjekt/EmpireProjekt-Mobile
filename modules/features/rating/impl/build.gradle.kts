@@ -41,6 +41,7 @@ kotlin {
                 implementation(libs.mvikotlin.main)
                 implementation(projects.modules.features.rating.api)
                 implementation(projects.modules.services.core.common)
+                implementation(projects.modules.services.core.log)
                 implementation(projects.modules.services.core.resources)
             }
         }
