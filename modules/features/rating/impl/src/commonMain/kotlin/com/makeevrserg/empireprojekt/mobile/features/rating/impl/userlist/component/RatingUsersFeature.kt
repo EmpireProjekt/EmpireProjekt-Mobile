@@ -1,5 +1,6 @@
 package com.makeevrserg.empireprojekt.mobile.features.rating.impl.userlist.component
 
+import com.makeevrserg.empireprojekt.mobile.core.log.mikro.DefaultLogger
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.api.RatingRepository
 import com.makeevrserg.empireprojekt.mobile.features.rating.api.model.RatingsFilter
 import kotlinx.coroutines.flow.StateFlow
@@ -26,6 +27,8 @@ internal class RatingUsersFeature(
     private val dispatchers: KotlinDispatchers
 ) : EssentyCoroutineFeature by CoroutineFeature.Main.asEssentyCoroutineFeature() {
 
+    private val logger = DefaultLogger("RatingUsersFeature")
+
     private val pagingCollector = IntPagerCollector(
         initialPage = 0,
         pager = PagedListDataSource { pagingState ->
@@ -37,7 +40,9 @@ internal class RatingUsersFeature(
                         body = filterProvider.filterStateFlow.value
                     ).data
                 }.propagateCancellationException()
-                    .onFailure(Throwable::printStackTrace)
+                    .onFailure { error ->
+                        logger.error(error) { "Failed to load rating users page ${pagingState.pageContext.page}" }
+                    }
             }
         },
     )
